@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>카피캣음료 — 프랜차이즈 음료 원가 + 레시피</title>
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="desktop-app">
+    <!-- ===== 홈 ===== -->
+    <div id="screen-home" class="screen screen--active">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <div class="site-header__brand">
+            <h1 class="site-title">카피<em>캣</em>음료</h1>
+            <p class="site-subtitle">프랜차이즈 음료, 집에서 따라 만들어봐요</p>
+          </div>
+          <div class="site-header__actions">
+            <div class="search-wrap">
+              <svg class="search-wrap__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <input type="search" id="home-search" class="search-wrap__input" placeholder="브랜드 또는 메뉴 검색..." aria-label="검색" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="notice-banner notice-banner--solo">
+        <div class="notice-banner__text">
+          <p class="notice-banner__main">프랜차이즈 음료 원가 + 집에서 만드는 레시피를 공개합니다!</p>
+          <p class="notice-banner__sub">매장 가격 vs 집에서 만든 가격, 얼마나 아낄 수 있는지 확인해 보세요</p>
+        </div>
+      </section>
+
+      <div class="content-wrap">
+        <div id="home-brands" class="brand-square-grid"></div>
+
+        <section class="home-menus">
+          <div id="home-category-tabs" class="category-tabs"></div>
+          <div id="home-menus-root"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===== 브랜드 메뉴 목록 ===== -->
+    <div id="screen-brand" class="screen">
+      <div class="content-wrap">
+        <button type="button" class="link-back" data-nav="home">← 브랜드 목록</button>
+        <div id="brand-header-root"></div>
+        <div id="brand-menu-grid" class="menu-grid"></div>
+      </div>
+    </div>
+
+    <!-- ===== 상세 (레시피 중심 + 매장 분석 아코디언) ===== -->
+    <div id="screen-detail" class="screen">
+      <div class="content-wrap content-wrap--detail">
+        <button type="button" class="link-back" id="detail-back">← 목록으로</button>
+        <div id="detail-root"></div>
+      </div>
+    </div>
+
+    <!-- ===== 제보 안내 ===== -->
+    <div id="screen-report" class="screen">
+      <div class="content-wrap content-wrap--report">
+        <button type="button" class="link-back" data-nav="home">← 목록으로</button>
+
+        <section class="report-hero">
+          <h2 class="report-hero__title">알바 경험자 제보하기</h2>
+          <p class="report-hero__desc">
+            알바하면서 알게된 프랜차이즈 음료의 재료·함량·레시피 정보를 공유해주세요.<br />
+            소비자의 알 권리를 함께 지켜요!
+          </p>
+        </section>
+
+        <h3 class="section-label">제보 방법</h3>
+        <div class="report-steps-bar">
+          <div class="report-step-card">
+            <span class="report-step-card__num">1</span>
+            <p class="report-step-card__text">제보할 브랜드와<br />메뉴 선택</p>
+          </div>
+          <div class="report-step-card">
+            <span class="report-step-card__num">2</span>
+            <p class="report-step-card__text">제보할 정보<br />입력</p>
+          </div>
+          <div class="report-step-card">
+            <span class="report-step-card__num">3</span>
+            <p class="report-step-card__text">운영자 제보</p>
+          </div>
+          <div class="report-step-card">
+            <span class="report-step-card__num">4</span>
+            <p class="report-step-card__text">교차검증 후<br />정보 등록</p>
+          </div>
+        </div>
+
+        <section class="verify-guide card-box">
+          <h3 class="card-box__title">검증 단계 안내</h3>
+          <ul class="verify-list">
+            <li class="verify-list__item">
+              <span class="verify-list__icon verify-list__icon--crowd" aria-hidden="true"></span>
+              <div class="verify-list__body">
+                <strong>레시피 준비중</strong>
+                <p>아직 원가·레시피 정보가 부족한 메뉴. 제보를 모집 중입니다.</p>
+              </div>
+              <span class="tag-pill tag-pill--blue">제보 모집</span>
+            </li>
+            <li class="verify-list__item">
+              <span class="verify-list__icon verify-list__icon--sync" aria-hidden="true"></span>
+              <div class="verify-list__body">
+                <strong>교차검증 중</strong>
+                <p>제보 1건 접수, 내용 공개하되 추가 제보 대기 중. 정보 활용 시 참고 필요.</p>
+              </div>
+              <span class="tag-pill tag-pill--orange">1건</span>
+            </li>
+            <li class="verify-list__item">
+              <span class="verify-list__icon verify-list__icon--check" aria-hidden="true"></span>
+              <div class="verify-list__body">
+                <strong>레시피 공개</strong>
+                <p>원가·레시피 검증 완료. 집에서 만들기 가이드 제공.</p>
+              </div>
+              <span class="tag-pill tag-pill--green">공개 완료</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="hall-section card-box">
+          <h3 class="card-box__title">명예의 전당</h3>
+          <div class="hall-row">
+            <article class="hall-card hall-card--rank1">
+              <span class="hall-card__rank">1</span>
+              <span class="hall-card__avatar" aria-hidden="true">☕</span>
+              <strong class="hall-card__name">프라푸덕</strong>
+              <span class="hall-card__count">제보 8건</span>
+            </article>
+            <article class="hall-card hall-card--rank2">
+              <span class="hall-card__rank">2</span>
+              <span class="hall-card__avatar" aria-hidden="true">🧋</span>
+              <strong class="hall-card__name">버블마스터</strong>
+              <span class="hall-card__count">제보 6건</span>
+            </article>
+            <article class="hall-card hall-card--rank3">
+              <span class="hall-card__rank">3</span>
+              <span class="hall-card__avatar" aria-hidden="true">🍵</span>
+              <strong class="hall-card__name">라떼연구소</strong>
+              <span class="hall-card__count">제보 5건</span>
+            </article>
+          </div>
+        </section>
+
+        <footer class="privacy-foot">
+          <span class="privacy-foot__icon" aria-hidden="true">🛡</span>
+          <p>영업비밀이 아닌 조리 과정에서 자연스럽게 알게 된 재료 정보만 수집합니다. 닉네임 익명 처리 가능하며 불필요한 개인정보는 수집하지 않습니다.</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ===== 제보 정보 입력 ===== -->
+    <div id="screen-report-form" class="screen">
+      <div class="content-wrap content-wrap--report">
+        <button type="button" class="link-back" data-nav="report">← 제보 안내로</button>
+
+        <section class="report-form-hero">
+          <h2 class="report-form-hero__title">제보 정보 입력</h2>
+          <p class="report-form-hero__desc">알바하면서 알게 된 음료 재료·함량 정보를 입력해 주세요.</p>
+        </section>
+
+        <div class="report-form-steps" aria-label="제보 진행 단계">
+          <div class="report-form-step report-form-step--done">
+            <span class="report-form-step__num">1</span>
+            <span class="report-form-step__label">브랜드·메뉴</span>
+          </div>
+          <div class="report-form-step report-form-step--active">
+            <span class="report-form-step__num">2</span>
+            <span class="report-form-step__label">정보 입력</span>
+          </div>
+          <div class="report-form-step">
+            <span class="report-form-step__num">3</span>
+            <span class="report-form-step__label">운영자 제보</span>
+          </div>
+          <div class="report-form-step">
+            <span class="report-form-step__num">4</span>
+            <span class="report-form-step__label">교차검증</span>
+          </div>
+        </div>
+
+        <form id="report-form" class="report-input-form card-box" novalidate>
+          <fieldset class="form-section">
+            <legend class="form-section__title">메뉴 정보</legend>
+            <div class="form-grid form-grid--3">
+              <label class="form-field">
+                <span class="form-field__label">브랜드</span>
+                <input type="text" id="report-brand" name="brand" placeholder="예: 스타벅스" required />
+              </label>
+              <label class="form-field">
+                <span class="form-field__label">메뉴명</span>
+                <input type="text" id="report-menu" name="menu" placeholder="예: 자바칩 프라푸치노" required />
+              </label>
+              <label class="form-field">
+                <span class="form-field__label">판매가 (원)</span>
+                <input type="number" id="report-price" name="price" placeholder="7300" min="0" required />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend class="form-section__title">재료 구성</legend>
+            <p class="form-section__hint">재료명과 함량을 입력해 주세요. 행을 추가할 수 있습니다.</p>
+            <div class="ingredient-input-table-wrap">
+              <table class="ingredient-input-table">
+                <thead>
+                  <tr>
+                    <th>재료명</th>
+                    <th>함량 (g)</th>
+                    <th class="col-action" aria-label="삭제"></th>
+                  </tr>
+                </thead>
+                <tbody id="ingredient-input-rows">
+                  <tr class="ingredient-input-row">
+                    <td><input type="text" name="ingredient-name" placeholder="예: 우유" required /></td>
+                    <td><input type="text" name="ingredient-amount" placeholder="예: 200" required /></td>
+                    <td class="col-action"><button type="button" class="btn-row-remove" disabled aria-label="행 삭제">×</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button type="button" id="btn-add-ingredient" class="btn-add-row">+ 재료 추가</button>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend class="form-section__title">제보자 정보</legend>
+            <label class="form-field">
+              <span class="form-field__label">닉네임 (익명 가능)</span>
+              <input type="text" name="nickname" placeholder="예: 프라푸덕" required />
+            </label>
+          </fieldset>
+
+          <fieldset class="form-section form-section--auth">
+            <legend class="form-section__title">알바 경험자 확인</legend>
+            <label class="form-check">
+              <input type="checkbox" name="auth-work" required />
+              <span>해당 브랜드에서 근무하며 알게 된 정보입니다.</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="auth-truth" required />
+              <span>제보 내용이 사실임을 확인합니다.</span>
+            </label>
+            <p class="form-section__hint">영업비밀이 아닌, 조리 과정에서 알게 된 재료 정보만 제보해 주세요.</p>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="button" class="btn-form-cancel" data-nav="report">취소</button>
+            <button type="submit" class="btn-form-submit">제보 제출하기</button>
+          </div>
+        </form>
+
+        <div id="report-success" class="report-success card-box" hidden>
+          <p class="report-success__title">제보가 접수되었습니다!</p>
+          <p class="report-success__desc">운영자 제보 후 교차검증을 거쳐 등록됩니다. 참여해 주셔서 감사합니다.</p>
+          <button type="button" class="btn-form-submit" data-nav="home">목록으로 돌아가기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="villain-modal" class="villain-modal" hidden>
+    <div class="villain-modal__backdrop" aria-hidden="true"></div>
+    <div class="villain-modal__panel" role="dialog" aria-modal="true" aria-labelledby="villain-modal-title">
+      <button type="button" class="villain-modal__close" aria-label="닫기">×</button>
+      <h3 id="villain-modal-title" class="villain-modal__title">빌런 등급표</h3>
+      <p class="villain-modal__intro">판매가 ÷ 매장 원가(마진 배수) 기준으로 등급을 매겨요.</p>
+      <ul id="villain-modal-list" class="villain-grade-list"></ul>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
