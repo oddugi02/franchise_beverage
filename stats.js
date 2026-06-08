@@ -211,7 +211,7 @@
   }
 
   const ICON_HEART = `<svg class="menu-action__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5s-7-4.35-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10.5c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
-  const ICON_LINK = `<svg class="menu-action__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L11 5.93" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.07 0L4.81 13.12a5 5 0 0 0 7.07 7.07L13 19.07" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+  const ICON_COPY = `<svg class="menu-action__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
 
   function renderStatsHtml(menuId, options = {}) {
     const stats = getStats(menuId);
@@ -229,9 +229,9 @@
         </span>`;
 
     const copyBtn = interactive
-      ? `<button type="button" class="menu-action menu-action--copy" data-copy-menu-link="${menuId}" aria-label="메뉴 링크 복사">
-          ${ICON_LINK}
-          <span class="menu-action__label">링크 복사</span>
+      ? `<button type="button" class="menu-action menu-action--copy" data-copy-recipe="${menuId}" aria-label="레시피 복사">
+          ${ICON_COPY}
+          <span class="menu-action__label">레시피 복사</span>
         </button>`
       : "";
 

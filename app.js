@@ -154,6 +154,62 @@ async function bootApp() {
   updatePageMeta();
 }
 
+function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  return Promise.resolve();
+}
+
+function formatRecipeForCopy(menu) {
+  const lines = [`${menu.brand} ${menu.name}`];
+
+  if (menu.price && menu.recipeReady) {
+    lines.push(`매장 ${formatWon(menu.price)} → 집 ${formatWon(getHomePortionPrice(menu))}`);
+  }
+
+  const portions =
+    typeof getHomePortionList === "function"
+      ? getHomePortionList(menu).filter((p) => p.amount && p.amount !== "-")
+      : getHomeIngredients(menu).map((item) => ({
+          recipeName: item.label,
+          amount: item.amount,
+        }));
+
+  if (portions.length) {
+    lines.push("", "재료 (1잔)");
+    portions.forEach((item) => {
+      const name = item.recipeName || item.label;
+      const amount = item.amount && item.amount !== "-" ? ` ${item.amount}` : "";
+      lines.push(`· ${name}${amount}`);
+    });
+  }
+
+  const steps =
+    typeof getRecipeStepsFromShopping === "function"
+      ? getRecipeStepsFromShopping(menu)
+      : (menu.recipe?.steps || []).filter((s) => !(s.body || "").trim().startsWith("재료:"));
+
+  if (steps.length) {
+    lines.push("", "만드는 방법");
+    steps.forEach((step, i) => {
+      const body = (step.body || step).trim().replace(/\.$/, "");
+      lines.push(`${i + 1}. ${body}`);
+    });
+  }
+
+  return lines.join("\n");
+}
+
 function initMenuStats() {
   document.addEventListener("click", async (e) => {
     const likeBtn = e.target.closest("[data-like-menu]");
@@ -173,40 +229,35 @@ function initMenuStats() {
       return;
     }
 
-    const copyBtn = e.target.closest("[data-copy-menu-link]");
+    const copyBtn = e.target.closest("[data-copy-recipe]");
     if (!copyBtn || copyBtn.disabled) return;
     e.stopPropagation();
     e.preventDefault();
 
-    const menuId = copyBtn.dataset.copyMenuLink;
-    const url = `${getBaseUrl()}/?menu=${menuId}`;
+    const menuId = copyBtn.dataset.copyRecipe;
+    const menu = MENUS.find((m) => m.id === menuId);
     const label = copyBtn.querySelector(".menu-action__label");
 
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(url);
-      } else {
-        const ta = document.createElement("textarea");
-        ta.value = url;
-        ta.setAttribute("readonly", "");
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      }
+    if (!menu?.recipeReady) {
+      if (label) label.textContent = "복사 불가";
+      window.setTimeout(() => {
+        if (label) label.textContent = "레시피 복사";
+      }, 1800);
+      return;
+    }
 
+    try {
+      await copyTextToClipboard(formatRecipeForCopy(menu));
       copyBtn.classList.add("is-copied");
       if (label) label.textContent = "복사됨";
       window.setTimeout(() => {
         copyBtn.classList.remove("is-copied");
-        if (label) label.textContent = "링크 복사";
+        if (label) label.textContent = "레시피 복사";
       }, 1800);
     } catch {
       if (label) label.textContent = "복사 실패";
       window.setTimeout(() => {
-        if (label) label.textContent = "링크 복사";
+        if (label) label.textContent = "레시피 복사";
       }, 1800);
     }
   });
