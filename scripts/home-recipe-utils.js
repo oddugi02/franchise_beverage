@@ -16,7 +16,7 @@ function ensurePeriod(text) {
 function polishHomeStep(text) {
   return toFriendlyHadaStep(
     text
-      .replace(/믹서기|블렌더/g, SHAKER)
+      .replace(/믹서(?:기|로)|블렌더(?:로)?/g, SHAKER)
       .replace(/술로 휘젓기 하듯/g, "숟가락으로")
       .replace(/바 스푼/g, "숟가락")
       .replace(/\d+~?\d*초 갈[^.]*\.?/g, "30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞는다")
@@ -44,6 +44,7 @@ function splitLongStep(step) {
   }
 
   const splitters = [
+    /\s+끓인\s+후\s+/,
     /\s+후\s+/,
     /\s+뒤\s+/,
     /\s+그리고\s+/,

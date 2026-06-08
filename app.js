@@ -115,11 +115,27 @@ function initAppRoute() {
   });
 }
 
+function initHomeSourceInfo() {
+  document.addEventListener("click", (e) => {
+    const details = document.querySelector(".home-source-info");
+    if (!details?.open) return;
+    if (details.contains(e.target)) return;
+    details.open = false;
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const details = document.querySelector(".home-source-info");
+    if (details?.open) details.open = false;
+  });
+}
+
 async function bootApp() {
   bindNavButtons();
   initReportForm();
   initMenuRequestModal();
   initMenuStats();
+  initHomeSourceInfo();
   initAppRoute();
 
   await MenuStats.init();
@@ -499,11 +515,6 @@ function renderDetail(id) {
     })
     .join("");
 
-  const polishStep =
-    typeof globalThis.toFriendlyHadaStep === "function"
-      ? globalThis.toFriendlyHadaStep
-      : (text) => (text || "").trim();
-
   const steps = recipeSteps
     .filter((step) => !/^매장/.test(step.title || ""))
     .filter((step) => step.title !== "토핑")
@@ -513,7 +524,7 @@ function renderDetail(id) {
       <li class="recipe-step">
         <span class="recipe-step__num">${i + 1}</span>
         <div>
-          <p>${polishStep(step.body)}</p>
+          <p>${(step.body || "").trim()}</p>
         </div>
       </li>
     `

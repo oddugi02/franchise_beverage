@@ -25,6 +25,38 @@
     "고구마 페이스트": "고구마",
   };
 
+  const RECIPE_DISPLAY_NAMES = {
+    건타피오카: "타피오카 펄",
+    "휘핑크림 스프레이": "휘핑크림",
+    "바닐라 아이스크림": "바닐라 아이스크림",
+  };
+
+  function cleanupRecipeStepText(text) {
+    return (text || "")
+      .replace(/건타피오카을/g, "타피오카 펄을")
+      .replace(/건타피오카를/g, "타피오카 펄을")
+      .replace(/건타피오카(?=\s|,|$|과|와|을|를)/g, "타피오카 펄")
+      .replace(/페트병로/g, "페트병으로")
+      .replace(/요거트을/g, "요거트를")
+      .replace(/넣고한다/g, "넣고 완성한다")
+      .replace(/(\d+(?:\.\d+)?(?:ml|g|kg|국자|스푼|큰술|바퀴|스쿱|컵|개|펌프|입|팩|캔))\s*과\s+/g, "$1와 ")
+      .replace(/(스프레이|폼|펄|크럼|시럽|슬라이스|시리얼)\s*과\s+/g, "$1와 ")
+      .replace(/시리얼를/g, "시리얼을")
+      .replace(/\b([가-힣A-Za-z·]{2,})\s+\1\b/g, "$1")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
+  function normalizeToppingStep(text) {
+    const m = (text || "").trim().match(/^토핑\s*:\s*(.+)$/);
+    if (!m) return text;
+    const item = m[1].replace(/\s*(?:한다|준다)\.?$/, "").trim();
+    if (!item) return "";
+    const endsVowel = /[aeiouAEIOUㅏ-ㅣ]$/.test(item.slice(-1));
+    const particle = endsVowel ? "를" : "을";
+    return `${item}${particle} 올려 마무리한다.`;
+  }
+
   const POWDER_BUY = Object.fromEntries(
     Object.entries(SHOPPING_POWDER_CATALOG).map(([label, pack]) => [
       label,
@@ -489,7 +521,8 @@
   function stepDisplayName(buy) {
     if (!buy) return buy;
     if (buy.startsWith("얼음")) return "얼음";
-    return buy;
+    const stripped = stripBuyPackSuffix(buy);
+    return RECIPE_DISPLAY_NAMES[stripped] || RECIPE_DISPLAY_NAMES[buy] || stripped || buy;
   }
 
   /** 장보기 구매명에서 포장 단위만 제거 (레시피·1회 사용 표기용) */
@@ -581,8 +614,10 @@
   function buildIngredientBuyMap(menu) {
     const map = new Map();
     const portions = getHomePortionList(menu);
+    const homeItems = getHomeIngredients(menu);
+    const homeLabels = new Set(homeItems.map((item) => item.label).filter(Boolean));
 
-    getHomeIngredients(menu).forEach((item) => {
+    homeItems.forEach((item) => {
       const buy = item.buy || suggestHomeBuy(item.label, item.amount).buy;
       if (!buy) return;
       const replaces = Array.isArray(item.replaces)
@@ -590,7 +625,11 @@
         : typeof item.replaces === "string" && item.replaces
           ? [item.replaces]
           : [];
-      [item.label, ...replaces].filter(Boolean).forEach((name) => map.set(name, buy));
+      [item.label].filter(Boolean).forEach((name) => map.set(name, buy));
+      replaces.filter(Boolean).forEach((name) => {
+        if (homeLabels.has(name)) return;
+        map.set(name, buy);
+      });
     });
 
     portions.forEach((p) => map.set(p.label, p.label));
@@ -637,6 +676,7 @@
         ) {
           return match;
         }
+        if (to.includes(match) && str.includes(to)) return match;
         return to;
       });
     });
@@ -723,7 +763,7 @@
         );
         t = t.replace(baseRe, (match) => {
           if (isPackAmountMatch(match, from)) return match;
-          if (phrase && match.includes(phrase)) return match;
+          if (phrase && (match.includes(phrase) || phrase.includes(match.trim()))) return match;
           return phrase;
         });
       }
@@ -984,6 +1024,14 @@
     return /(?:저어|섞|흔들|채우|완성|마무리|데우|옮|준다|채운)/.test(t);
   }
 
+  function isNearDuplicateStep(next, prev) {
+    const a = (next || "").replace(/\s/g, "");
+    const b = (prev || "").replace(/\s/g, "");
+    if (!a || !b) return false;
+    if (a === b || b.includes(a) || a.includes(b)) return true;
+    return /올린다|올려\s*마무리/.test(next) && /올린다|올려\s*마무리/.test(prev);
+  }
+
   /** 만드는 방법 — 행동만 (재료는 1회 사용·요약에 표시) */
   function getRecipeStepsFromShopping(menu) {
     const portions = getHomePortionList(menu).filter((p) => p.amount && p.amount !== "-");
@@ -1000,6 +1048,10 @@
       let aligned = applyBuyMapToText(body, buyMap);
       aligned = applyPortionPhrasesToText(aligned, portions);
       aligned = restrictStepToListedIngredients(aligned, menu, portions);
+      aligned = cleanupRecipeStepText(aligned);
+      if (/^토핑\s*:/.test(aligned.trim())) {
+        aligned = normalizeToppingStep(aligned);
+      }
       const allowed = buildAllowedRecipeIngredients(menu, portions);
       if (
         aligned.trim().length > 6 &&
@@ -1007,7 +1059,10 @@
         stepReferencesListedIngredient(aligned, portions, allowed)
       ) {
         const styled = friendlyHadaStep(aligned);
-        steps.push({ title: "", body: styled });
+        const prev = steps[steps.length - 1]?.body || "";
+        if (styled && !isNearDuplicateStep(styled, prev)) {
+          steps.push({ title: "", body: styled });
+        }
       }
     });
 

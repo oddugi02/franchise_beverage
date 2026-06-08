@@ -4,7 +4,7 @@
  */
 (function (root) {
   const HADA_END =
-    /(?:한다|는다|준다|인다|된다|간다|낸다|든다|둔다|운다|린다|힌다|친다|킨다|닌다|본다|맨다|탄다|산다|긴다|핀다|란다|낀다|끈다|쓴다|올린다|둘러준다|우려낸다|제거한다|싞힌다|채운다)$/;
+    /(?:한다|는다|준다|인다|된다|낸다|든다|둔다|운다|린다|힌다|친다|킨다|닌다|본다|맨다|탄다|산다|긴다|핀다|란다|낀다|끈다|쓴다|올린다|둘러준다|우려낸다|제거한다|싞힌다|채운다|헹근다|갈아준다|붓는다|넣는다|섞는다|깐다|풀어준다|버무려 둔다|즐긴다|마신다|완성해준다|마무리해준다)$/;
 
   function looksCompleteHada(sentence) {
     return (
@@ -20,6 +20,23 @@
     return /[.!?]$/.test(t) ? t : `${t}.`;
   }
 
+  function splitTrailingNote(text) {
+    const m = (text || "").match(/^(.+?)\s*(\([^)]+\))\s*$/);
+    if (!m) return { core: (text || "").trim(), note: "" };
+    return { core: m[1].trim(), note: m[2].trim() };
+  }
+
+  function friendlyNote(note) {
+    const body = note.replace(/^\(|\)$/g, "").trim();
+    const map = {
+      "펄 생략 가능": "펄은 생략 가능",
+      선택: "선택 사항",
+      "선택 사항": "선택 사항",
+    };
+    const mapped = map[body] || body.replace(/\bOK\b/g, "괜찮음");
+    return `(${mapped})`;
+  }
+
   const GI_MAP = [
     ["넣고 섞", "넣고 섞는다"],
     ["넣고 물 소량으로 녹이", "넣고 물 소량으로 녹인다"],
@@ -33,7 +50,9 @@
     ["빠르게 저어", "빠르게 저어준다"],
     ["가볍게 저어", "가볍게 저어준다"],
     ["숟가락으로 저어", "숟가락으로 저어준다"],
+    ["버무려 두", "버무려 둔다"],
     ["우려내", "우려낸다"],
+    ["헹구", "헹근다"],
     ["녹이", "녹인다"],
     ["흔들", "흔든다"],
     ["채우", "채운다"],
@@ -41,7 +60,9 @@
     ["완성", "완성한다"],
     ["마무리", "마무리한다"],
     ["데우", "데운다"],
-    ["갈", "간다"],
+    ["갈아", "갈아준다"],
+    ["넣고 갈", "넣고 갈아준다"],
+    ["갈", "갈아준다"],
     ["붓", "붓는다"],
     ["넣", "넣는다"],
     ["섞", "섞는다"],
@@ -52,6 +73,10 @@
     ["부어", "붓는다"],
     ["채", "채운다"],
     ["저어", "저어준다"],
+    ["깔", "깐다"],
+    ["풀", "풀어준다"],
+    ["썰", "썰어준다"],
+    ["식히", "식힌다"],
   ];
 
   function giToHada(sentence) {
@@ -62,6 +87,7 @@
     }
     if (base.endsWith("우")) return `${base}운다`;
     if (base.endsWith("르")) return `${base}른다`;
+    if (base.endsWith("구")) return `${base.slice(0, -1)}군다`;
     return `${base}는다`;
   }
 
@@ -106,6 +132,7 @@
       [/넣은\s*뒤$/, "넣은 뒤 섞는다"],
       [/채운\s*뒤$/, "채운 뒤 이어서 진행한다"],
       [/데운$/, "데운다"],
+      [/끓인$/, "끓인다"],
       [/흔들거나$/, "흔들거나 숟가락으로 골고루 섞는다"],
       [/섞거나$/, "섞거나 10초 더 저어준다"],
     ];
@@ -118,7 +145,6 @@
       }
     }
 
-    // 재료만 있고 동사가 없을 때 (이미 ~다로 끝나면 건너뜀)
     if (
       !looksCompleteHada(s) &&
       /(?:컵|잔|뚜껑|쉐이커|믹싱)/.test(s) &&
@@ -139,16 +165,29 @@
     return s;
   }
 
+  function softenTone(s) {
+    return s
+      .replace(/가볍게 섞는다$/, "가볍게 섞어준다")
+      .replace(/잘 섞는다$/, "잘 섞어준다")
+      .replace(/골고루 섞는다$/, "골고루 섞어준다")
+      .replace(/완성한다$/, "완성해준다")
+      .replace(/마무리한다$/, "마무리해준다")
+      .replace(/저어 마무리한다$/, "저어 마무리해준다");
+  }
+
   function polishSentence(sentence) {
-    let s = sentence.trim().replace(/\.$/, "");
-    if (!s) return s;
+    const { core: rawCore, note } = splitTrailingNote(sentence.trim().replace(/\.$/, ""));
+    if (!rawCore && note) return ensurePeriod(friendlyNote(note));
+
+    let s = rawCore;
+    if (!s) return ensurePeriod("");
 
     if (/[가-힣]{2,}다\s*\([^)]*\)\s*$/.test(s)) {
       return ensurePeriod(s);
     }
 
     if (/^\([^)]+\)\s*$/.test(s)) {
-      return ensurePeriod(s);
+      return ensurePeriod(friendlyNote(s));
     }
 
     s = formalToHada(s);
@@ -158,21 +197,14 @@
     if (!looksCompleteHada(s)) {
       if (s.endsWith("기")) s = giToHada(s);
       else if (s.endsWith("다")) {
-        // bare adjective-like ending
+        // already complete
       } else if (/마무리$/.test(s)) s = `${s}한다`;
       else if (/뒤$/.test(s)) s = `${s} 이어서 섞는다`;
       else s = `${s}한다`;
     }
 
-    // 친근한 톤: 마무리·섞기 단계는 ~해준다
-    s = s
-      .replace(/가볍게 섞는다$/, "가볍게 섞어준다")
-      .replace(/잘 섞는다$/, "잘 섞어준다")
-      .replace(/골고루 섞는다$/, "골고루 섞어준다")
-      .replace(/완성한다$/, "완성해준다")
-      .replace(/마무리한다$/, "마무리해준다")
-      .replace(/저어 마무리한다$/, "저어 마무리해준다");
-
+    s = softenTone(s);
+    if (note) s = `${s} ${friendlyNote(note)}`;
     return ensurePeriod(s);
   }
 
