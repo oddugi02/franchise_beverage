@@ -1,0 +1,63 @@
+{
+  "verifiedAt": "2026-06-08",
+  "policy": "popularRank1",
+  "note": "popularRank1 = 카탈로그 store에서 searchQuery 검색 · 인기순 1위 상품 판매가(배송비 제외). catalog.price와 동일해야 함.",
+  "entries": {
+    "milk500": {
+      "popularRank1": 1850,
+      "store": "이마트",
+      "product": "매일유업 ESL 우유 500ml",
+      "source": "이마트몰 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "milk1L": {
+      "popularRank1": 1680,
+      "store": "이마트",
+      "product": "노브랜드 굿모닝 굿밀크 멸균우유 1L",
+      "source": "이마트몰 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "espresso10": {
+      "popularRank1": 11500,
+      "store": "쿠팡",
+      "product": "로카에스프레소 액상 스틱 15ml 10개입",
+      "source": "쿠팡 검색 인기순 1위 · 10입 11,500원",
+      "verifiedAt": "2026-06-08"
+    },
+    "syrup500": {
+      "popularRank1": 5920,
+      "store": "쿠팡",
+      "product": "비셰프 바닐라향 시럽 500ml",
+      "source": "쿠팡 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "jollypong138": {
+      "popularRank1": 1980,
+      "store": "쿠팡",
+      "product": "크라운 죠리퐁 138g",
+      "source": "쿠팡 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "yogurtDrink150": {
+      "popularRank1": 480,
+      "store": "이마트",
+      "product": "야쿠르트/드링킹 요거트 150ml",
+      "source": "이마트몰 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "soda15L": {
+      "popularRank1": 1680,
+      "store": "이마트",
+      "product": "사이다 1.5L",
+      "source": "이마트몰 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    },
+    "together473": {
+      "popularRank1": 3480,
+      "store": "홈플러스",
+      "product": "롯데 투게더 473ml",
+      "source": "홈플러스 검색 인기순 1위",
+      "verifiedAt": "2026-06-08"
+    }
+  }
+}

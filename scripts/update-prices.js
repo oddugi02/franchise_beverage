@@ -55,7 +55,7 @@ const HOME = {
   primTsp: 40, // 프림 500g 7,500~8,500원, 1~2tsp(5g)
   sugarTbsp: 10, // 설탕 1kg 1,500~1,900원, 1큰술(4g)
   honeyTbsp: 200, // 꿀 500g 10,000~14,000원, 1큰술(15g)
-  espressoLiquidStick: 99, // 액상스틱 10입 950~1,100원
+  espressoLiquidStick: 1150, // 액상스틱 10입 11,500원 (로카에스프레소 등)
   coffeeInstantStick: 45, // 커피스틱 10입 430~480원
   syrupPump15ml: 60, // 시럽 500ml 1,800~2,200원
   syrup3Pump: 180,
@@ -67,7 +67,7 @@ const HOME = {
   togetherTubG: 400, // 투게더 473ml
   togetherTubPrice: 3980,
   together3Spoon: 400, // 3큰술 ~45g
-  jollypongHalfCup: 290, // 108g 1,580~1,980원, 0.5컵
+  jollypongHalfCup: 290, // 138g 1,700~2,500원, 0.5컵
   tapioca40g: 200, // 건타피오카 1kg 4,500~6,000원
   pearlPortion: 200,
   whitePearl35g: 230,
@@ -88,6 +88,7 @@ const HOME = {
   yogurtPowder35g: 180,
   yogurtPowder45g: 230,
   yogurtGelatoScoop: 520,
+  yogurtIcecreamScoop: 480, // 요거트 아이스크림 473ml 4,500~5,500원, 1스쿱
   milkshakePowder5Spoon: 460, // 테너 950g 11,000~13,000원, 5스푼(35g)
   grainPowder60g: 230, // 미숫가루 1kg 3,500~4,200원
   taroPowder3Spoon: 290,
@@ -335,6 +336,7 @@ function homeCostByKey(menuId, label) {
     "요거트 파우더": HOME.yogurtPowder35g,
     "플레인 요거트": HOME.plainYogurt50g,
     "요거트 젤라또": HOME.yogurtGelatoScoop,
+    "요거트 아이스크림": HOME.yogurtIcecreamScoop,
     "냉동 딸기": HOME.frozenStrawberry100g,
     "냉동 블루베리": HOME.frozenBlueberry100g,
     "얼음": HOME.ice,
@@ -383,7 +385,8 @@ ctx.MENUS.forEach((menu) => {
     if (typeof item === "string") return;
     const calc = homeCost(menu.id, item.label, item.amount);
     if (calc !== null) {
-      item.cost = calc;
+      item.price = calc;
+      delete item.cost;
       homeUpdated++;
     } else {
       homeManual++;
@@ -427,7 +430,7 @@ function fmtMenu(m) {
     if (typeof h === "string") {
       lines.push(`        ${j(h)},`);
     } else {
-      lines.push(`        { label: ${j(h.label)}, amount: ${j(h.amount || "")}, cost: ${h.cost}, replaces: ${fmtReplaces(h.replaces)} },`);
+      lines.push(`        { label: ${j(h.label)}, amount: ${j(h.amount || "")}, price: ${h.price ?? h.cost ?? 0}, replaces: ${fmtReplaces(h.replaces)} },`);
     }
   });
   lines.push("      ],");
@@ -453,14 +456,14 @@ const footerStart = code.indexOf("];\n\nconst CATEGORIES");
 const footer = code.slice(footerStart + 3); // from ];
 
 const newHeader = `// 매장 ingredients: 프랜차이즈 B2B·업체용 재료(알바 제보·원가 추정)
-// 집 recipe.homeIngredients: 마트·쿠팡 등 소비자 실판매가 기준 1회 분량 (2025~2026)
+// 집 recipe.homeIngredients: 마트·쿠팡 등 소비자 실판매가(1회 분량) — price 필드
 //
 // [매장 B2B 단가 기준]
 // - 우유 ~1,500원/L (1.5원/ml) · 원두 에스프레소 ~68원/샷(7g)
 // - 시럽·농축액 ~7원/ml · 파우더·베이스 ~9원/g · 과일퓨레 ~3.5원/g
 // - 타피오카·펄 ~3.8원/g · 휘핑·크림 ~5.5원/g · 컵 95~115원 · 얼음 25원
 //
-// [집 마트 실판매가 기준]
+// [집 마트 판매가 기준] price = 1회 분량 소비자 실판매가
 // - 우유 1L 2,480~2,980원 (2.5원/ml) · 액상스틱 99원/개 · 커피스틱 45원/개
 // - 얼음 1잔 50원 · 투게더 3스푼 400원 · 죠리퐁 0.5컵 290원
 // - 냉동망고 150g 900원 · 황도통조림 국물 60ml 360원 · 자몽청 2스푼 400원
@@ -471,6 +474,6 @@ const newCode = newHeader + "const MENUS = [\n" + serializeMenus(ctx.MENUS) + "\
 fs.writeFileSync(DATA_PATH, newCode, "utf8");
 
 console.log(`Store costs updated: ${storeUpdated}`);
-console.log(`Home costs updated: ${homeUpdated}`);
+console.log(`Home prices updated: ${homeUpdated}`);
 console.log(`Home needs manual review: ${homeManual}`);
 console.log("Done. Written to data.js");

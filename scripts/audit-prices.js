@@ -1,5 +1,5 @@
 /**
- * 마트 실판매가 대비 집 재료 원가 감사
+ * 마트 실판매가 대비 집 재료 판매가 감사
  */
 const fs = require("fs");
 const path = require("path");
@@ -16,7 +16,7 @@ const HOME_EXPECT = [
   [/자몽청 2스푼/, { min: 350, max: 480, note: "1kg 9,000~11,000원, 2큰술(~40g)" }],
   [/투게더 3스푼/, { min: 350, max: 480, note: "473ml 3,500~4,500원, 3큰술" }],
   [/투게더\(150g\)/, { min: 1200, max: 1800, note: "473ml 3,980원, 150g/400g" }],
-  [/죠리퐁/, { min: 250, max: 350, note: "108g 1,500~2,000원, 0.5컵" }],
+  [/죠리퐁/, { min: 250, max: 380, note: "138g 1,700~2,500원, 0.5컵" }],
   [/냉동 망고$/, { min: 800, max: 1100, note: "1kg 5,500~6,500원, 150g" }],
   [/냉동 딸기/, { min: 600, max: 850, note: "1kg 6,000~7,500원, 100g" }],
   [/냉동 블루베리/, { min: 750, max: 1000, note: "1kg 8,000~10,000원, 100g" }],
@@ -53,21 +53,23 @@ const HOME_EXPECT = [
   [/우유 0\.5컵|우유 100ml/, { min: 230, max: 280, note: "100ml @ 2.5원/ml" }],
   [/우유 1컵|우유 200ml/, { min: 480, max: 520, note: "200ml @ 2.5원/ml" }],
   [/커피믹스/, { min: 100, max: 130, note: "믹스 3봉" }],
-  [/에스프레소 액상스틱/, { min: 180, max: 220, note: "2개" }],
+  [/에스프레소 액상스틱/, { min: 2200, max: 2400, note: "2개 @ 1,150원" }],
 ];
 
 const issues = [];
 
 ctx.MENUS.forEach((menu) => {
   (menu.recipe?.homeIngredients || []).forEach((item) => {
-    if (typeof item !== "object" || !item.cost) return;
+    if (typeof item !== "object") return;
+    const price = item.price ?? item.cost;
+    if (!price) return;
     for (const [re, exp] of HOME_EXPECT) {
       if (re.test(item.label)) {
-        if (item.cost < exp.min || item.cost > exp.max) {
+        if (price < exp.min || price > exp.max) {
           issues.push({
             menu: menu.name,
             label: item.label,
-            cost: item.cost,
+            price,
             expect: `${exp.min}~${exp.max}`,
             note: exp.note,
           });
@@ -82,5 +84,5 @@ console.log("=== 집 재료 마트가 범위 이탈 ===");
 console.log(`총 ${issues.length}건\n`);
 issues.forEach((i) => {
   console.log(`[${i.menu}] ${i.label}`);
-  console.log(`  현재: ${i.cost}원 | 기대: ${i.expect}원 | ${i.note}\n`);
+  console.log(`  현재: ${i.price}원 | 기대: ${i.expect}원 | ${i.note}\n`);
 });

@@ -184,12 +184,12 @@ const AMOUNT_OVERRIDE = {
   "pascucci-yogurt:요거트 파우더": "45g",
   "pascucci-yogurt:플레인 요거트": "2~3큰술",
   "pascucci-yogurt:얼음": "10~12개",
-  "pascucci-yogurt:요거트 젤라또": "1스쿱",
+  "pascucci-yogurt:요거트 아이스크림": "1스쿱",
   "pascucci-blueberry:우유": "110ml",
   "pascucci-blueberry:요거트 파우더": "35g",
   "pascucci-blueberry:얼음": "180g",
   "pascucci-blueberry:냉동 블루베리": "100g",
-  "pascucci-blueberry:요거트 젤라또": "1스쿱",
+  "pascucci-blueberry:요거트 아이스크림": "1스쿱",
 };
 
 const code = fs.readFileSync(DATA_PATH, "utf8");

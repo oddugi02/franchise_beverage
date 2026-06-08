@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="홈카페">
+  <rect width="1200" height="630" fill="#FFF8F0"/>
+  <rect x="48" y="48" width="1104" height="534" rx="32" fill="#FFFFFF" stroke="#EFE6DC" stroke-width="4"/>
+  <text x="96" y="200" font-family="Arial, sans-serif" font-size="88" font-weight="700" fill="#333">
+    홈<tspan fill="#FF6B35">카페</tspan>
+  </text>
+  <text x="96" y="290" font-family="Arial, sans-serif" font-size="40" font-weight="500" fill="#7A736A">
+    프랜차이즈 음료, 집에서 따라 만들어요
+  </text>
+  <text x="96" y="380" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#2E8B57">
+    매장 가격 vs 집 원가 · 레시피 공개
+  </text>
+  <text x="96" y="480" font-family="Arial, sans-serif" font-size="64">☕ 🧋 🥤</text>
+</svg>
