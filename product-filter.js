@@ -45,6 +45,9 @@
     /사업자\s*샘플|샘플\s*신청|샘플러|체험팩\s*1포/i,
     /유로톨|식용색소\s*only/i,
     /뱅쇼\s*만들기|키트\s*재료\s*모음|한약재|약초\s*재료/i,
+    /유성마카|마카\s*펜|볼펜|형광펜/i,
+    /고리\s*나사|나사\s*못|철물|부품\s*용/i,
+    /곤충\s*젤리|장수풍뎅이|사슴벌레|먹이\s*젤리|사육\s*용/i,
   ];
 
   const PLACEHOLDER_TITLE_PATTERNS = [
@@ -61,7 +64,13 @@
   }
 
   function isPlainDairySearch(entry) {
-    return /멸균\s*우유|우유\s*\d|두유|흰\s*우유|PB.*우유|갓밀크/i.test(queryText(entry));
+    const q = queryText(entry);
+    if (/두유/i.test(q)) return false;
+    return /멸균\s*우유|우유\s*\d|흰\s*우유|PB.*우유|갓밀크/i.test(q);
+  }
+
+  function isSoyMilkSearch(entry) {
+    return /두유/i.test(queryText(entry));
   }
 
   function isHoneySearch(entry) {
@@ -118,6 +127,16 @@
     return /시럽|syrup/i.test(q) && /바닐라|멜론|체리|헤이즐넛|블루|카라멜|민트|초코/i.test(q);
   }
 
+  function isCherrySyrupSearch(entry) {
+    const q = queryText(entry);
+    return /체리/i.test(q) && /시럽|syrup/i.test(q);
+  }
+
+  function isAppleConcentrateSearch(entry) {
+    const q = queryText(entry);
+    return /사과\s*농축|애플\s*농축|그린\s*애플|그린애플|apple/i.test(q) && !/식초|vinegar/i.test(q);
+  }
+
   function isTeaBagSearch(entry) {
     return /티백/i.test(queryText(entry));
   }
@@ -150,6 +169,16 @@
     return /주스|넥타|juice/i.test(queryText(entry));
   }
 
+  function isColaSearch(entry) {
+    const q = queryText(entry);
+    return /(?:^|\s)콜라|코카\s*콜라|코카콜라|coca\s*cola|coke/i.test(q) && !/사이다|스프라이트|sprite/i.test(q);
+  }
+
+  function isSodaSearch(entry) {
+    const q = queryText(entry);
+    return /사이다|스프라이트|sprite|탄산수/i.test(q) && !/콜라|코카콜라|coke/i.test(q);
+  }
+
   function isJellySearch(entry) {
     const q = queryText(entry);
     return /젤리|jelly/i.test(q) && !/타피오카/i.test(q);
@@ -165,6 +194,10 @@
 
   function isFrozenFruitSearch(entry) {
     return /냉동\s*(?:딸기|망고|블루|베리|체리)/i.test(queryText(entry));
+  }
+
+  function isCannedFruitSearch(entry) {
+    return /통조림|황도|복숭아\s*슬라이스/i.test(queryText(entry));
   }
 
   function isMichoSearch(entry) {
@@ -235,8 +268,9 @@
     if (!isFlavorSyrupSearch(entry)) return false;
     const t = title || "";
     if (/데코덴|네일|폰케이스|파츠|유로톨|꾸미기/i.test(t)) return true;
-    if (/오일|oil/i.test(t) && !/시럽|syrup/i.test(t)) return true;
-    return !/시럽|syrup|카페시럽|412|408|비셰프|다카|모닝/i.test(t);
+    if (/소스병|양념통|펌핑\s*용기|드리즐\s*병|케찹병/i.test(t) && !/408|412|비셰프|모닌|다카/i.test(t)) return true;
+    if (/오일|oil/i.test(t) && !/시럽|syrup|소스|sauce/i.test(t)) return true;
+    return !/시럽|syrup|카페시럽|412|408|비셰프|다카|모닌|모닝|소스|sauce/i.test(t);
   }
 
   function isWrongOreo(title) {
@@ -270,6 +304,7 @@
   function isWrongJelly(title) {
     const t = title || "";
     if (/진주햄|햄\s*젤리/i.test(t)) return true;
+    if (/곤충|사슴벌레|풍뎅이|먹이|사육|키우기/i.test(t)) return true;
     return false;
   }
 
@@ -293,7 +328,11 @@
   }
 
   function isWrongYogurt(title) {
-    return /브레이버스|쿠키런|카드|TCG|맛\s*쿠키/i.test(title || "");
+    const t = title || "";
+    if (/브레이버스|쿠키런|카드|TCG|맛\s*쿠키/i.test(t)) return true;
+    if (/나사|볼트|너트|와셔|철물|부품|고리/i.test(t) && !/요거트|요구르트|yogurt/i.test(t)) return true;
+    if (/플레인\s*요?거?트/i.test(t) && /나사|볼트|고리/i.test(t)) return true;
+    return false;
   }
 
   function isWoodenStirrer(title) {
@@ -304,6 +343,47 @@
 
   function isWrongMicho(title) {
     return /세제|세정|찌든때|클리너/i.test(title || "");
+  }
+
+  function isWrongCherrySyrup(title, entry) {
+    if (!isCherrySyrupSearch(entry)) return false;
+    const t = title || "";
+    const q = queryText(entry);
+    if (/네일|데코덴|파츠/i.test(t)) return true;
+    if (/블라썸|blossom/i.test(q) && /그레나딘|석류|grenadine/i.test(t) && !/체리|cherry|블라썸|blossom/i.test(t)) {
+      return true;
+    }
+    if (/체리|cherry|블라썸|blossom/i.test(q) && /그레나딘|grenadine|석류/i.test(t) && !/체리|cherry|블라썸|blossom/i.test(t)) {
+      return true;
+    }
+    return false;
+  }
+
+  function isWrongAppleConcentrate(title, entry) {
+    if (!isAppleConcentrateSearch(entry)) return false;
+    const t = title || "";
+    if (/식초|vinegar|애사비|애플\s*사이다|사이다\s*제로|탄산\s*음료|소다/i.test(t) && !/농축|원액|엑기스|베이스|시럽|monin|모닌/i.test(t)) {
+      return true;
+    }
+    if (/젤네일|네일|유키|더젤|케찹병|소스병|소스통|보틀\s*대형/i.test(t)) return true;
+    if (/오뚜기\s*사과/i.test(t) && /식초/i.test(t)) return true;
+    return false;
+  }
+
+  function isWrongColaProduct(title) {
+    const t = title || "";
+    if (/방향제|미니어처|석고|장식|소주|맥주|페리에/i.test(t)) return true;
+    if (/스프라이트|sprite|환타|fanta|맥콜|환타/i.test(t)) return true;
+    if (/사이다|킨\s*사이다|킨사이다|칠성/i.test(t) && !/코카\s*콜라\s*zero/i.test(t)) return true;
+    return false;
+  }
+
+  function isWrongSodaProduct(title) {
+    const t = title || "";
+    if (/방향제|미니어처|석고/i.test(t)) return true;
+    if (/코카\s*콜라|coca\s*cola/i.test(t) && !/사이다|sprite|스프라이트|킨/i.test(t)) return true;
+    if (/\b콜라\b|콜라\s*\d/i.test(t) && !/사이다|sprite|스프라이트|킨/i.test(t)) return true;
+    return false;
   }
 
   function isMilkAccessory(title, entry) {
@@ -356,7 +436,13 @@
       return /시럽|카페시럽/i.test(t);
     }
     if (isFlavorSyrupSearch(entry)) {
-      return /시럽|syrup|카페시럽/i.test(t);
+      return /시럽|syrup|카페시럽|소스|sauce/i.test(t);
+    }
+    if (isCherrySyrupSearch(entry)) {
+      return /체리|cherry|블라썸|blossom|시럽|syrup|모닌|monin/i.test(t);
+    }
+    if (isAppleConcentrateSearch(entry)) {
+      return /농축|원액|엑기스|베이스|시럽|그린\s*애플|그린애플|green\s*apple|사과|애플|monin|모닌/i.test(t);
     }
     if (isOreoSearch(entry)) {
       return /오레오|oreo|쿠키|cookie/i.test(t);
@@ -368,10 +454,19 @@
       return /콩가루|두부|soy/i.test(t);
     }
     if (isJuiceSearch(entry)) {
-      return /주스|넥타|juice|음료|히비스커스/i.test(t);
+      return /주스|넥타|juice|음료|히비스커스|망고|복숭아|포도|청포도|크랜베리|오렌지|사과|자몽|레몬|키위|카프리/i.test(t);
+    }
+    if (isColaSearch(entry)) {
+      return /코카\s*콜라|코카콜라|coca\s*cola|coke|펩시|pepsi/i.test(t);
+    }
+    if (isSodaSearch(entry)) {
+      return /사이다|sprite|스프라이트|킨사이다|킨\s*사이다|칠성|탄산/i.test(t);
     }
     if (isJellySearch(entry)) {
-      return /젤리|jelly|콘크|뿌띠첼/i.test(t);
+      return /젤리|jelly|콘크|뿌띠첼|쁘띠첼/i.test(t);
+    }
+    if (isCannedFruitSearch(entry)) {
+      return /황도|복숭아|통조림|슬라이스|과일/i.test(t);
     }
     if (isIcecreamSearch(entry)) {
       return /아이스크림|ice\s*cream|소프트콘|투게더|젤라또/i.test(t);
@@ -390,6 +485,9 @@
     }
     if (isPlainDairySearch(entry)) {
       return /우유/i.test(t);
+    }
+    if (isSoyMilkSearch(entry)) {
+      return /두유|soy/i.test(t);
     }
     if (isPlainBlackTeaBagSearch(entry)) {
       return /홍차|블랙\s*티|black\s*tea|티백/i.test(t);
@@ -441,7 +539,10 @@
     const expected = expectedVolumeMl(entry);
     if (expected == null) return true;
     const found = titleVolumes(title);
-    if (!found.length) return true;
+    if (!found.length) {
+      if (isIcecreamSearch(entry) && /아이스크림|ice\s*cream/i.test(title || "")) return true;
+      return true;
+    }
     return found.some((v) => Math.abs(v - expected) <= Math.max(30, expected * 0.08));
   }
 
@@ -455,6 +556,8 @@
     if (isWrongJamVariant(title, entry)) return false;
     if (isWrongSyrupVariant(title, entry)) return false;
     if (isWrongFlavorSyrup(title, entry)) return false;
+    if (isCherrySyrupSearch(entry) && isWrongCherrySyrup(title, entry)) return false;
+    if (isAppleConcentrateSearch(entry) && isWrongAppleConcentrate(title, entry)) return false;
     if (isTeaBagAccessory(title, entry)) return false;
     if (isOreoSearch(entry) && isWrongOreo(title)) return false;
     if (isNutsSearch(entry) && isWrongNuts(title)) return false;
@@ -466,6 +569,8 @@
     if (isFrozenFruitSearch(entry) && isWrongFrozenFruit(title)) return false;
     if (isPlainYogurtSearch(entry) && isWrongYogurt(title)) return false;
     if (isMichoSearch(entry) && isWrongMicho(title)) return false;
+    if (isColaSearch(entry) && isWrongColaProduct(title)) return false;
+    if (isSodaSearch(entry) && isWrongSodaProduct(title)) return false;
     if (isCoffeeStickSearch(entry) && isWoodenStirrer(title)) return false;
     if (!matchesFoodKeyword(title, entry)) return false;
     if (!matchesTeaType(title, entry)) return false;
@@ -488,16 +593,79 @@
     const title = override?.productName || override?.productTitle || "";
     if (!isRelevantProduct(title, entry)) return false;
     if (override?.price != null && !isPricePlausible(override.price, entry)) return false;
+    const link = override?.productUrl || override?.link || "";
+    if (link && !isTrustedMall(link, override?.mallName)) return false;
     return true;
   }
 
-  /** 카탈로그 페이지는 API 최저가와 실제 구매가가 다른 경우가 많음 */
-  function linkQuality(link) {
+  /** 국내 유명 온라인몰 — 링크 도메인 또는 네이버 API mallName 기준 */
+  const TRUSTED_MALL_DOMAIN_PATTERNS = [
+    /(?:^|\.)coupang\.com/i,
+    /(?:^|\.)gmarket\.co\.kr/i,
+    /(?:^|\.)auction\.co\.kr/i,
+    /(?:^|\.)11st\.co\.kr/i,
+    /(?:^|\.)ssg\.com/i,
+    /(?:^|\.)emart\.com/i,
+    /(?:^|\.)shinsegae\.com/i,
+    /(?:^|\.)hmall\.com/i,
+    /(?:^|\.)thehyundai\.com/i,
+    /(?:^|\.)lotteon\.com/i,
+    /(?:^|\.)lottemall\.com/i,
+    /(?:^|\.)kurly\.com/i,
+    /(?:^|\.)marketkurly\.com/i,
+    /(?:^|\.)cjonstyle\.com/i,
+    /(?:^|\.)homeplus\.co\.kr/i,
+    /(?:^|\.)gsshop\.com/i,
+    /(?:^|\.)interpark\.com/i,
+    /(?:^|\.)wemakeprice\.com/i,
+    /brand\.naver\.com/i,
+  ];
+
+  const TRUSTED_MALL_NAME_PATTERNS = [
+    /^쿠팡$/,
+    /^G마켓$|^Gmarket$|^지마켓$/i,
+    /^옥션$|^Auction$/i,
+    /^11번가$|^11ST$/i,
+    /SSG\.?COM|신세계|이마트|emart|트레이더스|노브랜드/i,
+    /현대|Hmall|H몰|더현대/i,
+    /롯데ON|롯데/i,
+    /컬리|마켓컬리|Kurly/i,
+    /CJ|온스타일/i,
+    /GS|GSSHOP/i,
+    /홈플러스|Homeplus/i,
+    /인터파크|interpark/i,
+    /위메프|WeMakePrice/i,
+    /^네이버$/,
+  ];
+
+  function isTrustedMall(link, mallName) {
     const url = link || "";
+    if (!url) return false;
+    if (/shopping\.naver\.com\/catalog\//.test(url)) return false;
+
+    const name = (mallName || "").trim();
+    if (TRUSTED_MALL_DOMAIN_PATTERNS.some((re) => re.test(url))) {
+      if (/smartstore\.naver\.com/.test(url)) {
+        return TRUSTED_MALL_NAME_PATTERNS.some((re) => re.test(name));
+      }
+      return true;
+    }
+
+    if (/smartstore\.naver\.com/.test(url)) {
+      return TRUSTED_MALL_NAME_PATTERNS.some((re) => re.test(name));
+    }
+
+    return TRUSTED_MALL_NAME_PATTERNS.some((re) => re.test(name));
+  }
+
+  /** 카탈로그 페이지는 API 최저가와 실제 구매가가 다른 경우가 많음 */
+  function linkQuality(link, mallName) {
+    const url = link || "";
+    if (!isTrustedMall(url, mallName)) return 0;
     if (/smartstore\.naver\.com|brand\.naver\.com/.test(url)) return 3;
-    if (/ssg\.com|emart\.com|11st\.co\.kr|gmarket\.co\.kr|auction\.co\.kr/.test(url)) return 2;
-    if (/outlink\/itemdetail|shopping\.naver\.com\/outlink/.test(url)) return 0;
-    if (/shopping\.naver\.com\/catalog\//.test(url)) return 0;
+    if (/ssg\.com|emart\.com|11st\.co\.kr|gmarket\.co\.kr|auction\.co\.kr|coupang\.com/.test(url)) return 3;
+    if (/hmall\.com|lotteon\.com|kurly\.com|homeplus\.co\.kr/.test(url)) return 2;
+    if (/outlink\/itemdetail|shopping\.naver\.com\/outlink/.test(url)) return 1;
     return 1;
   }
 
@@ -518,17 +686,20 @@
     const relevant = items.filter((item) => isRelevantProduct(item.title, entry));
     if (!relevant.length) return null;
 
-    const inRange = relevant.filter((item) => isPricePlausible(item.lprice, entry));
-    let pool = inRange.length ? inRange : relevant;
+    const trusted = relevant.filter((item) => isTrustedMall(item.link, item.mallName));
+    if (!trusted.length) return null;
 
-    const direct = pool.filter((item) => linkQuality(item.link) > 0);
+    const inRange = trusted.filter((item) => isPricePlausible(item.lprice, entry));
+    let pool = inRange.length ? inRange : trusted;
+
+    const direct = pool.filter((item) => linkQuality(item.link, item.mallName) > 0);
     if (direct.length) pool = direct;
 
     pool.sort((a, b) => {
       const focus = titleFocusScore(b.title) - titleFocusScore(a.title);
       if (focus !== 0) return focus;
-      const qA = linkQuality(a.link);
-      const qB = linkQuality(b.link);
+      const qA = linkQuality(a.link, a.mallName);
+      const qB = linkQuality(b.link, b.mallName);
       const cheaper = Math.min(a.lprice, b.lprice);
       if (cheaper > 0 && Math.abs(a.lprice - b.lprice) <= cheaper * 0.15 && qA !== qB) {
         return qB - qA;
@@ -548,6 +719,7 @@
     isRelevantProduct,
     isPricePlausible,
     isValidPriceOverride,
+    isTrustedMall,
     matchesPackVolume,
     linkQuality,
     pickBestProduct,

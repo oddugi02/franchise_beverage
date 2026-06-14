@@ -12,7 +12,7 @@ const {
   SHOPPING_PACK_CATALOG,
   SHOPPING_POWDER_CATALOG,
 } = require(path.join(ROOT, "shopping-packs.js"));
-const { isRelevantProduct } = require(path.join(ROOT, "product-filter.js"));
+const { isRelevantProduct, isTrustedMall } = require(path.join(ROOT, "product-filter.js"));
 
 const MENU_FILES = [
   "mega-menus.js",
@@ -86,6 +86,17 @@ function auditCatalog(catalog, label) {
         key,
         label,
         msg: `비식품·오매칭 상품: ${(entry.productName || "").slice(0, 48)}…`,
+        buy: entry.buy,
+        productName: entry.productName,
+      });
+    }
+
+    if (entry.productUrl && !isTrustedMall(entry.productUrl, entry.mallName)) {
+      issues.push({
+        kind: "untrusted-mall",
+        key,
+        label,
+        msg: `유명몰 아님: ${entry.mallName || entry.productUrl.slice(0, 48)}…`,
         buy: entry.buy,
         productName: entry.productName,
       });

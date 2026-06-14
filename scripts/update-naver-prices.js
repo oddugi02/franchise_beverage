@@ -26,7 +26,7 @@ try {
   }
 }
 const { searchLowestWithEconomics, sleep } = require("./lib/naver-shopping");
-const { isPricePlausible } = require("./lib/naver-product-filter");
+const { isPricePlausible, isRelevantProduct } = require("./lib/naver-product-filter");
 const {
   SHOPPING_PACK_CATALOG,
   SHOPPING_POWDER_CATALOG,
@@ -203,6 +203,7 @@ async function main() {
       }
 
       const inRange = hit.priceInRange ?? isPricePlausible(hit.packPrice, entry);
+      const productValid = isRelevantProduct(hit.productTitle, entry);
 
       const override = {
         link: hit.productLink,
@@ -217,6 +218,11 @@ async function main() {
         override.unitPrice = hit.unitPrice;
         override.packUnits = hit.packUnits;
       }
+      if (!productValid) {
+        console.log(`${(hit.productTitle || "").slice(0, 28)}… (비식품 — 스킵)`);
+        continue;
+      }
+
       overrides[entry.key] = override;
 
       if (syncSupabase) {
@@ -232,14 +238,16 @@ async function main() {
         }
       }
 
-      if (inRange) {
+      if (inRange || productValid) {
         packUpdates.push({
           key: entry.key,
-          packPrice: hit.packPrice,
+          packPrice: inRange ? hit.packPrice : entry.price,
           productTitle: hit.productTitle,
           productLink: hit.productLink,
           mallName: hit.mallName,
         });
+      }
+      if (inRange) {
         console.log(`${entry.price} → ${hit.packPrice}원 (개당 ${hit.unitPrice ?? "?"}원) ✓`);
       } else {
         console.log(`${hit.packPrice}원 · ${(hit.productTitle || "").slice(0, 28)}… (범위 밖 — 링크만)`);

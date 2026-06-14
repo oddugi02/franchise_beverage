@@ -3,6 +3,19 @@ const path = require("path");
 const manualModule = require("./ediya-manual-steps");
 const EDIIYA_MANUAL_SLUGS = new Set(manualModule.EDIIYA_MANUAL_SLUGS);
 const MANUAL = Object.fromEntries(Object.entries(manualModule).filter(([k]) => k !== "EDIIYA_MANUAL_SLUGS"));
+
+/** UI 노출 — 사진 있는 인기 메뉴 (나머지는 URL 직접 접근) */
+const EDIIYA_FEATURED_SLUGS = new Set([
+  "choco-cookie-shake",
+  "iced-igok-latte",
+  "grapefruit-flatccino",
+  "iced-toffeenut-latte",
+  "iced-mint-mocha",
+  "green-apple-flatccino",
+  "yuja-flatccino",
+  "origin-shake",
+  "choco-chip-flatccino",
+]);
 const { consumerHome } = require("./consumer-home");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome } = require("./home-recipe-utils");
 const { filterManualMenus } = require("./manual-menu-filter");
@@ -80,6 +93,7 @@ function baseMenu({ slug, name, category, price, emoji, photoBg, ingredients, ho
     emoji,
     photoBg,
     recipeReady: true,
+    listHidden: !EDIIYA_FEATURED_SLUGS.has(slug),
     ingredients,
     recipe: {
       homeIngredients,
@@ -96,7 +110,7 @@ const menus = [];
 menus.push(
   baseMenu({
     slug: "iced-igok-latte",
-    name: "아이스 이곡 라떼",
+    name: "이곡 라떼",
     category: "라떼",
     price: 4200,
     emoji: "🌾",
@@ -118,7 +132,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-toffeenut-latte",
-    name: "아이스 토피넛 라떼",
+    name: "토피넛 라떼",
     category: "라떼",
     price: 4200,
     emoji: "🥜",
@@ -140,7 +154,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-mint-mocha",
-    name: "아이스 민트 모카",
+    name: "민트 모카",
     category: "라떼",
     price: 4800,
     emoji: "🌿",
@@ -397,7 +411,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "choco-cookie-shake",
-    name: "초코 쿠키 쉐이크",
+    name: "초코쿠키 쉐이크",
     category: "스무디·쉐이크",
     price: 4500,
     emoji: "🍪",
@@ -449,3 +463,4 @@ if (typeof module !== "undefined") {
 fs.writeFileSync(OUTPUT_PATH, out, "utf8");
 console.log(`Created ${path.relative(process.cwd(), OUTPUT_PATH)}`);
 console.log(`Menu count: ${ediyaMenus.length}`);
+console.log(`Featured (listed): ${ediyaMenus.filter((m) => !m.listHidden).length} · hidden: ${ediyaMenus.filter((m) => m.listHidden).length}`);

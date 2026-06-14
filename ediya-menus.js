@@ -3,12 +3,13 @@ const EDIIYA_MENUS = [
   {
     "id": "ediya-iced-igok-latte",
     "brand": "이디야",
-    "name": "아이스 이곡 라떼",
+    "name": "이곡 라떼",
     "category": "라떼",
     "price": 4200,
     "emoji": "🌾",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "이곡파우더",
@@ -80,12 +81,13 @@ const EDIIYA_MENUS = [
   {
     "id": "ediya-iced-toffeenut-latte",
     "brand": "이디야",
-    "name": "아이스 토피넛 라떼",
+    "name": "토피넛 라떼",
     "category": "라떼",
     "price": 4200,
     "emoji": "🥜",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "토피넛파우더",
@@ -153,12 +155,13 @@ const EDIIYA_MENUS = [
   {
     "id": "ediya-iced-mint-mocha",
     "brand": "이디야",
-    "name": "아이스 민트 모카",
+    "name": "민트 모카",
     "category": "라떼",
     "price": 4800,
     "emoji": "🌿",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "원두(에스프레소)",
@@ -275,6 +278,7 @@ const EDIIYA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "자몽시럽",
@@ -340,7 +344,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 자몽청 2큰술, 설탕시럽 2펌프, 물 80ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 자몽청 2큰술, 설탕시럽 2펌프, 뜨거운 물 80ml, 얼음 1컵 넣는다."
         },
         {
           "title": "",
@@ -361,6 +365,7 @@ const EDIIYA_MENUS = [
     "emoji": "🍋",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "유자시럽",
@@ -426,7 +431,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 유자차 2큰술, 설탕시럽 2펌프, 물 80ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 유자차 2큰술, 설탕시럽 2펌프, 뜨거운 물 80ml, 얼음 1컵 넣는다."
         },
         {
           "title": "",
@@ -447,6 +452,7 @@ const EDIIYA_MENUS = [
     "emoji": "🍏",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "그린애플시럽",
@@ -512,7 +518,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 사과 농축액 2큰술, 설탕시럽 2펌프, 물 100ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 사과 농축액 2큰술, 설탕시럽 2펌프, 뜨거운 물 100ml, 얼음 1컵 넣는다."
         },
         {
           "title": "",
@@ -533,6 +539,7 @@ const EDIIYA_MENUS = [
     "emoji": "🫘",
     "photoBg": "#FBE9E7",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "플랫치노파우더",
@@ -619,6 +626,7 @@ const EDIIYA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "자바칩파우더",
@@ -722,6 +730,7 @@ const EDIIYA_MENUS = [
     "emoji": "🟣",
     "photoBg": "#F3E5F5",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "밀크메이트",
@@ -817,7 +826,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
+          "body": "뜨거운 물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
         }
       ],
       "difficulty": 3,
@@ -834,6 +843,7 @@ const EDIIYA_MENUS = [
     "emoji": "🧋",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "밀크메이트",
@@ -916,7 +926,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
+          "body": "뜨거운 물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
         }
       ],
       "difficulty": 3,
@@ -933,6 +943,7 @@ const EDIIYA_MENUS = [
     "emoji": "💙",
     "photoBg": "#E3F2FD",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "레몬베이스",
@@ -1019,6 +1030,7 @@ const EDIIYA_MENUS = [
     "emoji": "🥛",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "밀크메이트",
@@ -1100,12 +1112,13 @@ const EDIIYA_MENUS = [
   {
     "id": "ediya-choco-cookie-shake",
     "brand": "이디야",
-    "name": "초코 쿠키 쉐이크",
+    "name": "초코쿠키 쉐이크",
     "category": "스무디·쉐이크",
     "price": 4500,
     "emoji": "🍪",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "밀크메이트",

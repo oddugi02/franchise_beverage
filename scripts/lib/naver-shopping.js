@@ -68,7 +68,7 @@ async function searchProducts(query, opts = {}) {
  * @param {object} [catalogEntry] shopping-packs 항목 (priceMin/Max, buy 등)
  */
 async function searchLowestProduct(query, opts = {}) {
-  const display = opts.display ?? 30;
+  const display = opts.display ?? 50;
   const { items } = await searchProducts(query, { ...opts, display, start: 1 });
   const best = pickBestProduct(items, opts.catalogEntry);
   if (!best) return null;

@@ -104,8 +104,10 @@
   function sanitizePackProduct(pack) {
     const PF = globalThis.ProductFilter;
     if (!PF || !pack?.productName) return pack;
-    if (PF.isRelevantProduct(pack.productName, pack)) return pack;
-    return { ...pack, productUrl: undefined, productName: undefined, mallName: undefined };
+    const strip = { ...pack, productUrl: undefined, productName: undefined, mallName: undefined };
+    if (!PF.isRelevantProduct(pack.productName, pack)) return strip;
+    if (pack.productUrl && !PF.isTrustedMall(pack.productUrl, pack.mallName)) return strip;
+    return pack;
   }
 
   function packItem(pack, extra = {}) {
