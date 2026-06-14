@@ -323,6 +323,19 @@ strong,
   font-size: 22px;
   font-weight: 700;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.brand-logo--image {
+  padding: 6px;
+}
+
+.brand-logo--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-square__name {
@@ -422,6 +435,12 @@ strong,
   font-size: 26px;
   font-weight: 700;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.brand-page-header__logo.brand-logo--image {
+  padding: 8px;
 }
 
 .brand-page-header__name {
@@ -775,6 +794,21 @@ strong,
   align-items: center;
   justify-content: center;
   font-size: 32px;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-card__photo__img,
+.detail-summary__icon__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-card__photo--has-img .menu-card__photo__emoji,
+.detail-summary__icon--has-img .detail-summary__icon__emoji {
+  display: none;
 }
 
 .menu-card__body {
@@ -1001,6 +1035,8 @@ strong,
   justify-content: center;
   font-size: 36px;
   flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .detail-summary__brand {
@@ -1268,6 +1304,56 @@ strong,
 .home-ingredient-row__buy-name {
   display: block;
   line-height: 1.45;
+}
+
+.home-ingredient-row__buy-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: -4px -6px;
+  padding: 4px 6px;
+  transition: background 0.15s ease;
+}
+
+.home-ingredient-row__buy-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.home-ingredient-row__buy-link:hover .home-ingredient-row__buy-name {
+  color: var(--coral, #e85d4c);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-ingredient-row__external {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 11px;
+  color: var(--text-soft);
+  vertical-align: super;
+}
+
+.home-ingredient-row__pack-price {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coral, #e85d4c);
+}
+
+.home-ingredient-row__store-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-ingredient-row__store-link:hover .home-ingredient-row__store-badge {
+  background: rgba(232, 93, 76, 0.12);
+  color: var(--coral, #e85d4c);
+}
+
+.home-ingredient-row--linked {
+  cursor: pointer;
 }
 
 .home-ingredient-row__search-link {

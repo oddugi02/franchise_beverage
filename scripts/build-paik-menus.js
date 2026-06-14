@@ -63,6 +63,8 @@ const HOME = {
   coldBrew50ml: 350,
   chocoBase300ml: 450,
   milkTea100ml: 120,
+  peachTeaPowder35g: 200,
+  frozenMango85g: 510,
 };
 
 function round(v) {
@@ -357,8 +359,37 @@ menus.push(
   })
 );
 
+menus.push(
+  baseMenu({
+    slug: "amangchu",
+    name: "아망추",
+    category: "에이드·과일",
+    price: 4800,
+    emoji: "🥭",
+    photoBg: "#FFE0B2",
+    difficulty: 1,
+    time: "약 3분",
+    note: `16온스(대용량) 기준 · ${POOR_KITCHEN_RECIPE_NOTE}`,
+    ingredients: [
+      ing("복숭아 아이스티 분말", "35g", 35 * B2B.powderPerG),
+      ing("온수", "30ml", 30 * B2B.water),
+      ing("냉수", "150ml", 150 * B2B.water),
+      ing("얼음", "각얼음", B2B.ice),
+      ing("냉동 망고", "85g", 85 * B2B.pureePerG),
+      cup(),
+    ],
+    homeIngredients: [
+      home("복숭아 아이스티 파우더", "35g(약 2.5스푼)", HOME.peachTeaPowder35g, "복숭아 아이스티 분말"),
+      home("뜨거운 물", "30ml", HOME.water * 6, "온수"),
+      home("차가운 물", "150ml", 10, "냉수"),
+      home("얼음", "적당량", HOME.ice, "얼음"),
+      home("냉동 망고", "80~90g", HOME.frozenMango85g, "냉동 망고"),
+    ],
+  })
+);
+
 // ── 카테고리 2: 빽스치노·스무디·쉐이크 ──
-function chinoMenu({ slug, name, milkMl = 200, iceG = 290, extras = [], homeExtras = [], price = 4200, emoji = "🥤", photoBg = "#EFEBE9", difficulty = 2 }) {
+function chinoMenu({ slug, name, milkMl = 200, iceG = 290, extras = [], homeExtras = [], price = 4200, emoji = "🥤", photoBg = "#EFEBE9", difficulty = 2, note }) {
   const ingredients = [
     ing("우유", `${milkMl}ml`, milkMl * B2B.milkPerMl),
     ing("얼음", `${iceG}g`, B2B.ice),
@@ -370,13 +401,13 @@ function chinoMenu({ slug, name, milkMl = 200, iceG = 290, extras = [], homeExtr
     home("얼음", `${iceG}g`, HOME.ice, "얼음"),
     ...homeExtras,
   ];
-  return baseMenu({ slug, name, category: "프라페·프라푸치노", price, emoji, photoBg, ingredients, homeIngredients, difficulty });
+  return baseMenu({ slug, name, category: "프라페·프라푸치노", price, emoji, photoBg, ingredients, homeIngredients, difficulty, note });
 }
 
 menus.push(
   chinoMenu({
     slug: "green-tea-paiks-chino",
-    name: "녹차빽스치노",
+    name: "말차빽스치노",
     emoji: "🍵",
     photoBg: "#E8F5E9",
     extras: [
@@ -414,7 +445,8 @@ menus.push(
 menus.push(
   chinoMenu({
     slug: "pistachio-paiks-chino",
-    name: "피스타치오빽스치노",
+    name: "피스타치오 빽스치노",
+    note: `리뉴얼 전 메뉴 기준 · ${POOR_KITCHEN_RECIPE_NOTE}`,
     extras: [ing("피스타치오 파우더", "7스푼", 7 * B2B.powderPerSpoon)],
     homeExtras: [home("피스타치오 파우더", "7큰술", 7 * HOME.powderSpoon, "피스타치오 파우더")],
     emoji: "💚",
@@ -436,7 +468,7 @@ menus.push(
 menus.push(
   chinoMenu({
     slug: "choco-paiks-chino",
-    name: "완전초코빽스치노",
+    name: "초코빽스치노",
     extras: [
       ing("초콜릿 소스", "5펌프", 5 * B2B.syrupPerPump),
       ing("다크컬스 초콜릿", "3스푼", 3 * B2B.chocolateSpoon),
@@ -923,8 +955,8 @@ const outputMenus = filterCheaperAtHome(
   )
 );
 
-if (outputMenus.length !== 37) {
-  throw new Error(`Expected 37 manual menus but got ${outputMenus.length}`);
+if (outputMenus.length !== 38) {
+  throw new Error(`Expected 38 manual menus but got ${outputMenus.length}`);
 }
 
 const minPrice = Math.min(...outputMenus.map((m) => m.price));

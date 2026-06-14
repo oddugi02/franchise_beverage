@@ -9,9 +9,10 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#3E2723",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
-        "name": "흑당·과당 시럽",
+        "name": "과당 시럽",
         "amount": "20ml",
         "cost": 140
       },
@@ -26,9 +27,9 @@ const GONGCHA_MENUS = [
         "cost": 270
       },
       {
-        "name": "얼음",
-        "amount": "1.5스쿱",
-        "cost": 25
+        "name": "밀크폼",
+        "amount": "30ml",
+        "cost": 45
       },
       {
         "name": "마시멜로",
@@ -36,9 +37,9 @@ const GONGCHA_MENUS = [
         "cost": 200
       },
       {
-        "name": "밀크폼",
-        "amount": "30ml",
-        "cost": 45
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 30
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -53,7 +54,7 @@ const GONGCHA_MENUS = [
           "amount": "2~3펌프",
           "price": 180,
           "replaces": [
-            "흑당·과당 시럽"
+            "과당 시럽"
           ]
         },
         {
@@ -66,18 +67,18 @@ const GONGCHA_MENUS = [
         },
         {
           "label": "코코아 파우더",
-          "amount": "2큰술",
-          "price": 200,
+          "amount": "3스푼",
+          "price": 290,
           "replaces": [
             "초코 포션"
           ]
         },
         {
-          "label": "얼음",
-          "amount": "한 컵",
-          "price": 50,
+          "label": "우유",
+          "amount": "30ml(거품용)",
+          "price": 75,
           "replaces": [
-            "얼음"
+            "밀크폼"
           ]
         },
         {
@@ -89,11 +90,11 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "우유",
-          "amount": "30ml(거품용)",
-          "price": 75,
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
           "replaces": [
-            "밀크폼"
+            "얼음"
           ]
         }
       ],
@@ -121,7 +122,94 @@ const GONGCHA_MENUS = [
       ],
       "difficulty": 2,
       "time": "약 7분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-mango-smoothie",
+    "brand": "공차",
+    "name": "망고 스무디",
+    "category": "스무디·쉐이크",
+    "price": 5800,
+    "emoji": "🥭",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "망고 물 베이스",
+        "amount": "150ml",
+        "cost": 1050
+      },
+      {
+        "name": "플랜트 파우더",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "냉동 망고",
+          "amount": "150g",
+          "price": 900,
+          "replaces": [
+            "망고 물 베이스"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "플랜트 파우더"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 1~2펌프, 망고 주스·냉동 망고 150ml, 플랜트(또는 요거트) 파우더 2스푼을 넣는다."
+        },
+        {
+          "title": "",
+          "body": "얼음 2스쿱(한 컵) 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 6분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
@@ -133,6 +221,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍓",
     "photoBg": "#FCE4EC",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -147,7 +236,7 @@ const GONGCHA_MENUS = [
       {
         "name": "물",
         "amount": "40ml",
-        "cost": 5
+        "cost": 200
       },
       {
         "name": "스무디 포션",
@@ -166,7 +255,7 @@ const GONGCHA_MENUS = [
       },
       {
         "name": "얼음",
-        "amount": "2스쿱",
+        "amount": "가득",
         "cost": 38
       },
       {
@@ -179,7 +268,7 @@ const GONGCHA_MENUS = [
       "homeIngredients": [
         {
           "label": "설탕시럽",
-          "amount": "3~4펌프",
+          "amount": "2~3펌프",
           "price": 180,
           "replaces": [
             "과당 시럽"
@@ -203,7 +292,7 @@ const GONGCHA_MENUS = [
         },
         {
           "label": "플레인 요거트",
-          "amount": "1스푼",
+          "amount": "2스푼",
           "price": 200,
           "replaces": [
             "스무디 포션"
@@ -211,7 +300,7 @@ const GONGCHA_MENUS = [
         },
         {
           "label": "쿠키 크럼",
-          "amount": "1.5스푼",
+          "amount": "적당량",
           "price": 150,
           "replaces": [
             "쿠키 분태"
@@ -227,7 +316,7 @@ const GONGCHA_MENUS = [
         },
         {
           "label": "얼음",
-          "amount": "2스쿱",
+          "amount": "가득",
           "price": 50,
           "replaces": [
             "얼음"
@@ -258,43 +347,54 @@ const GONGCHA_MENUS = [
       ],
       "difficulty": 2,
       "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
-    "id": "gongcha-sparkling-tea",
+    "id": "gongcha-strawberry-jewelry-crush",
     "brand": "공차",
-    "name": "기본 스파클링티 (ICE)",
-    "category": "에이드·과일",
-    "price": 5200,
-    "emoji": "✨",
-    "photoBg": "#E0F7FA",
+    "name": "딸기 쥬얼리 요구르트 크러쉬",
+    "category": "스무디·쉐이크",
+    "price": 6300,
+    "emoji": "💎",
+    "photoBg": "#FCE4EC",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
-        "name": "티 베이스",
-        "amount": "100ml",
-        "cost": 700
-      },
-      {
-        "name": "얼음물",
-        "amount": "100ml",
-        "cost": 5
-      },
-      {
         "name": "과당 시럽",
-        "amount": "15ml",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "물",
+        "amount": "20ml",
+        "cost": 100
+      },
+      {
+        "name": "스무디 포션",
+        "amount": "10g",
+        "cost": 90
+      },
+      {
+        "name": "딸기 요구르트 소스",
+        "amount": "85ml",
+        "cost": 128
+      },
+      {
+        "name": "우유",
+        "amount": "30ml",
+        "cost": 45
+      },
+      {
+        "name": "쥬얼리 토핑",
+        "amount": "30g",
         "cost": 105
       },
       {
-        "name": "탄산",
-        "amount": "적정량",
-        "cost": 30
-      },
-      {
         "name": "얼음",
-        "amount": "Less Ice",
-        "cost": 25
+        "amount": "가득",
+        "cost": 30
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -305,40 +405,56 @@ const GONGCHA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
-          "label": "홍차 티백",
-          "amount": "100ml",
-          "price": 90,
-          "replaces": [
-            "티 베이스"
-          ]
-        },
-        {
-          "label": "물",
-          "amount": "100ml",
-          "price": 5,
-          "replaces": [
-            "얼음물"
-          ]
-        },
-        {
           "label": "설탕시럽",
-          "amount": "1펌프",
+          "amount": "2~3펌프",
           "price": 180,
           "replaces": [
             "과당 시럽"
           ]
         },
         {
-          "label": "사이다",
-          "amount": "150ml",
-          "price": 300,
+          "label": "물",
+          "amount": "20ml",
+          "price": 5,
           "replaces": [
-            "탄산"
+            "물"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "스무디 포션"
+          ]
+        },
+        {
+          "label": "딸기 요거트",
+          "amount": "55ml",
+          "price": 220,
+          "replaces": [
+            "딸기 요구르트 소스"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "30ml",
+          "price": 75,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "적당량",
+          "price": 200,
+          "replaces": [
+            "쥬얼리 토핑"
           ]
         },
         {
           "label": "얼음",
-          "amount": "적당량",
+          "amount": "가득",
           "price": 50,
           "replaces": [
             "얼음"
@@ -348,61 +464,58 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "병에 얼음, 티 베이스 100ml, 물 100ml, 설탕시럽 1펌프를 넣고 뚜껑을 닫아 흔든다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 3펌프, 딸기 요거트 55ml, 우유 30ml, 물 20ml, 스무디 파우더 1스푼, 얼음 1.5스쿱 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "사이다를 천천히 부어 탄산감을 만든다."
-        },
-        {
-          "title": "",
-          "body": "얼음을 적게 넣은 컵에 조심스럽게 붓는다."
+          "body": "컵 바닥에 딸기 요거트 30ml 깔고, 딸기·젤리 토핑을 올린 뒤 갈아 둔 음료를 부어준다."
         }
       ],
-      "difficulty": 1,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "difficulty": 2,
+      "time": "약 7분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
-    "id": "gongcha-green-tangerine-sparkling",
+    "id": "gongcha-brown-sugar-jewelry-oolong-smoothie",
     "brand": "공차",
-    "name": "청귤 스파클링티",
-    "category": "에이드·과일",
-    "price": 5500,
-    "emoji": "🍊",
-    "photoBg": "#FFF3E0",
+    "name": "브라운슈가 쥬얼리 우롱 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6200,
+    "emoji": "🟤",
+    "photoBg": "#EFEBE9",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
-        "name": "그린티",
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "우롱티",
         "amount": "80ml",
         "cost": 560
       },
       {
-        "name": "물",
-        "amount": "80ml",
-        "cost": 5
+        "name": "스무디 포션",
+        "amount": "25g",
+        "cost": 225
       },
       {
-        "name": "청귤 소스",
-        "amount": "80ml",
-        "cost": 560
+        "name": "브라운슈가 소스",
+        "amount": "30ml",
+        "cost": 210
       },
       {
-        "name": "탄산",
-        "amount": "적정량",
-        "cost": 30
-      },
-      {
-        "name": "청귤칩",
-        "amount": "1개",
-        "cost": 50
+        "name": "쥬얼리 토핑",
+        "amount": "30g",
+        "cost": 105
       },
       {
         "name": "얼음",
-        "amount": "Less Ice",
-        "cost": 25
+        "amount": "가득",
+        "cost": 30
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -413,11 +526,683 @@ const GONGCHA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
-          "label": "녹차 티백",
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우롱차 티백",
           "amount": "80ml",
           "price": 90,
           "replaces": [
+            "우롱티"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "스무디 포션"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2펌프",
+          "price": 180,
+          "replaces": [
+            "브라운슈가 소스"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "적당량",
+          "price": 200,
+          "replaces": [
+            "쥬얼리 토핑"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 3펌프, 우롱차 80ml, 스무디 파우더 1스푼, 얼음 1.5스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵 벽에 설탕시럽을 두르고, 젤리·타피오카 토핑을 올린 뒤 스무디를 부어준다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-chocolate-cookie-smoothie",
+    "brand": "공차",
+    "name": "초콜렛 쿠키&크림 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6100,
+    "emoji": "🍪",
+    "photoBg": "#4E342E",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "물",
+        "amount": "100ml",
+        "cost": 500
+      },
+      {
+        "name": "초코 포션",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "밀크폼",
+        "amount": "30ml",
+        "cost": 45
+      },
+      {
+        "name": "쿠키 분태",
+        "amount": "20g",
+        "cost": 160
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "100ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "코코아 파우더",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "초코 포션"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "30ml(거품용)",
+          "price": 75,
+          "replaces": [
+            "밀크폼"
+          ]
+        },
+        {
+          "label": "쿠키 크럼",
+          "amount": "적당량",
+          "price": 150,
+          "replaces": [
+            "쿠키 분태"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 3~4펌프, 물 100ml, 코코아 파우더 3큰술, 얼음 2스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 우유 거품과 쿠키 크럼을 깔고 스무디를 부은한다."
+        },
+        {
+          "title": "",
+          "body": "위에 쿠키 크럼을 더 올린다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-yakgwa-smoothie",
+    "brand": "공차",
+    "name": "쫀득 약과 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6000,
+    "emoji": "🍯",
+    "photoBg": "#FFF8E1",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "우롱티",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "스무디 포션",
+        "amount": "25g",
+        "cost": 225
+      },
+      {
+        "name": "치즈폼",
+        "amount": "40g",
+        "cost": 220
+      },
+      {
+        "name": "약과",
+        "amount": "0.5개",
+        "cost": 60
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우롱차 티백",
+          "amount": "80ml",
+          "price": 90,
+          "replaces": [
+            "우롱티"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "스무디 포션"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "토핑",
+          "price": 280,
+          "replaces": [
+            "치즈폼"
+          ]
+        },
+        {
+          "label": "약과",
+          "amount": "반 개",
+          "price": 200,
+          "replaces": [
+            "약과"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 2~3펌프, 우롱차 80ml, 플레인 요거트 2스푼, 약과 반 개, 얼음 2스쿱을 넣고 15~20초 흔들거나 숟가락으로 빠르게 저어준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 휘핑크림과 쿠키 크럼을 올리고 약과 조각을 토핑한다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-green-grape-green-tea-smoothie",
+    "brand": "공차",
+    "name": "청포도 그린티 스무디",
+    "category": "스무디·쉐이크",
+    "price": 5900,
+    "emoji": "🍇",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "그린티",
+        "amount": "50ml",
+        "cost": 350
+      },
+      {
+        "name": "청포도 소스",
+        "amount": "70ml",
+        "cost": 560
+      },
+      {
+        "name": "알로에",
+        "amount": "조금",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "녹차 티백",
+          "amount": "50ml",
+          "price": 90,
+          "replaces": [
             "그린티"
+          ]
+        },
+        {
+          "label": "청포도 주스",
+          "amount": "70ml",
+          "price": 220,
+          "replaces": [
+            "청포도 소스"
+          ]
+        },
+        {
+          "label": "알로에",
+          "amount": "조금",
+          "price": 150,
+          "replaces": [
+            "알로에"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 3~4펌프, 청포도 주스 70ml, 녹차 50ml, 얼음 2스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 알로에(또는 과일 조각)를 조금 넣고 스무디를 부어준다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-double-peach-smoothie",
+    "brand": "공차",
+    "name": "더블피치 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6000,
+    "emoji": "🍑",
+    "photoBg": "#FFE0B2",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "스무디 포션",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "피치 스무디 베이스",
+        "amount": "90ml",
+        "cost": 720
+      },
+      {
+        "name": "피치 소스",
+        "amount": "20ml",
+        "cost": 160
+      },
+      {
+        "name": "젤리",
+        "amount": "적당량",
+        "cost": 40
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 30
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "스무디 포션"
+          ]
+        },
+        {
+          "label": "복숭아 주스",
+          "amount": "90ml",
+          "price": 220,
+          "replaces": [
+            "피치 스무디 베이스"
+          ]
+        },
+        {
+          "label": "복숭아 주스",
+          "amount": "20ml",
+          "price": 220,
+          "replaces": [
+            "피치 소스"
+          ]
+        },
+        {
+          "label": "과일 젤리",
+          "amount": "적당량",
+          "price": 120,
+          "replaces": [
+            "젤리"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 3펌프, 복숭아 주스 90ml, 플레인 요거트 1스푼, 얼음 1.5스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "젤리(또는 과일 조각)를 섞어 담고 컵 벽에 복숭아 소스를 두른다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-chotang-corn-popping-smoothie",
+    "brand": "공차",
+    "name": "초당 옥수수 팝핑 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6100,
+    "emoji": "🌽",
+    "photoBg": "#FFFDE7",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "40ml",
+        "cost": 280
+      },
+      {
+        "name": "플랜트 파우더",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "휘핑",
+        "amount": "40ml",
+        "cost": 60
+      },
+      {
+        "name": "초당 옥수수",
+        "amount": "60ml",
+        "cost": 360
+      },
+      {
+        "name": "초코 파삥",
+        "amount": "10g",
+        "cost": 80
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "40ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "플랜트 파우더"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "적당량",
+          "price": 174,
+          "replaces": [
+            "휘핑"
+          ]
+        },
+        {
+          "label": "옥수수 시럽",
+          "amount": "60ml",
+          "price": 200,
+          "replaces": [
+            "초당 옥수수"
+          ]
+        },
+        {
+          "label": "초코 크런치",
+          "amount": "적당량",
+          "price": 150,
+          "replaces": [
+            "초코 파삥"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 1~2펌프, 홍차 40ml, 옥수수 설탕시럽(또는 통조림 옥수수) 60ml, 휘핑크림, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "초코 크런치를 조금 섞어 담는다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-hadong-hoji-smoothie",
+    "brand": "공차",
+    "name": "하동 호지 스무디",
+    "category": "스무디·쉐이크",
+    "price": 5900,
+    "emoji": "🍵",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "물",
+        "amount": "80ml",
+        "cost": 400
+      },
+      {
+        "name": "하동 호지 파우더",
+        "amount": "25g",
+        "cost": 225
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 30
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
           ]
         },
         {
@@ -429,24 +1214,16 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "청귤청",
-          "amount": "80ml",
-          "price": 350,
+          "label": "녹차 가루",
+          "amount": "2스푼",
+          "price": 200,
           "replaces": [
-            "청귤 소스"
-          ]
-        },
-        {
-          "label": "사이다",
-          "amount": "150ml",
-          "price": 300,
-          "replaces": [
-            "탄산"
+            "하동 호지 파우더"
           ]
         },
         {
           "label": "얼음",
-          "amount": "적당량",
+          "amount": "가득",
           "price": 50,
           "replaces": [
             "얼음"
@@ -456,50 +1233,49 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "그린티 80ml, 물 80ml, 얼음을 넣고 뚜껑 닫은 병으로 흔든다."
-        },
-        {
-          "title": "",
-          "body": "사이다를 천천히 넣어 스파클링 티를 만든다."
-        },
-        {
-          "title": "",
-          "body": "컵에 청귤 소스 80ml, 얼음 적게 넣고 천천히 부어준다."
-        },
-        {
-          "title": "",
-          "body": "토핑: 청귤칩 1개."
+          "body": "설탕시럽 3~4펌프, 물 80ml, 녹차 가루 2스푼, 얼음 1.5스쿱을 넣고 갈아준다."
         }
       ],
-      "difficulty": 1,
+      "difficulty": 2,
       "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
-    "id": "gongcha-jasmine-tea",
+    "id": "gongcha-jeju-green-smoothie",
     "brand": "공차",
-    "name": "자스민티",
-    "category": "버블티·밀크티",
-    "price": 4500,
-    "emoji": "🌸",
-    "photoBg": "#F3E5F5",
+    "name": "제주 그린 스무디",
+    "category": "스무디·쉐이크",
+    "price": 5800,
+    "emoji": "🌿",
+    "photoBg": "#C8E6C9",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
-        "name": "자스민 티 베이스",
-        "amount": "120ml",
-        "cost": 840
+        "name": "과당 시럽",
+        "amount": "30ml",
+        "cost": 210
       },
       {
-        "name": "과당 시럽",
-        "amount": "12ml",
-        "cost": 84
+        "name": "뜨거운 물",
+        "amount": "80ml",
+        "cost": 400
+      },
+      {
+        "name": "제주 녹차 파우더",
+        "amount": "25g",
+        "cost": 225
+      },
+      {
+        "name": "밀크폼",
+        "amount": "30ml",
+        "cost": 45
       },
       {
         "name": "얼음",
         "amount": "가득",
-        "cost": 25
+        "cost": 38
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -509,14 +1285,6 @@ const GONGCHA_MENUS = [
     ],
     "recipe": {
       "homeIngredients": [
-        {
-          "label": "자스민 티백",
-          "amount": "1~2개",
-          "price": 90,
-          "replaces": [
-            "자스민 티 베이스"
-          ]
-        },
         {
           "label": "설탕시럽",
           "amount": "2~3펌프",
@@ -526,405 +1294,11 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "얼음",
-          "amount": "가득",
-          "price": 50,
+          "label": "뜨거운 물",
+          "amount": "80ml",
+          "price": 10,
           "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "병에 설탕시럽 2~3펌프, 자스민 티(진하게 우린 뒤 식힌 것), 얼음을 넣고 뚜껑 닫고 흔든다."
-        },
-        {
-          "title": "",
-          "body": "컵에 붓고 얼음으로 채워 마무리해준다."
-        }
-      ],
-      "difficulty": 1,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-red-velvet-milk-tea",
-    "brand": "공차",
-    "name": "레드벨벳 밀크티 (ICE)",
-    "category": "버블티·밀크티",
-    "price": 5800,
-    "emoji": "❤️",
-    "photoBg": "#FFEBEE",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "블랙티",
-        "amount": "150ml",
-        "cost": 1050
-      },
-      {
-        "name": "과당 시럽",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "레드벨벳 포션",
-        "amount": "30g",
-        "cost": 270
-      },
-      {
-        "name": "치즈폼",
-        "amount": "40g",
-        "cost": 220
-      },
-      {
-        "name": "레드벨벳 크럼블",
-        "amount": "15g",
-        "cost": 120
-      },
-      {
-        "name": "얼음",
-        "amount": "Less Ice",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "홍차 티백",
-          "amount": "150ml",
-          "price": 90,
-          "replaces": [
-            "블랙티"
-          ]
-        },
-        {
-          "label": "설탕시럽",
-          "amount": "1펌프",
-          "price": 180,
-          "replaces": [
-            "과당 시럽"
-          ]
-        },
-        {
-          "label": "레드벨벳 파우더",
-          "amount": "1포션",
-          "price": 290,
-          "replaces": [
-            "레드벨벳 포션"
-          ]
-        },
-        {
-          "label": "크림치즈 폼",
-          "amount": "1.5국자",
-          "price": 280,
-          "replaces": [
-            "치즈폼"
-          ]
-        },
-        {
-          "label": "쿠키 크럼",
-          "amount": "적당량",
-          "price": 150,
-          "replaces": [
-            "레드벨벳 크럼블"
-          ]
-        },
-        {
-          "label": "얼음",
-          "amount": "적당량",
-          "price": 50,
-          "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "블랙티 150ml에 설탕시럽 1펌프를 넣고 섞는다."
-        },
-        {
-          "title": "",
-          "body": "레드벨벳 파우더(또는 코코아+베이킹파우더 믹스) 1포션 분량을 넣고 뚜껑 있는 컵이나 빈 페트병로 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
-        },
-        {
-          "title": "",
-          "body": "얼음을 적게 넣은 컵에 부어 치즈폼과 크럼블을 올린다."
-        }
-      ],
-      "difficulty": 2,
-      "time": "약 8분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-yakgwa-milk-tea",
-    "brand": "공차",
-    "name": "쫀득 약과 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5600,
-    "emoji": "🍯",
-    "photoBg": "#FFF8E1",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "우유",
-        "amount": "100ml",
-        "cost": 150
-      },
-      {
-        "name": "우롱티",
-        "amount": "100ml",
-        "cost": 700
-      },
-      {
-        "name": "약과 파우더",
-        "amount": "30g",
-        "cost": 270
-      },
-      {
-        "name": "약과",
-        "amount": "1개",
-        "cost": 120
-      },
-      {
-        "name": "과당 시럽",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "얼음",
-        "amount": "가득",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "우유",
-          "amount": "100ml",
-          "price": 250,
-          "replaces": [
-            "우유"
-          ]
-        },
-        {
-          "label": "우롱차 티백",
-          "amount": "100ml",
-          "price": 90,
-          "replaces": [
-            "우롱티"
-          ]
-        },
-        {
-          "label": "약과",
-          "amount": "3스푼",
-          "price": 290,
-          "replaces": [
-            "약과 파우더"
-          ]
-        },
-        {
-          "label": "약과",
-          "amount": "1개(잘게)",
-          "price": 200,
-          "replaces": [
-            "약과"
-          ]
-        },
-        {
-          "label": "설탕시럽",
-          "amount": "1펌프",
-          "price": 180,
-          "replaces": [
-            "과당 시럽"
-          ]
-        },
-        {
-          "label": "얼음",
-          "amount": "가득",
-          "price": 50,
-          "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "우유 100ml, 우롱티 100ml, 약과 파우더 3스푼, 잘게 쪼갠 약과 1개를 뚜껑 있는 컵이나 빈 페트병에 넣고 6초만 갈아준다."
-        },
-        {
-          "title": "",
-          "body": "컵에 설탕시럽, 얼음 가득 채운 뒤 갈아 둔 음료를 부어준다."
-        }
-      ],
-      "difficulty": 2,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-hadong-hoji-milk-tea",
-    "brand": "공차",
-    "name": "하동 호지 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5400,
-    "emoji": "🍵",
-    "photoBg": "#E8F5E9",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "티 베이스",
-        "amount": "100ml",
-        "cost": 700
-      },
-      {
-        "name": "하동 호지 파우더",
-        "amount": "25g",
-        "cost": 225
-      },
-      {
-        "name": "우유",
-        "amount": "120ml",
-        "cost": 180
-      },
-      {
-        "name": "과당 시럽",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "얼음",
-        "amount": "가득",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "녹차/티 베이스",
-          "amount": "100ml",
-          "price": 90,
-          "replaces": [
-            "티 베이스"
-          ]
-        },
-        {
-          "label": "호지(녹차) 파우더",
-          "amount": "2스푼",
-          "price": 200,
-          "replaces": [
-            "하동 호지 파우더"
-          ]
-        },
-        {
-          "label": "우유",
-          "amount": "120ml",
-          "price": 300,
-          "replaces": [
-            "우유"
-          ]
-        },
-        {
-          "label": "설탕시럽",
-          "amount": "1펌프",
-          "price": 180,
-          "replaces": [
-            "과당 시럽"
-          ]
-        },
-        {
-          "label": "얼음",
-          "amount": "가득",
-          "price": 50,
-          "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "뜨거운 물 또는 우려낸 티에 하동 호지(녹차) 파우더를 넣고 덩어리 없이 풀어준다."
-        },
-        {
-          "title": "",
-          "body": "설탕시럽과 우유를 넣어 섞고, 얼음 가득 채운 컵에 부어준다."
-        }
-      ],
-      "difficulty": 1,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-jeju-green-milk-tea",
-    "brand": "공차",
-    "name": "제주 그린 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5100,
-    "emoji": "🌿",
-    "photoBg": "#C8E6C9",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "그린티 베이스",
-        "amount": "100ml",
-        "cost": 700
-      },
-      {
-        "name": "제주 녹차 파우더",
-        "amount": "20g",
-        "cost": 180
-      },
-      {
-        "name": "우유",
-        "amount": "120ml",
-        "cost": 180
-      },
-      {
-        "name": "과당 시럽",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "얼음",
-        "amount": "가득",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "녹차 티백",
-          "amount": "100ml",
-          "price": 90,
-          "replaces": [
-            "그린티 베이스"
+            "뜨거운 물"
           ]
         },
         {
@@ -937,10 +1311,116 @@ const GONGCHA_MENUS = [
         },
         {
           "label": "우유",
-          "amount": "120ml",
-          "price": 300,
+          "amount": "30ml(거품용)",
+          "price": 75,
           "replaces": [
-            "우유"
+            "밀크폼"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 4펌프, 뜨거운 물 80ml에 녹차 가루를 녹인 뒤 얼음 2스쿱과 함께 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 우유 거품을 올려 마무리해준다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 밀크폼."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-black-tea-cafe-smoothie",
+    "brand": "공차",
+    "name": "블랙티 카페 스무디 + 펄",
+    "category": "스무디·쉐이크",
+    "price": 6200,
+    "emoji": "☕",
+    "photoBg": "#3E2723",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "스무디 포션",
+        "amount": "25g",
+        "cost": 225
+      },
+      {
+        "name": "브라운슈가",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "에스프레소",
+        "amount": "1샷",
+        "cost": 68
+      },
+      {
+        "name": "타피오카 펄",
+        "amount": "40g",
+        "cost": 152
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "20ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "스무디 포션"
           ]
         },
         {
@@ -948,7 +1428,23 @@ const GONGCHA_MENUS = [
           "amount": "1펌프",
           "price": 180,
           "replaces": [
-            "과당 시럽"
+            "브라운슈가"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "1개",
+          "price": 1150,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
           ]
         },
         {
@@ -963,37 +1459,43 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "그린티 베이스에 녹차 가루 2스푼을 넣고 뚜껑 닫고 흔들어 섞는다."
+          "body": "설탕시럽 3펌프, 설탕시럽 20ml, 홍차 20ml, 에스프레소 액상스틱 1개, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "설탕시럽, 우유를 넣고 얼음 컵에 부어 마무리해준다."
+          "body": "컵 바닥에 타피오카 펄을 깔고 스무디를 부어준다."
         }
       ],
-      "difficulty": 1,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "difficulty": 2,
+      "time": "약 8분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
-    "id": "gongcha-vanilla-bean-cream-milk-tea",
+    "id": "gongcha-vanilla-bean-cream-smoothie",
     "brand": "공차",
-    "name": "바닐라빈 크림 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5500,
+    "name": "바닐라빈 크림 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6100,
     "emoji": "🤍",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
       {
-        "name": "블랙티 베이스",
-        "amount": "100ml",
-        "cost": 700
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "60ml",
+        "cost": 420
       },
       {
         "name": "바닐라빈 파우더/시럽",
-        "amount": "20ml",
-        "cost": 140
+        "amount": "25g",
+        "cost": 225
       },
       {
         "name": "밀크 크림/치즈폼",
@@ -1001,9 +1503,14 @@ const GONGCHA_MENUS = [
         "cost": 220
       },
       {
+        "name": "카라멜 드리즐",
+        "amount": "7회",
+        "cost": 35
+      },
+      {
         "name": "얼음",
         "amount": "가득",
-        "cost": 25
+        "cost": 38
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -1014,23 +1521,31 @@ const GONGCHA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
           "label": "홍차 티백",
-          "amount": "100ml",
+          "amount": "60ml",
           "price": 90,
           "replaces": [
-            "블랙티 베이스"
+            "블랙티 농축 베이스"
           ]
         },
         {
           "label": "바닐라 시럽",
-          "amount": "1~2펌프",
-          "price": 180,
+          "amount": "2스푼",
+          "price": 200,
           "replaces": [
             "바닐라빈 파우더/시럽"
           ]
         },
         {
-          "label": "생크림/크림치즈 폼",
+          "label": "휘핑크림",
           "amount": "토핑",
           "price": 280,
           "replaces": [
@@ -1038,6 +1553,14 @@ const GONGCHA_MENUS = [
           ]
         },
         {
+          "label": "카라멜 시럽",
+          "amount": "드리즐",
+          "price": 80,
+          "replaces": [
+            "카라멜 드리즐"
+          ]
+        },
+        {
           "label": "얼음",
           "amount": "가득",
           "price": 50,
@@ -1049,242 +1572,42 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "블랙티 베이스에 바닐라빈 시럽(또는 바닐라 파우더)을 넣고 숟가락으로 섞는다."
+          "body": "설탕시럽 2~3펌프, 홍차 60ml, 바닐라 파우더, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "얼음 컵에 부은 뒤 생크림 또는 크림치즈 폼을 부드럽게 올린다."
+          "body": "휘핑크림 1스푼을 섞고 위에 휘핑크림과 카라멜 시럽을 드리즐한다."
         }
       ],
       "difficulty": 2,
       "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
-    "id": "gongcha-earlgrey-choco-milk-tea",
+    "id": "gongcha-oolong-smoothie",
     "brand": "공차",
-    "name": "얼그레이 초콜릿 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5400,
-    "emoji": "🍫",
-    "photoBg": "#D7CCC8",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "얼그레이 티 베이스",
-        "amount": "100ml",
-        "cost": 700
-      },
-      {
-        "name": "초콜릿 파우더/소스",
-        "amount": "30g",
-        "cost": 270
-      },
-      {
-        "name": "우유",
-        "amount": "120ml",
-        "cost": 180
-      },
-      {
-        "name": "얼음",
-        "amount": "가득",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "얼그레이 티백",
-          "amount": "100ml",
-          "price": 90,
-          "replaces": [
-            "얼그레이 티 베이스"
-          ]
-        },
-        {
-          "label": "초코 파우더/소스",
-          "amount": "3스푼",
-          "price": 290,
-          "replaces": [
-            "초콜릿 파우더/소스"
-          ]
-        },
-        {
-          "label": "우유",
-          "amount": "120ml",
-          "price": 300,
-          "replaces": [
-            "우유"
-          ]
-        },
-        {
-          "label": "얼음",
-          "amount": "가득",
-          "price": 50,
-          "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "얼그레이 티에 초코 파우더 3스푼(또는 초코 소스)을 넣고 뜨거운 물 소량으로 녹인다."
-        },
-        {
-          "title": "",
-          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
-        }
-      ],
-      "difficulty": 1,
-      "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-black-milk-tea",
-    "brand": "공차",
-    "name": "블랙 밀크티 + 펄",
-    "category": "버블티·밀크티",
-    "price": 5100,
+    "name": "우롱티 스무디 + 펄",
+    "category": "스무디·쉐이크",
+    "price": 5900,
     "emoji": "🧋",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
+    "listHidden": true,
     "ingredients": [
-      {
-        "name": "블랙티 농축 베이스",
-        "amount": "150ml",
-        "cost": 1050
-      },
-      {
-        "name": "우유",
-        "amount": "150ml",
-        "cost": 225
-      },
-      {
-        "name": "흑당·과당 시럽",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "타피오카 펄",
-        "amount": "40g",
-        "cost": 152
-      },
-      {
-        "name": "얼음",
-        "amount": "가득",
-        "cost": 25
-      },
-      {
-        "name": "컵·뚜껑·빨대",
-        "amount": "1세트",
-        "cost": 115
-      }
-    ],
-    "recipe": {
-      "homeIngredients": [
-        {
-          "label": "홍차 티백",
-          "amount": "2개",
-          "price": 180,
-          "replaces": [
-            "블랙티 농축 베이스"
-          ]
-        },
-        {
-          "label": "물",
-          "amount": "150ml",
-          "price": 10,
-          "replaces": [
-            "블랙티 농축 베이스"
-          ]
-        },
-        {
-          "label": "우유",
-          "amount": "150ml",
-          "price": 375,
-          "replaces": [
-            "우유"
-          ]
-        },
-        {
-          "label": "설탕",
-          "amount": "1~2큰술",
-          "price": 30,
-          "replaces": [
-            "흑당·과당 시럽"
-          ]
-        },
-        {
-          "label": "타피오카 펄",
-          "amount": "40g",
-          "price": 100,
-          "replaces": [
-            "타피오카 펄"
-          ]
-        },
-        {
-          "label": "얼음",
-          "amount": "가득",
-          "price": 50,
-          "replaces": [
-            "얼음"
-          ]
-        }
-      ],
-      "steps": [
-        {
-          "title": "",
-          "body": "물 150ml를 끓인 후 홍차 티백 2개를 넣고 3~5분 진하게 우려낸다."
-        },
-        {
-          "title": "",
-          "body": "우려낸 홍차에 우유 150ml, 설탕(또는 꿀) 1~2큰술을 넣고 잘 저어 밀크티를 만든다."
-        },
-        {
-          "title": "",
-          "body": "타피오카 펄을 삶아 찬물에 헹구어 컵 바닥에 깔고 밀크티를 붓는다 (펄은 생략 가능)."
-        },
-        {
-          "title": "",
-          "body": "얼음을 가득 채워 시원하게 즐긴다."
-        }
-      ],
-      "difficulty": 2,
-      "time": "약 20분",
-      "note": "Large 1잔 기준 · 펄 생략 가능 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
-  },
-  {
-    "id": "gongcha-taro-milk-tea",
-    "brand": "공차",
-    "name": "타로 밀크티",
-    "category": "버블티·밀크티",
-    "price": 5200,
-    "emoji": "🟣",
-    "photoBg": "#F3E5F5",
-    "recipeReady": true,
-    "ingredients": [
-      {
-        "name": "타로 파우더",
-        "amount": "30g",
-        "cost": 270
-      },
       {
         "name": "과당 시럽",
-        "amount": "15ml",
-        "cost": 105
+        "amount": "25ml",
+        "cost": 175
       },
       {
-        "name": "우유",
-        "amount": "150ml",
+        "name": "우롱티",
+        "amount": "70ml",
+        "cost": 490
+      },
+      {
+        "name": "스무디 포션",
+        "amount": "25g",
         "cost": 225
       },
       {
@@ -1295,7 +1618,7 @@ const GONGCHA_MENUS = [
       {
         "name": "얼음",
         "amount": "가득",
-        "cost": 25
+        "cost": 30
       },
       {
         "name": "컵·뚜껑·빨대",
@@ -1306,43 +1629,35 @@ const GONGCHA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
-          "label": "타피오카 펄",
-          "amount": "40g",
-          "price": 100,
-          "replaces": [
-            "타피오카 펄"
-          ]
-        },
-        {
-          "label": "타로 파우더",
-          "amount": "3큰술",
-          "price": 280,
-          "replaces": [
-            "타로 파우더"
-          ]
-        },
-        {
-          "label": "설탕",
-          "amount": "1큰술",
-          "price": 15,
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
           "replaces": [
             "과당 시럽"
           ]
         },
         {
-          "label": "물",
-          "amount": "50ml",
-          "price": 10,
+          "label": "우롱차 티백",
+          "amount": "70ml",
+          "price": 90,
           "replaces": [
-            "타로 파우더"
+            "우롱티"
           ]
         },
         {
-          "label": "우유",
-          "amount": "150ml",
-          "price": 375,
+          "label": "플레인 요거트",
+          "amount": "2스푼",
+          "price": 200,
           "replaces": [
-            "우유"
+            "스무디 포션"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
           ]
         },
         {
@@ -1357,35 +1672,158 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "냄비에 물 200ml를 끓인다."
+          "body": "설탕시럽 4펌프, 우롱차 70ml, 플레인 요거트, 얼음 1.5스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "타피오카 펄 40g을 15분간 삶고 찬물에 헹근다 (선택 사항)."
-        },
-        {
-          "title": "",
-          "body": "뜨거운 물 50ml에 타로 파우더 3큰술, 설탕 1큰술을 넣고 덩어리 없이 풀어준다."
-        },
-        {
-          "title": "",
-          "body": "컵에 타피오카 펄(선택)과 얼음을 가득 넣고, 타로 파우더를 녹인 물과 우유 150ml를 부어 저어 완성해준다."
+          "body": "컵 바닥에 타피오카 펄을 깔고 스무디를 부어준다."
         }
       ],
-      "difficulty": 3,
-      "time": "약 25분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "difficulty": 2,
+      "time": "약 8분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-red-velvet-smoothie",
+    "brand": "공차",
+    "name": "레드벨벳 스무디",
+    "category": "스무디·쉐이크",
+    "price": 6100,
+    "emoji": "❤️",
+    "photoBg": "#FFEBEE",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "40ml",
+        "cost": 280
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "30ml",
+        "cost": 150
+      },
+      {
+        "name": "레드벨벳 포션",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "치즈폼",
+        "amount": "40g",
+        "cost": 220
+      },
+      {
+        "name": "쿠키 분태",
+        "amount": "15g",
+        "cost": 120
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 38
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "40ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "30ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        },
+        {
+          "label": "레드벨벳 파우더",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "레드벨벳 포션"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "토핑",
+          "price": 280,
+          "replaces": [
+            "치즈폼"
+          ]
+        },
+        {
+          "label": "쿠키 크럼",
+          "amount": "적당량",
+          "price": 150,
+          "replaces": [
+            "쿠키 분태"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "설탕시럽 2~3펌프, 홍차 40ml, 뜨거운 물 30ml, 레드벨벳 파우더, 얼음 2스쿱을 넣고 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 휘핑크림과 쿠키 크럼을 올려 마무리해준다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 치즈폼, 레드벨벳 크럼블."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
     "id": "gongcha-mango-yogurt-white-pearl",
     "brand": "공차",
-    "name": "망고 요구르트 + 화이트 펄",
+    "name": "망고요구르트 + 화이트펄",
     "category": "스무디·쉐이크",
     "price": 5900,
     "emoji": "🥭",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "망고 퓨레",
@@ -1468,7 +1906,1967 @@ const GONGCHA_MENUS = [
       ],
       "difficulty": 2,
       "time": "약 8분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-gongcha-super",
+    "brand": "공차",
+    "name": "공차슈페너",
+    "category": "커피",
+    "price": 5500,
+    "emoji": "☕",
+    "photoBg": "#EFEBE9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "에스프레소",
+        "amount": "1샷",
+        "cost": 68
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "100ml",
+        "cost": 500
+      },
+      {
+        "name": "얼그레이 티",
+        "amount": "50ml",
+        "cost": 350
+      },
+      {
+        "name": "밀크폼",
+        "amount": "30ml",
+        "cost": 45
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "1개",
+          "price": 1150,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "100ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        },
+        {
+          "label": "얼그레이 티백",
+          "amount": "50ml",
+          "price": 90,
+          "replaces": [
+            "얼그레이 티"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "거품",
+          "price": 75,
+          "replaces": [
+            "밀크폼"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 3펌프, 에스프레소 액상스틱 1개, 얼그레이 티 50ml, 뜨거운 물 100ml, 얼음을 넣고 뚜껑 닫고 흔든다."
+        },
+        {
+          "title": "",
+          "body": "거품과 얼음을 걸러 담고 우유 거품을 위에 올린다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-earlgrey-cafe-latte",
+    "brand": "공차",
+    "name": "얼그레이 카페라떼 + 펄",
+    "category": "커피",
+    "price": 5600,
+    "emoji": "🫖",
+    "photoBg": "#D7CCC8",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "에스프레소",
+        "amount": "1샷",
+        "cost": 68
+      },
+      {
+        "name": "얼그레이 티",
+        "amount": "50ml",
+        "cost": 350
+      },
+      {
+        "name": "우유",
+        "amount": "50ml",
+        "cost": 75
+      },
+      {
+        "name": "휘핑",
+        "amount": "50ml",
+        "cost": 75
+      },
+      {
+        "name": "타피오카 펄",
+        "amount": "40g",
+        "cost": 152
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "1개",
+          "price": 1150,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "얼그레이 티백",
+          "amount": "50ml",
+          "price": 90,
+          "replaces": [
+            "얼그레이 티"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "50ml",
+          "price": 125,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "적당량",
+          "price": 174,
+          "replaces": [
+            "휘핑"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 3펌프, 타피오카 펄, 휘핑크림, 우유 50ml, 얼그레이 티 50ml, 에스프레소 액상스틱 1개를 넣고 얼음을 넣어 흔든다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 6분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-chotang-corn-milk-tea",
+    "brand": "공차",
+    "name": "초당 옥수수 밀크티 + 펄",
+    "category": "버블티·밀크티",
+    "price": 5600,
+    "emoji": "🌽",
+    "photoBg": "#FFFDE7",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "40ml",
+        "cost": 280
+      },
+      {
+        "name": "우유",
+        "amount": "130ml",
+        "cost": 195
+      },
+      {
+        "name": "초당 옥수수",
+        "amount": "40ml",
+        "cost": 240
+      },
+      {
+        "name": "타피오카 펄",
+        "amount": "40g",
+        "cost": 152
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "40ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "130ml",
+          "price": 325,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "옥수수 시럽",
+          "amount": "40ml",
+          "price": 200,
+          "replaces": [
+            "초당 옥수수"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1펌프, 타피오카 펄, 옥수수 설탕시럽 40ml, 홍차 40ml, 우유 130ml, 얼음을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 8분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-americano-ice",
+    "brand": "공차",
+    "name": "아메리카노 (ICE)",
+    "category": "커피",
+    "price": 4800,
+    "emoji": "🧊",
+    "photoBg": "#E3F2FD",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "10ml",
+        "cost": 70
+      },
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "물",
+        "amount": "175ml",
+        "cost": 875
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "175ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 얼음, 물 150~200ml, 에스프레소 액상스틱 1~2개, 설탕시럽 1~2펌프를 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 4분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-americano-hot",
+    "brand": "공차",
+    "name": "아메리카노 (HOT)",
+    "category": "커피",
+    "price": 4800,
+    "emoji": "☕",
+    "photoBg": "#EFEBE9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "300ml",
+        "cost": 1500
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "300ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "뜨거운 물 300ml에 에스프레소 액상스틱 1~2개를 넣고 저어 마무리해준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 4분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-cafe-latte",
+    "brand": "공차",
+    "name": "카페라떼",
+    "category": "커피",
+    "price": 5200,
+    "emoji": "☕",
+    "photoBg": "#EFEBE9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "10ml",
+        "cost": 70
+      },
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "우유",
+        "amount": "200ml",
+        "cost": 300
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "200ml",
+          "price": 500,
+          "replaces": [
+            "우유"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 우유 200ml, 에스프레소 액상스틱 1~2개, 설탕시럽 1~2펌프, 얼음을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-caramel-cafe-latte",
+    "brand": "공차",
+    "name": "카라멜 카페라떼",
+    "category": "커피",
+    "price": 5400,
+    "emoji": "🍮",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "우유",
+        "amount": "175ml",
+        "cost": 263
+      },
+      {
+        "name": "카라멜 드리즐",
+        "amount": "10~15회",
+        "cost": 40
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "175ml",
+          "price": 438,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "카라멜 시럽",
+          "amount": "드리즐",
+          "price": 80,
+          "replaces": [
+            "카라멜 드리즐"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1~2펌프, 우유 150~200ml, 에스프레소 액상스틱 1~2개, 얼음을 넣고 흔든 뒤 카라멜 시럽을 드리즐한다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-vanilla-cafe-latte",
+    "brand": "공차",
+    "name": "바닐라 카페라떼 (ICE)",
+    "category": "커피",
+    "price": 5400,
+    "emoji": "🤍",
+    "photoBg": "#FFFDE7",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "우유",
+        "amount": "200ml",
+        "cost": 300
+      },
+      {
+        "name": "바닐라 파우더",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "200ml",
+          "price": 500,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "바닐라 시럽",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "바닐라 파우더"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 바닐라 시럽, 에스프레소 액상스틱, 바닐라 파우더를 넣고 섞는다."
+        },
+        {
+          "title": "",
+          "body": "우유 150~250ml를 붓고 얼음을 채워 마무리해준다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-mocha-cafe-latte",
+    "brand": "공차",
+    "name": "모카 카페라떼 (ICE)",
+    "category": "커피",
+    "price": 5500,
+    "emoji": "🍫",
+    "photoBg": "#4E342E",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "25ml",
+        "cost": 175
+      },
+      {
+        "name": "에스프레소",
+        "amount": "2샷",
+        "cost": 136
+      },
+      {
+        "name": "우유",
+        "amount": "175ml",
+        "cost": 263
+      },
+      {
+        "name": "초콜릿 파우더",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "밀크폼",
+        "amount": "30ml",
+        "cost": 45
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "에스프레소 액상스틱",
+          "amount": "2개",
+          "price": 2300,
+          "replaces": [
+            "에스프레소"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "175ml",
+          "price": 438,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "코코아 파우더",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "초콜릿 파우더"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "거품",
+          "price": 75,
+          "replaces": [
+            "밀크폼"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽, 에스프레소, 코코아 파우더를 넣고 숟가락으로 녹인다."
+        },
+        {
+          "title": "",
+          "body": "우유 150~200ml, 얼음을 넣고 흔든 뒤 우유 거품을 올린다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 밀크폼."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-strawberry-jewelry-milk-tea",
+    "brand": "공차",
+    "name": "딸기 쥬얼리 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5800,
+    "emoji": "🍓",
+    "photoBg": "#FCE4EC",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "딸기 쥬얼리 소스",
+        "amount": "50ml",
+        "cost": 400
+      },
+      {
+        "name": "쥬얼리 토핑",
+        "amount": "0.5봉지",
+        "cost": 80
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "50ml",
+          "price": 200,
+          "replaces": [
+            "딸기 쥬얼리 소스"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "적당량",
+          "price": 200,
+          "replaces": [
+            "쥬얼리 토핑"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1펌프, 딸기잼·젤리 토핑, 우유를 C라인까지 넣고 얼음을 넣어 흔든다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-black-sapphire-grape-milk-tea",
+    "brand": "공차",
+    "name": "블랙사파이어 포도 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5800,
+    "emoji": "🍇",
+    "photoBg": "#EDE7F6",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "포도 소스",
+        "amount": "80ml",
+        "cost": 640
+      },
+      {
+        "name": "쥬얼리 토핑",
+        "amount": "0.5봉지",
+        "cost": 80
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "150ml",
+          "price": 375,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "포도 주스",
+          "amount": "80ml",
+          "price": 250,
+          "replaces": [
+            "포도 소스"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "적당량",
+          "price": 200,
+          "replaces": [
+            "쥬얼리 토핑"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 2펌프, 포도 주스·젤리 토핑, 우유 150ml, 얼음을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-brown-sugar-jewelry-milk-tea",
+    "brand": "공차",
+    "name": "브라운슈거 쥬얼리 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5800,
+    "emoji": "🟤",
+    "photoBg": "#EFEBE9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "쥬얼리 토핑",
+        "amount": "1봉지",
+        "cost": 80
+      },
+      {
+        "name": "브라운슈가 소스",
+        "amount": "두르기",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "적당량",
+          "price": 200,
+          "replaces": [
+            "쥬얼리 토핑"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2펌프",
+          "price": 180,
+          "replaces": [
+            "브라운슈가 소스"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵 벽에 설탕시럽을 두르고, 젤리·타피오카 토핑을 데운다."
+        },
+        {
+          "title": "",
+          "body": "우유 베이스로 채운다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-double-peach-milk-tea",
+    "brand": "공차",
+    "name": "더블피치 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5600,
+    "emoji": "🍑",
+    "photoBg": "#FFE0B2",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "우유",
+        "amount": "100ml",
+        "cost": 150
+      },
+      {
+        "name": "피치 밀크티 소스",
+        "amount": "120ml",
+        "cost": 960
+      },
+      {
+        "name": "젤리",
+        "amount": "2국자",
+        "cost": 50
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "100ml",
+          "price": 250,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "복숭아 주스",
+          "amount": "120ml",
+          "price": 220,
+          "replaces": [
+            "피치 밀크티 소스"
+          ]
+        },
+        {
+          "label": "과일 젤리",
+          "amount": "2국자",
+          "price": 120,
+          "replaces": [
+            "젤리"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1펌프, 복숭아 젤리, 복숭아 소스 120ml, 우유 100ml, 얼음 적게 넣고 흔든다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-red-velvet-milk-tea",
+    "brand": "공차",
+    "name": "레드벨벳 밀크티 (ICE)",
+    "category": "버블티·밀크티",
+    "price": 5800,
+    "emoji": "❤️",
+    "photoBg": "#FFEBEE",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "150ml",
+        "cost": 1050
+      },
+      {
+        "name": "레드벨벳 포션",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "치즈폼",
+        "amount": "40g",
+        "cost": 220
+      },
+      {
+        "name": "레드벨벳 크럼블",
+        "amount": "15g",
+        "cost": 120
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "150ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "레드벨벳 파우더",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "레드벨벳 포션"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "토핑",
+          "price": 280,
+          "replaces": [
+            "치즈폼"
+          ]
+        },
+        {
+          "label": "쿠키 크럼",
+          "amount": "적당량",
+          "price": 150,
+          "replaces": [
+            "레드벨벳 크럼블"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "블랙티 150ml에 설탕시럽 1펌프를 넣고 섞는다."
+        },
+        {
+          "title": "",
+          "body": "레드벨벳 파우더(또는 코코아+베이킹파우더 믹스) 1포션 분량을 넣고 뚜껑 있는 컵이나 빈 페트병로 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+        },
+        {
+          "title": "",
+          "body": "얼음을 적게 넣은 컵에 부어 치즈폼과 크럼블을 올린다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 8분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-yakgwa-milk-tea",
+    "brand": "공차",
+    "name": "쫀득 약과 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5600,
+    "emoji": "🍯",
+    "photoBg": "#FFF8E1",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "우롱티",
+        "amount": "100ml",
+        "cost": 700
+      },
+      {
+        "name": "우유",
+        "amount": "100ml",
+        "cost": 150
+      },
+      {
+        "name": "약과 파우더",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "약과",
+        "amount": "1개",
+        "cost": 120
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우롱차 티백",
+          "amount": "100ml",
+          "price": 90,
+          "replaces": [
+            "우롱티"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "100ml",
+          "price": 250,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "약과",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "약과 파우더"
+          ]
+        },
+        {
+          "label": "약과",
+          "amount": "1개(잘게)",
+          "price": 200,
+          "replaces": [
+            "약과"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "우유 100ml, 우롱티 100ml, 약과 파우더 3스푼, 잘게 쪼갠 약과 1개를 뚜껑 있는 컵이나 빈 페트병에 넣고 6초만 갈아준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 설탕시럽, 얼음 가득 채운 뒤 갈아 둔 음료를 부어준다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-hadong-hoji-milk-tea",
+    "brand": "공차",
+    "name": "하동 호지 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5400,
+    "emoji": "🍵",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "40ml",
+        "cost": 200
+      },
+      {
+        "name": "하동 호지 파우더",
+        "amount": "25g",
+        "cost": 225
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "150ml",
+          "price": 375,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "40ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        },
+        {
+          "label": "녹차 가루",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "하동 호지 파우더"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "뜨거운 물 또는 우려낸 티에 하동 호지(녹차) 파우더를 넣고 덩어리 없이 풀어준다."
+        },
+        {
+          "title": "",
+          "body": "설탕시럽과 우유를 넣어 섞고, 얼음 가득 채운 컵에 부어준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-jeju-green-milk-tea",
+    "brand": "공차",
+    "name": "제주그린 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5100,
+    "emoji": "🌿",
+    "photoBg": "#C8E6C9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "18ml",
+        "cost": 126
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "20ml",
+        "cost": 100
+      },
+      {
+        "name": "제주 녹차 파우더",
+        "amount": "20g",
+        "cost": 180
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "150ml",
+          "price": 375,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "20ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        },
+        {
+          "label": "녹차 가루",
+          "amount": "2스푼",
+          "price": 200,
+          "replaces": [
+            "제주 녹차 파우더"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "그린티 베이스에 녹차 가루 2스푼을 넣고 뚜껑 닫고 흔들어 섞는다."
+        },
+        {
+          "title": "",
+          "body": "설탕시럽, 우유를 넣고 얼음 컵에 부어 마무리해준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-vanilla-bean-cream-milk-tea",
+    "brand": "공차",
+    "name": "바닐라빈 크림 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5500,
+    "emoji": "🤍",
+    "photoBg": "#FFFDE7",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "50ml",
+        "cost": 350
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "바닐라 파우더",
+        "amount": "1.5스푼",
+        "cost": 25
+      },
+      {
+        "name": "밀크 크림/치즈폼",
+        "amount": "40g",
+        "cost": 220
+      },
+      {
+        "name": "카라멜 드리즐",
+        "amount": "7회",
+        "cost": 35
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "50ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "150ml",
+          "price": 375,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "바닐라 시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "바닐라 파우더"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "토핑",
+          "price": 280,
+          "replaces": [
+            "밀크 크림/치즈폼"
+          ]
+        },
+        {
+          "label": "카라멜 시럽",
+          "amount": "드리즐",
+          "price": 80,
+          "replaces": [
+            "카라멜 드리즐"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "우유 150ml, 홍차 50ml, 설탕시럽 1펌프를 컵에 넣고 섞는다."
+        },
+        {
+          "title": "",
+          "body": "바닐라 파우더 1.5스푼을 녹여 저어 얼음 컵에 담는다."
+        },
+        {
+          "title": "",
+          "body": "휘핑크림 1스푼을 올리고 카라멜 시럽을 7회 드리즐한다."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-earlgrey-choco-milk-tea",
+    "brand": "공차",
+    "name": "얼그레이 초콜릿 밀크티",
+    "category": "버블티·밀크티",
+    "price": 5400,
+    "emoji": "🍫",
+    "photoBg": "#D7CCC8",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "얼그레이 티 베이스",
+        "amount": "100ml",
+        "cost": 700
+      },
+      {
+        "name": "우유",
+        "amount": "120ml",
+        "cost": 180
+      },
+      {
+        "name": "초콜릿 파우더",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "얼그레이 티백",
+          "amount": "100ml",
+          "price": 90,
+          "replaces": [
+            "얼그레이 티 베이스"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "120ml",
+          "price": 300,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "코코아 파우더",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "초콜릿 파우더"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "얼그레이 티에 코코아 파우더 3스푼(또는 초코 소스)을 넣고 뜨거운 물 소량으로 녹인다."
+        },
+        {
+          "title": "",
+          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-black-milk-tea",
+    "brand": "공차",
+    "name": "블랙밀크티 + 펄",
+    "category": "버블티·밀크티",
+    "price": 5100,
+    "emoji": "🧋",
+    "photoBg": "#EFEBE9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티 농축 베이스",
+        "amount": "150ml",
+        "cost": 1050
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "타피오카 펄",
+        "amount": "40g",
+        "cost": 152
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "홍차 티백",
+          "amount": "2개",
+          "price": 180,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "150ml",
+          "price": 10,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "설탕",
+          "amount": "1~2큰술",
+          "price": 30,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "150ml",
+          "price": 90,
+          "replaces": [
+            "블랙티 농축 베이스"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "150ml",
+          "price": 375,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "물 150ml를 끓인 후 홍차 티백 2개를 넣고 3~5분 진하게 우려낸다."
+        },
+        {
+          "title": "",
+          "body": "우려낸 홍차에 우유 150ml, 설탕(또는 꿀) 1~2큰술을 넣고 잘 저어 밀크티를 만든다."
+        },
+        {
+          "title": "",
+          "body": "타피오카 펄을 삶아 찬물에 헹구어 컵 바닥에 깔고 밀크티를 붓는다 (펄은 생략 가능)."
+        },
+        {
+          "title": "",
+          "body": "얼음을 가득 채워 시원하게 즐긴다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 타피오카 펄."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 20분",
+      "note": "Large 1잔 기준 · 펄 생략 가능 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
@@ -1480,21 +3878,12 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#4E342E",
     "recipeReady": true,
+    "listHidden": false,
     "ingredients": [
       {
-        "name": "초콜릿 파우더",
-        "amount": "30g",
-        "cost": 270
-      },
-      {
-        "name": "초코 소스",
-        "amount": "15ml",
-        "cost": 105
-      },
-      {
-        "name": "티 베이스",
-        "amount": "80ml",
-        "cost": 560
+        "name": "과당 시럽",
+        "amount": "18ml",
+        "cost": 126
       },
       {
         "name": "우유",
@@ -1502,7 +3891,17 @@ const GONGCHA_MENUS = [
         "cost": 180
       },
       {
-        "name": "과당 시럽",
+        "name": "뜨거운 물",
+        "amount": "20ml",
+        "cost": 100
+      },
+      {
+        "name": "초콜릿 파우더",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "초코 소스",
         "amount": "15ml",
         "cost": 105
       },
@@ -1520,6 +3919,30 @@ const GONGCHA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "우유",
+          "amount": "120ml",
+          "price": 300,
+          "replaces": [
+            "우유"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "20ml",
+          "price": 10,
+          "replaces": [
+            "뜨거운 물"
+          ]
+        },
+        {
           "label": "코코아 파우더",
           "amount": "3스푼",
           "price": 290,
@@ -1536,27 +3959,116 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "홍차/티",
-          "amount": "80ml",
-          "price": 90,
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
           "replaces": [
-            "티 베이스"
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 코코아 파우더 3스푼, 초코 소스 1펌프를 넣고 뜨거운 물 20ml로 완전히 녹인다."
+        },
+        {
+          "title": "",
+          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-taro-milk-tea",
+    "brand": "공차",
+    "name": "타로밀크티",
+    "category": "버블티·밀크티",
+    "price": 5200,
+    "emoji": "🟣",
+    "photoBg": "#F3E5F5",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "12ml",
+        "cost": 84
+      },
+      {
+        "name": "우유",
+        "amount": "150ml",
+        "cost": 225
+      },
+      {
+        "name": "뜨거운 물",
+        "amount": "20ml",
+        "cost": 100
+      },
+      {
+        "name": "타로 파우더",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "타피오카 펄",
+        "amount": "40g",
+        "cost": 152
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
           ]
         },
         {
           "label": "우유",
-          "amount": "120ml",
-          "price": 300,
+          "amount": "150ml",
+          "price": 375,
           "replaces": [
             "우유"
           ]
         },
         {
-          "label": "설탕시럽",
-          "amount": "1펌프",
-          "price": 180,
+          "label": "뜨거운 물",
+          "amount": "20ml",
+          "price": 10,
           "replaces": [
-            "과당 시럽"
+            "뜨거운 물"
+          ]
+        },
+        {
+          "label": "타로 파우더",
+          "amount": "3스푼",
+          "price": 280,
+          "replaces": [
+            "타로 파우더"
+          ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "40g",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
           ]
         },
         {
@@ -1571,16 +4083,1525 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 코코아 파우더 3스푼, 초코 소스 1펌프를 넣고 뜨거운 티 소량으로 완전히 녹인다."
+          "body": "냄비에 뜨거운 물 200ml를 끓인다."
         },
         {
           "title": "",
-          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
+          "body": "타피오카 펄 40g을 15분간 삶고 찬물에 헹근다 (선택 사항)."
+        },
+        {
+          "title": "",
+          "body": "뜨거운 물 50ml에 타로 파우더 3큰술, 설탕 1큰술을 넣고 덩어리 없이 풀어준다."
+        },
+        {
+          "title": "",
+          "body": "컵에 타피오카 펄(선택)과 얼음을 가득 넣고, 타로 파우더를 녹인 물과 우유 150ml를 부어 저어 완성해준다."
+        }
+      ],
+      "difficulty": 3,
+      "time": "약 25분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-red-velvet-milk-tea-hot",
+    "brand": "공차",
+    "name": "레드벨벳 밀크티 (HOT)",
+    "category": "버블티·밀크티",
+    "price": 5800,
+    "emoji": "❤️",
+    "photoBg": "#FFEBEE",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "블랙티",
+        "amount": "240ml",
+        "cost": 1680
+      },
+      {
+        "name": "레드벨벳 포션",
+        "amount": "30g",
+        "cost": 270
+      },
+      {
+        "name": "치즈폼",
+        "amount": "40g",
+        "cost": 220
+      },
+      {
+        "name": "레드벨벳 크럼블",
+        "amount": "15g",
+        "cost": 120
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "홍차 티백",
+          "amount": "240ml",
+          "price": 90,
+          "replaces": [
+            "블랙티"
+          ]
+        },
+        {
+          "label": "레드벨벳 파우더",
+          "amount": "3스푼",
+          "price": 290,
+          "replaces": [
+            "레드벨벳 포션"
+          ]
+        },
+        {
+          "label": "휘핑크림",
+          "amount": "토핑",
+          "price": 280,
+          "replaces": [
+            "치즈폼"
+          ]
+        },
+        {
+          "label": "쿠키 크럼",
+          "amount": "적당량",
+          "price": 150,
+          "replaces": [
+            "레드벨벳 크럼블"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "홍차 240ml를 끓인 물에 우려낸 뒤 레드벨벳 파우더와 설탕시럽 1펌프를 넣고 섞는다."
+        },
+        {
+          "title": "",
+          "body": "컵에 반만 부은 뒤 나머지를 붓고 휘핑크림과 쿠키 크럼을 올린다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 치즈폼, 레드벨벳 크럼블."
+        }
+      ],
+      "difficulty": 2,
+      "time": "약 8분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-passion-fruit-hibiscus",
+    "brand": "공차",
+    "name": "패션 푸릇 히비스커스",
+    "category": "에이드·과일",
+    "price": 5200,
+    "emoji": "🌺",
+    "photoBg": "#FCE4EC",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "18ml",
+        "cost": 126
+      },
+      {
+        "name": "과일 소스",
+        "amount": "70ml",
+        "cost": 560
+      },
+      {
+        "name": "정수",
+        "amount": "채움",
+        "cost": 50
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "패션후르츠 시럽",
+          "amount": "70ml",
+          "price": 280,
+          "replaces": [
+            "과일 소스"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "채움",
+          "price": 25,
+          "replaces": [
+            "정수"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 2~3펌프, 패션후르츠 설탕시럽 60~80ml, 얼음, 물을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
       "time": "약 5분",
-      "note": "공차 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-grapefruit-juice",
+    "brand": "공차",
+    "name": "자몽쥬스",
+    "category": "에이드·과일",
+    "price": 5000,
+    "emoji": "🍊",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "18ml",
+        "cost": 126
+      },
+      {
+        "name": "자몽 주스",
+        "amount": "45ml",
+        "cost": 360
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "자몽청",
+          "amount": "45ml",
+          "price": 200,
+          "replaces": [
+            "자몽 주스"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 2~3펌프, 자몽청 40~50ml, 얼음을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-green-grape-green-tea",
+    "brand": "공차",
+    "name": "청포도 그린티",
+    "category": "에이드·과일",
+    "price": 5200,
+    "emoji": "🍇",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "청포도 소스",
+        "amount": "35ml",
+        "cost": 280
+      },
+      {
+        "name": "그린티",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "청포도 주스",
+          "amount": "35ml",
+          "price": 220,
+          "replaces": [
+            "청포도 소스"
+          ]
+        },
+        {
+          "label": "녹차 티백",
+          "amount": "80ml",
+          "price": 90,
+          "replaces": [
+            "그린티"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 3~4펌프, 청포도 주스 30~40ml, 얼음 적게 넣는다."
+        },
+        {
+          "title": "",
+          "body": "녹차를 우려 데운 뒤 부어 섞는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-mango-yogurt-drink",
+    "brand": "공차",
+    "name": "망고요구르트",
+    "category": "에이드·과일",
+    "price": 5400,
+    "emoji": "🥭",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "12ml",
+        "cost": 84
+      },
+      {
+        "name": "망고 베이스",
+        "amount": "95ml",
+        "cost": 760
+      },
+      {
+        "name": "정수",
+        "amount": "채움",
+        "cost": 50
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "망고 주스",
+          "amount": "95ml",
+          "price": 250,
+          "replaces": [
+            "망고 베이스"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "채움",
+          "price": 25,
+          "replaces": [
+            "정수"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1~2펌프, 망고 주스 80~110ml, 얼음, 물을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-mango-juice",
+    "brand": "공차",
+    "name": "망고 쥬스",
+    "category": "에이드·과일",
+    "price": 5000,
+    "emoji": "🥭",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "18ml",
+        "cost": 126
+      },
+      {
+        "name": "망고 베이스",
+        "amount": "70ml",
+        "cost": 560
+      },
+      {
+        "name": "정수",
+        "amount": "채움",
+        "cost": 50
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "망고 주스",
+          "amount": "70ml",
+          "price": 250,
+          "replaces": [
+            "망고 베이스"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "채움",
+          "price": 25,
+          "replaces": [
+            "정수"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 2~3펌프, 망고 주스 60~80ml, 얼음, 물을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-grapefruit-green-tea",
+    "brand": "공차",
+    "name": "자몽그린티",
+    "category": "에이드·과일",
+    "price": 5200,
+    "emoji": "🍊",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "자몽 소스",
+        "amount": "35ml",
+        "cost": 280
+      },
+      {
+        "name": "그린티",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "자몽청",
+          "amount": "35ml",
+          "price": 200,
+          "replaces": [
+            "자몽 소스"
+          ]
+        },
+        {
+          "label": "녹차 티백",
+          "amount": "80ml",
+          "price": 90,
+          "replaces": [
+            "그린티"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 3~4펌프, 자몽청 30~40ml, 얼음 적게 넣는다."
+        },
+        {
+          "title": "",
+          "body": "녹차를 우려 데운 뒤 부어 섞는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-grapefruit-yogurt",
+    "brand": "공차",
+    "name": "자몽 요구르트",
+    "category": "에이드·과일",
+    "price": 5400,
+    "emoji": "🍊",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "12ml",
+        "cost": 84
+      },
+      {
+        "name": "자몽 소스",
+        "amount": "40ml",
+        "cost": 320
+      },
+      {
+        "name": "요구르트",
+        "amount": "50ml",
+        "cost": 100
+      },
+      {
+        "name": "정수",
+        "amount": "채움",
+        "cost": 50
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "자몽청",
+          "amount": "40ml",
+          "price": 200,
+          "replaces": [
+            "자몽 소스"
+          ]
+        },
+        {
+          "label": "드링킹 요거트",
+          "amount": "50ml",
+          "price": 550,
+          "replaces": [
+            "요구르트"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "채움",
+          "price": 25,
+          "replaces": [
+            "정수"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 설탕시럽 1~2펌프, 자몽청 40ml, 드링킹 요거트 50ml, 얼음, 물을 넣고 흔든다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-black-sapphire-grape-earlgrey-tea",
+    "brand": "공차",
+    "name": "블랙사파이어 포도 얼그레이티",
+    "category": "에이드·과일",
+    "price": 5800,
+    "emoji": "🍇",
+    "photoBg": "#EDE7F6",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "20ml",
+        "cost": 140
+      },
+      {
+        "name": "얼티 포도",
+        "amount": "100ml",
+        "cost": 800
+      },
+      {
+        "name": "얼티 망고",
+        "amount": "150ml",
+        "cost": 1200
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "포도 주스",
+          "amount": "100ml",
+          "price": 250,
+          "replaces": [
+            "얼티 포도"
+          ]
+        },
+        {
+          "label": "망고 주스",
+          "amount": "150ml",
+          "price": 250,
+          "replaces": [
+            "얼티 망고"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 포도 주스 100ml, 설탕시럽 2펌프를 섞고 얼음 적게 넣는다."
+        },
+        {
+          "title": "",
+          "body": "망고 주스 150ml를 천천히 부어 층을 내고 과일 토핑을 올린다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 레드 크런트."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-passion-hibiscus-kombucha",
+    "brand": "공차",
+    "name": "패션 프릇 히비스커스 콤부차",
+    "category": "에이드·과일",
+    "price": 5500,
+    "emoji": "🫧",
+    "photoBg": "#FCE4EC",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "히비스커스 소스",
+        "amount": "60ml",
+        "cost": 480
+      },
+      {
+        "name": "탄산",
+        "amount": "주입",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "패션후르츠 시럽",
+          "amount": "60ml",
+          "price": 280,
+          "replaces": [
+            "히비스커스 소스"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "병에 얼음, 물 220ml, 설탕시럽 1펌프, 패션후르츠 설탕시럽 60ml를 넣고 흔든 뒤 사이다를 천천히 부어준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-original-kombucha-aloe",
+    "brand": "공차",
+    "name": "오리지널 콤부차 + 알로에",
+    "category": "에이드·과일",
+    "price": 5400,
+    "emoji": "🫧",
+    "photoBg": "#E0F7FA",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "콤부차 베이스",
+        "amount": "30ml",
+        "cost": 300
+      },
+      {
+        "name": "탄산",
+        "amount": "주입",
+        "cost": 30
+      },
+      {
+        "name": "알로에",
+        "amount": "토핑",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "미초(식초음료)",
+          "amount": "30ml",
+          "price": 350,
+          "replaces": [
+            "콤부차 베이스"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "알로에",
+          "amount": "조금",
+          "price": 150,
+          "replaces": [
+            "알로에"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "병에 얼음, 물 220ml, 설탕시럽 1펌프, 콤부차 베이스(또는 레몬·사과 식초음료) 30ml를 넣고 사이다를 부어준다."
+        },
+        {
+          "title": "",
+          "body": "알로에 조각을 올린다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-earlgrey-sparkling-tea",
+    "brand": "공차",
+    "name": "얼그레이 스파클링티",
+    "category": "에이드·과일",
+    "price": 5200,
+    "emoji": "✨",
+    "photoBg": "#E0F7FA",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "얼그레이 티",
+        "amount": "30ml",
+        "cost": 210
+      },
+      {
+        "name": "물",
+        "amount": "30ml",
+        "cost": 150
+      },
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "탄산",
+        "amount": "적정량",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "얼그레이 티백",
+          "amount": "30ml",
+          "price": 90,
+          "replaces": [
+            "얼그레이 티"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "30ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "얼그레이 티 30ml, 물 30ml, 얼음을 넣고 흔든 뒤 사이다를 천천히 부어준다."
+        },
+        {
+          "title": "",
+          "body": "설탕시럽 1펌프를 넣고 가볍게 저어 마무리해준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-tropical-sparkling-tea",
+    "brand": "공차",
+    "name": "트로피칼 스파클링티",
+    "category": "에이드·과일",
+    "price": 5500,
+    "emoji": "🌴",
+    "photoBg": "#E8F5E9",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "그린티",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "물",
+        "amount": "80ml",
+        "cost": 400
+      },
+      {
+        "name": "과당 시럽",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "라즈베리",
+        "amount": "0.5",
+        "cost": 40
+      },
+      {
+        "name": "탄산",
+        "amount": "적정량",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "녹차 티백",
+          "amount": "80ml",
+          "price": 90,
+          "replaces": [
+            "그린티"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "80ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "딸기잼",
+          "amount": "0.5스푼",
+          "price": 200,
+          "replaces": [
+            "라즈베리"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "그린티 80ml, 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기잼)를 넣어 마무리해준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-sparkling-tea",
+    "brand": "공차",
+    "name": "기본 스파클링티 (ICE)",
+    "category": "에이드·과일",
+    "price": 5200,
+    "emoji": "✨",
+    "photoBg": "#E0F7FA",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "티 베이스",
+        "amount": "100ml",
+        "cost": 700
+      },
+      {
+        "name": "물",
+        "amount": "100ml",
+        "cost": 500
+      },
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "탄산",
+        "amount": "적정량",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "홍차 티백",
+          "amount": "100ml",
+          "price": 90,
+          "replaces": [
+            "티 베이스"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "100ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "병에 얼음, 티 베이스 100ml, 물 100ml, 설탕시럽 1펌프를 넣고 뚜껑을 닫아 흔든다."
+        },
+        {
+          "title": "",
+          "body": "사이다를 천천히 부어 탄산감을 만든다."
+        },
+        {
+          "title": "",
+          "body": "얼음을 적게 넣은 컵에 조심스럽게 붓는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-green-tangerine-sparkling",
+    "brand": "공차",
+    "name": "청귤 스파클링티",
+    "category": "에이드·과일",
+    "price": 5500,
+    "emoji": "🍊",
+    "photoBg": "#FFF3E0",
+    "recipeReady": true,
+    "listHidden": true,
+    "ingredients": [
+      {
+        "name": "그린티",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "물",
+        "amount": "80ml",
+        "cost": 400
+      },
+      {
+        "name": "과당 시럽",
+        "amount": "15ml",
+        "cost": 105
+      },
+      {
+        "name": "청귤 소스",
+        "amount": "80ml",
+        "cost": 560
+      },
+      {
+        "name": "청귤칩",
+        "amount": "1개",
+        "cost": 50
+      },
+      {
+        "name": "탄산",
+        "amount": "적정량",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "Less Ice",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "녹차 티백",
+          "amount": "80ml",
+          "price": 90,
+          "replaces": [
+            "그린티"
+          ]
+        },
+        {
+          "label": "물",
+          "amount": "80ml",
+          "price": 5,
+          "replaces": [
+            "물"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "2~3펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "청귤청",
+          "amount": "80ml",
+          "price": 350,
+          "replaces": [
+            "청귤 소스"
+          ]
+        },
+        {
+          "label": "청귤청",
+          "amount": "1조각",
+          "price": 50,
+          "replaces": [
+            "청귤칩"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "그린티 80ml, 물 80ml, 얼음을 넣고 뚜껑 닫은 병으로 흔든다."
+        },
+        {
+          "title": "",
+          "body": "사이다를 천천히 넣어 스파클링 티를 만든다."
+        },
+        {
+          "title": "",
+          "body": "컵에 청귤 소스 80ml, 얼음 적게 넣고 천천히 부어준다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 청귤칩 1개."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
+    "id": "gongcha-jasmine-tea",
+    "brand": "공차",
+    "name": "자스민티",
+    "category": "버블티·밀크티",
+    "price": 4500,
+    "emoji": "🌸",
+    "photoBg": "#F3E5F5",
+    "recipeReady": true,
+    "listHidden": false,
+    "ingredients": [
+      {
+        "name": "자스민 티 베이스",
+        "amount": "120ml",
+        "cost": 840
+      },
+      {
+        "name": "과당 시럽",
+        "amount": "12ml",
+        "cost": 84
+      },
+      {
+        "name": "탄산",
+        "amount": "적정량",
+        "cost": 30
+      },
+      {
+        "name": "얼음",
+        "amount": "가득",
+        "cost": 25
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "자스민 티백",
+          "amount": "120ml",
+          "price": 90,
+          "replaces": [
+            "자스민 티 베이스"
+          ]
+        },
+        {
+          "label": "설탕시럽",
+          "amount": "1~2펌프",
+          "price": 180,
+          "replaces": [
+            "과당 시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "150ml",
+          "price": 300,
+          "replaces": [
+            "탄산"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "가득",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "병에 설탕시럽 2~3펌프, 자스민 티(진하게 우린 뒤 식힌 것), 얼음을 넣고 뚜껑 닫고 흔든다."
+        },
+        {
+          "title": "",
+          "body": "컵에 붓고 얼음으로 채워 마무리해준다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 5분",
+      "note": "공차 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   }
 ];

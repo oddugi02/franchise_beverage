@@ -10,8 +10,10 @@ window.SITE_CONFIG = {
   siteName: "홈카페",
   // OG 공유 이미지 (절대 URL 또는 siteUrl 기준 경로)
   ogImage: "/og-image.svg",
-  // Supabase — 전역 조회수·좋아요 (supabase/menu_stats.sql 실행 후 입력)
-  // 메뉴 요청 폼 저장 (supabase/menu_requests.sql 실행 후 동일 키 사용)
+  // Supabase — 좋아요 + 네이버 최저가 캐시 (supabase/*.sql 실행 후 입력)
   supabaseUrl: "",
   supabaseAnonKey: "",
+  // (선택) Express shopping API — Supabase 대신 server/ 배포 시
+  // 예: "https://your-api.railway.app"
+  shoppingApiUrl: "",
 };

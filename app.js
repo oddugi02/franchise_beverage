@@ -138,7 +138,18 @@ async function bootApp() {
   initHomeSourceInfo();
   initAppRoute();
 
-  await MenuStats.init();
+  const priceInit =
+    typeof ShoppingPrices !== "undefined" ? ShoppingPrices.init() : Promise.resolve();
+  await Promise.all([MenuStats.init(), priceInit]);
+
+  if (typeof ShoppingPrices !== "undefined") {
+    ShoppingPrices.onChange(() => {
+      renderHomeMenus();
+      if (selectedBrandName) renderBrand(selectedBrandName);
+      const menuId = new URLSearchParams(window.location.search).get("menu");
+      if (menuId) renderDetail(menuId);
+    });
+  }
 
   const menuId = new URLSearchParams(window.location.search).get("menu");
   const menu = MENUS.find((m) => m.id === menuId);
@@ -318,7 +329,7 @@ function renderMenuCard(menu, options = {}) {
 
   return `
     <article class="menu-card" data-id="${menu.id}">
-      <div class="menu-card__photo" style="background:${menu.photoBg}">${menu.emoji}</div>
+      ${renderMenuPhotoHtml(menu, "menu-card__photo")}
       <div class="menu-card__body">
         ${brandLine}
         <h3 class="menu-card__name">${menu.name}</h3>
@@ -339,6 +350,69 @@ function bindMenuCards(container) {
   });
 }
 
+function renderBrandLogoHtml(brand, className) {
+  if (brand?.logoImg) {
+    return `<span class="${className} brand-logo brand-logo--image" style="background:${brand.logoBg || "#fff"}"><img src="${brand.logoImg}" alt="${brand.name} 로고" loading="lazy" decoding="async" /></span>`;
+  }
+  return `<span class="${className} brand-logo brand-logo--text" style="background:${brand.logoBg};color:${brand.logoColor}">${brand.logo}</span>`;
+}
+
+function getMenuPhotoUrl(menu) {
+  if (menu.photoUrl) return menu.photoUrl;
+  const brand = typeof getBrandByName === "function" ? getBrandByName(menu.brand) : null;
+  if (brand?.id && menu.id) return `assets/menus/${brand.id}/${menu.id}.jpg`;
+  return null;
+}
+
+function renderMenuPhotoHtml(menu, className) {
+  const url = getMenuPhotoUrl(menu);
+  const bg = menu.photoBg || "#f5f5f5";
+  const emoji = menu.emoji || "☕";
+  if (url) {
+    return `<div class="${className} ${className}--has-img" style="background:${bg}"><img src="${url}" alt="${menu.name}" loading="lazy" decoding="async" class="${className}__img" onerror="this.parentElement.classList.remove('${className}--has-img');this.remove();" /><span class="${className}__emoji" aria-hidden="true">${emoji}</span></div>`;
+  }
+  return `<div class="${className}" style="background:${bg}">${emoji}</div>`;
+}
+
+function buildShoppingItemUrl(item) {
+  if (item?.productUrl) return item.productUrl;
+  if (item?.store && item?.searchQuery && typeof buildNaverShoppingSearchUrl === "function") {
+    return buildNaverShoppingSearchUrl(item.searchQuery);
+  }
+  if (item?.store && item?.searchQuery && typeof buildStoreSearchUrl === "function") {
+    return buildStoreSearchUrl(item.store, item.searchQuery);
+  }
+  return null;
+}
+
+function renderShoppingBuyCell(item) {
+  const url = buildShoppingItemUrl(item);
+  const priceHint =
+    item.price && item.priced
+      ? `<span class="home-ingredient-row__pack-price">${formatWon(item.price)}</span>`
+      : "";
+  const sub = item.productName || item.exampleProduct;
+  const subLine = sub ? `<span class="home-ingredient-row__search">${sub}</span>` : "";
+  const inner = `<span class="home-ingredient-row__buy-name">${item.buy}</span>${priceHint}${subLine}`;
+  if (url) {
+    const storeLabel = item.productUrl
+      ? `${item.mallName || "네이버"} 최저가`
+      : `${item.store || "마트"} 검색`;
+    return `<a class="home-ingredient-row__buy-link" href="${url}" target="_blank" rel="noopener noreferrer" title="${storeLabel}">${inner}<span class="home-ingredient-row__external" aria-hidden="true">↗</span></a>`;
+  }
+  return inner;
+}
+
+function renderShoppingStoreCell(item) {
+  const url = buildShoppingItemUrl(item);
+  if (!item.store) return '<span class="home-ingredient-row__store--na">—</span>';
+  const badge = `<span class="home-ingredient-row__store-badge">${item.store}</span>`;
+  if (url) {
+    return `<a class="home-ingredient-row__store-link" href="${url}" target="_blank" rel="noopener noreferrer">${badge}</a>`;
+  }
+  return badge;
+}
+
 function renderHome() {
   const q = searchQuery.trim().toLowerCase();
   const brands = getBrands().filter(
@@ -352,7 +426,7 @@ function renderHome() {
       .map(
         (brand) => `
     <button type="button" class="brand-square" data-brand="${brand.name}">
-      <span class="brand-square__logo" style="background:${brand.logoBg};color:${brand.logoColor}">${brand.logo}</span>
+      ${renderBrandLogoHtml(brand, "brand-square__logo")}
       <span class="brand-square__name">${brand.name}</span>
     </button>
   `
@@ -374,6 +448,7 @@ function renderHome() {
 function getHomeMenus() {
   const q = searchQuery.trim().toLowerCase();
   return MENUS.filter((menu) => {
+    if (!isMenuListed(menu)) return false;
     const matchSearch =
       !q ||
       menu.name.toLowerCase().includes(q) ||
@@ -445,12 +520,12 @@ function renderHomeMenus() {
 
 function renderBrand(brandName) {
   const brand = getBrandByName(brandName);
-  const menus = MENUS.filter((m) => m.brand === brandName);
+  const menus = MENUS.filter((m) => m.brand === brandName && isMenuListed(m));
 
   if (brand) {
     brandHeaderRoot.innerHTML = `
       <div class="brand-page-header">
-        <span class="brand-page-header__logo" style="background:${brand.logoBg};color:${brand.logoColor}">${brand.logo}</span>
+        ${renderBrandLogoHtml(brand, "brand-page-header__logo")}
         <div>
           <h2 class="brand-page-header__name">${brand.name}</h2>
           <p class="brand-page-header__count">${menus.length}개 메뉴</p>
@@ -529,13 +604,10 @@ function renderDetail(id) {
 
   const shoppingRows = shoppingList
     .map((item) => {
-      const storeCell = item.store
-        ? `<span class="home-ingredient-row__store-badge">${item.store}</span>`
-        : '<span class="home-ingredient-row__store--na">—</span>';
       return `
-      <tr class="home-ingredient-row">
-        <td class="home-ingredient-row__buy-name">${item.buy}</td>
-        <td class="home-ingredient-row__store">${storeCell}</td>
+      <tr class="home-ingredient-row${buildShoppingItemUrl(item) ? " home-ingredient-row--linked" : ""}">
+        <td class="home-ingredient-row__buy">${renderShoppingBuyCell(item)}</td>
+        <td class="home-ingredient-row__store">${renderShoppingStoreCell(item)}</td>
       </tr>
     `;
     })
@@ -589,7 +661,7 @@ function renderDetail(id) {
   detailRoot.innerHTML = `
     <div class="detail-page">
       <article class="detail-summary">
-        <div class="detail-summary__icon" style="background:${menu.photoBg}">${menu.emoji}</div>
+        ${renderMenuPhotoHtml(menu, "detail-summary__icon")}
         <div class="detail-summary__main">
           <p class="detail-summary__brand">${menu.brand}</p>
           <h2 class="detail-summary__name">${menu.name}</h2>

@@ -44,7 +44,7 @@ const HOME_RECIPE_SOURCE_NOTE =
   "유튜브·블로그 등 홈레시피 참고 · 컵·숟가락·뚜껑 컵(페트병)만으로 만들 수 있게 단계별로 정리했어요";
 
 const HOME_SHOPPING_NOTE =
-  "매장 원재료를 마트·쿠팡에서 구할 수 있는 재료로 치환했어요. 구매처는 쿠팡·이마트·홈플러스 중 해당 상품 최저가 판매처 기준이에요";
+  "매장 원재료를 마트·네이버쇼핑에서 구할 수 있는 재료로 치환했어요. 재료를 누르면 네이버 쇼핑 최저가 구매 페이지가 새 창으로 열려요";
 
 const STORE_INGREDIENT_NOTE =
   "제조 매뉴얼·업체 납품 기준 매장 원재료입니다 (참고용)";
@@ -72,14 +72,14 @@ function formatMetaDate(isoDate) {
 const CATEGORIES = ["전체", "커피", "라떼", "프라페·프라푸치노", "버블티·밀크티", "에이드·과일", "스무디·쉐이크"];
 
 const BRANDS = [
-  { id: "mega", name: "메가커피", logo: "☕", logoBg: "#FFD100", logoColor: "#333" },
-  { id: "gongcha", name: "공차", logo: "🧋", logoBg: "#1a1a1a", logoColor: "#fff" },
-  { id: "paik", name: "빽다방", logo: "PAIK", logoBg: "#FFD700", logoColor: "#1a1a1a" },
-  { id: "ediya", name: "이디야", logo: "E", logoBg: "#003776", logoColor: "#fff" },
-  { id: "pascucci", name: "파스쿠찌", logo: "P", logoBg: "#8B1A1A", logoColor: "#fff" },
-  { id: "mammoth", name: "매머드익스프레스", logo: "🦣", logoBg: "#5D4037", logoColor: "#fff" },
-  { id: "starbucks", name: "스타벅스", logo: "★", logoBg: "#00704A", logoColor: "#fff" },
-  { id: "compose", name: "컴포즈커피", logo: "C", logoBg: "#1B3A6B", logoColor: "#fff" },
+  { id: "mega", name: "메가커피", logo: "☕", logoImg: "assets/brands/mega.png", logoBg: "#FFFFFF", logoColor: "#333" },
+  { id: "gongcha", name: "공차", logo: "🧋", logoImg: "assets/brands/gongcha.png", logoBg: "#FFFFFF", logoColor: "#fff" },
+  { id: "paik", name: "빽다방", logo: "PAIK", logoImg: "assets/brands/paik.png", logoBg: "#FFFFFF", logoColor: "#1a1a1a" },
+  { id: "ediya", name: "이디야", logo: "E", logoImg: "assets/brands/ediya.png", logoBg: "#FFFFFF", logoColor: "#003776" },
+  { id: "pascucci", name: "파스쿠찌", logo: "P", logoImg: "assets/brands/pascucci.png", logoBg: "#FFFFFF", logoColor: "#fff" },
+  { id: "mammoth", name: "매머드익스프레스", logo: "🦣", logoImg: "assets/brands/mammoth.png", logoBg: "#FFFFFF", logoColor: "#fff" },
+  { id: "starbucks", name: "스타벅스", logo: "★", logoImg: "assets/brands/starbucks.png", logoBg: "#FFFFFF", logoColor: "#fff" },
+  { id: "compose", name: "컴포즈커피", logo: "C", logoImg: "assets/brands/compose.png", logoBg: "#FFFFFF", logoColor: "#fff" },
 ];
 
 function getBrands() {
@@ -233,11 +233,15 @@ function getUniqueBrands() {
 }
 
 function getBrandCount(brand) {
-  return MENUS.filter((m) => m.brand === brand).length;
+  return MENUS.filter((m) => m.brand === brand && isMenuListed(m)).length;
+}
+
+function isMenuListed(menu) {
+  return !menu?.listHidden;
 }
 
 function getRecipeReadyCount() {
-  return MENUS.filter((m) => m.recipeReady).length;
+  return MENUS.filter((m) => m.recipeReady && isMenuListed(m)).length;
 }
 
 function getMaxSavingsPercent() {

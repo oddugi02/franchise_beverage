@@ -196,7 +196,7 @@ function latteNoCoffeeMenu({ name, slug, iced, powderName, powderG, milkMl, syru
   const homeIngredients = [
     home(powderName, `${powderG}g`, HOME.powder30g, powderName),
     home("우유", `${milkMl}ml`, milkMl * HOME.milkPerMl, "우유"),
-    home("뜨거운 물", "30ml", HOME.water, "물"),
+    home(iced ? "물" : "뜨거운 물", "30ml", HOME.water, "물"),
   ];
   if (syrupMl > 0) homeIngredients.push(home("시럽", `${syrupMl}ml`, HOME.syrup15ml, "시럽"));
   if (sugarPumps > 0) homeIngredients.push(home("설탕시럽", `${sugarPumps}펌프`, sugarPumps * HOME.syrupPump, "슈가시럽"));
@@ -279,7 +279,7 @@ function unicornFrappeMenu() {
   return {
     id: "mega-unicorn-frappe",
     brand: "메가커피",
-    name: "유니콘 프라페",
+    name: "유니콘프라페",
     category: "프라페·프라푸치노",
     price: 4900,
     emoji: "🦄",
@@ -413,20 +413,6 @@ function adeMenu({ name, slug, hot = false, tea = false, juice = false, flavor =
 
 const menus = [];
 
-// COFFEE HOT
-menus.push(coffeeMenu({ name: "핫 아메리카노", slug: "hot-americano", iced: false, shots: 2, waterMl: 180, category: "커피", price: 1800 }));
-menus.push(coffeeMenu({ name: "핫 꿀아메리카노", slug: "hot-honey-americano", iced: false, shots: 2, waterMl: 170, honeyG: 15, category: "커피", price: 2300 }));
-menus.push(coffeeMenu({ name: "핫 헤이즐넛 아메리카노", slug: "hot-hazelnut-americano", iced: false, shots: 2, waterMl: 170, syrupMl: 15, syrupName: "헤이즐넛 시럽", category: "커피", price: 2400 }));
-menus.push(coffeeMenu({ name: "핫 바닐라 아메리카노", slug: "hot-vanilla-americano", iced: false, shots: 2, waterMl: 170, syrupMl: 15, syrupName: "바닐라 시럽", category: "커피", price: 2400 }));
-menus.push(coffeeMenu({ name: "핫 카페라떼", slug: "hot-cafe-latte", iced: false, shots: 2, milkMl: 180, category: "라떼", price: 2900 }));
-menus.push(coffeeMenu({ name: "핫 카푸치노", slug: "hot-cappuccino", iced: false, shots: 2, milkMl: 160, whipG: 10, category: "라떼", price: 3000, topping: "시나몬 파우더" }));
-menus.push(coffeeMenu({ name: "핫 카라멜마끼아또", slug: "hot-caramel-macchiato", iced: false, shots: 2, milkMl: 170, syrupMl: 20, syrupName: "카라멜 시럽", category: "라떼", price: 3300, topping: "카라멜 드리즐" }));
-menus.push(coffeeMenu({ name: "핫 바닐라라떼", slug: "hot-vanilla-latte", iced: false, shots: 2, milkMl: 180, syrupMl: 15, syrupName: "바닐라 시럽", category: "라떼", price: 3200 }));
-menus.push(coffeeMenu({ name: "핫 헤이즐넛라떼", slug: "hot-hazelnut-latte", iced: false, shots: 2, milkMl: 180, syrupMl: 15, syrupName: "헤이즐넛 시럽", category: "라떼", price: 3200 }));
-menus.push(coffeeMenu({ name: "핫 연유라떼", slug: "hot-condensed-latte", iced: false, shots: 2, milkMl: 170, condensedMl: 20, category: "라떼", price: 3400, homeExtra: [home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽")] }));
-menus.push(coffeeMenu({ name: "핫 카페모카", slug: "hot-cafe-mocha", iced: false, shots: 2, milkMl: 170, powderG: 20, powderName: "초코 파우더", whipG: 20, category: "라떼", price: 3600, topping: "휘핑크림, 초코 드리즐" }));
-menus.push(coffeeMenu({ name: "핫 티라미수라떼", slug: "hot-tiramisu-latte", iced: false, shots: 2, milkMl: 170, powderG: 20, powderName: "티라미수 파우더", category: "라떼", price: 3900, topping: "티라미수 크림, 코코아 파우더", homeExtra: [home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽")] }));
-
 // COFFEE ICE
 menus.push(coffeeMenu({ name: "아이스 아메리카노", slug: "iced-americano", iced: true, shots: 2, waterMl: 170, category: "커피", price: 2000 }));
 menus.push(coffeeMenu({ name: "아이스 메가리카노", slug: "iced-megaricano", iced: true, shots: 3, waterMl: 260, category: "커피", price: 2500 }));
@@ -434,39 +420,36 @@ menus.push(coffeeMenu({ name: "아이스 꿀아메리카노", slug: "iced-honey-
 menus.push(coffeeMenu({ name: "아이스 헤이즐넛 아메리카노", slug: "iced-hazelnut-americano", iced: true, shots: 2, waterMl: 160, syrupMl: 15, syrupName: "헤이즐넛 시럽", category: "커피", price: 2600 }));
 menus.push(coffeeMenu({ name: "아이스 바닐라 아메리카노", slug: "iced-vanilla-americano", iced: true, shots: 2, waterMl: 160, syrupMl: 15, syrupName: "바닐라 시럽", category: "커피", price: 2600 }));
 menus.push(coffeeMenu({ name: "아이스 카페라떼", slug: "iced-cafe-latte", iced: true, shots: 2, milkMl: 180, category: "라떼", price: 3200 }));
+menus.push(coffeeMenu({ name: "아이스 카푸치노", slug: "iced-cappuccino", iced: true, shots: 2, milkMl: 160, whipG: 10, category: "라떼", price: 3200, topping: "시나몬 파우더" }));
+menus.push(coffeeMenu({ name: "아이스 카라멜마끼아또", slug: "iced-caramel-macchiato", iced: true, shots: 2, milkMl: 170, syrupMl: 20, syrupName: "카라멜 시럽", category: "라떼", price: 3500, topping: "카라멜 드리즐" }));
 menus.push(coffeeMenu({ name: "아이스 바닐라라떼", slug: "iced-vanilla-latte", iced: true, shots: 2, milkMl: 180, syrupMl: 15, syrupName: "바닐라 시럽", category: "라떼", price: 3500 }));
+menus.push(coffeeMenu({ name: "아이스 헤이즐넛라떼", slug: "iced-hazelnut-latte", iced: true, shots: 2, milkMl: 180, syrupMl: 15, syrupName: "헤이즐넛 시럽", category: "라떼", price: 3500 }));
+menus.push(coffeeMenu({ name: "아이스 연유라떼", slug: "iced-condensed-latte", iced: true, shots: 2, milkMl: 170, condensedMl: 20, category: "라떼", price: 3600, homeExtra: [home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽")] }));
+menus.push(coffeeMenu({ name: "아이스 카페모카", slug: "iced-cafe-mocha", iced: true, shots: 2, milkMl: 170, powderG: 20, powderName: "초코 파우더", whipG: 20, category: "라떼", price: 3800, topping: "휘핑크림, 초코 드리즐" }));
+menus.push(coffeeMenu({ name: "아이스 티라미수라떼", slug: "iced-tiramisu-latte", iced: true, shots: 2, milkMl: 170, powderG: 20, powderName: "티라미수 파우더", category: "라떼", price: 4100, topping: "티라미수 크림, 코코아 파우더", homeExtra: [home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽")] }));
 
-// NON-COFFEE LATTE HOT
-menus.push(latteNoCoffeeMenu({ name: "핫 녹차라떼", slug: "hot-green-tea-latte", iced: false, powderName: "녹차 파우더", powderG: 30, milkMl: 180, price: 3400, topping: "녹차 파우더" }));
-menus.push(latteNoCoffeeMenu({ name: "핫 로얄밀크티", slug: "hot-royal-milk-tea", iced: false, powderName: "홍차 베이스", powderG: 25, milkMl: 180, price: 3400 }));
-menus.push(latteNoCoffeeMenu({ name: "핫초코", slug: "hot-choco", iced: false, powderName: "초코 파우더", powderG: 35, milkMl: 180, price: 3200, topping: "코코아 파우더" }));
-menus.push(latteNoCoffeeMenu({ name: "핫 메가초코", slug: "hot-mega-choco", iced: false, powderName: "초코 파우더", powderG: 45, milkMl: 220, price: 3900, topping: "휘핑크림, 초코·카라멜 드리즐, 딸기 분태" }));
-menus.push(latteNoCoffeeMenu({ name: "핫 토피넛라떼", slug: "hot-toffee-nut-latte", iced: false, powderName: "토피넛 파우더", powderG: 30, milkMl: 180, price: 3700, topping: "카라멜 소스 드리즐" }));
-menus.push(latteNoCoffeeMenu({ name: "핫 고구마라떼", slug: "hot-sweet-potato-latte", iced: false, powderName: "고구마 파우더", powderG: 30, milkMl: 180, price: 3600, topping: "아몬드 슬라이스", sugarPumps: 1 }));
-menus.push(latteNoCoffeeMenu({ name: "핫 곡물라떼", slug: "hot-grain-latte", iced: false, powderName: "곡물 파우더", powderG: 30, milkMl: 180, price: 3300, topping: "아몬드 슬라이스", sugarPumps: 1 }));
-
-// NON-COFFEE ICE
-menus.push(latteNoCoffeeMenu({ name: "아이스 녹차라떼", slug: "iced-green-tea-latte", iced: true, powderName: "녹차 파우더", powderG: 30, milkMl: 180, price: 3600 }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 초코", slug: "iced-choco", iced: true, powderName: "초코 파우더", powderG: 35, milkMl: 180, price: 3500 }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 메가초코", slug: "iced-mega-choco", iced: true, powderName: "초코 파우더", powderG: 45, milkMl: 220, price: 4100, topping: "휘핑크림, 초코·카라멜 드리즐, 딸기 분태" }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 곡물라떼", slug: "iced-grain-latte", iced: true, powderName: "곡물 파우더", powderG: 30, milkMl: 180, price: 3600, sugarPumps: 1 }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 로얄밀크티", slug: "iced-royal-milk-tea", iced: true, powderName: "홍차 베이스", powderG: 25, milkMl: 180, price: 3600 }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 고구마라떼", slug: "iced-sweet-potato-latte", iced: true, powderName: "고구마 파우더", powderG: 30, milkMl: 180, price: 3700, sugarPumps: 1 }));
-menus.push(latteNoCoffeeMenu({ name: "아이스 토피넛라떼", slug: "iced-toffee-nut-latte", iced: true, powderName: "토피넛 파우더", powderG: 30, milkMl: 180, price: 3800 }));
+// NON-COFFEE LATTE ICE
+menus.push(latteNoCoffeeMenu({ name: "로얄밀크티라떼", slug: "iced-royal-milk-tea", iced: true, powderName: "홍차 베이스", powderG: 25, milkMl: 180, price: 3600 }));
+menus.push(latteNoCoffeeMenu({ name: "녹차라떼", slug: "iced-green-tea-latte", iced: true, powderName: "녹차 파우더", powderG: 30, milkMl: 180, price: 3600 }));
+menus.push(latteNoCoffeeMenu({ name: "아이스초코", slug: "iced-choco", iced: true, powderName: "초코 파우더", powderG: 35, milkMl: 180, price: 3500, topping: "코코아 파우더" }));
+menus.push(latteNoCoffeeMenu({ name: "토피넛 라떼", slug: "iced-toffee-nut-latte", iced: true, powderName: "토피넛 파우더", powderG: 30, milkMl: 180, price: 3800, topping: "카라멜 소스 드리즐" }));
+menus.push(latteNoCoffeeMenu({ name: "곡물라떼", slug: "iced-grain-latte", iced: true, powderName: "곡물 파우더", powderG: 30, milkMl: 180, price: 3600, topping: "아몬드 슬라이스", sugarPumps: 1 }));
+menus.push(latteNoCoffeeMenu({ name: "고구마라떼", slug: "iced-sweet-potato-latte", iced: true, powderName: "고구마 파우더", powderG: 30, milkMl: 180, price: 3700, topping: "아몬드 슬라이스", sugarPumps: 1 }));
+menus.push(latteNoCoffeeMenu({ name: "왕메가초코", slug: "iced-mega-choco", iced: true, powderName: "초코 파우더", powderG: 45, milkMl: 220, price: 4100, topping: "휘핑크림, 초코·카라멜 드리즐, 딸기 분태" }));
 
 // SMOOTHIE
-menus.push(smoothieMenu({ name: "플레인 요거트스무디", slug: "plain-yogurt-smoothie", fruitLabel: "플레인 요거트 파우더", price: 3900 }));
+menus.push(smoothieMenu({ name: "플레인요거트스무디", slug: "plain-yogurt-smoothie", fruitLabel: "플레인 요거트 파우더", price: 3900 }));
 
 // FRAPPE
-menus.push(frappeMenu({ name: "쿠키프라페", slug: "cookie-frappe", flavor: "쿠키", price: 4500 }));
-menus.push(frappeMenu({ name: "민트프라페", slug: "mint-frappe", flavor: "민트", price: 4500 }));
-menus.push(frappeMenu({ name: "리얄초코프라페", slug: "real-choco-frappe", flavor: "리얼초코", price: 4700 }));
-menus.push(frappeMenu({ name: "녹차프라페", slug: "green-tea-frappe", flavor: "녹차", price: 4500 }));
 menus.push(frappeMenu({ name: "커피프라페", slug: "coffee-frappe", flavor: "커피", price: 4600 }));
+menus.push(frappeMenu({ name: "녹차프라페", slug: "green-tea-frappe", flavor: "녹차", price: 4500 }));
+menus.push(frappeMenu({ name: "리얼초코프라페", slug: "real-choco-frappe", flavor: "리얼초코", price: 4700 }));
+menus.push(frappeMenu({ name: "민트프라페", slug: "mint-frappe", flavor: "민트", price: 4500 }));
+menus.push(frappeMenu({ name: "쿠키프라페", slug: "cookie-frappe", flavor: "쿠키", price: 4500 }));
 menus.push(unicornFrappeMenu());
 
 // ADE/JUICE/TEA
-menus.push(adeMenu({ name: "체리콕", slug: "cherry-coke", flavor: "체리", price: 3300 }));
+menus.push(adeMenu({ name: "체리콜라", slug: "cherry-coke", flavor: "체리", price: 3300 }));
 menus.push(adeMenu({ name: "레몬에이드", slug: "lemon-ade", flavor: "레몬", price: 3200 }));
 menus.push(adeMenu({ name: "블루레몬에이드", slug: "blue-lemon-ade", flavor: "블루레몬", price: 3500 }));
 menus.push(adeMenu({ name: "자몽에이드", slug: "grapefruit-ade", flavor: "자몽", price: 3500 }));
@@ -478,7 +461,7 @@ menus.push(adeMenu({ name: "유니콘 매직에이드(핑크)", slug: "unicorn-m
 menus.push({
   id: "mega-plain-pong-crush",
   brand: "메가커피",
-  name: "플레인퐁크러쉬",
+  name: "플레인 퐁크러쉬",
   category: "프라페·프라푸치노",
   price: 3900,
   emoji: "🧇",
@@ -541,8 +524,8 @@ menus.push({
 const outputMenus = filterCheaperAtHome(filterManualMenus(menus, "mega-", MANUAL));
 const minPrice = Math.min(...outputMenus.map((m) => m.price));
 const maxPrice = Math.max(...outputMenus.map((m) => m.price));
-if (outputMenus.length !== 44) {
-  throw new Error(`Expected 44 manual menus but got ${outputMenus.length}`);
+if (outputMenus.length !== 35) {
+  throw new Error(`Expected 35 manual menus but got ${outputMenus.length}`);
 }
 if (minPrice < 1500 || maxPrice > 5200) {
   throw new Error(`Price out of range: ${minPrice} ~ ${maxPrice}`);

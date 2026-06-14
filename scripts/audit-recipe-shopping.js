@@ -9,7 +9,7 @@ const ROOT = path.join(__dirname, "..");
 function loadBrowserContext() {
   const ctx = { globalThis: {} };
   vm.createContext(ctx);
-  for (const file of ["shopping-packs.js", "mega-menus.js", "gongcha-menus.js", "paik-menus.js", "compose-menus.js", "starbucks-menus.js", "mammoth-menus.js", "ediya-menus.js", "pascucci-menus.js"]) {
+  for (const file of ["shopping-packs.js", "shopping-price-overrides.js", "mega-menus.js", "gongcha-menus.js", "paik-menus.js", "compose-menus.js", "starbucks-menus.js", "mammoth-menus.js", "ediya-menus.js", "pascucci-menus.js"]) {
     vm.runInContext(fs.readFileSync(path.join(ROOT, file), "utf8"), ctx);
   }
   vm.runInContext(
@@ -43,6 +43,10 @@ ctx.MENUS.filter((m) => m.recipeReady).forEach((menu) => {
   shop.forEach((s, i) => {
     if (portion[i]?.label !== s.buy) {
       issues.push({ menu: `${menu.brand} ${menu.name}`, type: "portion≠shop", detail: `${portion[i]?.label} vs ${s.buy}` });
+    }
+    const skipLink = s.buy === "물" || s.buy.startsWith("얼음");
+    if (!skipLink && s.priced && !s.productUrl) {
+      issues.push({ menu: `${menu.brand} ${menu.name}`, type: "no-product-url", detail: s.buy });
     }
   });
 

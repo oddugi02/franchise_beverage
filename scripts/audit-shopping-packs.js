@@ -12,6 +12,7 @@ const {
   SHOPPING_PACK_CATALOG,
   SHOPPING_POWDER_CATALOG,
 } = require(path.join(ROOT, "shopping-packs.js"));
+const { isRelevantProduct } = require(path.join(ROOT, "product-filter.js"));
 
 const MENU_FILES = [
   "mega-menus.js",
@@ -78,6 +79,17 @@ function auditCatalog(catalog, label) {
         });
       }
     });
+
+    if (entry.productName && !isRelevantProduct(entry.productName, entry)) {
+      issues.push({
+        kind: "non-food-product",
+        key,
+        label,
+        msg: `비식품·오매칭 상품: ${(entry.productName || "").slice(0, 48)}…`,
+        buy: entry.buy,
+        productName: entry.productName,
+      });
+    }
   }
   return issues;
 }

@@ -1,7 +1,39 @@
 // 장보기 목록 — shopping-packs.js 검증 카탈로그 기준 (마트별 검색 인기순 1위 가격)
 // 가격 갱신 후: node scripts/audit-shopping-packs.js · node scripts/audit-online-prices.js
 (function () {
-  const PACK = SHOPPING_PACK_CATALOG;
+  const PACK = { ...SHOPPING_PACK_CATALOG };
+
+  function applyShoppingPriceOverrides(map) {
+    if (!map) return;
+    const PF = globalThis.ProductFilter;
+    for (const [key, override] of Object.entries(map)) {
+      if (!override) continue;
+      const entry = PACK[key] || POWDER_BUY[key];
+      if (!entry) continue;
+      if (PF && !PF.isValidPriceOverride(override, entry)) continue;
+      if (override.price != null) {
+        entry.price = override.price;
+      }
+      const link = override.productUrl || override.link;
+      if (link) entry.productUrl = link;
+      const name = override.productName || override.productTitle;
+      if (name) entry.productName = name;
+      if (override.mallName) entry.mallName = override.mallName;
+      if (override.store) entry.store = override.store;
+    }
+  }
+
+  const POWDER_BUY = Object.fromEntries(
+    Object.entries(SHOPPING_POWDER_CATALOG).map(([label, pack]) => [
+      label,
+      { ...pack, mergeKey: `powder:${label}` },
+    ])
+  );
+
+  if (typeof SHOPPING_PRICE_OVERRIDES !== "undefined") {
+    applyShoppingPriceOverrides(SHOPPING_PRICE_OVERRIDES);
+  }
+  globalThis.applyShoppingPriceOverrides = applyShoppingPriceOverrides;
 
   const STEP_ALIASES = {
     정수: "물",
@@ -57,13 +89,6 @@
     return `${item}${particle} 올려 마무리한다.`;
   }
 
-  const POWDER_BUY = Object.fromEntries(
-    Object.entries(SHOPPING_POWDER_CATALOG).map(([label, pack]) => [
-      label,
-      { ...pack, mergeKey: `powder:${label}` },
-    ])
-  );
-
   function powderPack(label) {
     const pack = POWDER_BUY[label];
     if (pack) return pack;
@@ -76,17 +101,72 @@
     };
   }
 
+  function sanitizePackProduct(pack) {
+    const PF = globalThis.ProductFilter;
+    if (!PF || !pack?.productName) return pack;
+    if (PF.isRelevantProduct(pack.productName, pack)) return pack;
+    return { ...pack, productUrl: undefined, productName: undefined, mallName: undefined };
+  }
+
   function packItem(pack, extra = {}) {
+    const safe = sanitizePackProduct(pack);
     return {
-      buy: pack.buy,
-      price: pack.price,
-      store: pack.store,
-      searchQuery: pack.searchQuery,
-      exampleProduct: pack.exampleProduct,
+      buy: safe.buy,
+      price: safe.price,
+      store: safe.store,
+      searchQuery: safe.searchQuery,
+      exampleProduct: safe.exampleProduct,
+      productUrl: safe.productUrl,
+      productName: safe.productName,
       priced: true,
       usage: "-",
       ...extra,
     };
+  }
+
+  /** 장보기 팩 규격 파싱 (ml, g, 입 등) */
+  function parsePackUnit(buyText) {
+    const t = buyText || "";
+    const ml = t.match(/(\d+(?:\.\d+)?)\s*ml/i);
+    if (ml) return { kind: "ml", amount: parseFloat(ml[1]) };
+    const L = t.match(/(\d+(?:\.\d+)?)\s*L(?!\w)/i);
+    if (L) return { kind: "ml", amount: parseFloat(L[1]) * 1000 };
+    const g = t.match(/(\d+(?:\.\d+)?)\s*g(?!\w)/i);
+    if (g) return { kind: "g", amount: parseFloat(g[1]) };
+    const kg = t.match(/(\d+(?:\.\d+)?)\s*kg/i);
+    if (kg) return { kind: "g", amount: parseFloat(kg[1]) * 1000 };
+    const sticks = t.match(/(\d+)\s*입/);
+    if (sticks) return { kind: "ea", amount: parseInt(sticks[1], 10) };
+    const ea = t.match(/(\d+)\s*개/);
+    if (ea) return { kind: "ea", amount: parseInt(ea[1], 10) };
+    return null;
+  }
+
+  function parseUsageUnit(amount, label) {
+    const a = amount || "";
+    const ml = parseUsageMl(a);
+    if (ml > 0) return { kind: "ml", amount: ml };
+    const g = parseUsageG(a);
+    if (g > 0) return { kind: "g", amount: g };
+    const sticks = a.match(/(\d+(?:\.\d+)?)\s*(?:개|입|샷|스틱|펌프|스푼|큰술|티백|캔)/);
+    if (sticks) return { kind: "ea", amount: parseFloat(sticks[1]) };
+    if (/1~2|1-2/.test(a)) return { kind: "ea", amount: 1.5 };
+    if (/3샷|3입/.test(a)) return { kind: "ea", amount: 3 };
+    if (/2샷|2입|2개|2스틱/.test(a)) return { kind: "ea", amount: 2 };
+    if (/1샷|1입|1개|1스틱|1펌프|1큰술|1티백/.test(a)) return { kind: "ea", amount: 1 };
+    if (/0\.5컵/.test(a)) return { kind: "ml", amount: 100 };
+    if (/티백/.test(label) && !a) return { kind: "ea", amount: 1 };
+    return null;
+  }
+
+  /** 팩 가격 ÷ 규격 × 1회 사용량 → 1회 원가 */
+  function portionCostFromPack(pack, amount, label) {
+    if (!pack?.price || !pack.priced) return null;
+    const packUnit = parsePackUnit(pack.buy);
+    const usageUnit = parseUsageUnit(amount, label);
+    if (!packUnit || !usageUnit || packUnit.kind !== usageUnit.kind) return null;
+    if (packUnit.amount <= 0 || usageUnit.amount <= 0) return null;
+    return Math.max(1, Math.round((pack.price / packUnit.amount) * usageUnit.amount));
   }
 
   function parseUsageMl(amount) {
@@ -110,6 +190,18 @@
   function milkPack(totalMl) {
     if (totalMl <= 500) return PACK.milk500;
     return PACK.milk1L;
+  }
+
+  function applyPackFields(group, pack) {
+    const safe = sanitizePackProduct(pack);
+    group.buy = safe.buy;
+    group.price = safe.price;
+    group.store = safe.store;
+    group.searchQuery = safe.searchQuery;
+    group.exampleProduct = safe.exampleProduct;
+    group.productUrl = safe.productUrl;
+    group.productName = safe.productName;
+    group.priced = true;
   }
 
   function suggestHomeBuy(label, amount) {
@@ -159,7 +251,7 @@
     }
 
     if (L === "커피 스틱") {
-      return packItem(PACK.coffeeStick10, { usage: a });
+      return packItem(PACK.espresso10, { usage: a, mergeKey: "espresso" });
     }
 
     if (L === "투게더") {
@@ -321,11 +413,11 @@
     }
 
     if (L === "식혜") {
-      return { buy: "식혜 900ml", price: 2980, store: "이마트", searchQuery: "식혜", priced: true, usage: a || "-" };
+      return packItem(PACK.sikhye900, { usage: a || "-", mergeKey: "sikhye" });
     }
 
     if (/미초/.test(L)) {
-      return { buy: "미초 500ml", price: 3480, store: "쿠팡", searchQuery: "미초", priced: true, usage: a || "-" };
+      return packItem(PACK.micho500, { usage: a || "-", mergeKey: "micho" });
     }
 
     if (L === "쑥가루") {
@@ -428,6 +520,67 @@
       return packItem(PACK.lemonJuice200, { usage: a });
     }
 
+    if (L === "포도 주스") {
+      return packItem(PACK.grapeJuice1L, { usage: a, mergeKey: "grapeJuice" });
+    }
+
+    if (L === "청포도 주스") {
+      return packItem(PACK.greenGrapeJuice500, { usage: a, mergeKey: "greenGrape" });
+    }
+
+    if (L === "복숭아 주스") {
+      return packItem(PACK.peachJuice200, { usage: a, mergeKey: "peachJuice" });
+    }
+
+    if (L === "알로에") {
+      return packItem(PACK.aloeDrink500, { usage: a, mergeKey: "aloe" });
+    }
+
+    if (L === "과일 젤리") {
+      return packItem(PACK.fruitJellyCup, { usage: a, mergeKey: "fruitJelly" });
+    }
+
+    if (L === "디카페인 콜드브루 원액") {
+      return packItem(PACK.decafColdBrew1L, { usage: a, mergeKey: "decafColdBrew" });
+    }
+
+    if (L === "유자차") {
+      return packItem(PACK.yujaTea500, { usage: a, mergeKey: "yuja" });
+    }
+
+    if (L === "팥" || L === "팥앙금") {
+      return packItem(PACK.redBean500, { usage: a, mergeKey: "redBean" });
+    }
+
+    if (L === "보라색 고구마 가루") {
+      return packItem(PACK.purpleSweetPotato500, { usage: a, mergeKey: "ube" });
+    }
+
+    if (L === "콜라") {
+      return packItem(PACK.cola355, { usage: a, mergeKey: "cola" });
+    }
+
+    if (L === "크랜베리·히비스커스 주스" || L.includes("크랜베리")) {
+      return packItem(PACK.cranberryJuice1L, { usage: a, mergeKey: "cranberry" });
+    }
+
+    if (L === "사과 농축액") {
+      return packItem(PACK.appleConcentrate500, { usage: a, mergeKey: "apple" });
+    }
+
+    if (L === "타로 가루") {
+      const pack = powderPack("타로 파우더");
+      return packItem(pack, { usage: a, mergeKey: pack.mergeKey });
+    }
+
+    if (L === "냉동 크랜베리") {
+      return packItem(PACK.frozenCranberry200, { usage: a, mergeKey: "frozenCranberry" });
+    }
+
+    if (L === "라임" || L === "라임 시럽") {
+      return packItem(PACK.limeJuice200, { usage: a, mergeKey: "lime" });
+    }
+
     const fallbackBuy = itemBuyFallback(L, a);
     return {
       buy: fallbackBuy.buy,
@@ -452,17 +605,24 @@
     const groups = new Map();
 
     raw.forEach((item) => {
-      const portionCost = getHomeIngredientPrice(item);
+      const suggested = suggestHomeBuy(item.label, item.amount);
+      const fromPack = portionCostFromPack(suggested, item.amount, item.label);
+      const portionCost = fromPack ?? getHomeIngredientPrice(item);
       const base = item.buy
         ? {
             buy: item.buy,
-            price: portionCost,
+            price: suggested.price ?? portionCost,
+            store: suggested.store,
+            searchQuery: suggested.searchQuery,
+            productUrl: suggested.productUrl,
+            productName: suggested.productName,
+            exampleProduct: suggested.exampleProduct,
             priced: isHomeIngredientPriced(item),
             usage: item.amount || "-",
             needMl: parseUsageMl(item.amount),
             portionCost,
           }
-        : { ...suggestHomeBuy(item.label, item.amount), portionCost };
+        : { ...suggested, portionCost };
 
       const mergeKey = base.mergeKey || base.buy;
       if (!groups.has(mergeKey)) {
@@ -472,6 +632,8 @@
           store: base.store,
           searchQuery: base.searchQuery,
           exampleProduct: base.exampleProduct,
+          productUrl: base.productUrl,
+          productName: base.productName,
           priced: base.priced,
           usages: [],
           portionCosts: [],
@@ -487,21 +649,10 @@
 
     return [...groups.values()].map((group) => {
       if (group.needMl > 0 && group.buy.startsWith("우유")) {
-        const pack = milkPack(group.needMl);
-        group.buy = pack.buy;
-        group.price = pack.price;
-        group.store = pack.store;
-        group.searchQuery = pack.searchQuery;
-        group.exampleProduct = pack.exampleProduct;
+        applyPackFields(group, milkPack(group.needMl));
       }
       if (group.buy.includes("에스프레소 액상스틱")) {
-        const pack = PACK.espresso10;
-        group.buy = pack.buy;
-        group.price = pack.price;
-        group.store = pack.store;
-        group.searchQuery = pack.searchQuery;
-        group.exampleProduct = pack.exampleProduct;
-        group.priced = true;
+        applyPackFields(group, PACK.espresso10);
       }
       group.usage = group.usages.length ? group.usages.join(" + ") : "-";
       group.portionPrice = group.portionCosts.reduce((sum, n) => sum + n, 0);

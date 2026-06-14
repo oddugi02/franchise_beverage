@@ -159,7 +159,9 @@ function alignStepToIngredients(text, labels = []) {
   if (has("오레오")) t = t.replace(/오레오초코/g, "오레오");
   if (has("블루 레몬 시럽")) t = t.replace(/블루 레몬 시럽 베이스/g, "블루 레몬 시럽");
   if (has("홍차 티백")) t = t.replace(/홍차 티백(\([^)]*\))?/g, "홍차 티백");
-  if (has("뜨거운 물") && has("물") && !labels.includes("물")) {
+  if (has("뜨거운 물") && has("차가운 물")) {
+    t = t.replace(/(?<!뜨거운 |차가운 )물(?=\s*\d)/g, "뜨거운 물");
+  } else if (has("뜨거운 물") && has("물") && !labels.includes("물")) {
     t = t.replace(/(?<!뜨거운 )물(?=\s*\d)/g, "뜨거운 물");
   }
   return t;

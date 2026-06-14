@@ -252,7 +252,7 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "물 200ml를 붓는다."
+          "body": "뜨거운 물 200ml를 붓는다."
         },
         {
           "title": "",
@@ -333,7 +333,7 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "물 250ml를 붓는다."
+          "body": "뜨거운 물 250ml를 붓는다."
         },
         {
           "title": "",
@@ -678,7 +678,7 @@ const PAIK_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 물 300ml를 넣는다."
+          "body": "컵에 뜨거운 물 300ml를 넣는다."
         },
         {
           "title": "",
@@ -707,9 +707,120 @@ const PAIK_MENUS = [
     }
   },
   {
+    "id": "paik-amangchu",
+    "brand": "빽다방",
+    "name": "아망추",
+    "category": "에이드·과일",
+    "price": 4800,
+    "emoji": "🥭",
+    "photoBg": "#FFE0B2",
+    "recipeReady": true,
+    "ingredients": [
+      {
+        "name": "복숭아 아이스티 분말",
+        "amount": "35g",
+        "cost": 315
+      },
+      {
+        "name": "온수",
+        "amount": "30ml",
+        "cost": 150
+      },
+      {
+        "name": "냉수",
+        "amount": "150ml",
+        "cost": 750
+      },
+      {
+        "name": "얼음",
+        "amount": "각얼음",
+        "cost": 25
+      },
+      {
+        "name": "냉동 망고",
+        "amount": "85g",
+        "cost": 298
+      },
+      {
+        "name": "컵·뚜껑·빨대",
+        "amount": "1세트",
+        "cost": 115
+      }
+    ],
+    "recipe": {
+      "homeIngredients": [
+        {
+          "label": "복숭아 아이스티 파우더",
+          "amount": "35g(약 2.5스푼)",
+          "price": 200,
+          "replaces": [
+            "복숭아 아이스티 분말"
+          ]
+        },
+        {
+          "label": "뜨거운 물",
+          "amount": "30ml",
+          "price": 30,
+          "replaces": [
+            "온수"
+          ]
+        },
+        {
+          "label": "차가운 물",
+          "amount": "150ml",
+          "price": 10,
+          "replaces": [
+            "냉수"
+          ]
+        },
+        {
+          "label": "얼음",
+          "amount": "적당량",
+          "price": 50,
+          "replaces": [
+            "얼음"
+          ]
+        },
+        {
+          "label": "냉동 망고",
+          "amount": "80~90g",
+          "price": 510,
+          "replaces": [
+            "냉동 망고"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "title": "",
+          "body": "컵에 복숭아 아이스티 파우더 35g(약 2.5스푼)과 뜨거운 물 30ml을 넣는다."
+        },
+        {
+          "title": "",
+          "body": "숟가락으로 가루가 안 보일 때까지 잘 섞어 아이스티 원액을 만든다."
+        },
+        {
+          "title": "",
+          "body": "차가운 물 150ml을 부어 가볍게 저어준다."
+        },
+        {
+          "title": "",
+          "body": "각얼음을 컵에 채운다."
+        },
+        {
+          "title": "",
+          "body": "위에 냉동 망고 다이스 80~90g을 가득 얹는다."
+        }
+      ],
+      "difficulty": 1,
+      "time": "약 3분",
+      "note": "16온스(대용량) 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+    }
+  },
+  {
     "id": "paik-green-tea-paiks-chino",
     "brand": "빽다방",
-    "name": "녹차빽스치노",
+    "name": "말차빽스치노",
     "category": "프라페·프라푸치노",
     "price": 4200,
     "emoji": "🍵",
@@ -906,7 +1017,7 @@ const PAIK_MENUS = [
   {
     "id": "paik-pistachio-paiks-chino",
     "brand": "빽다방",
-    "name": "피스타치오빽스치노",
+    "name": "피스타치오 빽스치노",
     "category": "프라페·프라푸치노",
     "price": 4200,
     "emoji": "💚",
@@ -981,7 +1092,7 @@ const PAIK_MENUS = [
       ],
       "difficulty": 2,
       "time": "약 5분",
-      "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "리뉴얼 전 메뉴 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     }
   },
   {
@@ -1064,7 +1175,7 @@ const PAIK_MENUS = [
   {
     "id": "paik-choco-paiks-chino",
     "brand": "빽다방",
-    "name": "완전초코빽스치노",
+    "name": "초코빽스치노",
     "category": "프라페·프라푸치노",
     "price": 4200,
     "emoji": "🍫",
