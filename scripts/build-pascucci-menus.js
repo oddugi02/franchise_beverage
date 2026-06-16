@@ -6,7 +6,7 @@ const MANUAL = Object.fromEntries(Object.entries(manualModule).filter(([k]) => k
 const { consumerHome } = require("./consumer-home");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome } = require("./home-recipe-utils");
 const { filterManualMenus } = require("./manual-menu-filter");
-const { filterCheaperAtHome } = require("./filter-cheaper-at-home");
+const { applyMenuFilters } = require("./apply-menu-filters");
 
 const OUTPUT_PATH = path.join(__dirname, "../pascucci-menus.js");
 
@@ -24,31 +24,42 @@ const B2B = {
   coldBrewPerMl: 8,
   coconutPerMl: 6,
   gelato: 450,
+  oatMilkPerMl: 2.2,
+  pearlPerG: 5,
+  milkTeaBasePerMl: 4,
+  granitaPack: 400,
+  yogurtPowderSpoon: 40,
 };
 
 const HOME = {
   milkPerMl: 2.5,
   espressoLiquidStick: 1150,
   syrupPump: 60,
-  matchaSpoon: 120,
-  misutgaruSpoon: 80,
-  honeySpoon: 200,
   lemonSpoon: 140,
-  yujaSpoon: 120,
   grapefruitSpoon: 400,
-  grapeJuice: 350,
+  greenGrapeJuice: 350,
   coconutMilk: 280,
-  coldBrew80ml: 450,
+  coldBrew50ml: 300,
+  coldBrew70ml: 400,
+  coldBrew100ml: 550,
   condensedSpoon: 95,
-  beanPowder: 90,
-  redBean: 120,
-  riceCake: 200,
   yogurt: 130,
+  yogurtIceCream: 480,
+  vanillaIceCream: 450,
   whip: 350,
-  ubePowder: 180,
   herbTea: 120,
   cranberry: 200,
   ice: 50,
+  hazelnutPump: 65,
+  soyMilkPerMl: 2.4,
+  strawberryJam: 80,
+  frozenBerry100g: 180,
+  frozenMango80g: 160,
+  peachJuice: 320,
+  cocoaSpoon: 90,
+  matchaSpoon: 120,
+  tapioca40g: 200,
+  raspberryBase: 120,
 };
 
 function round(v) {
@@ -94,90 +105,141 @@ function baseMenu({ slug, name, category, price, emoji, photoBg, ingredients, ho
   };
 }
 
-const menus = [];
-
-menus.push(
-  baseMenu({
-    slug: "coconut-coffee-granita",
-    name: "코코넛 커피 그라니따",
-    category: "프라페·프라푸치노",
-    price: 7800,
-    emoji: "🥥",
-    photoBg: "#FFF8E1",
+const MENU_DEFS = [
+  {
+    slug: "hibiscus-bangso",
+    name: "히비스커스 뱅쇼",
+    category: "에이드·과일",
+    price: 7000,
+    emoji: "🍷",
+    photoBg: "#FCE4EC",
     ingredients: [
-      ing("코코넛 그라니따", "1팩", 400),
-      ing("우유", "100ml", 100 * B2B.milkPerMl),
-      ing("콜드브루커피", "80ml", 80 * B2B.coldBrewPerMl),
-      ing("얼음", "1컵", B2B.ice * 1.5),
+      ing("프루티히피베이스", "150ml", 350),
+      ing("윈터프룻펀치", "1ea", 80),
+      ing("냉동크랜베리", "6ea", 60),
+      ing("시나몬스틱", "1개", 30),
+      ing("얼음", "2/3스쿱", B2B.ice),
       cup(),
     ],
     homeIngredients: [
-      home("코코넛 밀크", "150ml", HOME.coconutMilk, "코코넛 그라니따"),
+      home("허브티 티백", "1개", HOME.herbTea, "윈터프룻펀치"),
+      home("크랜베리·히비스커스 주스", "150ml", HOME.cranberry, "프루티히피베이스"),
+      home("물", "80ml", 10, "물"),
+      home("냉동 크랜베리", "6개", HOME.cranberry, "냉동크랜베리"),
+      home("얼음", "2/3컵", HOME.ice, "얼음"),
+    ],
+    difficulty: 3,
+    time: "약 8분",
+  },
+  {
+    slug: "plain-yogurt-granita",
+    name: "플레인 요거트 그라니따",
+    category: "프라페·프라푸치노",
+    price: 6300,
+    emoji: "🍦",
+    photoBg: "#FFFDE7",
+    ingredients: [
+      ing("우유", "100ml", 100 * B2B.milkPerMl),
+      ing("요거트파우더", "4스푼", 4 * B2B.yogurtPowderSpoon),
+      ing("심플시럽", "3펌프", 3 * B2B.syrupPerPump),
+      ing("요거트 젤라또", "1스쿱", B2B.gelato),
+      ing("얼음", "1스쿱", B2B.ice),
+      cup(),
+    ],
+    homeIngredients: [
       home("우유", "100ml", 100 * HOME.milkPerMl, "우유"),
-      home("콜드브루 원액", "80ml", HOME.coldBrew80ml, "콜드브루커피"),
+      home("플레인 요거트", "2큰술", HOME.yogurt, "요거트파우더"),
+      home("설탕시럽", "3펌프", 3 * HOME.syrupPump, "심플시럽"),
+      home("요거트 아이스크림", "1스쿱", HOME.yogurtIceCream, "요거트 젤라또"),
       home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "ube-coco",
-    name: "우베 코코",
-    category: "에이드·과일",
+  },
+  {
+    slug: "berry-yogurt-granita",
+    name: "블루베리 요거트 그라니따",
+    category: "프라페·프라푸치노",
+    price: 6900,
+    emoji: "🫐",
+    photoBg: "#FCE4EC",
+    ingredients: [
+      ing("냉동딸기요거트/블루베리", "1팩", 420),
+      ing("우유", "125ml", 125 * B2B.milkPerMl),
+      ing("요거트 젤라또", "1스쿱", B2B.gelato),
+      ing("얼음", "7개", B2B.ice * 0.7),
+      cup(),
+    ],
+    homeIngredients: [
+      home("냉동 딸기", "100g", HOME.frozenBerry100g, "냉동딸기요거트/블루베리"),
+      home("우유", "125ml", 125 * HOME.milkPerMl, "우유"),
+      home("요거트 아이스크림", "1스쿱", HOME.yogurtIceCream, "요거트 젤라또"),
+      home("얼음", "7개", HOME.ice, "얼음"),
+    ],
+  },
+  {
+    slug: "mango-yogurt-granita",
+    name: "망고요거트 그라니따",
+    category: "프라페·프라푸치노",
+    price: 6900,
+    emoji: "🥭",
+    photoBg: "#FFF8E1",
+    ingredients: [
+      ing("망고패션그라니따", "1팩", B2B.granitaPack),
+      ing("요거트파우더", "1스푼", B2B.yogurtPowderSpoon),
+      ing("정수", "125ml", 125 * B2B.water),
+      ing("요거트 젤라또", "1스쿱", B2B.gelato),
+      ing("얼음", "7개", B2B.ice * 0.7),
+      cup(),
+    ],
+    homeIngredients: [
+      home("냉동 망고", "80g", HOME.frozenMango80g, "망고패션그라니따"),
+      home("플레인 요거트", "1큰술", HOME.yogurt, "요거트파우더"),
+      home("물", "125ml", 10, "정수"),
+      home("요거트 아이스크림", "1스쿱", HOME.yogurtIceCream, "요거트 젤라또"),
+      home("얼음", "7개", HOME.ice, "얼음"),
+    ],
+  },
+  {
+    slug: "peach-shine-granita",
+    name: "남작복숭아 그라니따",
+    category: "프라페·프라푸치노",
     price: 7200,
-    emoji: "💜",
-    photoBg: "#F3E5F5",
+    emoji: "🍑",
+    photoBg: "#FFF3E0",
     ingredients: [
-      ing("우베베이스", "20g", 70),
-      ing("휘핑크림", "25g", 25 * B2B.whipPerG),
-      ing("코코넛워터", "200ml", 200 * B2B.coconutPerMl),
-      ing("얼음", "1/2스쿱", B2B.ice),
+      ing("복숭&샤머 그라니따", "1팩", B2B.granitaPack),
+      ing("정수", "110ml", 110 * B2B.water),
+      ing("요거트 젤라또", "1스쿱", B2B.gelato),
       cup(),
     ],
     homeIngredients: [
-      home("보라색 고구마 가루", "1큰술", HOME.ubePowder, "우베베이스"),
-      home("휘핑크림", "2큰술", HOME.whip, "휘핑크림"),
-      home("우유", "1큰술", 40, "우유"),
-      home("코코넛 밀크", "200ml", HOME.coconutMilk, "코코넛워터"),
-      home("얼음", "반 컵", HOME.ice, "얼음"),
+      home("복숭아 주스", "100ml", HOME.peachJuice, "복숭&샤머 그라니따"),
+      home("물", "110ml", 10, "정수"),
+      home("요거트 아이스크림", "1스쿱", HOME.yogurtIceCream, "요거트 젤라또"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-    difficulty: 3,
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "ube-cream-cafe-latte",
-    name: "우베크림 카페라떼",
-    category: "라떼",
-    price: 7500,
-    emoji: "☕",
-    photoBg: "#EDE7F6",
+  },
+  {
+    slug: "strawberry-granita",
+    name: "딸기 그라니따",
+    category: "프라페·프라푸치노",
+    price: 6900,
+    emoji: "🍓",
+    photoBg: "#FFEBEE",
     ingredients: [
-      ing("우베베이스", "20g", 70),
-      ing("휘핑크림", "25g", 25 * B2B.whipPerG),
-      ing("원두(에스프레소)", "2샷", 2 * B2B.espressoPerShot),
-      ing("바닐라빈 시럽", "1펌프", B2B.syrupPerPump),
-      ing("우유", "150ml", 150 * B2B.milkPerMl),
-      ing("얼음", "1/2스쿱", B2B.ice),
+      ing("냉동딸기 그라니따", "1팩", B2B.granitaPack),
+      ing("정수", "110ml", 110 * B2B.water),
+      ing("딸기 젤라또", "1스쿱", B2B.gelato),
       cup(),
     ],
     homeIngredients: [
-      home("보라색 고구마 가루", "1큰술", HOME.ubePowder, "우베베이스"),
-      home("휘핑크림", "2큰술", HOME.whip, "휘핑크림"),
-      home("우유", "1큰술", 40, "우유"),
-      home("에스프레소 액상스틱", "2개", 2 * HOME.espressoLiquidStick, "원두(에스프레소)"),
-      home("바닐라 시럽", "1펌프", HOME.syrupPump, "바닐라빈 시럽"),
-      home("우유", "150ml", 150 * HOME.milkPerMl, "우유"),
-      home("얼음", "반 컵", HOME.ice, "얼음"),
+      home("냉동 딸기", "100g", HOME.frozenBerry100g, "냉동딸기 그라니따"),
+      home("물", "110ml", 10, "정수"),
+      home("바닐라 아이스크림", "1스쿱", HOME.vanillaIceCream, "딸기 젤라또"),
+      home("딸기잼", "1큰술", HOME.strawberryJam, "딸기 젤라또"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-    difficulty: 3,
-  })
-);
-
-menus.push(
-  baseMenu({
+  },
+  {
     slug: "sicilian-lemon-granita",
     name: "시칠리아 레몬 그라니따",
     category: "프라페·프라푸치노",
@@ -185,233 +247,89 @@ menus.push(
     emoji: "🍋",
     photoBg: "#FFFDE7",
     ingredients: [
-      ing("시칠리아 레몬 베이스", "2oz", 140),
-      ing("냉수", "5oz", 150),
+      ing("시칠리아레몬베이스", "70ml", 140),
+      ing("정수", "80ml", 80 * B2B.water),
       ing("심플시럽", "2펌프", 2 * B2B.syrupPerPump),
       ing("요거트 젤라또", "1스쿱", B2B.gelato),
       ing("얼음", "1스쿱", B2B.ice),
       cup(),
     ],
     homeIngredients: [
-      home("레몬즙", "3큰술", 3 * HOME.lemonSpoon, "시칠리아 레몬 베이스"),
+      home("레몬즙", "3큰술", 3 * HOME.lemonSpoon, "시칠리아레몬베이스"),
       home("설탕시럽", "2펌프", 2 * HOME.syrupPump, "심플시럽"),
-      home("물", "150ml", 10, "냉수"),
-      home("플레인 요거트", "2큰술", HOME.yogurt, "요거트 젤라또"),
-      home("얼음", "1컵", HOME.ice, "얼음"),
-    ],
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "pomelo-granita",
-    name: "자몽 포멜로 그라니따",
-    category: "프라페·프라푸치노",
-    price: 7800,
-    emoji: "🍊",
-    photoBg: "#FFF3E0",
-    ingredients: [
-      ing("포멜로베이스", "1팩", 450),
-      ing("정수", "150ml", 150 * B2B.water),
-      ing("자몽쌕", "2스푼", 60),
-      ing("얼음", "1컵", B2B.ice * 1.5),
-      cup(),
-    ],
-    homeIngredients: [
-      home("자몽청", "3큰술", 3 * HOME.grapefruitSpoon, "포멜로베이스"),
       home("물", "150ml", 10, "정수"),
-      home("자몽청", "1큰술", HOME.grapefruitSpoon, "자몽쌕"),
+      home("요거트 아이스크림", "1스쿱", HOME.yogurtIceCream, "요거트 젤라또"),
       home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "red-bean-injeolmi-granita",
-    name: "팥 인절미 그라니따",
+  },
+  {
+    slug: "java-chip-granita",
+    name: "자바칩 초코 그라니따",
     category: "프라페·프라푸치노",
-    price: 7800,
-    emoji: "🫘",
-    photoBg: "#FBE9E7",
+    price: 6900,
+    emoji: "🍫",
+    photoBg: "#EFEBE9",
     ingredients: [
-      ing("우유", "80ml", 80 * B2B.milkPerMl),
-      ing("연유", "40g", 40 * B2B.condensedPerG),
-      ing("콩가루", "3스쿱", 90),
-      ing("팥", "1스쿱", 80),
-      ing("인절미 떡", "3개", 120),
+      ing("우유", "100ml", 100 * B2B.milkPerMl),
+      ing("자바칩파우더", "60g", 180),
+      ing("초콜릿시럽", "1펌프", B2B.syrupPerPump),
+      ing("천일염젤라또", "1스쿱", B2B.gelato),
       ing("얼음", "1스쿱", B2B.ice),
       cup(),
     ],
     homeIngredients: [
-      home("우유", "80ml", 80 * HOME.milkPerMl, "우유"),
-      home("연유", "2큰술", 2 * HOME.condensedSpoon, "연유"),
-      home("콩가루", "2큰술", 2 * HOME.beanPowder, "콩가루"),
-      home("팥", "2큰술", HOME.redBean, "팥"),
-      home("찰떡", "3조각", HOME.riceCake, "인절미 떡"),
+      home("우유", "100ml", 100 * HOME.milkPerMl, "우유"),
+      home("코코아 파우더", "4큰술", 4 * HOME.cocoaSpoon, "자바칩파우더"),
+      home("초코 시럽", "1펌프", HOME.syrupPump, "초콜릿시럽"),
+      home("바닐라 아이스크림", "1스쿱", HOME.vanillaIceCream, "천일염젤라또"),
+      home("초코 크런치", "한 줌", 80, "자바칩파우더"),
       home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-    difficulty: 3,
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "iced-hibiscus-vin-brulé",
-    name: "아이스 히비스커스 뱅쇼",
-    category: "에이드·과일",
-    price: 7000,
-    emoji: "🍷",
-    photoBg: "#FCE4EC",
-    ingredients: [
-      ing("프루티히비베이스", "150ml", 350),
-      ing("윈터프룻펀치", "1ea", 80),
-      ing("냉동크랜베리", "6ea", 60),
-      ing("레몬슬라이스", "4ea", 40),
-      ing("시나몬스틱", "1개", 30),
-      ing("얼음", "2/3스쿱", B2B.ice),
-      cup(),
-    ],
-    homeIngredients: [
-      home("허브티 티백", "1개", HOME.herbTea, "윈터프룻펀치"),
-      home("레몬즙", "2큰술", 2 * HOME.lemonSpoon, "프루티히비베이스"),
-      home("냉동 크랜베리", "한 줌", HOME.cranberry, "냉동크랜베리"),
-      home("물", "170ml", 15, "물"),
-      home("얼음", "2/3컵", HOME.ice, "얼음"),
-    ],
-    difficulty: 3,
-    time: "약 8분",
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "iced-matcha-latte",
-    name: "아이스 제주말차라떼",
-    category: "라떼",
-    price: 6500,
-    emoji: "🍵",
-    photoBg: "#E8F5E9",
-    ingredients: [
-      ing("말차그린티파우더", "20g", 20 * B2B.powderPerG),
-      ing("우유", "220ml", 220 * B2B.milkPerMl),
-      ing("얼음", "가득", B2B.ice),
-      cup(),
-    ],
-    homeIngredients: [
-      home("녹차 가루", "2큰술", 2 * HOME.matchaSpoon, "말차그린티파우더"),
-      home("우유", "220ml", 220 * HOME.milkPerMl, "우유"),
-      home("얼음", "가득", HOME.ice, "얼음"),
-    ],
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "iced-k-misutgaru-latte",
-    name: "아이스 K오곡미숫가루 라떼",
-    category: "라떼",
-    price: 6200,
-    emoji: "🌾",
+  },
+  {
+    slug: "coconut-coffee-granita",
+    name: "코코넛커피 그라니따",
+    category: "프라페·프라푸치노",
+    price: 7800,
+    emoji: "🥥",
     photoBg: "#FFF8E1",
     ingredients: [
-      ing("미숫가루 베이스", "250ml", 350),
-      ing("얼음", "가득", B2B.ice),
-      cup(),
-    ],
-    homeIngredients: [
-      home("미숫가루", "3큰술", 3 * HOME.misutgaruSpoon, "미숫가루 베이스"),
-      home("우유", "250ml", 250 * HOME.milkPerMl, "미숫가루 베이스"),
-      home("꿀", "1큰술", HOME.honeySpoon, "미숫가루 베이스"),
-      home("얼음", "가득", HOME.ice, "얼음"),
-    ],
-  })
-);
-
-menus.push(
-  baseMenu({
-    slug: "grape-yogurt-cream-tea",
-    name: "포도 요거 크림티",
-    category: "버블티·밀크티",
-    price: 6800,
-    emoji: "🍇",
-    photoBg: "#F3E5F5",
-    ingredients: [
-      ing("포도자스민베이스", "75ml", 200),
+      ing("코코넛 그라니따", "1팩", B2B.granitaPack),
       ing("우유", "125ml", 125 * B2B.milkPerMl),
-      ing("요거트", "30g", 35),
-      ing("휘핑크림", "25g", 25 * B2B.whipPerG),
-      ing("나타데코코", "2스푼", 40),
-      ing("얼음", "2/3스쿱", B2B.ice),
+      ing("콜드브루커피", "50ml", 50 * B2B.coldBrewPerMl),
       cup(),
     ],
     homeIngredients: [
-      home("코코넛 밀크", "1큰술", 50, "나타데코코"),
-      home("포도 주스", "80ml", HOME.grapeJuice, "포도자스민베이스"),
-      home("우유", "125ml", 125 * HOME.milkPerMl, "우유"),
-      home("드링킹 요거트", "2큰술", HOME.yogurt, "요거트"),
-      home("휘핑크림", "1큰술", HOME.whip, "휘핑크림"),
-      home("얼음", "2/3컵", HOME.ice, "얼음"),
+      home("코코넛 밀크", "125ml", HOME.coconutMilk, "코코넛 그라니따"),
+      home("우유", "50ml", 50 * HOME.milkPerMl, "우유"),
+      home("콜드브루 원액", "50ml", HOME.coldBrew50ml, "콜드브루커피"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
     ],
-    difficulty: 3,
-  })
-);
+  },
+];
 
-menus.push(
+const menus = MENU_DEFS.map((def) =>
   baseMenu({
-    slug: "grapefruit-sparkling",
-    name: "자몽 스파클링",
-    category: "에이드·과일",
-    price: 6500,
-    emoji: "🫧",
-    photoBg: "#FFF3E0",
-    ingredients: [
-      ing("자몽퓨레", "60g", 60 * B2B.pureePerG),
-      ing("심플시럽", "2펌프", 2 * B2B.syrupPerPump),
-      ing("탄산수", "1캔", 300),
-      ing("레몬슬라이스", "1ea", 15),
-      ing("얼음", "가득", B2B.ice),
-      cup(),
-    ],
-    homeIngredients: [
-      home("자몽청", "3큰술", 3 * HOME.grapefruitSpoon, "자몽퓨레"),
-      home("설탕시럽", "2펌프", 2 * HOME.syrupPump, "심플시럽"),
-      home("사이다", "1캔", 300, "탄산수"),
-      home("얼음", "가득", HOME.ice, "얼음"),
-    ],
+    slug: def.slug,
+    name: def.name,
+    category: def.category,
+    price: def.price,
+    emoji: def.emoji,
+    photoBg: def.photoBg,
+    ingredients: def.ingredients,
+    homeIngredients: def.homeIngredients,
+    difficulty: def.difficulty,
+    time: def.time,
   })
 );
 
-menus.push(
-  baseMenu({
-    slug: "iced-lemon-yuzu-tea",
-    name: "아이스 레몬 유자차",
-    category: "에이드·과일",
-    price: 6200,
-    emoji: "🍋",
-    photoBg: "#FFFDE7",
-    ingredients: [
-      ing("리얼유자퓨레", "65ml", 230),
-      ing("냉수", "150ml", 150 * B2B.water),
-      ing("레몬슬라이스", "1ea", 15),
-      ing("얼음", "2/3스쿱", B2B.ice),
-      cup(),
-    ],
-    homeIngredients: [
-      home("유자차", "3큰술", 3 * HOME.yujaSpoon, "리얼유자퓨레"),
-      home("물", "150ml", 10, "냉수"),
-      home("레몬즙", "1큰술", HOME.lemonSpoon, "레몬슬라이스"),
-      home("얼음", "2/3컵", HOME.ice, "얼음"),
-    ],
-  })
-);
-
-const pascucciMenus = filterCheaperAtHome(
+const pascucciMenus = applyMenuFilters(
   filterManualMenus(
     menus.filter((m) => PASCUCCI_MANUAL_SLUGS.has(m.id.replace(/^pascucci-/, ""))),
     "pascucci-",
     MANUAL
-  )
+  ),
+  "pascucci"
 );
 
 if (pascucciMenus.length !== PASCUCCI_MANUAL_SLUGS.size) {
@@ -420,7 +338,7 @@ if (pascucciMenus.length !== PASCUCCI_MANUAL_SLUGS.size) {
   throw new Error(`Expected ${PASCUCCI_MANUAL_SLUGS.size} menus but got ${pascucciMenus.length}. Missing: ${missing.join(", ")}`);
 }
 
-const out = `// generated by scripts/build-pascucci-menus.js — 파스쿠찌 특색 메뉴 (${pascucciMenus.length}종)
+const out = `// generated by scripts/build-pascucci-menus.js — 파스쿠찌 Quizlet 레시피 (${pascucciMenus.length}종)
 const PASCUCCI_MENUS = ${JSON.stringify(pascucciMenus, null, 2)};
 
 if (typeof window !== "undefined") {

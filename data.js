@@ -77,7 +77,7 @@ const BRANDS = [
   { id: "paik", name: "빽다방", logo: "PAIK", logoImg: "assets/brands/paik.png", logoBg: "#FFFFFF", logoColor: "#1a1a1a" },
   { id: "ediya", name: "이디야", logo: "E", logoImg: "assets/brands/ediya.png", logoBg: "#FFFFFF", logoColor: "#003776" },
   { id: "pascucci", name: "파스쿠찌", logo: "P", logoImg: "assets/brands/pascucci.png", logoBg: "#FFFFFF", logoColor: "#fff" },
-  { id: "mammoth", name: "매머드익스프레스", logo: "🦣", logoImg: "assets/brands/mammoth.png", logoBg: "#FFFFFF", logoColor: "#fff" },
+  { id: "mammoth", name: "매머드 커피", logo: "🦣", logoImg: "assets/brands/mammoth.png", logoBg: "#FFFFFF", logoColor: "#fff" },
   { id: "starbucks", name: "스타벅스", logo: "★", logoImg: "assets/brands/starbucks.png", logoBg: "#FFFFFF", logoColor: "#fff" },
   { id: "compose", name: "컴포즈커피", logo: "C", logoImg: "assets/brands/compose.png", logoBg: "#FFFFFF", logoColor: "#fff" },
 ];
@@ -237,7 +237,7 @@ function getBrandCount(brand) {
 }
 
 function isMenuListed(menu) {
-  return !menu?.listHidden;
+  return true;
 }
 
 function getRecipeReadyCount() {

@@ -37,6 +37,158 @@
     return `(${mapped})`;
   }
 
+  function hasBatchim(char) {
+    if (!char || !/[가-힣]/.test(char)) return true;
+    const code = char.charCodeAt(0) - 0xac00;
+    if (code < 0 || code > 11171) return true;
+    return code % 28 !== 0;
+  }
+
+  function particleForPhrase(phrase) {
+    const t = (phrase || "").trim();
+    const hangul = t.match(/([가-힣])(?=[^가-힣]*$)/);
+    if (hangul) return hasBatchim(hangul[1]) ? "을" : "를";
+    return "을";
+  }
+
+  const AMOUNT =
+    /(?:\d+(?:\.\d+)?(?:~\d+)?\s*(?:개|ml|L|g|kg|펌프|컵|입|팩|샷|큰술|스푼|캔|봉|바퀴|스쿱|티백|국자|봉지)|\d+\/\d+컵|0\.\d+컵|적당량|가득|토핑|드리즐|반\s*컵)/;
+
+  const ACTION =
+    /(?:넣고|넣는다|넣어|붓고|붓는다|부은|붓은|부어|부어준다|채우고|채운다|채워|섞고|섞는다|섞어|저어|흔들어|흔들거나|흔든다|깔고|깔아|올리고|올려|올린다|뿌리고|뿌려|갈아|갈고|담아|데우고|데워|우려|풀어|만들|따라|옮겨|마무리|완성|제거|헹구|식히|녹이|버무려|빻아|으깨|건져|말아|즐긴|마신)/;
+
+  const ADVERB_TAIL =
+    /(?:세게|짧게|부드럽게|시원하게|가볍게|골고루|잘|천천히|빠르게|살짝|진하게|가득|적게|더)$/;
+
+  const SKIP_OBJECT = new Set([
+    "뒤",
+    "위",
+    "안",
+    "밖",
+    "가운데",
+    "이어서",
+    "먼저",
+    "마지막",
+    "상기선",
+    "선",
+    "라인",
+    "정도",
+    "분량",
+    "컵",
+    "잔",
+    "페트병",
+    "쉐이커",
+    "믹서기",
+    "블렌더",
+    "뚜껑",
+    "숟가락",
+    "포크",
+    "가득",
+    "적당량",
+    "토핑",
+    "드리즐",
+    "번",
+    "때",
+    "취향껏",
+    "위에",
+  ]);
+
+  function addParticleToPhrase(phrase) {
+    let t = (phrase || "").trim();
+    if (!t || /(?:을|를)$/.test(t)) return t;
+
+    const gaDeck = t.match(/^(.+?)\s+(가득|적당량)$/);
+    if (gaDeck) return `${addParticleToPhrase(gaDeck[1].trim())} ${gaDeck[2]}`;
+
+    const lastWord = t.split(/\s/).pop() || "";
+    if (SKIP_OBJECT.has(lastWord) || ADVERB_TAIL.test(lastWord)) return t;
+    if (/(?:고|서|며|면|는|된|던|한|인|진|든)$/.test(lastWord)) return t;
+
+    const withAmt = t.match(
+      /^(.+?)\s*(\d+(?:\.\d+)?(?:~\d+)?\s*(?:개|ml|L|g|kg|펌프|컵|입|팩|샷|큰술|스푼|캔|봉|바퀴|스쿱|티백|국자|봉지)|\d+\/\d+컵|0\.\d+컵|적당량|토핑|드리즐|반\s*컵)\s*$/
+    );
+    if (withAmt) {
+      const core = `${withAmt[1].trim()} ${withAmt[2].trim()}`;
+      return `${core}${particleForPhrase(core)}`;
+    }
+    if (/^[가-힣A-Za-z][가-힣A-Za-z0-9·\s]{1,}$/.test(t) && t.length >= 2) {
+      return `${t}${particleForPhrase(t)}`;
+    }
+    return t;
+  }
+
+  function fixObjectPhrase(objs) {
+    const loc = objs.match(/^(.+?(?:컵에|컵이나|바닥에|페트병에|쉐이커에|병에|잔에)\s*)([\s\S]*)$/);
+    if (loc && loc[2]) {
+      const body = loc[2].trim();
+      if (!body) return objs;
+      if (/,/.test(body)) return loc[1] + fixIngredientList(body);
+      return loc[1] + addParticleToPhrase(body);
+    }
+    if (/,/.test(objs)) return fixIngredientList(objs);
+    return addParticleToPhrase(objs.trim());
+  }
+
+  function fixIngredientList(list) {
+    return list
+      .split(",")
+      .map((part) => addParticleToPhrase(part.trim()))
+      .join(", ");
+  }
+
+  function fixClause(clause) {
+    let c = clause.replace(
+      /([가-힣A-Za-z][가-힣A-Za-z0-9·\s]{0,36}?\s*\d+(?:\.\d+)?(?:~\d+)?\s*(?:개|ml|L|g|kg|펌프|컵|입|팩|샷|큰술|스푼|캔|봉|바퀴|스쿱|티백|국자|봉지))(?![을를])(\s+부은|\s+붓은)/g,
+      (_full, phrase, tail) => `${addParticleToPhrase(phrase.trim())}${tail}`
+    );
+
+    const objVerbRe =
+      /\s+(?:넣고|넣는다|넣어|붓고|붓는다|부어|부어준다|부어주는다|채우고|채운다|채워|깔고|깔아|올리고|올려|올린다|올린|뿌리고|뿌려|담아|데우고|데워|우려|흔든다|흔들어|흔들거나|섞고|섞어)(?![가-힣])/g;
+
+    const verbs = [...c.matchAll(objVerbRe)];
+    for (let i = verbs.length - 1; i >= 0; i--) {
+      const verbStart = verbs[i].index;
+      const verb = verbs[i][0];
+      const prevEnd = i > 0 ? verbs[i - 1].index + verbs[i - 1][0].length : 0;
+      const objs = c.slice(prevEnd, verbStart);
+      const trimmed = objs.trim();
+      if (/^(?:숟가락|포크|블렌더|믹서|쉐이커)(?:으로|로)?(?:\s|$)/.test(trimmed)) continue;
+      if (/^(?:뒤|이어서|그다음|마지막으로)\b/.test(trimmed)) continue;
+
+      const lead = objs.match(/^(\s*,\s*)/);
+      const prefix = lead ? lead[1] : objs.match(/^(\s+)/)?.[1] || "";
+      const core = objs.slice(prefix.length);
+      if (!core.trim()) continue;
+
+      const fixed = prefix + fixObjectPhrase(core.trim());
+      c = c.slice(0, prevEnd) + fixed + verb + c.slice(verbStart + verb.length);
+    }
+
+    return c.replace(
+      /([가-힣A-Za-z][가-힣A-Za-z0-9·\s]{0,36}?)(\s+가득)(?=\s+(?:채우|채|넣))/g,
+      (_, n, adv) => `${addParticleToPhrase(n.trim())}${adv}`
+    );
+  }
+
+  /** 재료·토핑 명사 뒤 목적격 조사(을/를) 보정 */
+  function ensureObjectParticles(text) {
+    let s = (text || "").trim();
+    if (!s) return s;
+
+    s = s
+      .split(/(?<=[.!?])\s+/)
+      .map((sentence) => fixClause(sentence))
+      .join(" ");
+
+    s = s
+      .replace(/(으로|에서|까지|부터|처럼|보다|하고|이고|라고|도록|에|로|와|과)를/g, "$1")
+      .replace(/(을|를)(?:을|를)+/g, "$1");
+
+    s = s.replace(/얼음(?![을를])(?=\s+(?:채우|채|넣))/g, "얼음을");
+
+    return s.replace(/\s{2,}/g, " ").trim();
+  }
+
   const GI_MAP = [
     ["넣고 섞", "넣고 섞는다"],
     ["넣고 물 소량으로 녹이", "넣고 물 소량으로 녹인다"],
@@ -64,6 +216,7 @@
     ["넣고 갈", "넣고 갈아준다"],
     ["갈", "갈아준다"],
     ["붓", "붓는다"],
+    ["마시", "마신다"],
     ["넣", "넣는다"],
     ["섞", "섞는다"],
     ["담", "담는다"],
@@ -150,16 +303,18 @@
       /(?:컵|잔|뚜껑|쉐이커|믹싱)/.test(s) &&
       !/(넣|붓|담|채|부|섞|저|흔|깔|둘|우려|제거)/.test(s.slice(-16))
     ) {
-      if (/[0-9]+(?:ml|g|개|펌프|큰술|스푼|입|바퀴)/.test(s)) return `${s}을 넣는다`;
+      if (/[0-9]+(?:ml|g|개|펌프|큰술|스푼|입|바퀴)/.test(s)) {
+        return `${s}${particleForPhrase(s)} 넣는다`;
+      }
       return `${s}에 재료를 넣는다`;
     }
 
     if (!looksCompleteHada(s) && /\d+개$/.test(s)) {
-      return `${s}를 넣는다`;
+      return `${s}${particleForPhrase(s)} 넣는다`;
     }
 
     if (!looksCompleteHada(s) && /(?:ml|g|펌프|큰술|스푼)$/.test(s)) {
-      return `${s}을 넣는다`;
+      return `${s}${particleForPhrase(s)} 넣는다`;
     }
 
     return s;
@@ -204,6 +359,7 @@
     }
 
     s = softenTone(s);
+    s = ensureObjectParticles(s);
     if (note) s = `${s} ${friendlyNote(note)}`;
     return ensurePeriod(s);
   }
@@ -218,7 +374,7 @@
     return sentences.map((s) => polishSentence(s.replace(/\.$/, ""))).join(" ");
   }
 
-  const api = { toFriendlyHadaStep, ensurePeriod };
+  const api = { toFriendlyHadaStep, ensurePeriod, ensureObjectParticles, particleForPhrase };
 
   if (typeof module !== "undefined" && module.exports) {
     module.exports = api;

@@ -9,7 +9,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#3E2723",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -101,11 +101,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병 볼을 완전히 말린에 재료를 넣는다 설탕시럽 2~3펌프, 진한 홍차(냉각) 60ml를 넣는다."
+          "body": "뚜껑 있는 컵이나 빈 페트병 볼을 완전히 말린에 재료를 넣는다 설탕시럽 2~3펌프를, 진한 홍차(냉각) 60ml를 넣는다."
         },
         {
           "title": "",
-          "body": "코코아 파우더 2큰술, 얼음 한 컵을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+          "body": "코코아 파우더 2큰술을, 얼음 한 컵을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
         },
         {
           "title": "",
@@ -200,7 +200,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 1~2펌프, 망고 주스·냉동 망고 150ml, 플랜트(또는 요거트) 파우더 2스푼을 넣는다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 1~2펌프를, 망고 주스·냉동 망고 150ml를, 플랜트(또는 요거트) 파우더 2스푼을 넣는다."
         },
         {
           "title": "",
@@ -221,7 +221,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍓",
     "photoBg": "#FCE4EC",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -326,11 +326,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 3~4펌프, 얼그레이 티 40ml, 물 40ml를 넣는다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 3~4펌프를, 얼그레이 티 40ml를, 뜨거운 물 40ml를 넣는다."
         },
         {
           "title": "",
-          "body": "스무디 파우더(또는 플레인 요거트) 1스푼, 얼음 2스쿱 넣고 갈아준다."
+          "body": "스무디 파우더(또는 플레인 요거트) 1스푼을, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -464,11 +464,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 3펌프, 딸기 요거트 55ml, 우유 30ml, 물 20ml, 스무디 파우더 1스푼, 얼음 1.5스쿱 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 설탕시럽 3펌프를, 딸기 요거트 55ml를, 우유 30ml를, 뜨거운 물 20ml을, 스무디 파우더 1스푼을, 얼음 1.5스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "컵 바닥에 딸기 요거트 30ml 깔고, 딸기·젤리 토핑을 올린 뒤 갈아 둔 음료를 부어준다."
+          "body": "컵 바닥에 딸기 요거트 30ml를 깔고, 딸기 쥬얼리 토핑을 올린 뒤 갈아 둔 음료를 부어준다."
         }
       ],
       "difficulty": 2,
@@ -572,16 +572,28 @@ const GONGCHA_MENUS = [
           "replaces": [
             "얼음"
           ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "토핑",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
+          ]
         }
       ],
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3펌프, 우롱차 80ml, 스무디 파우더 1스푼, 얼음 1.5스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3펌프를, 우롱차 80ml를, 스무디 파우더 1스푼을, 얼음 1.5스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "컵 벽에 설탕시럽을 두르고, 젤리·타피오카 토핑을 올린 뒤 스무디를 부어준다."
+          "body": "컵 벽에 설탕시럽을 두르고, 쥬얼리·타피오카 토핑을 올린에 재료를 넣는다."
+        },
+        {
+          "title": "",
+          "body": "스무디를 부어준다."
         }
       ],
       "difficulty": 2,
@@ -690,7 +702,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3~4펌프, 물 100ml, 코코아 파우더 3큰술, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3~4펌프를, 뜨거운 물 100ml을, 코코아 파우더 3큰술을, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -715,7 +727,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍯",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -807,7 +819,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 2~3펌프, 우롱차 80ml, 플레인 요거트 2스푼, 약과 반 개, 얼음 2스쿱을 넣고 15~20초 흔들거나 숟가락으로 빠르게 저어준다."
+          "body": "설탕시럽 2~3펌프를, 우롱차 80ml를, 플레인 요거트 2스푼을, 약과 반 개를, 얼음 2스쿱을 넣고 15~20초 흔들거나 숟가락으로 빠르게 저어준다."
         },
         {
           "title": "",
@@ -907,7 +919,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3~4펌프, 청포도 주스 70ml, 녹차 50ml, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3~4펌프를, 청포도 주스 70ml를, 녹차 50ml를, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1020,7 +1032,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3펌프, 복숭아 주스 90ml, 플레인 요거트 1스푼, 얼음 1.5스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3펌프를, 복숭아 주스 90ml를, 플레인 요거트 1스푼을, 얼음 1.5스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1041,7 +1053,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌽",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1146,11 +1158,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 1~2펌프, 홍차 40ml, 옥수수 설탕시럽(또는 통조림 옥수수) 60ml, 휘핑크림, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 1~2펌프를, 홍차 40ml를, 옥수수 설탕시럽(또는 통조림 옥수수) 60ml를, 휘핑크림을, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "초코 크런치를 조금 섞어 담는다."
+          "body": "초코 크런치를 조금을 섞어 담는다."
         }
       ],
       "difficulty": 2,
@@ -1167,7 +1179,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍵",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1233,7 +1245,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3~4펌프, 물 80ml, 녹차 가루 2스푼, 얼음 1.5스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3~4펌프를, 뜨거운 물 80ml을, 녹차 가루 2스푼을, 얼음 1.5스쿱을 넣고 갈아준다."
         }
       ],
       "difficulty": 2,
@@ -1250,7 +1262,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌿",
     "photoBg": "#C8E6C9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1459,7 +1471,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 3펌프, 설탕시럽 20ml, 홍차 20ml, 에스프레소 액상스틱 1개, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 3펌프를, 설탕시럽 20ml을, 홍차 20ml를, 에스프레소 액상스틱 1개를, 플레인 요거트, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1480,7 +1492,7 @@ const GONGCHA_MENUS = [
     "emoji": "🤍",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1572,7 +1584,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 2~3펌프, 홍차 60ml, 바닐라 파우더, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 2~3펌프를, 홍차 60ml를, 바닐라 파우더, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1593,7 +1605,7 @@ const GONGCHA_MENUS = [
     "emoji": "🧋",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1672,7 +1684,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 4펌프, 우롱차 70ml, 플레인 요거트, 얼음 1.5스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 4펌프를, 우롱차 70ml를, 플레인 요거트, 얼음 1.5스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1798,7 +1810,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "설탕시럽 2~3펌프, 홍차 40ml, 뜨거운 물 30ml, 레드벨벳 파우더, 얼음 2스쿱을 넣고 갈아준다."
+          "body": "설탕시럽 2~3펌프를, 홍차 40ml를, 뜨거운 물 30ml을, 레드벨벳 파우더, 얼음 2스쿱을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1918,7 +1930,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1997,7 +2009,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 3펌프, 에스프레소 액상스틱 1개, 얼그레이 티 50ml, 뜨거운 물 100ml, 얼음을 넣고 뚜껑 닫고 흔든다."
+          "body": "컵에 설탕시럽 3펌프를, 에스프레소 액상스틱 1개를, 얼그레이 티 50ml를, 뜨거운 물 100ml을, 얼음을 넣고 뚜껑 닫고 흔든다."
         },
         {
           "title": "",
@@ -2018,7 +2030,7 @@ const GONGCHA_MENUS = [
     "emoji": "🫖",
     "photoBg": "#D7CCC8",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2110,7 +2122,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 3펌프, 타피오카 펄, 휘핑크림, 우유 50ml, 얼그레이 티 50ml, 에스프레소 액상스틱 1개를 넣고 얼음을 넣어 흔든다."
+          "body": "컵에 설탕시럽 3펌프를, 타피오카 펄을, 휘핑크림을, 우유 50ml를, 얼그레이 티 50ml를, 에스프레소 액상스틱 1개를 넣고 얼음을 넣어 흔든다."
         }
       ],
       "difficulty": 2,
@@ -2127,7 +2139,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌽",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2219,7 +2231,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1펌프, 타피오카 펄, 옥수수 설탕시럽 40ml, 홍차 40ml, 우유 130ml, 얼음을 넣고 흔든다."
+          "body": "컵에 설탕시럽 1펌프를, 타피오카 펄을, 옥수수 설탕시럽 40ml을, 홍차 40ml를, 우유 130ml를, 얼음을 넣고 흔든다."
         }
       ],
       "difficulty": 2,
@@ -2302,7 +2314,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 얼음, 물 150~200ml, 에스프레소 액상스틱 1~2개, 설탕시럽 1~2펌프를 넣고 흔든다."
+          "body": "컵에 얼음을, 뜨거운 물 150~200ml을, 에스프레소 액상스틱 1~2개를, 설탕시럽 1~2펌프를 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -2319,7 +2331,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "에스프레소",
@@ -2429,7 +2441,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 우유 200ml, 에스프레소 액상스틱 1~2개, 설탕시럽 1~2펌프, 얼음을 넣고 흔든다."
+          "body": "컵에 우유 200ml를, 에스프레소 액상스틱 1~2개를, 설탕시럽 1~2펌프를, 얼음을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -2512,7 +2524,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1~2펌프, 우유 150~200ml, 에스프레소 액상스틱 1~2개, 얼음을 넣고 흔든 뒤 카라멜 시럽을 드리즐한다."
+          "body": "컵에 설탕시럽 1~2펌프를, 우유 150~200ml를, 에스프레소 액상스틱 1~2개를, 얼음을 넣고 흔든 뒤 카라멜 시럽을 드리즐한다."
         }
       ],
       "difficulty": 2,
@@ -2529,7 +2541,7 @@ const GONGCHA_MENUS = [
     "emoji": "🤍",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2595,7 +2607,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 바닐라 시럽, 에스프레소 액상스틱, 바닐라 파우더를 넣고 섞는다."
+          "body": "컵에 바닐라 시럽을, 에스프레소 액상스틱을, 바닐라 파우더를 넣고 섞는다."
         },
         {
           "title": "",
@@ -2695,11 +2707,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽, 에스프레소, 코코아 파우더를 넣고 숟가락으로 녹인다."
+          "body": "컵에 설탕시럽을, 에스프레소를, 코코아 파우더를 넣고 숟가락으로 녹인다."
         },
         {
           "title": "",
-          "body": "우유 150~200ml, 얼음을 넣고 흔든 뒤 우유 거품을 올린다."
+          "body": "우유 150~200ml를, 얼음을 넣고 흔든 뒤 우유 거품을 올린다."
         },
         {
           "title": "",
@@ -2786,7 +2798,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1펌프, 딸기잼·젤리 토핑, 우유를 C라인까지 넣고 얼음을 넣어 흔든다."
+          "body": "컵에 설탕시럽 1펌프를, 딸기 쥬얼리 토핑, 우유를 C라인까지 넣고 얼음을 넣어 흔든다."
         }
       ],
       "difficulty": 2,
@@ -2882,7 +2894,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 2펌프, 포도 주스·젤리 토핑, 우유 150ml, 얼음을 넣고 흔든다."
+          "body": "컵에 설탕시럽 2펌프를, 포도 주스·쥬얼리 토핑, 우유 150ml를, 얼음을 넣고 흔든다."
         }
       ],
       "difficulty": 2,
@@ -2960,12 +2972,20 @@ const GONGCHA_MENUS = [
           "replaces": [
             "얼음"
           ]
+        },
+        {
+          "label": "타피오카 펄",
+          "amount": "토핑",
+          "price": 100,
+          "replaces": [
+            "타피오카 펄"
+          ]
         }
       ],
       "steps": [
         {
           "title": "",
-          "body": "컵 벽에 설탕시럽을 두르고, 젤리·타피오카 토핑을 데운다."
+          "body": "컵 벽에 설탕시럽을 두르고, 쥬얼리·타피오카 토핑을 데운다."
         },
         {
           "title": "",
@@ -2986,7 +3006,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍑",
     "photoBg": "#FFE0B2",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3065,7 +3085,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1펌프, 복숭아 젤리, 복숭아 소스 120ml, 우유 100ml, 얼음 적게 넣고 흔든다."
+          "body": "컵에 설탕시럽 1펌프를, 복숭아 젤리를, 복숭아 소스 120ml를, 우유 100ml를, 얼음 적게 넣고 흔든다."
         }
       ],
       "difficulty": 2,
@@ -3199,7 +3219,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍯",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3295,7 +3315,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "컵에 설탕시럽, 얼음 가득 채운 뒤 갈아 둔 음료를 부어준다."
+          "body": "컵에 설탕시럽을, 얼음을 가득 채운 뒤 갈아 둔 음료를 부어준다."
         }
       ],
       "difficulty": 2,
@@ -3312,7 +3332,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍵",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3395,7 +3415,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "설탕시럽과 우유를 넣어 섞고, 얼음 가득 채운 컵에 부어준다."
+          "body": "설탕시럽과 우유를 넣어 섞고, 얼음을 가득 채운 컵에 부어준다."
         }
       ],
       "difficulty": 1,
@@ -3412,7 +3432,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌿",
     "photoBg": "#C8E6C9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3495,7 +3515,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "설탕시럽, 우유를 넣고 얼음 컵에 부어 마무리해준다."
+          "body": "설탕시럽을, 우유를 넣고 얼음 컵에 부어 마무리해준다."
         }
       ],
       "difficulty": 1,
@@ -3617,7 +3637,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "우유 150ml, 홍차 50ml, 설탕시럽 1펌프를 컵에 넣고 섞는다."
+          "body": "우유 150ml를, 홍차 50ml를, 설탕시럽 1펌프를 컵에 넣고 섞는다."
         },
         {
           "title": "",
@@ -3642,7 +3662,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#D7CCC8",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3725,7 +3745,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
+          "body": "우유를, 설탕시럽을, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 1,
@@ -3845,11 +3865,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "물 150ml를 끓인 후 홍차 티백 2개를 넣고 3~5분 진하게 우려낸다."
+          "body": "뜨거운 물 150ml를 끓인 후 홍차 티백 2개를 넣고 3~5분 진하게 우려낸다."
         },
         {
           "title": "",
-          "body": "우려낸 홍차에 우유 150ml, 설탕(또는 꿀) 1~2큰술을 넣고 잘 저어 밀크티를 만든다."
+          "body": "우려낸 홍차에 우유 150ml를, 설탕(또는 꿀) 1~2큰술을 넣고 잘 저어 밀크티를 만든다."
         },
         {
           "title": "",
@@ -3970,11 +3990,11 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 코코아 파우더 3스푼, 초코 소스 1펌프를 넣고 뜨거운 물 20ml로 완전히 녹인다."
+          "body": "컵에 코코아 파우더 3스푼을, 초코 소스 1펌프를 넣고 뜨거운 물 20ml로 완전히 녹인다."
         },
         {
           "title": "",
-          "body": "우유, 설탕시럽, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
+          "body": "우유를, 설탕시럽을, 얼음을 넣고 뚜껑 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 1,
@@ -4091,7 +4111,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "뜨거운 물 50ml에 타로 파우더 3큰술, 설탕 1큰술을 넣고 덩어리 없이 풀어준다."
+          "body": "뜨거운 물 50ml에 타로 파우더 3큰술을, 설탕 1큰술을 넣고 덩어리 없이 풀어준다."
         },
         {
           "title": "",
@@ -4112,7 +4132,7 @@ const GONGCHA_MENUS = [
     "emoji": "❤️",
     "photoBg": "#FFEBEE",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4282,7 +4302,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 2~3펌프, 패션후르츠 설탕시럽 60~80ml, 얼음, 물을 넣고 흔든다."
+          "body": "컵에 설탕시럽 2~3펌프를, 패션후르츠 설탕시럽 60~80ml을, 얼음을, 물을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -4352,7 +4372,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 2~3펌프, 자몽청 40~50ml, 얼음을 넣고 흔든다."
+          "body": "컵에 설탕시럽 2~3펌프를, 자몽청 40~50ml을, 얼음을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -4435,7 +4455,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 3~4펌프, 청포도 주스 30~40ml, 얼음 적게 넣는다."
+          "body": "컵에 설탕시럽 3~4펌프를, 청포도 주스 30~40ml를, 얼음 적게 넣는다."
         },
         {
           "title": "",
@@ -4456,7 +4476,7 @@ const GONGCHA_MENUS = [
     "emoji": "🥭",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4522,7 +4542,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1~2펌프, 망고 주스 80~110ml, 얼음, 물을 넣고 흔든다."
+          "body": "컵에 설탕시럽 1~2펌프를, 망고 주스 80~110ml를, 얼음을, 물을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -4605,7 +4625,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 2~3펌프, 망고 주스 60~80ml, 얼음, 물을 넣고 흔든다."
+          "body": "컵에 설탕시럽 2~3펌프를, 망고 주스 60~80ml를, 얼음을, 물을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -4688,7 +4708,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 3~4펌프, 자몽청 30~40ml, 얼음 적게 넣는다."
+          "body": "컵에 설탕시럽 3~4펌프를, 자몽청 30~40ml을, 얼음 적게 넣는다."
         },
         {
           "title": "",
@@ -4709,7 +4729,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4788,7 +4808,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 설탕시럽 1~2펌프, 자몽청 40ml, 드링킹 요거트 50ml, 얼음, 물을 넣고 흔든다."
+          "body": "컵에 설탕시럽 1~2펌프를, 자몽청 40ml을, 드링킹 요거트 50ml를, 얼음을, 물을 넣고 흔든다."
         }
       ],
       "difficulty": 1,
@@ -4805,7 +4825,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍇",
     "photoBg": "#EDE7F6",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4866,12 +4886,20 @@ const GONGCHA_MENUS = [
           "replaces": [
             "얼음"
           ]
+        },
+        {
+          "label": "냉동 과일",
+          "amount": "토핑",
+          "price": 900,
+          "replaces": [
+            "과일"
+          ]
         }
       ],
       "steps": [
         {
           "title": "",
-          "body": "컵에 포도 주스 100ml, 설탕시럽 2펌프를 섞고 얼음 적게 넣는다."
+          "body": "컵에 포도 주스 100ml를, 설탕시럽 2펌프를 섞고 얼음 적게 넣는다."
         },
         {
           "title": "",
@@ -4896,7 +4924,7 @@ const GONGCHA_MENUS = [
     "emoji": "🫧",
     "photoBg": "#FCE4EC",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4962,7 +4990,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "병에 얼음, 물 220ml, 설탕시럽 1펌프, 패션후르츠 설탕시럽 60ml를 넣고 흔든 뒤 사이다를 천천히 부어준다."
+          "body": "병에 얼음을, 물 220ml을, 설탕시럽 1펌프를, 패션후르츠 설탕시럽 60ml를 넣고 흔든 뒤 사이다를 천천히 부어준다."
         }
       ],
       "difficulty": 1,
@@ -5058,7 +5086,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "병에 얼음, 물 220ml, 설탕시럽 1펌프, 콤부차 베이스(또는 레몬·사과 식초음료) 30ml를 넣고 사이다를 부어준다."
+          "body": "병에 얼음을, 물 220ml을, 설탕시럽 1펌프를, 콤부차 베이스(또는 레몬·사과 식초음료) 30ml를 넣고 사이다를 부어준다."
         },
         {
           "title": "",
@@ -5079,7 +5107,7 @@ const GONGCHA_MENUS = [
     "emoji": "✨",
     "photoBg": "#E0F7FA",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "얼그레이 티",
@@ -5158,7 +5186,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "얼그레이 티 30ml, 물 30ml, 얼음을 넣고 흔든 뒤 사이다를 천천히 부어준다."
+          "body": "얼그레이 티 30ml를, 뜨거운 물 30ml을, 얼음을 넣고 흔든 뒤 사이다를 천천히 부어준다."
         },
         {
           "title": "",
@@ -5179,7 +5207,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌴",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "그린티",
@@ -5271,7 +5299,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "그린티 80ml, 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기잼)를 넣어 마무리해준다."
+          "body": "그린티 80ml를, 뜨거운 물 80ml을, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽을, 라즈베리(또는 딸기잼)를 넣어 마무리해준다."
         }
       ],
       "difficulty": 1,
@@ -5367,7 +5395,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "병에 얼음, 티 베이스 100ml, 물 100ml, 설탕시럽 1펌프를 넣고 뚜껑을 닫아 흔든다."
+          "body": "병에 얼음을, 티 베이스 100ml를, 뜨거운 물 100ml을, 설탕시럽 1펌프를 넣고 뚜껑을 닫아를 흔든다."
         },
         {
           "title": "",
@@ -5375,7 +5403,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "얼음을 적게 넣은 컵에 조심스럽게 붓는다."
+          "body": "얼음을 적게 넣은 컵에 조심스럽게를 붓는다."
         }
       ],
       "difficulty": 1,
@@ -5392,7 +5420,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "그린티",
@@ -5497,7 +5525,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "그린티 80ml, 물 80ml, 얼음을 넣고 뚜껑 닫은 병으로 흔든다."
+          "body": "그린티 80ml를, 뜨거운 물 80ml을, 얼음을 넣고 뚜껑 닫은 병으로 흔든다."
         },
         {
           "title": "",
@@ -5505,7 +5533,7 @@ const GONGCHA_MENUS = [
         },
         {
           "title": "",
-          "body": "컵에 청귤 소스 80ml, 얼음 적게 넣고 천천히 부어준다."
+          "body": "컵에 청귤 소스 80ml를, 얼음 적게 넣고 천천히 부어준다."
         },
         {
           "title": "",
@@ -5592,7 +5620,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "병에 설탕시럽 2~3펌프, 자스민 티(진하게 우린 뒤 식힌 것), 얼음을 넣고 뚜껑 닫고 흔든다."
+          "body": "병에 설탕시럽 2~3펌프를, 자스민 티(진하게 우린 뒤 식힌 것), 얼음을 넣고 뚜껑 닫고 흔든다."
         },
         {
           "title": "",

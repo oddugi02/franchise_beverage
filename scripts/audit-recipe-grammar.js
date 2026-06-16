@@ -48,6 +48,15 @@ const CHECKS = [
   { id: "조사오류", test: (s) => /(?:국자|스프레이|시리얼)과\s+[가-힣]/.test(s) || /시리얼를/.test(s) },
   { id: "존댓말", test: (s) => /(?:습니다|해요|하세요|드립니다|주세요)/.test(s) },
   { id: "중복어", test: (s) => /\b([가-힣A-Za-z·]{2,})\s+\1\b/.test(s) },
+  { id: "목적격없음", test: (s) => {
+    const AMOUNT = /(?:\d+(?:\.\d+)?(?:~\d+)?\s*(?:개|ml|L|g|kg|펌프|컵|입|팩|샷|큰술|스푼|캔|봉|바퀴|스쿱)|\d+\/\d+컵|0\.\d+컵|적당량|토핑|드리즐)/;
+    const ACTION = /(?:넣|붓|부|섞|저|흔들|깔|올|뿌|갈|담|데|우|풀|만)/;
+    const reAmt = new RegExp(`([가-힣A-Za-z][가-힣A-Za-z0-9·\\s]{1,30}?)${AMOUNT.source}(?![을를])(?=\\s+${ACTION.source})`);
+    if (reAmt.test(s)) return true;
+    const reNoun = /([가-힣A-Za-z][가-힣A-Za-z0-9·\s]{1,30})(?<![을를])(?=\s+(?:올린|깔고|깔아|올려|뿌려)\b)/;
+    if (reNoun.test(s)) return true;
+    return /(?<!을 )얼음(?![을를])(?=\s+(?:채우|채|넣))/.test(s);
+  }},
   { id: "마침표없음", test: (s) => s.length > 0 && !/[.!?]$/.test(s) },
 ];
 

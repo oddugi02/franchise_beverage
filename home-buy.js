@@ -52,15 +52,26 @@
     "참외·멜론 설탕시럽": "설탕시럽",
     "흑설탕 시럽": "설탕시럽",
     슈가시럽: "설탕시럽",
+    "모카 시럽": "초코 시럽",
+    "시나몬 시럽": "시나몬 돌체 시럽",
+    "화이트 초코 시럽": "화이트 모카 시럽",
     "블루큐라소 시럽": "블루 레몬 시럽",
     탄산수: "사이다",
     "고구마 페이스트": "고구마",
+    쿠키베이스: "오레오",
+    "쿠키 베이스": "오레오",
+    초코베이스: "코코아 파우더",
+    "초코 베이스": "코코아 파우더",
+    녹차베이스: "녹차 파우더",
+    "녹차 베이스": "녹차 파우더",
   };
 
   const RECIPE_DISPLAY_NAMES = {
     건타피오카: "타피오카 펄",
     "휘핑크림 스프레이": "휘핑크림",
     "바닐라 아이스크림": "바닐라 아이스크림",
+    "바닐라 크림": "휘핑크림",
+    "녹차/말차 가루": "녹차/말차 가루",
   };
 
   function cleanupRecipeStepText(text) {
@@ -71,9 +82,10 @@
       .replace(/페트병로/g, "페트병으로")
       .replace(/요거트을/g, "요거트를")
       .replace(/넣고한다/g, "넣고 완성한다")
-      .replace(/(\d+(?:\.\d+)?(?:ml|g|kg|국자|스푼|큰술|바퀴|스쿱|컵|개|펌프|입|팩|캔))\s*과\s+/g, "$1와 ")
-      .replace(/(스프레이|폼|펄|크럼|시럽|슬라이스|시리얼)\s*과\s+/g, "$1와 ")
+      .replace(/(스프레이|폼|펄|크럼|시럽|슬라이스|시리얼)\s*과\s+(?=[가-힣]*[aeiouAEIOUㅏ-ㅣ])/g, "$1와 ")
       .replace(/시리얼를/g, "시리얼을")
+      .replace(/포크로\s*으깨\s+(?:오레오|쿠키\s*베이스)를?\s*만들고/g, "포크로 으깨고")
+      .replace(/숟가락으로\s*으깨\s+([가-힣]+)\s*베이스를?\s*만든다/g, "숟가락으로 $1를 으깬다")
       .replace(/\b([가-힣A-Za-z·]{2,})\s+\1\b/g, "$1")
       .replace(/\s{2,}/g, " ")
       .trim();
@@ -120,6 +132,7 @@
       exampleProduct: safe.exampleProduct,
       productUrl: safe.productUrl,
       productName: safe.productName,
+      mallName: safe.mallName,
       priced: true,
       usage: "-",
       ...extra,
@@ -150,6 +163,12 @@
     if (ml > 0) return { kind: "ml", amount: ml };
     const g = parseUsageG(a);
     if (g > 0) return { kind: "g", amount: g };
+    const scoop = a.match(/(\d+(?:\.\d+)?)\s*스쿱/);
+    if (scoop) return { kind: "ml", amount: parseFloat(scoop[1]) * 65 };
+    const bigSpoon = a.match(/(\d+(?:\.\d+)?)\s*큰술/);
+    if (bigSpoon && /아이스크림|젤라|요거트/i.test(label || "")) {
+      return { kind: "ml", amount: parseFloat(bigSpoon[1]) * 15 };
+    }
     const sticks = a.match(/(\d+(?:\.\d+)?)\s*(?:개|입|샷|스틱|펌프|스푼|큰술|티백|캔)/);
     if (sticks) return { kind: "ea", amount: parseFloat(sticks[1]) };
     if (/1~2|1-2/.test(a)) return { kind: "ea", amount: 1.5 };
@@ -203,6 +222,7 @@
     group.exampleProduct = safe.exampleProduct;
     group.productUrl = safe.productUrl;
     group.productName = safe.productName;
+    group.mallName = safe.mallName;
     group.priced = true;
   }
 
@@ -276,7 +296,7 @@
       return packItem(PACK.syrup500, { usage: a, mergeKey: "vanillaSyrup" });
     }
 
-    if (L === "초코 시럽" || L === "초코소스") {
+    if (L === "초코 시럽" || L === "초코소스" || L === "모카 시럽") {
       return packItem(PACK.caramel500, { usage: a, mergeKey: "chocoSyrup" });
     }
 
@@ -618,6 +638,7 @@
             searchQuery: suggested.searchQuery,
             productUrl: suggested.productUrl,
             productName: suggested.productName,
+            mallName: suggested.mallName,
             exampleProduct: suggested.exampleProduct,
             priced: isHomeIngredientPriced(item),
             usage: item.amount || "-",
@@ -636,6 +657,7 @@
           exampleProduct: base.exampleProduct,
           productUrl: base.productUrl,
           productName: base.productName,
+          mallName: base.mallName,
           priced: base.priced,
           usages: [],
           portionCosts: [],
@@ -960,6 +982,31 @@
       return base === "물" || base === "뜨거운 물" || p.label.startsWith("물");
     });
     if (hasWater) ["물", "뜨거운 물", "정수", "온수", "차가운 물", "얼음물"].forEach(add);
+    else ["물", "뜨거운 물"].forEach(add);
+
+    const labels = portions.map((p) => stripBuyPackSuffix(p.label));
+    if (labels.some((l) => /커피믹스/.test(l))) {
+      add("커피 베이스");
+    }
+    if (labels.some((l) => /(?:홍차|녹차|티백|허브티|얼그레이|우롱)/.test(l))) {
+      ["우려낸 홍차", "우려낸 차", "홍차", "블랙티"].forEach(add);
+    }
+    if (labels.some((l) => /(?:코코아|초코)/.test(l))) {
+      ["초코 베이스", "초코베이스"].forEach(add);
+    }
+    if (labels.some((l) => /휘핑/.test(l))) {
+      ["휘핑", "휘핑크림"].forEach(add);
+    }
+    if (labels.some((l) => /시럽/.test(l))) {
+      add("드리즐");
+    }
+    if (
+      labels.some((l) => /우유/.test(l)) &&
+      labels.some((l) => /휘핑/.test(l)) &&
+      labels.some((l) => /바닐라\s*시럽/.test(l))
+    ) {
+      add("바닐라 크림");
+    }
 
     return names;
   }
@@ -995,13 +1042,18 @@
       )
       .trim();
 
+    const afterVerb = n.split(/(?:넣고|붓고|넣어|부어|채우고|섞고|저어|풀어|만들고|채운)\s+/).pop();
+    n = (afterVerb || n).trim();
+
     const afterParticle = n.split(/(?:을|를|과|와|에)\s+/).pop();
     return (afterParticle || n).trim();
   }
 
   function stripUnlistedIngredientPhrases(text, allowed) {
     let t = text || "";
-    const mentions = extractIngredientMentions(t, allowed).filter((m) => !isListedIngredient(m.name, allowed));
+    const mentions = extractIngredientMentions(t, allowed)
+      .filter((m) => !/(?:넣고|붓고|넣어|부어|채우|섞|저어|만든|위에)$/.test(m.name))
+      .filter((m) => !isListedIngredient(m.name, allowed));
     mentions
       .sort((a, b) => b.index - a.index)
       .forEach(({ name, amount }) => {
@@ -1112,12 +1164,16 @@
   }
 
   function filterSegmentList(clause, allowed) {
-    const parts = clause.split(/\s*[,·+]\s*/);
+    // 쉼표(,)는 재료 나열용 — 잘라내면 '프림·물' 등이 빠지는 오류가 남
+    const parts = clause.split(/\s*(?:·|\+)\s*/);
     if (parts.length <= 1) return clause;
+    // 휘핑·드리즐 같은 토핑 나열은 분리하지 않음
+    const withAmount = parts.filter((p) => INGREDIENT_AMOUNT.test(p));
+    if (withAmount.length < 2) return clause;
 
     const kept = parts.filter((part) => !segmentHasUnlistedIngredient(part, allowed));
     if (!kept.length) return "";
-    return kept.join(", ");
+    return kept.join(" · ");
   }
 
   /** 장보기·1회 사용에 없는 재료 언급 제거 */

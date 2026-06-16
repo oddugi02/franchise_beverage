@@ -50,8 +50,8 @@ const HOME = {
   whipPerG: 5.8, // 식물성 휘핑 500g 2,700~3,200원
   water100ml: 5,
   ice: 50,
-  coffeeMixStick: 38, // 믹스 20입 720~800원
-  coffeeMix3: 114,
+  coffeeMixStick: 78, // 믹스 20입 1,500~1,800원
+  coffeeMix3: 233,
   primTsp: 40, // 프림 500g 7,500~8,500원, 1~2tsp(5g)
   sugarTbsp: 10, // 설탕 1kg 1,500~1,900원, 1큰술(4g)
   honeyTbsp: 200, // 꿀 500g 10,000~14,000원, 1큰술(15g)
@@ -208,12 +208,11 @@ const HOME_MENU_OVERRIDE = {
   "compose-vanilla": { 우유: Math.round(200 * HOME.milkPerMl) },
   "compose-grain": { 우유: Math.round(250 * HOME.milkPerMl) },
   "paik-strawberry": { 우유: Math.round(200 * HOME.milkPerMl) },
-  "mammoth-honey-latte": { 우유: Math.round(150 * HOME.milkPerMl) },
   "chabaek-mango": { 우유: Math.round(50 * HOME.milkPerMl) },
   "ediya-flat": { 우유: Math.round(150 * HOME.milkPerMl) },
   "hasamdong-salt": { 우유: Math.round(125 * HOME.milkPerMl), 에스프레소: HOME.espressoLiquidStick * 2 },
-  "sb-javachip": { 우유: Math.round(180 * HOME.milkPerMl), 에스프레소: HOME.espressoLiquidStick },
-  "sb-coldbrew": { 우유: Math.round(40 * HOME.milkPerMl), 생크림: Math.round(50 * HOME.creamPerMl) },
+  "sb-javachip-frappuccino": { 우유: Math.round(135 * HOME.milkPerMl), 에스프레소: HOME.espressoLiquidStick },
+  "sb-vanilla-cream-cold-brew": { 우유: Math.round(50 * HOME.milkPerMl), 휘핑크림: Math.round(50 * HOME.whipPerG) },
   "d39-cream": {
     우유: Math.round(110 * HOME.milkPerMl),
     휘핑크림: Math.round(65 * HOME.whipPerG),

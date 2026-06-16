@@ -5,7 +5,8 @@ const MANUAL = require("./gongcha-manual-steps");
 const { consumerHome } = require("./consumer-home");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome } = require("./home-recipe-utils");
 const { filterManualMenus } = require("./manual-menu-filter");
-const { filterCheaperAtHome, getMenuHomePrice } = require("./filter-cheaper-at-home");
+const { applyMenuFilters } = require("./apply-menu-filters");
+const { getMenuHomePrice } = require("./filter-cheaper-at-home");
 
 const OUTPUT_PATH = path.join(__dirname, "../gongcha-menus.js");
 const PREVIOUS_SLUGS = new Set([
@@ -567,11 +568,35 @@ function stepsFromManual(slug, homeIngredients = []) {
   return stepsFromManualHome(manual, homeIngredients).map((body) => ({ title: "", body }));
 }
 
+/** 만드는 방법 토핑(젤리·펄 등) → 장보기 homeIngredients 보강 */
+function isJewelryToppingMention(text) {
+  return /쥬얼리/.test(text) || /딸기·젤리|딸기잼·젤리|젤리·타피오카|포도 주스·젤리/.test(text);
+}
+
+function ensureStepToppingsInHome(slug, homeIngredients) {
+  const manual = MANUAL[slug];
+  if (!manual) return homeIngredients;
+  const text = [...(manual.home || []), manual.topping || ""].join(" ");
+  const out = [...homeIngredients];
+  const has = (re) => out.some((h) => re.test(h.label || ""));
+  if (/젤리/.test(text) && !isJewelryToppingMention(text) && !has(/젤리/)) {
+    out.push(home("과일 젤리", "토핑", HOME.jellyTop, "젤리"));
+  }
+  if (/타피오카|펄\s*토핑/.test(text) && !has(/타피오카|펄/)) {
+    out.push(home("타피오카 펄", "토핑", HOME.tapioca40g, "타피오카 펄"));
+  }
+  if (/과일\s*토핑/.test(text) && !has(/냉동\s*과일/)) {
+    out.push(home("냉동 과일", "토핑", HOME.mango150g, "과일"));
+  }
+  return out;
+}
+
 function buildMenu(recipe) {
   const { slug, name, category, price, emoji, photoBg, difficulty = 1, time = "약 5분", pack } = recipe;
   const built = buildFromPack(pack);
   const ingredients = recipe.ingredients || built.ingredients;
-  const homeIngredients = recipe.homeIngredients || built.homeIngredients;
+  let homeIngredients = recipe.homeIngredients || built.homeIngredients;
+  homeIngredients = ensureStepToppingsInHome(slug, homeIngredients);
   const noteExtra = slug === "black-milk-tea" ? `Large 1잔 기준 · 펄 생략 가능 · ${POOR_KITCHEN_RECIPE_NOTE}` : `공차 Quizlet 레시피 기준 · ${POOR_KITCHEN_RECIPE_NOTE}`;
 
   return {
@@ -583,7 +608,7 @@ function buildMenu(recipe) {
     emoji,
     photoBg,
     recipeReady: true,
-    listHidden: !GONGCHA_FEATURED_SLUGS.has(slug),
+    listHidden: false,
     ingredients,
     recipe: {
       homeIngredients,
@@ -598,7 +623,7 @@ function buildMenu(recipe) {
 const allMenus = GONGCHA_QUIZLET_RECIPES.map(buildMenu);
 const manualFiltered = filterManualMenus(allMenus, "gongcha-", MANUAL);
 const filteredOutByPrice = manualFiltered.filter((m) => getMenuHomePrice(m) >= m.price);
-const outputMenus = filterCheaperAtHome(manualFiltered);
+const outputMenus = applyMenuFilters(manualFiltered, "gongcha");
 
 const newSlugs = GONGCHA_QUIZLET_RECIPES.map((r) => r.slug).filter((s) => !PREVIOUS_SLUGS.has(s));
 

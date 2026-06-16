@@ -62,7 +62,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 200ml, 곡물 파우더 2큰술 넣는다."
+          "body": "뚜껑 있는 컵에 우유 200ml를, 곡물 파우더 2큰술을 넣는다."
         },
         {
           "title": "",
@@ -70,7 +70,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "얼음 가득 넣고 한 번 더 흔들어 마무리해준다."
+          "body": "얼음을 가득 넣고 한 번 더 흔들어 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -140,11 +140,11 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 토피넛 라떼 스틱 1개, 우유 200ml 넣는다."
+          "body": "뚜껑 있는 컵에 토피넛 라떼 스틱 1개를, 우유 200ml를 넣는다."
         },
         {
           "title": "",
-          "body": "얼음 가득 채우고 30초~1분 세게 흔든다."
+          "body": "얼음을 가득 채우고 30초~1분 세게 흔든다."
         }
       ],
       "difficulty": 2,
@@ -253,7 +253,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 에스프레소 액상스틱 1개, 초코 시럽 1펌프, 민트 초코 파우더 1큰술, 우유 180ml, 얼음 넣는다."
+          "body": "뚜껑 있는 컵에 에스프레소 액상스틱 1개를, 초코 시럽 1펌프를, 민트 초코 파우더 1큰술을, 우유 180ml를, 얼음을 넣는다."
         },
         {
           "title": "",
@@ -261,7 +261,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "휘핑크림 올리고 민트 가루 뿌려준다."
+          "body": "휘핑크림을 올리고 민트 가루 뿌려준다."
         }
       ],
       "difficulty": 3,
@@ -344,7 +344,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 자몽청 2큰술, 설탕시럽 2펌프, 뜨거운 물 80ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 자몽청 2큰술을, 설탕시럽 2펌프를, 뜨거운 물 80ml을, 얼음 1컵을 넣는다."
         },
         {
           "title": "",
@@ -431,7 +431,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 유자차 2큰술, 설탕시럽 2펌프, 뜨거운 물 80ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 유자차 2큰술을, 설탕시럽 2펌프를, 뜨거운 물 80ml을, 얼음 1컵을 넣는다."
         },
         {
           "title": "",
@@ -518,7 +518,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 사과 농축액 2큰술, 설탕시럽 2펌프, 뜨거운 물 100ml, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 사과 농축액 2큰술을, 설탕시럽 2펌프를, 뜨거운 물 100ml을, 얼음 1컵을 넣는다."
         },
         {
           "title": "",
@@ -539,7 +539,7 @@ const EDIIYA_MENUS = [
     "emoji": "🫘",
     "photoBg": "#FBE9E7",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "플랫치노파우더",
@@ -605,7 +605,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 150ml, 연유 1큰술, 팥 3큰술, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 우유 150ml를, 연유 1큰술을, 팥 3큰술을, 얼음 1컵을 넣는다."
         },
         {
           "title": "",
@@ -705,7 +705,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 150ml, 코코아 파우더 2큰술, 초코 시럽 3펌프, 얼음 1컵 넣는다."
+          "body": "뚜껑 있는 컵에 우유 150ml를, 코코아 파우더 2큰술을, 초코 시럽 3펌프를, 얼음 1컵을 넣는다."
         },
         {
           "title": "",
@@ -730,7 +730,7 @@ const EDIIYA_MENUS = [
     "emoji": "🟣",
     "photoBg": "#F3E5F5",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "밀크메이트",
@@ -826,7 +826,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "뜨거운 물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
+          "body": "뜨거운 물 150ml을, 타피오카 펄을, 얼음을 가득 넣고 흔든다."
         }
       ],
       "difficulty": 3,
@@ -843,7 +843,7 @@ const EDIIYA_MENUS = [
     "emoji": "🧋",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "밀크메이트",
@@ -926,7 +926,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "뜨거운 물 150ml, 타피오카 펄, 얼음 가득 넣고 흔든다."
+          "body": "뜨거운 물 150ml을, 타피오카 펄을, 얼음을 가득 넣고 흔든다."
         }
       ],
       "difficulty": 3,
@@ -943,7 +943,7 @@ const EDIIYA_MENUS = [
     "emoji": "💙",
     "photoBg": "#E3F2FD",
     "recipeReady": true,
-    "listHidden": true,
+    "listHidden": false,
     "ingredients": [
       {
         "name": "레몬베이스",
@@ -1009,11 +1009,11 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 레몬즙 2큰술, 블루 레몬 시럽 2펌프, 얼음 가득을 넣는다."
+          "body": "컵에 레몬즙 2큰술을, 블루 레몬 시럽 2펌프를, 얼음 가득을 넣는다."
         },
         {
           "title": "",
-          "body": "사이다를 기울여 부으며 30초 흔든다."
+          "body": "사이다를 기울여 부으며 30초를 흔든다."
         }
       ],
       "difficulty": 2,
@@ -1097,7 +1097,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 200ml, 연유 2큰술, 바닐라 아이스크림 1스쿱, 얼음 반 컵을 넣는다."
+          "body": "뚜껑 있는 컵에 우유 200ml를, 연유 2큰술을, 바닐라 아이스크림 1스쿱을, 얼음 반 컵을 넣는다."
         },
         {
           "title": "",
@@ -1197,7 +1197,7 @@ const EDIIYA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 200ml, 연유 1큰술, 오레오 2개, 바닐라 아이스크림 1스쿱, 얼음 반 컵을 넣는다."
+          "body": "뚜껑 있는 컵에 우유 200ml를, 연유 1큰술을, 오레오 2개를, 바닐라 아이스크림 1스쿱을, 얼음 반 컵을 넣는다."
         },
         {
           "title": "",

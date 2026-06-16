@@ -91,11 +91,6 @@ const SHOPPING_PRICE_OVERRIDES = {
     "packUnits": 25
   },
   "together473": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7551750301&ctag=7551750301&lptag=P7551750301&itemId=19875470449&vendorItemId=86976106295&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7551750301&ctag=7551750301&lptag=P7551750301&itemId=19875470449&vendorItemId=86976106295&spec=10305199",
-    "productTitle": "스타벅스 버터투게더 엘마 프레츨 참 플라스틱 텀블러 473ml",
-    "productName": "스타벅스 버터투게더 엘마 프레츨 참 플라스틱 텀블러 473ml",
-    "mallName": "쿠팡",
     "store": "네이버"
   },
   "cookiePack": {
@@ -126,30 +121,15 @@ const SHOPPING_PRICE_OVERRIDES = {
     "store": "네이버"
   },
   "micho500": {
-    "link": "https://smartstore.naver.com/main/products/7670344853",
-    "productUrl": "https://smartstore.naver.com/main/products/7670344853",
-    "productTitle": "형원 오미자홍초 주방세제 찌든때 제거력 친환경 안심세정500ml",
-    "productName": "형원 오미자홍초 주방세제 찌든때 제거력 친환경 안심세정500ml",
-    "mallName": "사회적경제기업 상생샵",
     "store": "네이버",
     "price": 3900,
     "unitPrice": 8,
     "packUnits": 500
   },
   "grapeJuice1L": {
-    "link": "https://smartstore.naver.com/main/products/4712336113",
-    "productUrl": "https://smartstore.naver.com/main/products/4712336113",
-    "productTitle": "지방이 석고방향제 미니어처 포도쥬스 아침햇살 요구르트 콜라 소주 페리에",
-    "productName": "지방이 석고방향제 미니어처 포도쥬스 아침햇살 요구르트 콜라 소주 페리에",
-    "mallName": "theshop9",
     "store": "네이버"
   },
   "greenGrapeJuice500": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=6002205&ctag=6002205&lptag=I20784486962&itemId=20784486962&vendorItemId=87854208411&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=6002205&ctag=6002205&lptag=I20784486962&itemId=20784486962&vendorItemId=87854208411&spec=10305199",
-    "productTitle": "웅진 가야농장 토마토 주스  500ml  2개",
-    "productName": "웅진 가야농장 토마토 주스  500ml  2개",
-    "mallName": "쿠팡",
     "store": "네이버"
   },
   "peachJuice200": {
@@ -180,33 +160,18 @@ const SHOPPING_PRICE_OVERRIDES = {
     "store": "네이버"
   },
   "fruitJellyCup": {
-    "link": "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1000598293&no=1000598293&kfpartnerID=1000000",
-    "productUrl": "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1000598293&no=1000598293&kfpartnerID=1000000",
-    "productTitle": "[쁘띠첼] 과일젤리 요거젤리 큰컵 10종 골라담기 (택1)",
-    "productName": "[쁘띠첼] 과일젤리 요거젤리 큰컵 10종 골라담기 (택1)",
-    "mallName": "컬리",
     "store": "네이버",
     "price": 1980,
     "unitPrice": 15,
     "packUnits": 130
   },
   "redBean500": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=34807794&ctag=34807794&lptag=I21487430767&itemId=21487430767&vendorItemId=73513103885&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=34807794&ctag=34807794&lptag=I21487430767&itemId=21487430767&vendorItemId=73513103885&spec=10305199",
-    "productTitle": "[소분제품] 1171. 팥배기 - 대두 500g  1개",
-    "productName": "[소분제품] 1171. 팥배기 - 대두 500g  1개",
-    "mallName": "쿠팡",
     "store": "네이버",
     "price": 2990,
     "unitPrice": 6,
     "packUnits": 500
   },
   "yujaTea500": {
-    "link": "https://smartstore.naver.com/main/products/10302796876",
-    "productUrl": "https://smartstore.naver.com/main/products/10302796876",
-    "productTitle": "패턴 접이식 패키지 손잡이 쿠키상자 초콜릿 티라미수 선물상자 유자청 포장",
-    "productName": "패턴 접이식 패키지 손잡이 쿠키상자 초콜릿 티라미수 선물상자 유자청 포장",
-    "mallName": "사라리스토어",
     "store": "네이버"
   },
   "appleConcentrate500": {
@@ -376,7 +341,10 @@ const SHOPPING_PRICE_OVERRIDES = {
     "productTitle": "맥스웰하우스 오리지날 커피믹스 20T x 1개",
     "productName": "맥스웰하우스 오리지날 커피믹스 20T x 1개",
     "mallName": "11번가",
-    "store": "네이버"
+    "store": "네이버",
+    "price": 1550,
+    "unitPrice": 78,
+    "packUnits": 20
   },
   "espresso10": {
     "link": "https://link.auction.co.kr/gate/pcs?item-no=C255341987&sub-id=1&service-code=10000003",
@@ -573,30 +541,12 @@ const SHOPPING_PRICE_OVERRIDES = {
     "packUnits": 400
   },
   "soyPowder200": {
-    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4187716196&sub-id=1003&service-code=10000003&lcd=100000017",
-    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=4187716196&sub-id=1003&service-code=10000003&lcd=100000017",
-    "productTitle": "일성사 일성사 콩가루 집어제 붕어낚시 잉어 향어 떡밥 민물",
-    "productName": "일성사 일성사 콩가루 집어제 붕어낚시 잉어 향어 떡밥 민물",
-    "mallName": "G마켓",
     "store": "네이버",
     "price": 2000,
     "unitPrice": 10,
     "packUnits": 200
   },
   "yogurtIce473": {
-    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4575862632&sub-id=1003&service-code=10000003&lcd=100000036",
-    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=4575862632&sub-id=1003&service-code=10000003&lcd=100000036",
-    "productTitle": "빙그레 투게더 /요맘때 홈컵 9종 3+3개 골라담기 /바닐라/요거트아이스크림/쿠앤크",
-    "productName": "빙그레 투게더 /요맘때 홈컵 9종 3+3개 골라담기 /바닐라/요거트아이스크림/쿠앤크",
-    "mallName": "G마켓",
-    "store": "네이버"
-  },
-  "dalgonaKit": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7115699470&ctag=7115699470&lptag=P7115699470&itemId=17802228931&vendorItemId=84966290134&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7115699470&ctag=7115699470&lptag=P7115699470&itemId=17802228931&vendorItemId=84966290134&spec=10305199",
-    "productTitle": "애니펀 수제 달고나 피카츄 치코리타 꼬부기 토게피 푸린 뽑기 단체 행사 게임 사탕 몬스터  I09바늘  1개",
-    "productName": "애니펀 수제 달고나 피카츄 치코리타 꼬부기 토게피 푸린 뽑기 단체 행사 게임 사탕 몬스터  I09바늘  1개",
-    "mallName": "쿠팡",
     "store": "네이버"
   },
   "prim500": {
@@ -630,11 +580,6 @@ const SHOPPING_PRICE_OVERRIDES = {
     "packUnits": 25
   },
   "chocoCrunch250": {
-    "link": "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1002101910&dealNo=1002101907&no=1002101910&kfpartnerID=1000000",
-    "productUrl": "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1002101910&dealNo=1002101907&no=1002101910&kfpartnerID=1000000",
-    "productTitle": "[플라이밀] 단백질바 크런치 화이트초코 1개입",
-    "productName": "[플라이밀] 단백질바 크런치 화이트초코 1개입",
-    "mallName": "컬리",
     "store": "네이버",
     "price": 2900,
     "unitPrice": 12,
@@ -649,11 +594,6 @@ const SHOPPING_PRICE_OVERRIDES = {
     "store": "네이버"
   },
   "caramel500": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8384918697&ctag=8384918697&lptag=V91250872410&itemId=24233740650&vendorItemId=91250872410&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8384918697&ctag=8384918697&lptag=V91250872410&itemId=24233740650&vendorItemId=91250872410&spec=10305199",
-    "productTitle": "[2개]관통형 18mm 캬라멜 시럽 큐브 2종 3-1068 악세사리 키링재료 아크릴비즈  2.다크",
-    "productName": "[2개]관통형 18mm 캬라멜 시럽 큐브 2종 3-1068 악세사리 키링재료 아크릴비즈  2.다크",
-    "mallName": "쿠팡",
     "store": "네이버"
   },
   "soda15L": {
@@ -860,16 +800,5 @@ const SHOPPING_PRICE_OVERRIDES = {
     "productName": "[동서]티오 복숭아 아이스티 18T",
     "mallName": "11번가",
     "store": "네이버"
-  },
-  "icecream1L": {
-    "link": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000034479483&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-    "productUrl": "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000034479483&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-    "productTitle": "하겐다즈 아이스크림 미니컵_바닐라",
-    "productName": "하겐다즈 아이스크림 미니컵_바닐라",
-    "mallName": "신세계몰",
-    "store": "네이버",
-    "price": 6070,
-    "unitPrice": 6,
-    "packUnits": 1000
   },
 };

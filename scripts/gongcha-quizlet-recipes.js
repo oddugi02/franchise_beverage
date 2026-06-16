@@ -90,7 +90,7 @@ const GONGCHA_QUIZLET_RECIPES = [
     ],
     home: [
       "믹서기에 설탕시럽 3펌프, 딸기 요거트 55ml, 우유 30ml, 물 20ml, 스무디 파우더 1스푼, 얼음 1.5스쿱 넣고 갈기",
-      "컵 바닥에 딸기 요거트 30ml 깔고, 딸기·젤리 토핑을 올린 뒤 갈아 둔 음료를 부어준다",
+      "컵 바닥에 딸기 요거트 30ml 깔고, 딸기 쥬얼리 토핑을 올린 뒤 갈아 둔 음료를 부어준다",
     ],
     pack: { kind: "smoothie", syrupMl: 20, strawberryYogurtMl: 85, milkMl: 30, waterMl: 20, smoothiePowderG: 10, jewelryG: 30, iceScoops: 1.5 },
   },
@@ -109,7 +109,7 @@ const GONGCHA_QUIZLET_RECIPES = [
     ],
     home: [
       "설탕시럽 3펌프, 우롱차 80ml, 스무디 파우더 1스푼, 얼음 1.5스쿱을 넣고 갈기",
-      "컵 벽에 흑설탕 시럽을 두르고, 젤리·타피오카 토핑을 올린 뒤 스무디를 부어준다",
+      "컵 벽에 흑설탕 시럽을 두르고, 쥬얼리·타피오카 토핑을 올린 뒤 스무디를 부어준다",
     ],
     pack: { kind: "smoothie", syrupMl: 20, oolongMl: 80, smoothiePowderG: 25, brownSugarSauceMl: 30, jewelryG: 30, iceScoops: 1.5 },
   },
@@ -533,7 +533,7 @@ const GONGCHA_QUIZLET_RECIPES = [
       "얼음을 넣고 씰링한다",
     ],
     home: [
-      "컵에 설탕시럽 1펌프, 딸기잼·젤리 토핑, 우유를 C라인까지 넣고 얼음을 넣어 흔든다",
+      "컵에 설탕시럽 1펌프, 딸기 쥬얼리 토핑, 우유를 C라인까지 넣고 얼음을 넣어 흔든다",
     ],
     pack: { kind: "milk-tea-seal", syrupMl: 15, strawberryJewelryMl: 50, milkLine: true, jewelryHalf: true },
   },
@@ -550,7 +550,7 @@ const GONGCHA_QUIZLET_RECIPES = [
       "포도 쥬얼리 반 봉지, 포도 소스 80ml, 우유 150ml를 넣고 얼음을 넣어 씰링한다",
     ],
     home: [
-      "컵에 설탕시럽 2펌프, 포도 주스·젤리 토핑, 우유 150ml, 얼음을 넣고 흔든다",
+      "컵에 설탕시럽 2펌프, 포도 주스·쥬얼리 토핑, 우유 150ml, 얼음을 넣고 흔든다",
     ],
     pack: { kind: "milk-tea-seal", syrupMl: 20, grapeSauceMl: 80, milkMl: 150, jewelryHalf: true },
   },
@@ -567,7 +567,7 @@ const GONGCHA_QUIZLET_RECIPES = [
       "브라운슈가 쥬얼리 한 봉지를 데운 뒤(1분 10초) 얼음 레스 컵 끝까지 베이스로 채운다",
     ],
     home: [
-      "컵 벽에 흑설탕 시럽을 두르고, 젤리·타피오카 토핑을 데운 뒤 우유 베이스로 채운다",
+      "컵 벽에 흑설탕 시럽을 두르고, 쥬얼리·타피오카 토핑을 데운 뒤 우유 베이스로 채운다",
     ],
     pack: { kind: "milk-tea-seal", brownSugarSauce: true, jewelryFull: true, lessIce: true },
   },

@@ -5,7 +5,7 @@ const PAIK_HOME = require("./paik-home-steps");
 const { consumerHome } = require("./consumer-home");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome, alignStepToIngredients, ensurePeriod } = require("./home-recipe-utils");
 const { filterManualMenus } = require("./manual-menu-filter");
-const { filterCheaperAtHome } = require("./filter-cheaper-at-home");
+const { applyMenuFilters } = require("./apply-menu-filters");
 
 const OUTPUT_PATH = path.join(__dirname, "../paik-menus.js");
 
@@ -434,6 +434,7 @@ menus.push(
     ],
     homeExtras: [
       home("콜드브루 원액", "100ml", HOME.coldBrew100ml, "원조커피 원액"),
+      home("콜드브루 원액", "드리즐", 50, "원조커피 원액 드리즐"),
       home("바닐라 파우더", "1큰술", HOME.powderSpoon, "바닐라 파우더"),
       home("설탕시럽", "2펌프", 2 * HOME.syrupPump, "설탕시럽"),
     ],
@@ -947,17 +948,14 @@ if (iceLatte) {
 }
 
 // strip internal _storeSteps before output (keep in ingredients note via recipe note)
-const outputMenus = filterCheaperAtHome(
+const outputMenus = applyMenuFilters(
   filterManualMenus(
   menus.map(({ _storeSteps, ...menu }) => menu),
   "paik-",
   MANUAL
-  )
+  ),
+  "paik"
 );
-
-if (outputMenus.length !== 38) {
-  throw new Error(`Expected 38 manual menus but got ${outputMenus.length}`);
-}
 
 const minPrice = Math.min(...outputMenus.map((m) => m.price));
 const maxPrice = Math.max(...outputMenus.map((m) => m.price));

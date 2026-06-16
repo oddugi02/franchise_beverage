@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const manualModule = require("./compose-manual-steps");
-const COMPOSE_MANUAL_SLUGS = new Set(manualModule.COMPOSE_MANUAL_SLUGS);
+const COMPOSE_MANUAL_SLUGS = manualModule.COMPOSE_MANUAL_SLUGS;
+const COMPOSE_MANUAL_SLUG_SET = new Set(COMPOSE_MANUAL_SLUGS);
 const MANUAL = Object.fromEntries(Object.entries(manualModule).filter(([k]) => k !== "COMPOSE_MANUAL_SLUGS"));
 const { consumerHome } = require("./consumer-home");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome } = require("./home-recipe-utils");
@@ -431,7 +432,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-vanilla-latte",
-    name: "아이스 바닐라라떼",
+    name: "아이스 바닐라 라떼",
     category: "라떼",
     price: 2500,
     emoji: "🤍",
@@ -483,7 +484,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-caramel-macchiato-base",
-    name: "아이스 카라멜마끼아또 베이스",
+    name: "아이스 카라멜 마키아또",
     category: "라떼",
     price: 3000,
     emoji: "🍮",
@@ -530,7 +531,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-dolce-latte-base",
-    name: "아이스 돌체라떼 베이스",
+    name: "아이스 돌체라떼",
     category: "라떼",
     price: 3000,
     emoji: "🍯",
@@ -550,23 +551,46 @@ menus.push(
 );
 menus.push(
   baseMenu({
-    slug: "iced-brown-sugar-latte",
-    name: "아이스 흑당라떼",
+    slug: "iced-brown-sugar-milk",
+    name: "흑당밀크",
+    category: "라떼",
+    price: 3000,
+    emoji: "🥛",
+    photoBg: "#3E2723",
+    ingredients: [
+      ing("흑당소스", "45g", 45 * B2B.syrupPerMl),
+      ing("우유", "200ml", 200 * B2B.milkPerMl),
+      ing("얼음", "컵 가득", B2B.ice),
+      cup(),
+    ],
+    homeIngredients: [
+      home("설탕시럽", "45g", HOME.syrup15ml, "흑당소스"),
+      home("우유", "200ml", 500, "우유"),
+      home("얼음", "가득", HOME.ice, "얼음"),
+    ],
+    difficulty: 1,
+    time: "약 3분",
+  })
+);
+menus.push(
+  baseMenu({
+    slug: "iced-brown-sugar-cafe-latte",
+    name: "흑당카페라떼",
     category: "라떼",
     price: 3500,
     emoji: "🖤",
     photoBg: "#424242",
     ingredients: [
-      ing("흑당시럽", "4펌프", 4 * B2B.syrupPerPump),
+      ing("흑당소스", "45g", 45 * B2B.syrupPerMl),
       ing("우유", "200ml", 200 * B2B.milkPerMl),
-      ing("원두(에스프레소)", "2샷", 2 * B2B.espressoPerShot),
+      ing("원두(에스프레소)", "1샷", B2B.espressoPerShot),
       ing("얼음", "컵 가득", B2B.ice),
       cup(),
     ],
     homeIngredients: [
-      home("설탕시럽", "4펌프", HOME.syrupPump * 4, "흑당시럽"),
+      home("설탕시럽", "45g", HOME.syrup15ml, "흑당소스"),
       home("우유", "200ml", 500, "우유"),
-      home("에스프레소 액상스틱", "2개", 2 * HOME.espressoLiquidStick, "원두(에스프레소)"),
+      home("에스프레소 액상스틱", "1개", HOME.espressoLiquidStick, "원두(에스프레소)"),
       home("얼음", "가득", HOME.ice, "얼음"),
     ],
     difficulty: 2,
@@ -589,7 +613,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "iced-dalgona-latte",
-    name: "아이스 달고나라떼",
+    name: "달고나 라떼",
     category: "라떼",
     price: 4000,
     emoji: "🍯",
@@ -611,7 +635,7 @@ menus.push(
   })
 );
 menus.push(dutchMenu({ slug: "iced-dutch-coffee", name: "아이스 더치커피", price: 2000 }));
-menus.push(dutchMenu({ slug: "iced-dutch-latte", name: "아이스 더치라떼", price: 2500, latte: true }));
+menus.push(dutchMenu({ slug: "iced-dutch-latte", name: "콜드브루 라떼", price: 2500, latte: true }));
 menus.push(dutchMenu({ slug: "iced-einspanner", name: "아이스 아인슈페너", price: 3500, einspanner: true }));
 menus.push(dutchMenu({ slug: "iced-decaf-dutch-coffee", name: "아이스 디카페인 더치커피", price: 2200, decaf: true }));
 menus.push(dutchMenu({ slug: "iced-decaf-dutch-latte", name: "아이스 디카페인 더치라떼", price: 2700, decaf: true, latte: true }));
@@ -636,7 +660,7 @@ menus.push(
 menus.push(
   blendedLatte({
     slug: "iced-sweet-potato-latte",
-    name: "아이스 고구마라떼",
+    name: "고구마라떼",
     price: 3200,
     milkMl: 200,
     powderName: "고구마 페이스트",
@@ -671,21 +695,35 @@ menus.push(
   })
 );
 menus.push(
-  blendedLatte({
+  baseMenu({
     slug: "iced-cookie-choco-latte",
-    name: "아이스 쿠키초코라떼",
+    name: "쿠키초코라떼",
+    category: "라떼",
     price: 3400,
-    baseMl: 130,
-    baseName: "쿠키초코 베이스",
-    milkMl: 150,
     emoji: "🍪",
     photoBg: "#4E342E",
+    ingredients: [
+      ing("우유", "150ml", 150 * B2B.milkPerMl),
+      ing("쿠키초코 베이스", "130ml", 130 * B2B.basePerMl),
+      ing("얼음", "컵 가득", B2B.ice),
+      cup(),
+    ],
+    homeIngredients: [
+      home("우유", "150ml", 375, "우유"),
+      home("오레오", "2~3개", HOME.oreo2, "쿠키초코 베이스"),
+      home("코코아 파우더", "2~3큰술", HOME.powder20g, "쿠키초코 베이스"),
+      home("초코 시럽", "2펌프", HOME.syrupPump * 2, "쿠키초코 베이스"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
+      home("휘핑크림", "30g", HOME.whip30g, "휘핑크림"),
+    ],
+    difficulty: 2,
+    time: "약 7분",
   })
 );
 menus.push(
   blendedLatte({
     slug: "iced-mint-choco-oreo-latte",
-    name: "아이스 민트초코 오레오라떼",
+    name: "민트초코 오레오 라떼",
     price: 3600,
     milkMl: 200,
     powderName: "민트초코 파우더",
@@ -873,24 +911,58 @@ menus.push(
 
 // ── Category 4: Frappe / tea ──
 menus.push(
-  frappeMenu({
+  baseMenu({
     slug: "real-choco-java-frappe",
-    name: "리얼초코 자바칩 프라페",
+    name: "리얼초코자바칩프라페",
+    category: "프라페·프라푸치노",
     price: 4500,
-    bases: [
-      { name: "쿠키 베이스", ml: 100, homeLabel: "오레오" },
-      { name: "초코 베이스", ml: 150, homeLabel: "초코 시럽" },
+    emoji: "🍧",
+    photoBg: "#FCE4EC",
+    ingredients: [
+      ing("쿠키 베이스", "100ml", 100 * B2B.cookieBasePerMl),
+      ing("초코 베이스", "150ml", 150 * B2B.basePerMl),
+      ing("자바칩", "1스푼(s)", B2B.powderPerSpoon),
+      ing("얼음", "1컵", B2B.ice * 1.5),
+      ing("휘핑크림", "30g", 30 * B2B.whipPerG),
+      cup(),
     ],
-    javaChip: true,
+    homeIngredients: [
+      home("우유", "100ml", 250, "쿠키 베이스"),
+      home("초코 시럽", "3펌프", HOME.syrupPump * 3, "초코 베이스"),
+      home("초코 크런치", "1큰술", HOME.chocoChip, "자바칩"),
+      home("바닐라 아이스크림", "2큰술", 220, "초코 베이스"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
+      home("휘핑크림", "30g", HOME.whip30g, "휘핑크림"),
+    ],
+    difficulty: 2,
+    time: "약 7분",
   })
 );
 menus.push(
-  frappeMenu({
+  baseMenu({
     slug: "cookie-choco-frappe",
     name: "쿠키초코 프라페",
+    category: "프라페·프라푸치노",
     price: 4500,
-    bases: [{ name: "쿠키 베이스", ml: 250, homeLabel: "오레오" }],
-    oreo: 2,
+    emoji: "🍧",
+    photoBg: "#FCE4EC",
+    ingredients: [
+      ing("쿠키 베이스", "250ml", 250 * B2B.cookieBasePerMl),
+      ing("오레오", "2개", 70),
+      ing("얼음", "1컵", B2B.ice * 1.5),
+      ing("휘핑크림", "30g", 30 * B2B.whipPerG),
+      cup(),
+    ],
+    homeIngredients: [
+      home("오레오", "4~5개", HOME.oreo4, "쿠키 베이스"),
+      home("우유", "110ml", round(110 * HOME.milkPerMl), "쿠키 베이스"),
+      home("바닐라 아이스크림", "3큰술", 320, "쿠키 베이스"),
+      home("초코 시럽", "2펌프", HOME.syrupPump * 2, "쿠키 베이스"),
+      home("얼음", "1컵", HOME.ice, "얼음"),
+      home("휘핑크림", "30g", HOME.whip30g, "휘핑크림"),
+    ],
+    difficulty: 2,
+    time: "약 8분",
   })
 );
 menus.push(
@@ -1014,23 +1086,27 @@ menus.push(
   })
 );
 
-if (menus.length !== 48) {
-  throw new Error(`Expected 48 menus but got ${menus.length}`);
+if (menus.length !== 49) {
+  throw new Error(`Expected 49 menus but got ${menus.length}`);
 }
 
 const { filterManualMenus } = require("./manual-menu-filter");
-const { filterCheaperAtHome } = require("./filter-cheaper-at-home");
-const composeMenus = filterCheaperAtHome(
+const { applyMenuFilters } = require("./apply-menu-filters");
+const filtered = applyMenuFilters(
   filterManualMenus(
-  menus.filter((m) => COMPOSE_MANUAL_SLUGS.has(m.id.replace(/^compose-/, ""))),
-  "compose-",
-  MANUAL
-  )
+    menus.filter((m) => COMPOSE_MANUAL_SLUG_SET.has(m.id.replace(/^compose-/, ""))),
+    "compose-",
+    MANUAL,
+    COMPOSE_MANUAL_SLUGS,
+  ),
+  "compose",
 );
-if (composeMenus.length !== COMPOSE_MANUAL_SLUGS.size) {
+const order = new Map(COMPOSE_MANUAL_SLUGS.map((slug, i) => [slug, i]));
+const composeMenus = filtered.sort((a, b) => order.get(a.id.slice(8)) - order.get(b.id.slice(8)));
+if (composeMenus.length !== COMPOSE_MANUAL_SLUGS.length) {
   const got = new Set(composeMenus.map((m) => m.id.replace(/^compose-/, "")));
-  const missing = [...COMPOSE_MANUAL_SLUGS].filter((s) => !got.has(s));
-  throw new Error(`Expected ${COMPOSE_MANUAL_SLUGS.size} manual menus but got ${composeMenus.length}. Missing: ${missing.join(", ")}`);
+  const missing = COMPOSE_MANUAL_SLUGS.filter((s) => !got.has(s));
+  throw new Error(`Expected ${COMPOSE_MANUAL_SLUGS.length} manual menus but got ${composeMenus.length}. Missing: ${missing.join(", ")}`);
 }
 
 const minPrice = Math.min(...composeMenus.map((m) => m.price));

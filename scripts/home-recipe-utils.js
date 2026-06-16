@@ -135,6 +135,10 @@ function alignStepToIngredients(text, labels = []) {
     t = t.replace(/탄산수(\([^)]*\))?/g, "사이다");
     t = t.replace(/사이다\s+1캔\(또는\s+사이다\)/g, "사이다 1캔");
   }
+  if (has("콜라") && !has("사이다")) {
+    t = t.replace(/탄산수(\([^)]*\))?/g, "콜라");
+    t = t.replace(/사이다/g, "콜라");
+  }
   if (has("자몽청")) {
     t = t.replace(/자몽청·오렌지[^.]*?(?=을|를|과|와|\s)/g, "자몽청");
     t = t.replace(/자몽퓨레/g, "자몽청");

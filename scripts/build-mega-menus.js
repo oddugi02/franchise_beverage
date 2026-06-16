@@ -3,8 +3,9 @@ const path = require("path");
 const MANUAL = require("./mega-manual-steps");
 const { consumerHome } = require("./consumer-home");
 const { filterManualMenus } = require("./manual-menu-filter");
-const { filterCheaperAtHome } = require("./filter-cheaper-at-home");
+const { applyMenuFilters } = require("./apply-menu-filters");
 const { POOR_KITCHEN_RECIPE_NOTE, stepsFromManualHome } = require("./home-recipe-utils");
+const { toppingHomeIngredients } = require("./topping-home-ingredients");
 
 const OUTPUT_PATH = path.join(__dirname, "../mega-menus.js");
 
@@ -17,6 +18,7 @@ const B2B = {
   ice: 25,
   cup: 95,
   cupStraw: 115,
+  sodaCan: 200,
   whipPerG: 5.5,
   honeyPerG: 12,
   condensedPerMl: 8,
@@ -49,6 +51,9 @@ const HOME = {
   sugarSpoon: 15,
   cream2spoon: 40,
   milk300ml: 750,
+  caramelDrizzle: 85,
+  chocoDrizzle: 80,
+  espressoDrizzle: 200,
 };
 
 function round(v) {
@@ -154,6 +159,13 @@ function coffeeMenu({
   if (whipG > 0) homeIngredients.push(home("휘핑크림", `${whipG}g`, HOME.whip30g, "휘핑크림"));
   if (iced) homeIngredients.push(home("얼음", "적당량", HOME.ice, "얼음"));
   homeIngredients.push(...homeExtra);
+  homeIngredients.push(
+    ...toppingHomeIngredients(
+      topping || MANUAL[slug]?.topping,
+      HOME,
+      homeIngredients.map((i) => i.label),
+    ),
+  );
 
   const recipeSteps = stepsFromManual(
     slug,
@@ -202,6 +214,13 @@ function latteNoCoffeeMenu({ name, slug, iced, powderName, powderG, milkMl, syru
   if (sugarPumps > 0) homeIngredients.push(home("설탕시럽", `${sugarPumps}펌프`, sugarPumps * HOME.syrupPump, "슈가시럽"));
   if (iced) homeIngredients.push(home("얼음", "적당량", HOME.ice, "얼음"));
   homeIngredients.push(...homeExtra);
+  homeIngredients.push(
+    ...toppingHomeIngredients(
+      topping || MANUAL[slug]?.topping,
+      HOME,
+      homeIngredients.map((i) => i.label),
+    ),
+  );
 
   return {
     id: `mega-${slug || slugifyAscii(name)}`,
@@ -313,6 +332,13 @@ function frappeMenu({ name, slug, flavor, price, topping }) {
     home("얼음", "적당량", HOME.ice, "얼음"),
     home("휘핑크림", "30g", HOME.whip30g, "휘핑크림"),
   ];
+  homeIngredients.push(
+    ...toppingHomeIngredients(
+      topping || MANUAL[slug]?.topping,
+      HOME,
+      homeIngredients.map((i) => i.label),
+    ),
+  );
 
   return {
     id: `mega-${slug || slugifyAscii(name)}`,
@@ -360,8 +386,15 @@ function adeMenu({ name, slug, hot = false, tea = false, juice = false, flavor =
     homeIngredients.push(home("물", "60ml", HOME.water, "물"));
     homeIngredients.push(home("얼음", "적당량", HOME.ice, "얼음"));
   } else {
-    ingredients.push(ing(`${flavor} 베이스`, "45ml", 45 * B2B.syrupPerMl));
-    ingredients.push(ing("탄산수", "180ml", B2B.water));
+    const cherryCola = flavor === "체리";
+    const baseAmount = cherryCola ? "100ml" : "45ml";
+    const baseMl = cherryCola ? 100 : 45;
+    ingredients.push(ing(`${flavor} 베이스`, baseAmount, baseMl * B2B.syrupPerMl));
+    if (cherryCola) {
+      ingredients.push(ing("콜라", "250ml", Math.round(B2B.sodaCan * (250 / 355))));
+    } else {
+      ingredients.push(ing("탄산수", "180ml", B2B.water));
+    }
     ingredients.push(ing("얼음", "컵 가득", B2B.ice));
     ingredients.push(ing("컵·뚜껑·빨대", "1세트", B2B.cupStraw));
 
@@ -384,10 +417,11 @@ function adeMenu({ name, slug, hot = false, tea = false, juice = false, flavor =
       homeIngredients.push(home("바닐라 시럽", "2펌프", HOME.syrup15ml, "유니콘 파우더"));
     } else if (flavor === "체리") {
       homeIngredients.push(home("체리시럽", "100ml", HOME.lemonBase, "체리 베이스"));
+      homeIngredients.push(home("콜라", "250ml", HOME.sodaCanPart, "콜라"));
     } else {
       homeIngredients.push(home(`${flavor} 베이스`, "45ml", HOME.lemonBase, `${flavor} 베이스`));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     }
-    homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     homeIngredients.push(home("얼음", "적당량", HOME.ice, "얼음"));
   }
 
@@ -455,8 +489,6 @@ menus.push(adeMenu({ name: "블루레몬에이드", slug: "blue-lemon-ade", flav
 menus.push(adeMenu({ name: "자몽에이드", slug: "grapefruit-ade", flavor: "자몽", price: 3500 }));
 menus.push(adeMenu({ name: "메가에이드", slug: "mega-ade", flavor: "메가믹스", price: 3900 }));
 menus.push(adeMenu({ name: "라임모히또", slug: "lime-mojito", flavor: "라임", price: 3900 }));
-menus.push(adeMenu({ name: "유니콘 매직에이드(블루)", slug: "unicorn-magic-ade-blue", flavor: "유니콘 블루", price: 4200 }));
-menus.push(adeMenu({ name: "유니콘 매직에이드(핑크)", slug: "unicorn-magic-ade-pink", flavor: "유니콘 핑크", price: 4200 }));
 
 menus.push({
   id: "mega-plain-pong-crush",
@@ -521,11 +553,11 @@ menus.push({
   },
 });
 
-const outputMenus = filterCheaperAtHome(filterManualMenus(menus, "mega-", MANUAL));
+const outputMenus = applyMenuFilters(filterManualMenus(menus, "mega-", MANUAL), "mega");
 const minPrice = Math.min(...outputMenus.map((m) => m.price));
 const maxPrice = Math.max(...outputMenus.map((m) => m.price));
-if (outputMenus.length !== 35) {
-  throw new Error(`Expected 35 manual menus but got ${outputMenus.length}`);
+if (outputMenus.length !== 33) {
+  throw new Error(`Expected 33 manual menus but got ${outputMenus.length}`);
 }
 if (minPrice < 1500 || maxPrice > 5200) {
   throw new Error(`Price out of range: ${minPrice} ~ ${maxPrice}`);

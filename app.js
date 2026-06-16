@@ -366,12 +366,12 @@ function getMenuPhotoUrl(menu) {
 
 function renderMenuPhotoHtml(menu, className) {
   const url = getMenuPhotoUrl(menu);
-  const bg = menu.photoBg || "#f5f5f5";
   const emoji = menu.emoji || "☕";
+  const bgStyle = menu.photoBg ? ` style="background:${menu.photoBg}"` : "";
   if (url) {
-    return `<div class="${className} ${className}--has-img" style="background:${bg}"><img src="${url}" alt="${menu.name}" loading="lazy" decoding="async" class="${className}__img" onerror="this.parentElement.classList.remove('${className}--has-img');this.remove();" /><span class="${className}__emoji" aria-hidden="true">${emoji}</span></div>`;
+    return `<div class="${className} ${className}--has-img"><img src="${url}" alt="${menu.name}" loading="lazy" decoding="async" class="${className}__img" onerror="this.parentElement.classList.remove('${className}--has-img');this.remove();" /><span class="${className}__emoji" aria-hidden="true">${emoji}</span></div>`;
   }
-  return `<div class="${className}" style="background:${bg}">${emoji}</div>`;
+  return `<div class="${className} ${className}--emoji"${bgStyle}><span class="${className}__emoji" aria-hidden="true">${emoji}</span></div>`;
 }
 
 function buildShoppingItemUrl(item) {
@@ -385,6 +385,14 @@ function buildShoppingItemUrl(item) {
   return null;
 }
 
+function shoppingMallLabel(item) {
+  if (!buildShoppingItemUrl(item)) return "";
+  const name = (item.mallName || "").trim();
+  if (name && name !== "네이버쇼핑") return name;
+  if (item.productUrl) return "네이버";
+  return item.store || "마트";
+}
+
 function renderShoppingBuyCell(item) {
   const url = buildShoppingItemUrl(item);
   const priceHint =
@@ -395,9 +403,8 @@ function renderShoppingBuyCell(item) {
   const subLine = sub ? `<span class="home-ingredient-row__search">${sub}</span>` : "";
   const inner = `<span class="home-ingredient-row__buy-name">${item.buy}</span>${priceHint}${subLine}`;
   if (url) {
-    const storeLabel = item.productUrl
-      ? `${item.mallName || "네이버"} 최저가`
-      : `${item.store || "마트"} 검색`;
+    const mall = shoppingMallLabel(item);
+    const storeLabel = item.productUrl ? `${mall} 최저가` : `${item.store || "마트"} 검색`;
     return `<a class="home-ingredient-row__buy-link" href="${url}" target="_blank" rel="noopener noreferrer" title="${storeLabel}">${inner}<span class="home-ingredient-row__external" aria-hidden="true">↗</span></a>`;
   }
   return inner;
@@ -405,8 +412,9 @@ function renderShoppingBuyCell(item) {
 
 function renderShoppingStoreCell(item) {
   const url = buildShoppingItemUrl(item);
-  if (!item.store) return '<span class="home-ingredient-row__store--na">—</span>';
-  const badge = `<span class="home-ingredient-row__store-badge">${item.store}</span>`;
+  const label = shoppingMallLabel(item);
+  if (!label) return '<span class="home-ingredient-row__store--na">—</span>';
+  const badge = `<span class="home-ingredient-row__store-badge">${label}</span>`;
   if (url) {
     return `<a class="home-ingredient-row__store-link" href="${url}" target="_blank" rel="noopener noreferrer">${badge}</a>`;
   }

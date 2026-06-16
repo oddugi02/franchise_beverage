@@ -12,7 +12,36 @@ const {
   SHOPPING_PACK_CATALOG,
   SHOPPING_POWDER_CATALOG,
 } = require(path.join(ROOT, "shopping-packs.js"));
-const { isRelevantProduct, isTrustedMall } = require(path.join(ROOT, "product-filter.js"));
+const { isRelevantProduct, isTrustedMall, isValidPriceOverride } = require(path.join(ROOT, "product-filter.js"));
+
+function loadPriceOverrides() {
+  const ctx = { globalThis: {} };
+  vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, "shopping-price-overrides.js"), "utf8"), ctx);
+  return ctx.SHOPPING_PRICE_OVERRIDES || {};
+}
+
+function mergeCatalogWithOverrides(baseCatalog, overrides) {
+  const merged = {};
+  for (const [key, entry] of Object.entries(baseCatalog)) {
+    merged[key] = { ...entry };
+    const override = overrides[key];
+    if (!override) continue;
+    if (!isValidPriceOverride(override, merged[key])) continue;
+    if (override.price != null) merged[key].price = override.price;
+    const link = override.productUrl || override.link;
+    if (link) merged[key].productUrl = link;
+    const name = override.productName || override.productTitle;
+    if (name) merged[key].productName = name;
+    if (override.mallName) merged[key].mallName = override.mallName;
+    if (override.store) merged[key].store = override.store;
+  }
+  return merged;
+}
+
+const PRICE_OVERRIDES = loadPriceOverrides();
+const MERGED_PACK_CATALOG = mergeCatalogWithOverrides(SHOPPING_PACK_CATALOG, PRICE_OVERRIDES);
+const MERGED_POWDER_CATALOG = mergeCatalogWithOverrides(SHOPPING_POWDER_CATALOG, PRICE_OVERRIDES);
 
 const MENU_FILES = [
   "mega-menus.js",
@@ -133,9 +162,26 @@ function loadBrowserContext() {
 }
 
 const catalogIssues = [
-  ...auditCatalog(SHOPPING_PACK_CATALOG, "PACK"),
-  ...auditCatalog(SHOPPING_POWDER_CATALOG, "POWDER"),
+  ...auditCatalog(MERGED_PACK_CATALOG, "PACK"),
+  ...auditCatalog(MERGED_POWDER_CATALOG, "POWDER"),
 ];
+
+for (const [key, override] of Object.entries(PRICE_OVERRIDES)) {
+  const entry = SHOPPING_PACK_CATALOG[key] || SHOPPING_POWDER_CATALOG[key];
+  if (!entry) continue;
+  const name = override.productName || override.productTitle || "";
+  const link = override.productUrl || override.link || "";
+  if (!name && !link) continue;
+  if (!isValidPriceOverride(override, entry)) {
+    catalogIssues.push({
+      kind: "bad-override",
+      key,
+      label: SHOPPING_PACK_CATALOG[key] ? "PACK" : "POWDER",
+      msg: `가격 오버라이드 상품 거부: ${name.slice(0, 48) || link.slice(0, 48)}…`,
+      buy: entry.buy,
+    });
+  }
+}
 
 const ctx = loadBrowserContext();
 const menuIssues = [];

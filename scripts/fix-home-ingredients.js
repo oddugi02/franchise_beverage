@@ -111,15 +111,9 @@ const HOME_BY_ID = {
     { label: "얼음", cost: 50, replaces: "얼음" },
   ],
   "mammoth-honey-coffee": [
-    { label: "꿀", cost: 180, replaces: "꿀 시럽(업체용)" },
-    { label: "에스프레소", cost: 145, replaces: "원두(에스프레소)" },
-    { label: "찬물", cost: 10, replaces: "물" },
-    { label: "얼음", cost: 50, replaces: "얼음" },
-  ],
-  "mammoth-honey-latte": [
-    { label: "꿀", cost: 180, replaces: "꿀 시럽(업체용)" },
-    { label: "에스프레소", cost: 145, replaces: "원두(에스프레소)" },
-    { label: "우유", cost: 190, replaces: "우유" },
+    { label: "꿀", cost: 180, replaces: "꿀" },
+    { label: "에스프레소 액상스틱", cost: 2300, replaces: "원두(에스프레소)" },
+    { label: "물", cost: 10, replaces: "물" },
     { label: "얼음", cost: 50, replaces: "얼음" },
   ],
   "chabaek-mango": [
@@ -169,25 +163,24 @@ const HOME_BY_ID = {
     { label: "에스프레소", cost: 190, replaces: "원두(에스프레소)" },
     { label: "얼음", cost: 50, replaces: "얼음" },
   ],
-  "sb-javachip": [
+  "sb-javachip-frappuccino": [
     { label: "얼음", cost: 50, replaces: "얼음" },
-    { label: "우유", cost: 175, replaces: "우유" },
-    { label: "자바칩 파우더", cost: 280, replaces: "모카·초코 프라푸 시럽" },
-    { label: "에스프레소", cost: 95, replaces: "프라푸치노 로스트(커피)" },
+    { label: "우유", cost: 338, replaces: "우유" },
+    { label: "자바칩 파우더", cost: 280, replaces: "자바칩 파우더" },
+    { label: "에스프레소 액상스틱", cost: 1150, replaces: "프라푸치노 로스트(커피)" },
     { label: "바닐라 아이스크림", cost: 320, replaces: "모카·초코 프라푸 시럽" },
-    { label: "통자바칩", cost: 120, replaces: "자바칩 토핑(업체용)" },
-    { label: "휘핑크림", cost: 220, replaces: "휘핑크림(업체용)" },
-    { label: "초콜릿 시럽", cost: 80, replaces: "휘핑크림(업체용)" },
+    { label: "초코 크런치", cost: 120, replaces: "자바칩 토핑" },
+    { label: "휘핑크림", cost: 350, replaces: "휘핑크림" },
   ],
-  "sb-grapefruit": [
-    { label: "자몽청 2스푼", cost: 380, replaces: ["자몽 원액(농축)", "허니 시럽(업체용)"] },
-    { label: "홍차 150ml", cost: 120, replaces: "블랙티 농축 베이스" },
+  "sb-grapefruit-honey-black-tea": [
+    { label: "자몽청", cost: 400, replaces: "자몽허니 베이스" },
+    { label: "홍차 티백", cost: 180, replaces: "블랙티 베이스" },
     { label: "얼음", cost: 50, replaces: "얼음" },
   ],
-  "sb-coldbrew": [
-    { label: "우유", cost: 70, replaces: "바닐라 크림(업체용)" },
-    { label: "생크림", cost: 280, replaces: "바닐라 크림(업체용)" },
-    { label: "바닐라 시럽", cost: 150, replaces: "바닐라 크림(업체용)" },
+  "sb-vanilla-cream-cold-brew": [
+    { label: "우유", cost: 125, replaces: "우유" },
+    { label: "휘핑크림", cost: 350, replaces: "바닐라 크림(업체용)" },
+    { label: "바닐라 시럽", cost: 180, replaces: "바닐라 시럽" },
     { label: "얼음", cost: 50, replaces: "얼음" },
     { label: "콜드브루 원액", cost: 650, replaces: "콜드브루 농축액" },
   ],

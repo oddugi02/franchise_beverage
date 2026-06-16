@@ -971,6 +971,14 @@ const PAIK_MENUS = [
           ]
         },
         {
+          "label": "콜드브루 원액",
+          "amount": "드리즐",
+          "price": 50,
+          "replaces": [
+            "원조커피 원액 드리즐"
+          ]
+        },
+        {
           "label": "바닐라 파우더",
           "amount": "1큰술",
           "price": 100,
@@ -1271,7 +1279,7 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "흔들어 만든 음료를 컵에 붓는다."
+          "body": "흔든 음료를 컵에 붓는다."
         }
       ],
       "difficulty": 2,
@@ -2271,7 +2279,7 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "흔들어 만든 음료를 컵에 붓는다."
+          "body": "위에서 흔든 음료를 컵에 붓는다."
         },
         {
           "title": "",
@@ -3795,7 +3803,7 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "컵에 우려낸 차 100ml를 넣는다."
+          "body": "컵에 우려낸 홍차 100ml를 넣는다."
         },
         {
           "title": "",

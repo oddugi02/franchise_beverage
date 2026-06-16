@@ -100,7 +100,7 @@ const SHOPPING_PACK_CATALOG = {
   },
   coffeeMix20: {
     buy: "커피믹스 20입",
-    price: 100,
+    price: 1550,
     searchQuery: "커피믹스 20입",
     exampleProduct: "맥심/카누 커피믹스 20입",
     priceMin: 2400,
@@ -145,10 +145,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 3200,
     priceMax: 4200,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7551750301&ctag=7551750301&lptag=P7551750301&itemId=19875470449&vendorItemId=86976106295&spec=10305199",
-    productName: "스타벅스 버터투게더 엘마 프레츨 참 플라스틱 텀블러 473ml",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
   },
   jollypong138: {
     buy: "죠리퐁 138g",
@@ -466,10 +462,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 1980,
     priceMax: 3500,
     store: "네이버",
-    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=4187716196&sub-id=1003&service-code=10000003&lcd=100000017",
-    productName: "일성사 일성사 콩가루 집어제 붕어낚시 잉어 향어 떡밥 민물",
-    mallName: "G마켓",
-    naverUpdatedAt: "2026-06-14"
   },
   toffeeStick20: {
     buy: "토피넛 라떼 스틱 20입",
@@ -485,30 +477,22 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   icecream1L: {
-    buy: "바닐라 아이스크림 1L",
-    price: 6070,
-    searchQuery: "하겐다즈 바닐라 473ml",
-    exampleProduct: "롯데 바닐라 1L",
-    priceMin: 4800,
-    priceMax: 7500,
+    buy: "바닐라 아이스크림 473ml",
+    price: 3980,
+    searchQuery: "빙그레 투게더 아이스크림 바닐라",
+    exampleProduct: "빙그레 투게더 바닐라 473ml",
+    priceMin: 3200,
+    priceMax: 5200,
     store: "네이버",
-    productUrl: "http://shinsegaemall.ssg.com/item/itemView.ssg?itemId=1000034479483&siteNo=6004&salestrNo=6005&ckwhere=s_naver&appPopYn=n&utm_medium=PCS&utm_source=naver&utm_campaign=naver_pcs",
-    productName: "하겐다즈 아이스크림 미니컵_바닐라",
-    mallName: "신세계몰",
-    naverUpdatedAt: "2026-06-14"
   },
   yogurtIce473: {
     buy: "요거트 아이스크림 473ml",
-    price: 20,
+    price: 4500,
     searchQuery: "투게더 요거트 아이스크림 473ml",
     exampleProduct: "요거트 아이스크림 473ml",
     priceMin: 3500,
     priceMax: 5500,
     store: "네이버",
-    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=4575862632&sub-id=1003&service-code=10000003&lcd=100000036",
-    productName: "빙그레 투게더 /요맘때 홈컵 9종 3+3개 골라담기 /바닐라/요거트아이스크림/쿠앤크",
-    mallName: "G마켓",
-    naverUpdatedAt: "2026-06-14"
   },
   javaChip200: {
     buy: "자바칩 200g",
@@ -524,17 +508,14 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   dalgonaKit: {
-    buy: "달고나 만들기 세트",
-    price: 120,
-    searchQuery: "달고나 뽑기 세트",
-    exampleProduct: "달고나 세트",
-    priceMin: 1200,
-    priceMax: 3500,
+    buy: "수제 달고나 200g",
+    price: 4500,
+    searchQuery: "수제 달고나 토핑",
+    exampleProduct: "토핑용 수제 달고나",
+    priceMin: 2500,
+    priceMax: 9000,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=7115699470&ctag=7115699470&lptag=P7115699470&itemId=17802228931&vendorItemId=84966290134&spec=10305199",
-    productName: "애니펀 수제 달고나 피카츄 치코리타 꼬부기 토게피 푸린 뽑기 단체 행사 게임 사탕 몬스터  I09바늘  1개",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
+    naverUpdatedAt: "2026-06-16"
   },
   prim500: {
     buy: "프림 500g",
@@ -583,10 +564,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 1980,
     priceMax: 3500,
     store: "네이버",
-    productUrl: "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1002101910&dealNo=1002101907&no=1002101910&kfpartnerID=1000000",
-    productName: "[플라이밀] 단백질바 크런치 화이트초코 1개입",
-    mallName: "컬리",
-    naverUpdatedAt: "2026-06-14"
   },
   lemonJuice200: {
     buy: "레몬즙 200ml",
@@ -618,10 +595,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 2500,
     priceMax: 5500,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8384918697&ctag=8384918697&lptag=V91250872410&itemId=24233740650&vendorItemId=91250872410&spec=10305199",
-    productName: "[2개]관통형 18mm 캬라멜 시럽 큐브 2종 3-1068 악세사리 키링재료 아크릴비즈  2.다크",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
   },
   soda15L: {
     buy: "사이다 1.5L",
@@ -818,10 +791,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 2000,
     priceMax: 5000,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=6002205&ctag=6002205&lptag=I20784486962&itemId=20784486962&vendorItemId=87854208411&spec=10305199",
-    productName: "웅진 가야농장 토마토 주스  500ml  2개",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
   },
   peachJuice200: {
     buy: "복숭아 주스 200ml",
@@ -865,15 +834,11 @@ const SHOPPING_PACK_CATALOG = {
   fruitJellyCup: {
     buy: "과일 젤리 130g",
     price: 1980,
-    searchQuery: "쁘띠첼 과일젤리",
-    exampleProduct: "과일 젤리/콘크",
-    priceMin: 1000,
-    priceMax: 3000,
+    searchQuery: "과일젤리 콘크 130g",
+    exampleProduct: "음료용 과일 젤리 콘크",
+    priceMin: 1500,
+    priceMax: 3500,
     store: "네이버",
-    productUrl: "https://redirect.kurly.com/entry?utm_source=NaverShopping&utm_medium=2001&utm_term=1000598293&no=1000598293&kfpartnerID=1000000",
-    productName: "[쁘띠첼] 과일젤리 요거젤리 큰컵 10종 골라담기 (택1)",
-    mallName: "컬리",
-    naverUpdatedAt: "2026-06-14"
   },
   redBean500: {
     buy: "팥앙금 500g",
@@ -883,10 +848,6 @@ const SHOPPING_PACK_CATALOG = {
     priceMin: 3500,
     priceMax: 7000,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=34807794&ctag=34807794&lptag=I21487430767&itemId=21487430767&vendorItemId=73513103885&spec=10305199",
-    productName: "[소분제품] 1171. 팥배기 - 대두 500g  1개",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
   },
   yujaTea500: {
     buy: "유자청 500g",
