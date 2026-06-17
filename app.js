@@ -790,6 +790,11 @@ function supabaseHeaders() {
   };
 }
 
+function canUseFormSubmit() {
+  const cfg = getSiteConfig();
+  return Boolean((cfg.formSubmitEndpoint || cfg.operatorEmail || "").trim());
+}
+
 function getFormSubmitAction() {
   const cfg = getSiteConfig();
   const endpoint = (cfg.formSubmitEndpoint || cfg.operatorEmail || "").trim();
@@ -797,6 +802,24 @@ function getFormSubmitAction() {
     throw new Error("운영자 이메일이 설정되지 않았습니다. config.js에 operatorEmail을 입력해 주세요.");
   }
   return `https://formsubmit.co/${endpoint}`;
+}
+
+function buildMenuRequestFormPayload({ brand, menu, note, contact }) {
+  return {
+    _subject: `[홈카페] 메뉴 요청: ${brand} · ${menu}`,
+    _template: "table",
+    _captcha: "false",
+    form_type: "메뉴 레시피 등록 요청",
+    브랜드: brand,
+    메뉴명: menu,
+    "추가 정보": note || "(없음)",
+    "연락처 (선택)": contact || "(없음)",
+  };
+}
+
+async function submitMenuRequestViaFormSubmit(payload) {
+  await submitViaFormPost(getFormSubmitAction(), payload);
+  return { channel: "formsubmit" };
 }
 
 async function submitMenuRequestToSupabase({ brand, menu, note, contact }) {
@@ -812,7 +835,9 @@ async function submitMenuRequestToSupabase({ brand, menu, note, contact }) {
     }),
   });
   if (!res.ok) {
-    throw new Error("요청 저장에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    const err = new Error("요청 저장에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    err.supabaseStatus = res.status;
+    throw err;
   }
 }
 
@@ -872,26 +897,25 @@ async function submitMenuRequest(form) {
   const menu = form.menu.value.trim();
   const note = form.note.value.trim();
   const contact = form.contact.value.trim();
+  const payload = buildMenuRequestFormPayload({ brand, menu, note, contact });
 
   if (hasSupabase()) {
-    await submitMenuRequestToSupabase({ brand, menu, note, contact });
-    return { channel: "supabase" };
+    try {
+      await submitMenuRequestToSupabase({ brand, menu, note, contact });
+      return { channel: "supabase" };
+    } catch (err) {
+      if (canUseFormSubmit()) {
+        return submitMenuRequestViaFormSubmit(payload);
+      }
+      throw err;
+    }
   }
 
-  const payload = {
-    _subject: `[홈카페] 메뉴 요청: ${brand} · ${menu}`,
-    _template: "table",
-    _captcha: "false",
-    form_type: "메뉴 레시피 등록 요청",
-    브랜드: brand,
-    메뉴명: menu,
-    "추가 정보": note || "(없음)",
-    "연락처 (선택)": contact || "(없음)",
-  };
+  if (!canUseFormSubmit()) {
+    throw new Error("운영자 이메일이 설정되지 않았습니다. config.js에 operatorEmail을 입력해 주세요.");
+  }
 
-  // fetch(AJAX)는 file://·일부 배포 환경에서 CORS로 막힘 → iframe 폼 POST 사용
-  await submitViaFormPost(getFormSubmitAction(), payload);
-  return { channel: "formsubmit" };
+  return submitMenuRequestViaFormSubmit(payload);
 }
 
 function submitViaFormPost(action, fields) {
