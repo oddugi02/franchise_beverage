@@ -618,7 +618,7 @@ menus.push(
 menus.push(
   baseMenu({
     slug: "strawberry-yogurt-blended",
-    name: "딸기 요거트 블렌디드",
+    name: "딸기 딜라이트 요거트 블렌디드",
     category: "스무디·쉐이크",
     price: 6500,
     emoji: "🍓",

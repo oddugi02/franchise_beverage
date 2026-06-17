@@ -80,7 +80,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-hazelnut-americano",
@@ -162,7 +163,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-vanilla-americano",
@@ -244,7 +246,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-cafe-latte",
@@ -317,7 +320,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-cappuccino",
@@ -407,7 +411,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-caramel-macchiato",
@@ -501,7 +506,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-vanilla-latte",
@@ -583,7 +589,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-hazelnut-latte",
@@ -665,7 +672,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-condensed-latte",
@@ -755,7 +763,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-cafe-mocha",
@@ -858,7 +867,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-tiramisu-latte",
@@ -948,7 +958,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-royal-milk-tea",
@@ -1030,7 +1041,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-green-tea-latte",
@@ -1116,7 +1128,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-choco",
@@ -1206,7 +1219,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-toffee-nut-latte",
@@ -1300,7 +1314,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-grain-latte",
@@ -1394,7 +1409,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-sweet-potato-latte",
@@ -1488,7 +1504,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-iced-mega-choco",
@@ -1602,7 +1619,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-plain-yogurt-smoothie",
@@ -1671,7 +1689,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-coffee-frappe",
@@ -1786,7 +1805,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-green-tea-frappe",
@@ -1885,7 +1905,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-real-choco-frappe",
@@ -2000,7 +2021,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-mint-frappe",
@@ -2099,7 +2121,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-cookie-frappe",
@@ -2202,7 +2225,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-unicorn-frappe",
@@ -2301,7 +2325,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "집 레시피는 홈카페 실험 기준 · 그라데이션 파우더 없으면 유니콘/바닐라 시럽으로 대체"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-cherry-coke",
@@ -2374,7 +2399,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-lemon-ade",
@@ -2447,7 +2473,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-blue-lemon-ade",
@@ -2520,7 +2547,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-grapefruit-ade",
@@ -2593,7 +2621,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-mega-ade",
@@ -2666,7 +2695,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-lime-mojito",
@@ -2739,7 +2769,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "메가커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-plain-pong-crush",
@@ -2847,7 +2878,8 @@ const MEGA_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "메가커피 홈레시피 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mega-hal-mega-coffee",
@@ -2948,7 +2980,8 @@ const MEGA_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "메가커피 홈레시피 · 찬물로 대체해도 OK · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   }
 ];
 

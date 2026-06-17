@@ -6,10 +6,14 @@ function applyMenuFilters(menus, label = "") {
   const { dropped: noPhoto } = partitionByPhoto(afterPrice);
   if (noPhoto.length) {
     const prefix = label ? ` · ${label}` : "";
-    console.log(`No photo yet (${noPhoto.length}) — still listed${prefix}:`);
+    console.log(`No photo (${noPhoto.length}) — hidden from list${prefix}:`);
     noPhoto.forEach((m) => console.log(`  - ${m.id} (${m.name})`));
   }
-  return afterPrice;
+  const noPhotoIds = new Set(noPhoto.map((m) => m.id));
+  return afterPrice.map((menu) => ({
+    ...menu,
+    listHidden: noPhotoIds.has(menu.id),
+  }));
 }
 
 module.exports = { applyMenuFilters };

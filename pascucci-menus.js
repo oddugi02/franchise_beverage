@@ -101,7 +101,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 3,
       "time": "약 8분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-plain-yogurt-granita",
@@ -200,7 +201,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-berry-yogurt-granita",
@@ -286,7 +288,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-mango-yogurt-granita",
@@ -385,7 +388,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-peach-shine-granita",
@@ -466,7 +470,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-strawberry-granita",
@@ -555,7 +560,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-sicilian-lemon-granita",
@@ -654,7 +660,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-java-chip-granita",
@@ -761,7 +768,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "pascucci-coconut-coffee-granita",
@@ -842,7 +850,8 @@ const PASCUCCI_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "파스쿠찌 Quizlet 레시피 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   }
 ];
 

@@ -83,7 +83,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-cherry-kokkok",
@@ -185,7 +186,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-sikhye",
@@ -266,7 +268,8 @@ const PAIK_MENUS = [
       "difficulty": 1,
       "time": "약 2분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-samlabong-tea",
@@ -359,7 +362,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-micho",
@@ -440,7 +444,8 @@ const PAIK_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-grapefruit-ade",
@@ -521,7 +526,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-blue-candy-soda",
@@ -602,7 +608,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-misutgaru-drink",
@@ -704,7 +711,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-amangchu",
@@ -815,7 +823,8 @@ const PAIK_MENUS = [
       "difficulty": 1,
       "time": "약 3분",
       "note": "16온스(대용량) 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-green-tea-paiks-chino",
@@ -901,7 +910,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-original-paiks-chino",
@@ -1020,7 +1030,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-pistachio-paiks-chino",
@@ -1101,7 +1112,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "리뉴얼 전 메뉴 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-mint-choco-paiks-chino",
@@ -1178,7 +1190,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-choco-paiks-chino",
@@ -1285,7 +1298,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-cookie-crunch-paiks-chino",
@@ -1425,7 +1439,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-hotteok-paiks-chino",
@@ -1535,7 +1550,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-pongdang-misutgaru",
@@ -1667,7 +1683,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-pongdang-vanilla",
@@ -1795,7 +1812,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-pongdang-original",
@@ -1906,7 +1924,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-plain-yogurt-smoothie",
@@ -1983,7 +2002,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-samlabong-yogurt-smoothie",
@@ -2102,7 +2122,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-milk-shake",
@@ -2179,7 +2200,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-choco-cream-frappe",
@@ -2293,7 +2315,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-choco-banana",
@@ -2400,7 +2423,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-black-pearl-latte",
@@ -2502,7 +2526,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-black-pearl-cafe-latte",
@@ -2613,7 +2638,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-black-pearl-milk-tea",
@@ -2728,7 +2754,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-icecream-cafe-latte",
@@ -2830,7 +2857,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-icecream-vanilla-latte",
@@ -2953,7 +2981,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-icecream-cafe-mocha",
@@ -3076,7 +3105,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-caramel-macchiato",
@@ -3182,7 +3212,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-condensed-latte",
@@ -3280,7 +3311,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "paik-hotteok-latte",
@@ -3403,7 +3435,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-mugwort-latte",
@@ -3493,7 +3526,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-choco-latte",
@@ -3565,7 +3599,8 @@ const PAIK_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-green-tea-latte",
@@ -3655,7 +3690,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-mint-choco-latte",
@@ -3745,7 +3781,8 @@ const PAIK_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "paik-milk-tea",
@@ -3817,7 +3854,8 @@ const PAIK_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "빽다방 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   }
 ];
 

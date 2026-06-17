@@ -105,7 +105,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "유튜브·블로그 홈레시피 참고 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-iced-americano",
@@ -182,7 +183,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "sb-iced-cafe-latte",
@@ -255,7 +257,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-cold-brew",
@@ -332,7 +335,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 3분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-cafe-mocha",
@@ -435,7 +439,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-grapefruit-honey-black-tea",
@@ -508,7 +513,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "유튜브·블로그 홈레시피 참고 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-javachip-frappuccino",
@@ -653,7 +659,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 3,
       "time": "약 8분",
       "note": "유튜브·블로그 홈레시피 참고 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-iced-caramel-macchiato",
@@ -760,7 +767,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-cool-lime-refresher",
@@ -854,7 +862,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-caramel-frappuccino",
@@ -976,7 +985,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 3,
       "time": "약 8분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-strawberry-acai-refresher",
@@ -1074,7 +1084,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-espresso-frappuccino",
@@ -1165,7 +1176,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 3,
       "time": "약 8분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-iced-vanilla-latte",
@@ -1251,7 +1263,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-cinnamon-dolce-latte",
@@ -1367,7 +1380,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-iced-dolce-latte",
@@ -1457,7 +1471,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "sb-white-mocha",
@@ -1564,7 +1579,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-signature-hot-chocolate",
@@ -1658,7 +1674,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-iced-signature-chocolate",
@@ -1765,12 +1782,13 @@ const STARBUCKS_MENUS = [
       "difficulty": 1,
       "time": "약 5분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "sb-strawberry-yogurt-blended",
     "brand": "스타벅스",
-    "name": "딸기 요거트 블렌디드",
+    "name": "딸기 딜라이트 요거트 블렌디드",
     "category": "스무디·쉐이크",
     "price": 6500,
     "emoji": "🍓",
@@ -1868,7 +1886,8 @@ const STARBUCKS_MENUS = [
       "difficulty": 3,
       "time": "약 8분",
       "note": "스타벅스 제조 매뉴얼 기준 · 그란데(Grande) 사이즈 기준 · 톨/벤티는 샷·시럽 펌프 수가 달라질 수 있어요 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   }
 ];
 

@@ -88,7 +88,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "매머드 스타일 꿀커피 · 꿀은 뜨거운 커피에 먼저 녹인 뒤 얼음·물에 붓기 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-mint-choco-frappe",
@@ -201,7 +202,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 민트 맛은 민트 시럽으로 보완 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-pistachio-frappe",
@@ -287,7 +289,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-java-chip-frappe",
@@ -403,7 +406,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-oreo-choco-frappe",
@@ -502,7 +506,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-plain-yogurt-smoothie",
@@ -571,7 +576,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-incredbull",
@@ -657,7 +663,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "mammoth-hazelnut-coffee-ice",
@@ -760,7 +767,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 1,
       "time": "약 4분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "mammoth-banana-sweet-coffee-ice",
@@ -863,7 +871,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 샷은 섞지 않고 부어 제공 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "mammoth-vietnamese-condensed-coffee",
@@ -963,7 +972,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · 아이스만 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 샷은 섞지 않고 부어 제공 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "mammoth-lemon-balm-mint-tea",
@@ -1049,7 +1059,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "mammoth-hibiscus-citron-tea",
@@ -1130,7 +1141,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 애플티는 온수 150ml + 애플티백 1개 우려 후 chilling · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   },
   {
     "id": "mammoth-almond-milk-tea",
@@ -1229,7 +1241,8 @@ const MAMMOTH_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": true
   }
 ];
 

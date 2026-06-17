@@ -237,7 +237,7 @@ function getBrandCount(brand) {
 }
 
 function isMenuListed(menu) {
-  return true;
+  return menu.listHidden !== true;
 }
 
 function getRecipeReadyCount() {

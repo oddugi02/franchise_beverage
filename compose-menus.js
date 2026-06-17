@@ -88,7 +88,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 5분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-iced-dutch-coffee",
@@ -161,7 +162,8 @@ const COMPOSE_MENUS = [
       "difficulty": 1,
       "time": "약 3분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-iced-einspanner",
@@ -247,7 +249,8 @@ const COMPOSE_MENUS = [
       "difficulty": 1,
       "time": "약 3분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-iced-dutch-latte",
@@ -316,7 +319,8 @@ const COMPOSE_MENUS = [
       "difficulty": 1,
       "time": "약 3분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-iced-cookie-choco-latte",
@@ -425,7 +429,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-iced-sweet-potato-latte",
@@ -515,7 +520,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-real-choco-java-frappe",
@@ -626,7 +632,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 7분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-cookie-choco-frappe",
@@ -740,7 +747,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 8분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   },
   {
     "id": "compose-coffee-milkshake",
@@ -839,7 +847,8 @@ const COMPOSE_MENUS = [
       "difficulty": 2,
       "time": "약 6분",
       "note": "컴포즈커피 제조 매뉴얼 기준 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
-    }
+    },
+    "listHidden": false
   }
 ];
 

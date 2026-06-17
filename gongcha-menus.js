@@ -9,7 +9,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#3E2723",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -221,7 +221,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍓",
     "photoBg": "#FCE4EC",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -485,7 +485,7 @@ const GONGCHA_MENUS = [
     "emoji": "🟤",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -727,7 +727,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍯",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -840,7 +840,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍇",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -940,7 +940,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍑",
     "photoBg": "#FFE0B2",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1053,7 +1053,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌽",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1179,7 +1179,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍵",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1262,7 +1262,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌿",
     "photoBg": "#C8E6C9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1366,7 +1366,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#3E2723",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1492,7 +1492,7 @@ const GONGCHA_MENUS = [
     "emoji": "🤍",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1605,7 +1605,7 @@ const GONGCHA_MENUS = [
     "emoji": "🧋",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1705,7 +1705,7 @@ const GONGCHA_MENUS = [
     "emoji": "❤️",
     "photoBg": "#FFEBEE",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -1930,7 +1930,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2030,7 +2030,7 @@ const GONGCHA_MENUS = [
     "emoji": "🫖",
     "photoBg": "#D7CCC8",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2139,7 +2139,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌽",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2248,7 +2248,7 @@ const GONGCHA_MENUS = [
     "emoji": "🧊",
     "photoBg": "#E3F2FD",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2331,7 +2331,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "에스프레소",
@@ -2388,7 +2388,7 @@ const GONGCHA_MENUS = [
     "emoji": "☕",
     "photoBg": "#EFEBE9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2458,7 +2458,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍮",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2541,7 +2541,7 @@ const GONGCHA_MENUS = [
     "emoji": "🤍",
     "photoBg": "#FFFDE7",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2628,7 +2628,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#4E342E",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -2815,7 +2815,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍇",
     "photoBg": "#EDE7F6",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3006,7 +3006,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍑",
     "photoBg": "#FFE0B2",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3219,7 +3219,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍯",
     "photoBg": "#FFF8E1",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3332,7 +3332,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍵",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -3662,7 +3662,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍫",
     "photoBg": "#D7CCC8",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4132,7 +4132,7 @@ const GONGCHA_MENUS = [
     "emoji": "❤️",
     "photoBg": "#FFEBEE",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4319,7 +4319,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4389,7 +4389,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍇",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4476,7 +4476,7 @@ const GONGCHA_MENUS = [
     "emoji": "🥭",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4642,7 +4642,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4729,7 +4729,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4825,7 +4825,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍇",
     "photoBg": "#EDE7F6",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -4924,7 +4924,7 @@ const GONGCHA_MENUS = [
     "emoji": "🫧",
     "photoBg": "#FCE4EC",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -5007,7 +5007,7 @@ const GONGCHA_MENUS = [
     "emoji": "🫧",
     "photoBg": "#E0F7FA",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "과당 시럽",
@@ -5107,7 +5107,7 @@ const GONGCHA_MENUS = [
     "emoji": "✨",
     "photoBg": "#E0F7FA",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "얼그레이 티",
@@ -5207,7 +5207,7 @@ const GONGCHA_MENUS = [
     "emoji": "🌴",
     "photoBg": "#E8F5E9",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "그린티",
@@ -5316,7 +5316,7 @@ const GONGCHA_MENUS = [
     "emoji": "✨",
     "photoBg": "#E0F7FA",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "티 베이스",
@@ -5420,7 +5420,7 @@ const GONGCHA_MENUS = [
     "emoji": "🍊",
     "photoBg": "#FFF3E0",
     "recipeReady": true,
-    "listHidden": false,
+    "listHidden": true,
     "ingredients": [
       {
         "name": "그린티",

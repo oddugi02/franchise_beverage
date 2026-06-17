@@ -1,4 +1,4 @@
-// 이디야 Quizlet 레시피 — 특색 메뉴 (흔한 아메·라떼·카푸치노 제외)
+// 이디야 Quizlet 레시피 — 사진 있는 메뉴만
 module.exports = {
   "iced-igok-latte": {
     store: [
@@ -32,6 +32,16 @@ module.exports = {
       "휘핑크림 올리고 민트 가루 뿌리기",
     ],
   },
+  "mango-flatccino": {
+    store: [
+      "믹서볼에 물 드링크선, 망고시럽 3펌프, 얼음 1컵 1/3",
+      "믹서 후 컵에 담기",
+    ],
+    home: [
+      "뚜껑 있는 컵에 망고 시럽 3펌프, 물 80ml, 얼음 1컵 넣기",
+      "30초~1분 세게 흔든다",
+    ],
+  },
   "grapefruit-flatccino": {
     store: [
       "믹서볼에 물 시럽선, 자몽시럽 2펌프, 카페시럽 2펌프, 얼음 1컵 1/3",
@@ -62,16 +72,6 @@ module.exports = {
       "30초~1분 세게 흔든다",
     ],
   },
-  "red-bean-flatccino": {
-    store: [
-      "믹서볼에 우유 드링크선, 플랫치노파우더 1스푼, 팥 3스푼, 얼음 1컵",
-      "믹서 후 컵에 담기",
-    ],
-    home: [
-      "뚜껑 있는 컵에 우유 150ml, 연유 1큰술, 팥 3큰술, 얼음 1컵 넣기",
-      "30초~1분 세게 흔든다",
-    ],
-  },
   "choco-chip-flatccino": {
     store: [
       "믹서볼에 우유 시럽선, 자바칩파우더 1스푼, 모카시럽 3펌프, 얼음 1컵",
@@ -83,34 +83,45 @@ module.exports = {
       "휘핑크림과 초코 크런치 토핑",
     ],
   },
-  "taro-bubble-tea": {
+  "mint-choco-chip-flatccino": {
     store: [
-      "밀크메이트 2, 타로파우더 1, 카페시럽 1, 온수 시럽선, 정수 윗선",
-      "타피오카펄 + 얼음 가득",
+      "믹서볼에 우유 드링크선, 초콜렛칩 1스푼, 민트초코렛파우더 2스푼, 모카시럽 2펌프, 얼음 1컵",
+      "휘핑크림 + 민트파우더 토핑",
     ],
     home: [
-      "뚜껑 있는 컵에 연유 2큰술, 타로 가루 1큰술, 설탕시럽 1펌프, 뜨거운 물 30ml로 녹이기",
-      "물 150ml, 타피오카 펄, 얼음 가득 넣고 흔들기",
+      "뚜껑 있는 컵에 우유 150ml, 민트 초코 파우더 2큰술, 초코 시럽 2펌프, 초코칩 1큰술, 얼음 1컵 넣기",
+      "30초~1분 세게 흔든다",
+      "휘핑크림과 민트 가루 토핑",
     ],
   },
-  "toffeenut-bubble-tea": {
+  "plain-yogurt-flatccino": {
     store: [
-      "밀크메이트 2, 토피넛파우더 2, 온수 라떼박스 아랫선, 정수 윗선",
-      "타피오카 펄 + 얼음 가득",
+      "믹서볼에 우유 시럽선, 요거트파우더 2스푼, 얼음 1컵 1/3",
+      "믹서 후 컵에 담기",
     ],
     home: [
-      "뚜껑 있는 컵에 연유 2큰술, 토피넛 라떼 스틱 1개, 뜨거운 물 40ml로 녹이기",
-      "물 150ml, 타피오카 펄, 얼음 가득 넣고 흔들기",
+      "뚜껑 있는 컵에 우유 150ml, 요거트 파우더 2큰술, 얼음 1컵 넣기",
+      "30초~1분 세게 흔든다",
     ],
   },
-  "blue-lemon-ade": {
+  "blueberry-yogurt-flatccino": {
     store: [
-      "레몬베이스 2펌프, 블루큐라소시럽 2펌프",
-      "탄산수 작은거 기울여서, 얼음 가득",
+      "믹서볼에 우유 시럽선, 요거트파우더 2스푼, 블루베리시럽 2펌프, 얼음 1컵 1/3",
+      "믹서 후 컵에 담기",
     ],
     home: [
-      "컵에 레몬즙 2큰술, 블루 레몬 시럽 2펌프, 얼음 가득",
-      "사이다를 기울여 부으며 30초 흔들기",
+      "뚜껑 있는 컵에 우유 150ml, 요거트 파우더 2큰술, 블루베리 잼 2큰술, 얼음 1컵 넣기",
+      "30초~1분 세게 흔든다",
+    ],
+  },
+  "strawberry-yogurt-flatccino": {
+    store: [
+      "믹서볼에 우유 시럽선, 요거트파우더 2스푼, 딸기시럽 1펌프, 얼음 1컵 1/3",
+      "믹서 후 컵에 담기",
+    ],
+    home: [
+      "뚜껑 있는 컵에 우유 150ml, 요거트 파우더 2큰술, 딸기 시럽 1펌프, 얼음 1컵 넣기",
+      "30초~1분 세게 흔든다",
     ],
   },
   "origin-shake": {
@@ -120,6 +131,16 @@ module.exports = {
     ],
     home: [
       "뚜껑 있는 컵에 우유 200ml, 연유 2큰술, 바닐라 아이스크림 1스쿱, 얼음 반 컵",
+      "30초~1분 세게 흔든다",
+    ],
+  },
+  "espresso-shake": {
+    store: [
+      "믹서볼에 우유 시럽선, 비니스트 마일드 1봉(원두 5알), 쉐이크 베이스 1팩",
+      "블렌딩 후 컵에 담기",
+    ],
+    home: [
+      "뚜껑 있는 컵에 우유 200ml, 커피믹스 1봉, 바닐라 아이스크림 1스쿱, 얼음 반 컵",
       "30초~1분 세게 흔든다",
     ],
   },
@@ -140,14 +161,16 @@ module.exports.EDIIYA_MANUAL_SLUGS = [
   "iced-igok-latte",
   "iced-toffeenut-latte",
   "iced-mint-mocha",
+  "mango-flatccino",
   "grapefruit-flatccino",
   "yuja-flatccino",
   "green-apple-flatccino",
-  "red-bean-flatccino",
   "choco-chip-flatccino",
-  "taro-bubble-tea",
-  "toffeenut-bubble-tea",
-  "blue-lemon-ade",
+  "mint-choco-chip-flatccino",
+  "plain-yogurt-flatccino",
+  "blueberry-yogurt-flatccino",
+  "strawberry-yogurt-flatccino",
   "origin-shake",
+  "espresso-shake",
   "choco-cookie-shake",
 ];
