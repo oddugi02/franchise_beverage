@@ -108,7 +108,7 @@ const HOME = {
   espressoLiquidStick: 1150,
   fruitSauce: 250,
   grapeSauce: 250,
-  peachSauce: 220,
+  peachSauce: 770,
   cornSyrup: 200,
   passionSyrup: 280,
   kombuchaBase: 350,
@@ -265,7 +265,7 @@ function buildFromPack(pack) {
       }
       if (pack.strawberrySauceMl) {
         ingredients.push(ing("딸기 소스", `${pack.strawberrySauceMl}ml`, pack.strawberrySauceMl * B2B.syrupPerMl));
-        homeIngredients.push(home("딸기잼", "1~2펌프", HOME.strawberrySauce, "딸기 소스"));
+        homeIngredients.push(home("딸기시럽", "1~2펌프", HOME.strawberrySauce, "딸기 소스"));
       }
       if (pack.brownSugarSauceMl) {
         ingredients.push(ing("브라운슈가 소스", `${pack.brownSugarSauceMl}ml`, pack.brownSugarSauceMl * B2B.syrupPerMl));
@@ -273,7 +273,7 @@ function buildFromPack(pack) {
       }
       if (pack.jewelryG) {
         ingredients.push(ing("쥬얼리 토핑", `${pack.jewelryG}g`, pack.jewelryG * B2B.pureePerG));
-        homeIngredients.push(home("딸기잼", "적당량", HOME.strawberrySauce, "쥬얼리 토핑"));
+        homeIngredients.push(home("딸기시럽", "적당량", HOME.strawberrySauce, "쥬얼리 토핑"));
       }
       if (pack.greenGrapeMl) {
         ingredients.push(ing("청포도 소스", `${pack.greenGrapeMl}ml`, pack.greenGrapeMl * B2B.fruitSaucePerMl));
@@ -393,7 +393,7 @@ function buildFromPack(pack) {
       }
       if (pack.strawberryJewelryMl) {
         ingredients.push(ing("딸기 쥬얼리 소스", `${pack.strawberryJewelryMl}ml`, pack.strawberryJewelryMl * B2B.fruitSaucePerMl));
-        homeIngredients.push(home("딸기잼", `${pack.strawberryJewelryMl}ml`, HOME.strawberrySauce, "딸기 쥬얼리 소스"));
+        homeIngredients.push(home("딸기시럽", `${pack.strawberryJewelryMl}ml`, HOME.strawberrySauce, "딸기 쥬얼리 소스"));
       }
       if (pack.grapeSauceMl) {
         ingredients.push(ing("포도 소스", `${pack.grapeSauceMl}ml`, pack.grapeSauceMl * B2B.fruitSaucePerMl));
@@ -434,7 +434,7 @@ function buildFromPack(pack) {
       if (pack.pearlG) addPearl(pack.pearlG);
       if (pack.jewelryHalf || pack.jewelryFull) {
         ingredients.push(ing("쥬얼리 토핑", pack.jewelryFull ? "1봉지" : "0.5봉지", 80));
-        homeIngredients.push(home("딸기잼", "적당량", HOME.strawberrySauce, "쥬얼리 토핑"));
+        homeIngredients.push(home("딸기시럽", "적당량", HOME.strawberrySauce, "쥬얼리 토핑"));
       }
       if (pack.brownSugarSauce) {
         ingredients.push(ing("브라운슈가 소스", "두르기", 30));
@@ -542,7 +542,7 @@ function buildFromPack(pack) {
       }
       if (pack.raspberry) {
         ingredients.push(ing("라즈베리", "0.5", 40));
-        homeIngredients.push(home("딸기잼", "0.5스푼", HOME.strawberrySauce, "라즈베리"));
+        homeIngredients.push(home("딸기시럽", "0.5스푼", HOME.strawberrySauce, "라즈베리"));
       }
       if (pack.tangerineChip) {
         ingredients.push(ing("청귤칩", "1개", 50));
@@ -570,7 +570,7 @@ function stepsFromManual(slug, homeIngredients = []) {
 
 /** 만드는 방법 토핑(젤리·펄 등) → 장보기 homeIngredients 보강 */
 function isJewelryToppingMention(text) {
-  return /쥬얼리/.test(text) || /딸기·젤리|딸기잼·젤리|젤리·타피오카|포도 주스·젤리/.test(text);
+  return /쥬얼리/.test(text) || /딸기·젤리|딸기시럽·젤리|젤리·타피오카|포도 주스·젤리/.test(text);
 }
 
 function ensureStepToppingsInHome(slug, homeIngredients) {

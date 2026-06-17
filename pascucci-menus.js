@@ -531,7 +531,7 @@ const PASCUCCI_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "1큰술",
           "price": 80,
           "replaces": [
@@ -554,7 +554,7 @@ const PASCUCCI_MENUS = [
         },
         {
           "title": "",
-          "body": "바닐라 아이스크림 1스쿱, 딸기잼 1큰술을 올린다."
+          "body": "바닐라 아이스크림 1스쿱, 딸기시럽 1큰술을 올린다."
         }
       ],
       "difficulty": 2,

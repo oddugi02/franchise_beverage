@@ -346,7 +346,7 @@ const menus = [
     homeIngredients: [
       home("우유", "150ml", 150 * HOME.milkPerMl, "우유"),
       home("요거트 파우더", "2큰술", 2 * HOME.yogurtPowder, "요거트파우더"),
-      home("딸기 시럽", "1펌프", HOME.strawberrySyrup, "딸기시럽"),
+      home("딸기시럽", "1펌프", HOME.strawberrySyrup, "딸기시럽"),
       flatccinoIceHome,
     ],
   }),

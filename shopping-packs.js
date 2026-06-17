@@ -325,17 +325,17 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   coldBrew1L: {
-    buy: "콜드브루 원액 1L",
+    buy: "콜드브루 원액 250ml",
     price: 5000,
-    searchQuery: "콜드브루 원액 1L",
-    exampleProduct: "콜드브루 원액 1L",
+    searchQuery: "콜드브루 원액 250ml",
+    exampleProduct: "콜드브루 원액 250ml",
     priceMin: 3500,
     priceMax: 6500,
     store: "네이버",
     productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8288482641&ctag=8288482641&lptag=I19036741424&itemId=19036741424&vendorItemId=86160639064&spec=10305199",
-    productName: "티피티로스터스 더치커피 콜드브루 원액 1L 250ml (케냐 브라질 인도 에티오피아 콜롬비아 디카페인)  1개  1개입",
+    productName: "티피티로스터스 더치커피 콜드브루 원액 250ml",
     mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
+    naverUpdatedAt: "2026-06-17"
   },
   honey500: {
     buy: "꿀 500g",
@@ -669,10 +669,10 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   strawberryJam500: {
-    buy: "딸기잼 500g",
+    buy: "딸기시럽 500g",
     price: 3110,
-    searchQuery: "딸기잼 500g",
-    exampleProduct: "딸기잼 500g",
+    searchQuery: "딸기시럽 500g",
+    exampleProduct: "딸기시럽 500g",
     priceMin: 2980,
     priceMax: 5500,
     store: "네이버",
@@ -813,10 +813,10 @@ const SHOPPING_PACK_CATALOG = {
     store: "네이버",
   },
   peachJuice200: {
-    buy: "복숭아 주스 200ml",
+    buy: "복숭아 주스 175ml",
     price: 1500,
-    searchQuery: "복숭아 주스",
-    exampleProduct: "복숭아 넥타",
+    searchQuery: "썬키스트 다인 복숭아 175ml",
+    exampleProduct: "썬키스트 다인 복숭아 175ml",
     priceMin: 1200,
     priceMax: 3500,
     store: "네이버",

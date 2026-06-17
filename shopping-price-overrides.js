@@ -149,7 +149,10 @@ const SHOPPING_PRICE_OVERRIDES = {
     "productTitle": "썬키스트 다인 복숭아 175ml 1개",
     "productName": "썬키스트 다인 복숭아 175ml 1개",
     "mallName": "G마켓",
-    "store": "네이버"
+    "store": "네이버",
+    "price": 1500,
+    "unitPrice": 9,
+    "packUnits": 175
   },
   "cranberryJuice1L": {
     "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=7884249687&tid=1000000061",
@@ -486,13 +489,13 @@ const SHOPPING_PRICE_OVERRIDES = {
   "coldBrew1L": {
     "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8288482641&ctag=8288482641&lptag=I19036741424&itemId=19036741424&vendorItemId=86160639064&spec=10305199",
     "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8288482641&ctag=8288482641&lptag=I19036741424&itemId=19036741424&vendorItemId=86160639064&spec=10305199",
-    "productTitle": "티피티로스터스 더치커피 콜드브루 원액 1L 250ml (케냐 브라질 인도 에티오피아 콜롬비아 디카페인)  1개  1개입",
-    "productName": "티피티로스터스 더치커피 콜드브루 원액 1L 250ml (케냐 브라질 인도 에티오피아 콜롬비아 디카페인)  1개  1개입",
+    "productTitle": "티피티로스터스 더치커피 콜드브루 원액 250ml",
+    "productName": "티피티로스터스 더치커피 콜드브루 원액 250ml",
     "mallName": "쿠팡",
     "store": "네이버",
     "price": 5000,
-    "unitPrice": 5,
-    "packUnits": 1000
+    "unitPrice": 20,
+    "packUnits": 250
   },
   "pomelo1": {
     "link": "https://link.auction.co.kr/gate/pcs?item-no=F584268417&sub-id=1&service-code=10000003",

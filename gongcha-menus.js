@@ -307,7 +307,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "1~2펌프",
           "price": 200,
           "replaces": [
@@ -445,7 +445,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "적당량",
           "price": 200,
           "replaces": [
@@ -558,7 +558,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "적당량",
           "price": 200,
           "replaces": [
@@ -2763,7 +2763,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "50ml",
           "price": 200,
           "replaces": [
@@ -2771,7 +2771,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "적당량",
           "price": 200,
           "replaces": [
@@ -2867,7 +2867,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "적당량",
           "price": 200,
           "replaces": [
@@ -2942,7 +2942,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "적당량",
           "price": 200,
           "replaces": [
@@ -5260,7 +5260,7 @@ const GONGCHA_MENUS = [
           ]
         },
         {
-          "label": "딸기잼",
+          "label": "딸기시럽",
           "amount": "0.5스푼",
           "price": 200,
           "replaces": [
@@ -5287,7 +5287,7 @@ const GONGCHA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "그린티 80ml, 뜨거운 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기잼) 넣어 마무리해준다."
+          "body": "그린티 80ml, 뜨거운 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기설탕시럽) 넣어 마무리해준다."
         }
       ],
       "difficulty": 1,

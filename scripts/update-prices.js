@@ -111,7 +111,7 @@ const HOME = {
   unicornPowder2Pump: 340,
   lemonJuiceCoat: 160,
   pinkSaltPinch: 15,
-  coldBrew130ml: 680, // 1L 4,500~5,500원
+  coldBrew130ml: 2600, // 250ml 5,000원
   icecream3Spoon: 340,
   icecreamScoop: 520,
   oreoCookieBase: 260,

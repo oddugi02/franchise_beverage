@@ -988,7 +988,7 @@ const GONGCHA_QUIZLET_RECIPES = [
       "시럽 80ml, 얼음 레스, 라즈베리 0.5를 넣고 돔리드로 제공한다",
     ],
     home: [
-      "그린티 80ml, 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기잼)를 넣어 마무리",
+      "그린티 80ml, 물 80ml, 얼음을 넣고 흔든 뒤 사이다와 설탕시럽, 라즈베리(또는 딸기시럽)를 넣어 마무리",
     ],
     topping: "라즈베리",
     pack: { kind: "sparkling", greenTeaMl: 80, waterMl: 80, syrupMl: 80, raspberry: true, lessIce: true },
