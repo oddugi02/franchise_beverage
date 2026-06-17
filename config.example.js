@@ -1,4 +1,4 @@
-// 이 파일을 config.js 로 복사한 뒤 운영자 이메일을 입력하세요.
+// (선택) 로컬·비공개 설정 — config.defaults.js 를 덮어씁니다.
 // cp config.example.js config.js
 window.SITE_CONFIG = {
   // FormSubmit.co — 첫 요청 시 이 주소로 확인 메일이 옵니다 (한 번만 승인)
