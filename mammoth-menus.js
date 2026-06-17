@@ -40,7 +40,7 @@ const MAMMOTH_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -711,7 +711,7 @@ const MAMMOTH_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -831,7 +831,7 @@ const MAMMOTH_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "3개",
+          "amount": "3개입",
           "price": 3450,
           "replaces": [
             "원두(에스프레소)"
@@ -936,7 +936,7 @@ const MAMMOTH_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "3개",
+          "amount": "3개입",
           "price": 3450,
           "replaces": [
             "원두(에스프레소)"
@@ -1140,7 +1140,7 @@ const MAMMOTH_MENUS = [
       ],
       "difficulty": 2,
       "time": "약 6분",
-      "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 애플티는 온수 150ml + 애플티백 1개 우려 후 chilling · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "매머드 커피 Quizlet 레시피 기준 · M(미디엄) 아이스 기준 · S/M만 있는 메뉴는 M 분량 적용 · 애플티는 온수 150ml + 애플티백 1개 우려 후 차게 식힌 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     },
     "listHidden": true
   },

@@ -64,7 +64,27 @@
     "초코 베이스": "코코아 파우더",
     녹차베이스: "녹차 파우더",
     "녹차 베이스": "녹차 파우더",
+    카라멜소스: "카라멜 시럽",
+    "카라멜 드리즐": "카라멜 시럽",
+    카라멜베이스: "카라멜 시럽",
+    "카라멜 소스": "카라멜 시럽",
+    "티라미수 소스": "코코아 파우더",
+    "티라미수 크림": "휘핑크림",
+    "민트 시럽": "코코아 파우더",
+    "민트 휘핑크림": "휘핑크림",
+    "망고 시럽": "망고 주스",
+    "딸기 시럽": "딸기잼",
+    "쿠키 크럼": "오레오",
+    "쿠키 분태": "오레오",
+    "홍차 파우더": "홍차 티백",
+    "말차 가루": "녹차/말차 가루",
   };
+
+  function resolveBuyLabel(label) {
+    let L = (label || "").trim();
+    for (let i = 0; i < 6 && STEP_ALIASES[L]; i++) L = STEP_ALIASES[L];
+    return L;
+  }
 
   const RECIPE_DISPLAY_NAMES = {
     건타피오카: "타피오카 펄",
@@ -72,6 +92,8 @@
     "바닐라 아이스크림": "바닐라 아이스크림",
     "바닐라 크림": "휘핑크림",
     "녹차/말차 가루": "녹차/말차 가루",
+    "플레인 요거트": "떠먹는 요거트",
+    "달고나 크런치": "달고나",
   };
 
   function cleanupRecipeStepText(text) {
@@ -80,13 +102,24 @@
       .replace(/건타피오카를/g, "타피오카 펄을")
       .replace(/건타피오카(?=\s|,|$|과|와|을|를)/g, "타피오카 펄")
       .replace(/페트병로/g, "페트병으로")
+      .replace(/부은한다/g, "붓는다")
+      .replace(/토핑한다/g, "토핑으로 올린다")
       .replace(/요거트을/g, "요거트를")
-      .replace(/넣고한다/g, "넣고 완성한다")
+      .replace(/섞은한다/g, "섞는다")
       .replace(/(스프레이|폼|펄|크럼|시럽|슬라이스|시리얼)\s*과\s+(?=[가-힣]*[aeiouAEIOUㅏ-ㅣ])/g, "$1와 ")
       .replace(/시리얼를/g, "시리얼을")
       .replace(/포크로\s*으깨\s+(?:오레오|쿠키\s*베이스)를?\s*만들고/g, "포크로 으깨고")
       .replace(/숟가락으로\s*으깨\s+([가-힣]+)\s*베이스를?\s*만든다/g, "숟가락으로 $1를 으깬다")
+      .replace(/으깨는다/g, "으깬다")
+      .replace(/(\d+잎)를/g, "$1을")
+      .replace(/숟가락으로\s*으깨(?![간다고])/g, "숟가락으로 으깬")
       .replace(/\b([가-힣A-Za-z·]{2,})\s+\1\b/g, "$1")
+      .replace(/\.을\s+올려/g, "을 올려")
+      .replace(/\.를\s+올려/g, "를 올려")
+      .replace(/,\s*에\s*,/g, ", ")
+      .replace(/컵에\s*,\s*/g, "컵에 ")
+      .replace(/,\s*,+/g, ",")
+      .replace(/(을|를)(\s*,)/g, "$2")
       .replace(/\s{2,}/g, " ")
       .trim();
   }
@@ -94,7 +127,10 @@
   function normalizeToppingStep(text) {
     const m = (text || "").trim().match(/^토핑\s*:\s*(.+)$/);
     if (!m) return text;
-    const item = m[1].replace(/\s*(?:한다|준다)\.?$/, "").trim();
+    const item = m[1]
+      .replace(/\s*(?:한다|준다)\.?$/, "")
+      .replace(/\./g, "")
+      .trim();
     if (!item) return "";
     const endsVowel = /[aeiouAEIOUㅏ-ㅣ]$/.test(item.slice(-1));
     const particle = endsVowel ? "를" : "을";
@@ -142,6 +178,10 @@
   /** 장보기 팩 규격 파싱 (ml, g, 입 등) */
   function parsePackUnit(buyText) {
     const t = buyText || "";
+    const can = t.match(/(\d+)\s*캔/);
+    if (can) return { kind: "ea", amount: parseInt(can[1], 10) };
+    const ea = t.match(/(\d+)\s*개/);
+    if (ea) return { kind: "ea", amount: parseInt(ea[1], 10) };
     const ml = t.match(/(\d+(?:\.\d+)?)\s*ml/i);
     if (ml) return { kind: "ml", amount: parseFloat(ml[1]) };
     const L = t.match(/(\d+(?:\.\d+)?)\s*L(?!\w)/i);
@@ -152,28 +192,36 @@
     if (kg) return { kind: "g", amount: parseFloat(kg[1]) * 1000 };
     const sticks = t.match(/(\d+)\s*입/);
     if (sticks) return { kind: "ea", amount: parseInt(sticks[1], 10) };
-    const ea = t.match(/(\d+)\s*개/);
-    if (ea) return { kind: "ea", amount: parseInt(ea[1], 10) };
     return null;
+  }
+
+  function isIcecreamLabel(label) {
+    return /아이스크림|젤라|투게더/i.test(label || "");
   }
 
   function parseUsageUnit(amount, label) {
     const a = amount || "";
     const ml = parseUsageMl(a);
-    if (ml > 0) return { kind: "ml", amount: ml };
+    if (ml > 0 && !isIcecreamLabel(label)) return { kind: "ml", amount: ml };
     const g = parseUsageG(a);
     if (g > 0) return { kind: "g", amount: g };
     const scoop = a.match(/(\d+(?:\.\d+)?)\s*스쿱/);
-    if (scoop) return { kind: "ml", amount: parseFloat(scoop[1]) * 65 };
-    const bigSpoon = a.match(/(\d+(?:\.\d+)?)\s*큰술/);
-    if (bigSpoon && /아이스크림|젤라|요거트/i.test(label || "")) {
-      return { kind: "ml", amount: parseFloat(bigSpoon[1]) * 15 };
+    if (scoop) {
+      const n = parseFloat(scoop[1]);
+      return isIcecreamLabel(label)
+        ? { kind: "g", amount: n * 65 }
+        : { kind: "ml", amount: n * 65 };
     }
-    const sticks = a.match(/(\d+(?:\.\d+)?)\s*(?:개|입|샷|스틱|펌프|스푼|큰술|티백|캔)/);
+    const bigSpoon = a.match(/(\d+(?:\.\d+)?)\s*큰술/);
+    if (bigSpoon && (isIcecreamLabel(label) || /달고나/.test(label || ""))) {
+      return { kind: "g", amount: parseFloat(bigSpoon[1]) * spoonGrams(label, "", "큰술") };
+    }
+    if (ml > 0) return { kind: "ml", amount: ml };
+    const sticks = a.match(/(\d+(?:\.\d+)?)\s*(?:개입|개|입|봉|샷|스틱|펌프|스푼|큰술|티백|캔)/);
     if (sticks) return { kind: "ea", amount: parseFloat(sticks[1]) };
     if (/1~2|1-2/.test(a)) return { kind: "ea", amount: 1.5 };
-    if (/3샷|3입/.test(a)) return { kind: "ea", amount: 3 };
-    if (/2샷|2입|2개|2스틱/.test(a)) return { kind: "ea", amount: 2 };
+    if (/2샷|2입|2개|2스틱|2봉/.test(a)) return { kind: "ea", amount: 2 };
+    if (/3샷|3입|3봉/.test(a)) return { kind: "ea", amount: 3 };
     if (/1샷|1입|1개|1스틱|1펌프|1큰술|1티백/.test(a)) return { kind: "ea", amount: 1 };
     if (/0\.5컵/.test(a)) return { kind: "ml", amount: 100 };
     if (/티백/.test(label) && !a) return { kind: "ea", amount: 1 };
@@ -185,9 +233,34 @@
     if (!pack?.price || !pack.priced) return null;
     const packUnit = parsePackUnit(pack.buy);
     const usageUnit = parseUsageUnit(amount, label);
-    if (!packUnit || !usageUnit || packUnit.kind !== usageUnit.kind) return null;
-    if (packUnit.amount <= 0 || usageUnit.amount <= 0) return null;
-    return Math.max(1, Math.round((pack.price / packUnit.amount) * usageUnit.amount));
+    if (!packUnit || !usageUnit) return null;
+    if (packUnit.kind === usageUnit.kind) {
+      if (packUnit.amount <= 0 || usageUnit.amount <= 0) return null;
+      return Math.max(1, Math.round((pack.price / packUnit.amount) * usageUnit.amount));
+    }
+    // 투게더 등 아이스크림: 팩은 g, 예전 ml 표기는 무게(g)로 동일 환산
+    if (packUnit.kind === "g" && usageUnit.kind === "ml" && isIcecreamLabel(label)) {
+      if (packUnit.amount <= 0 || usageUnit.amount <= 0) return null;
+      return Math.max(1, Math.round((pack.price / packUnit.amount) * usageUnit.amount));
+    }
+    // 1캔 팩 × ml 사용량 (콜라 355ml 등)
+    if (packUnit.kind === "ea" && usageUnit.kind === "ml" && packUnit.amount === 1) {
+      const canMl = (pack.buy || "").match(/(\d+(?:\.\d+)?)\s*ml/i);
+      const volume = canMl ? parseFloat(canMl[1]) : 355;
+      if (volume > 0 && usageUnit.amount > 0) {
+        return Math.max(1, Math.round((pack.price / volume) * usageUnit.amount));
+      }
+    }
+    // 시럽·소스 펌프(회) × ml/L 팩
+    if (packUnit.kind === "ml" && usageUnit.kind === "ea") {
+      const pumpMl = /잼|청/.test(label || "") ? 15 : 10;
+      const isPump =
+        /펌프/.test(amount || "") || /시럽|소스|청|잼/.test(label || "") || /시럽/.test(pack.buy || "");
+      if (isPump && pumpMl > 0) {
+        return Math.max(1, Math.round((pack.price / packUnit.amount) * usageUnit.amount * pumpMl));
+      }
+    }
+    return null;
   }
 
   function parseUsageMl(amount) {
@@ -227,7 +300,7 @@
   }
 
   function suggestHomeBuy(label, amount) {
-    const L = label;
+    const L = resolveBuyLabel(label);
     const a = amount || "";
 
     if (L === "얼음") {
@@ -297,7 +370,7 @@
     }
 
     if (L === "초코 시럽" || L === "초코소스" || L === "모카 시럽") {
-      return packItem(PACK.caramel500, { usage: a, mergeKey: "chocoSyrup" });
+      return packItem(PACK.chocoSyrup500, { usage: a, mergeKey: "chocoSyrup" });
     }
 
     if (L === "민트 시럽") {
@@ -345,6 +418,10 @@
       return packItem(PACK.strawberryJam500, { usage: a, mergeKey: "strawberryJam" });
     }
 
+    if (L === "블루베리 잼") {
+      return packItem(PACK.strawberryJam500, { usage: a, mergeKey: "blueberryJam" });
+    }
+
     if (L === "딸기 요거트") {
       return packItem(PACK.yogurtDrink150, { usage: a, mergeKey: "strawberryYogurt" });
     }
@@ -361,7 +438,11 @@
       return packItem(PACK.lemonJuice200, { usage: a, mergeKey: "citrus" });
     }
 
-    if (L === "티백" || L === "홍차 티백" || L === "홍차" || L === "진한 홍차") {
+    if (L === "유자청") {
+      return packItem(PACK.yujaTea500, { usage: a, mergeKey: "yuja" });
+    }
+
+    if (L === "티백" || L === "홍차 티백" || L === "홍차" || L === "진한 홍차" || L === "사과 티백") {
       return packItem(PACK.tea25, { usage: a, mergeKey: "tea" });
     }
 
@@ -387,6 +468,10 @@
 
     if (L === "냉동 망고" || L === "망고") {
       return packItem(PACK.frozenMango1kg, { usage: a, mergeKey: "mango" });
+    }
+
+    if (L === "냉동 과일") {
+      return packItem(PACK.frozenBerry500, { usage: a, mergeKey: "frozenFruit" });
     }
 
     if (L === "냉동 딸기" || L === "냉동 블루베리") {
@@ -629,7 +714,8 @@
     raw.forEach((item) => {
       const suggested = suggestHomeBuy(item.label, item.amount);
       const fromPack = portionCostFromPack(suggested, item.amount, item.label);
-      const portionCost = fromPack ?? getHomeIngredientPrice(item);
+      const portionCost =
+        item.label === "얼음" ? 0 : fromPack ?? getHomeIngredientPrice(item);
       const base = item.buy
         ? {
             buy: item.buy,
@@ -711,25 +797,172 @@
     return name || buy;
   }
 
+  function formatAmountNumber(n) {
+    if (n == null || Number.isNaN(n)) return "";
+    if (Math.abs(n - Math.round(n)) < 0.01) return String(Math.round(n));
+    return String(Math.round(n * 10) / 10);
+  }
+
+  /** 장보기 buy 문자열에서 1회 사용 표기 단위 추출 */
+  function getPackDisplaySpec(buy) {
+    const t = buy || "";
+    const packUnit = parsePackUnit(t);
+    if (!packUnit) return null;
+    if (/\d+\s*티백/.test(t) || /티백\s*\d+\s*입/.test(t)) {
+      return { kind: "ea", unit: "티백", packAmount: packUnit.amount };
+    }
+    const canPack = t.match(/(\d+(?:\.\d+)?)\s*ml[^0-9]*(\d+)\s*입/i);
+    if (canPack) {
+      return { kind: "ml", unit: "ml", packAmount: parseFloat(canPack[1]) };
+    }
+    if (/\d+\s*입/.test(t)) return { kind: "ea", unit: "개입", packAmount: packUnit.amount };
+    if (/\d+\s*봉/.test(t) && packUnit.kind === "ea") {
+      return { kind: "ea", unit: "개입", packAmount: packUnit.amount };
+    }
+    if (packUnit.kind === "ml") return { kind: "ml", unit: "ml", packAmount: packUnit.amount };
+    if (packUnit.kind === "g") return { kind: "g", unit: "g", packAmount: packUnit.amount };
+    if (/\d+\s*개/.test(t) && packUnit.kind === "ea") {
+      return { kind: "ea", unit: "개", packAmount: packUnit.amount };
+    }
+    return null;
+  }
+
+  function pumpMlPerUnit(label, buy) {
+    if (/잼|청/.test(label || "") || /잼|청/.test(buy || "")) return 15;
+    return 10;
+  }
+
+  function spoonGrams(label, buy, spoonKind) {
+    if (/설탕/.test(label || "") || /설탕/.test(buy || "")) return spoonKind === "큰술" ? 15 : 5;
+    if (/연유|코코아|파우더|가루|말차|녹차/.test(label || "") || /파우더|가루/.test(buy || "")) {
+      return spoonKind === "큰술" ? 15 : 5;
+    }
+    if (/아이스크림|요거트|젤라/.test(label || "")) return spoonKind === "큰술" ? 15 : 5;
+    return spoonKind === "큰술" ? 15 : 5;
+  }
+
+  /** 1회 사용량 — 장보기 목록(buy)에 표기된 팩 단위와 동일하게 환산 */
+  function formatPortionAmountForPack(buy, rawAmount, label) {
+    const text = String(rawAmount || "").trim();
+    if (!text || text === "-") return text;
+    if (!/[\d.]/.test(text) && /드리즐|토핑|적당|가득|슬라이스|분태|소량|약간|줄/.test(text)) {
+      return text;
+    }
+    if (/슬라이스/.test(text) && /라임|레몬|오렌지|자몽/.test(`${label} ${buy}`)) {
+      return text;
+    }
+    if (/반\s*개/.test(text) && /약과/.test(`${label} ${buy}`)) {
+      return "20g";
+    }
+    if (text.includes(" + ")) {
+      return text
+        .split(" + ")
+        .map((part) => formatPortionAmountForPack(buy, part.trim(), label))
+        .join(" + ");
+    }
+
+    const range = text.match(/^([\d.]+)~([\d.]+)\s*(.+)$/);
+    if (range) {
+      const low = formatPortionAmountForPack(buy, `${range[1]}${range[3]}`, label);
+      const high = formatPortionAmountForPack(buy, `${range[2]}${range[3]}`, label);
+      const unit = low.replace(/^[\d.]+/, "");
+      if (unit && high.endsWith(unit)) {
+        return `${low.replace(unit, "")}~${high.replace(unit, "")}${unit}`;
+      }
+    }
+
+    const spec = getPackDisplaySpec(buy);
+    const usage = parseUsageUnit(text, label);
+    if (!spec || !usage) return text;
+
+    if (spec.unit === "개입") {
+      if (usage.kind === "ea") return `${formatAmountNumber(usage.amount)}개입`;
+      if (usage.kind === "g" && /토피넛|스틱/.test(`${label} ${buy}`)) {
+        return `${Math.max(1, Math.round(usage.amount / 30))}개입`;
+      }
+    }
+
+    if (spec.unit === "티백") {
+      if (usage.kind === "ea") return `${formatAmountNumber(usage.amount)}티백`;
+      if (usage.kind === "g") return `${formatAmountNumber(Math.max(1, Math.round(usage.amount / 25)))}티백`;
+      if (usage.kind === "ml") {
+        const bags = Math.max(1, Math.round(usage.amount / 120));
+        return `${formatAmountNumber(bags)}티백`;
+      }
+    }
+
+    if (spec.unit === "개" && usage.kind === "ea") {
+      return `${formatAmountNumber(usage.amount)}개`;
+    }
+
+    if (spec.unit === "ml") {
+      let ml = 0;
+      if (usage.kind === "ml") ml = usage.amount;
+      else if (usage.kind === "ea" && /펌프/.test(text)) {
+        ml = usage.amount * pumpMlPerUnit(label, buy);
+      } else if (usage.kind === "g" && /시럽|소스|청|잼/.test(`${label} ${buy}`)) {
+        ml = usage.amount;
+      } else if (/큰술/.test(text)) ml = usage.amount * 15;
+      else if (/스푼/.test(text)) ml = usage.amount * 5;
+      if (ml > 0) return `${formatAmountNumber(ml)}ml`;
+    }
+
+    if (spec.unit === "g") {
+      let grams = 0;
+      if (usage.kind === "g") grams = usage.amount;
+      else if (usage.kind === "ml") {
+        if (/오레오|쿠키/.test(`${label} ${buy}`) && /분량|오레오/.test(text)) {
+          grams = usage.amount;
+        } else {
+          grams = usage.amount;
+        }
+      } else if (usage.kind === "ea") {
+        if (/펌프/.test(text)) grams = usage.amount * pumpMlPerUnit(label, buy);
+        else if (/큰술/.test(text)) grams = usage.amount * spoonGrams(label, buy, "큰술");
+        else if (/스푼/.test(text)) grams = usage.amount * spoonGrams(label, buy, "스푼");
+        else if (/개/.test(text) && /오레오|쿠키/.test(`${label} ${buy}`)) {
+          grams = usage.amount * 15;
+        } else if (/개/.test(text) && /마시멜로/.test(`${label} ${buy}`)) {
+          grams = usage.amount * 5;
+        }
+      }
+      if (grams > 0) return `${formatAmountNumber(grams)}g`;
+    }
+
+    return text;
+  }
+
   /** 1회 사용 함량 문구 (만드는 방법·재료 요약) */
   function recipePortionPhrase(label, amount) {
-    const name = stripBuyPackSuffix(label);
-    if (!amount || amount === "-") return stepDisplayName(name);
-    if (name.includes(amount)) return name;
-    return `${name} ${amount}`;
+    const name = stepDisplayName(stripBuyPackSuffix(label));
+    const usage = formatPortionAmountForPack(label, amount, name);
+    if (!usage || usage === "-") return name;
+    if (name.includes(usage)) return name;
+    return `${name} ${usage}`;
+  }
+
+  function isIcePortion(item) {
+    const name = stepDisplayName(stripBuyPackSuffix(item.buy || item.label || ""));
+    return name === "얼음" || (item.buy || item.label || "").startsWith("얼음");
   }
 
   /** 장보기 목록 기준 1회 사용 (구매명은 label, 재료명은 recipeName) */
   function getHomePortionList(menu) {
-    return getHomeShoppingList(menu).map((item) => ({
-      label: item.buy,
-      recipeName: stepDisplayName(stripBuyPackSuffix(item.buy)),
-      amount: item.usage,
-      display: portionDisplay(item.buy, item.usage),
-      recipeDisplay: recipePortionPhrase(item.buy, item.usage),
-      price: item.portionPrice ?? 0,
-      priced: item.priced && (item.portionPrice ?? 0) > 0,
-    }));
+    return getHomeShoppingList(menu).map((item) => {
+      const isIce = isIcePortion(item);
+      const portionPrice = isIce ? 0 : item.portionPrice ?? 0;
+      const recipeName = stepDisplayName(stripBuyPackSuffix(item.buy));
+      const amount = formatPortionAmountForPack(item.buy, item.usage, recipeName);
+      return {
+        label: item.buy,
+        recipeName,
+        amount,
+        display: portionDisplay(item.buy, amount),
+        recipeDisplay: recipePortionPhrase(item.buy, amount),
+        price: portionPrice,
+        priced: !isIce && portionPrice > 0,
+      };
+    });
   }
 
   function escapeRegExp(text) {
@@ -747,7 +980,7 @@
     return typeof fn === "function" ? fn(text) : ensurePeriod(text);
   }
 
-  const MAX_RECIPE_STEPS = 5;
+  const MAX_RECIPE_STEPS = 10;
 
   function isActionStep(body) {
     const t = (body || "").trim();
@@ -755,24 +988,54 @@
     return true;
   }
 
-  /** 만드는 방법 — 행동 단계만, 최대 5단계 */
+  /** 만드는 방법 — 단계 수 상한만 적용 (병합하지 않음) */
   function limitRecipeSteps(steps, max = MAX_RECIPE_STEPS) {
-    if (!steps?.length || steps.length <= max) return steps;
+    return (steps || [])
+      .map((s) => ({
+        title: s.title || "",
+        body: ensurePeriod(s.body || ""),
+      }))
+      .filter((s) => s.body && s.body.length > 4)
+      .slice(0, max);
+  }
 
-    const result = steps.map((s) => ({
-      title: s.title || "",
-      body: ensurePeriod(s.body || ""),
-    }));
+  /** 긴 단계 문장을 행동 단위로 분리 */
+  function splitRecipeStepBody(text) {
+    const t = (text || "").trim();
+    if (!t) return [];
 
-    while (result.length > max) {
-      let idx = 0;
-      if (idx >= result.length - 1) idx = Math.max(0, result.length - 2);
-      const a = result[idx].body.replace(/[.!?]$/, "");
-      const b = result[idx + 1].body;
-      result[idx] = { title: result[idx].title, body: ensurePeriod(`${a} ${b}`.trim()) };
-      result.splice(idx + 1, 1);
+    const sentences = t
+      .split(/(?<=[.!?])\s+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 4);
+    if (sentences.length > 1) {
+      return sentences.flatMap((s) => splitRecipeStepBody(s));
     }
-    return result;
+
+    const mixedThen = t.match(/^(.+?섞(?:어|은|인)?)\s+뒤\s+(.+)$/);
+    if (mixedThen && mixedThen[2].length >= 6) {
+      return [mixedThen[1].trim(), ...splitRecipeStepBody(mixedThen[2].trim())];
+    }
+
+    const addThenAct = t.match(/^(.+?)\s+넣고\s+(.+)$/);
+    if (addThenAct) {
+      const prep = addThenAct[1].trim();
+      const action = addThenAct[2].trim();
+      const openParens = (prep.match(/\(/g) || []).length;
+      const closeParens = (prep.match(/\)/g) || []).length;
+      if (openParens > closeParens) {
+        return [t];
+      }
+      const isFinishAction = /^(?:뚜껑|흔들|섞|저어|마무리|올려|드리즐|완성)|뚜껑|흔들|섞어|저어/.test(
+        action
+      );
+      if (prep.length >= 8 && isFinishAction) {
+        const addStep = /(?:을|를)$/.test(prep) ? `${prep} 넣는다` : `${prep}를 넣는다`;
+        return [addStep, ...splitRecipeStepBody(action)];
+      }
+    }
+
+    return [t];
   }
 
   function resolveAliasToBuy(alias, portions) {
@@ -903,11 +1166,11 @@
       const phrase = p.recipeDisplay || recipePortionPhrase(p.label, p.amount);
       const base = stripBuyPackSuffix(p.label);
       if (!phrase || !base || phrase === base) return;
+      if (!t.includes(phrase)) return;
       const tailWords = base.split(/\s+/).slice(1).map((w) => escapeRegExp(w));
+      if (!tailWords.length) return;
       let pattern = `(${escapeRegExp(phrase)})\\s+(?:${escapeRegExp(base)}\\s*)?`;
-      if (tailWords.length) {
-        pattern += `(?:${tailWords.map((w) => `${w}\\s*`).join("|")})?`;
-      }
+      pattern += `(?:${tailWords.map((w) => `${w}\\s*`).join("|")})?`;
       pattern += `(?:약\\s+)?[\\d.]+\\s*(?:개|ml|L|g|kg|펌프|컵|입|팩|샷|캔)`;
       t = t.replace(new RegExp(pattern, "g"), "$1");
     });
@@ -985,8 +1248,19 @@
     else ["물", "뜨거운 물"].forEach(add);
 
     const labels = portions.map((p) => stripBuyPackSuffix(p.label));
-    if (labels.some((l) => /커피믹스/.test(l))) {
-      add("커피 베이스");
+    if (labels.some((l) => /에스프레소/.test(l))) {
+      ["에스프레소", "에스프레소 액상스틱", "커피 베이스"].forEach(add);
+    }
+    if (labels.some((l) => /사이다|콜라|탄산/.test(l))) {
+      ["사이다", "콜라", "탄산수"].forEach(add);
+    }
+    if (labels.some((l) => /자몽/.test(l))) {
+      add("자몽 슬라이스");
+      add("애플민트");
+    }
+    if (labels.some((l) => /라임/.test(l))) {
+      add("라임 슬라이스");
+      add("애플민트");
     }
     if (labels.some((l) => /(?:홍차|녹차|티백|허브티|얼그레이|우롱)/.test(l))) {
       ["우려낸 홍차", "우려낸 차", "홍차", "블랙티"].forEach(add);
@@ -1049,11 +1323,131 @@
     return (afterParticle || n).trim();
   }
 
+  function syncStepTextToPortions(text, portions) {
+    let t = text || "";
+    const recipeNames = new Set(portions.map((p) => p.recipeName).filter(Boolean));
+    const has = (name) => recipeNames.has(name);
+
+    if (has("설탕시럽")) {
+      t = t
+        .replace(/설탕\s*\(또는\s*꿀\)\s*1?~?2?큰술?/g, "설탕시럽 2~3펌프")
+        .replace(/설탕\s*1큰술/g, "설탕시럽 1~2펌프")
+        .replace(/설탕\s*1~2큰술/g, "설탕시럽 2~3펌프")
+        .replace(/모히또·라임\s*(?:즙\s*)?(?:설탕)?시럽/g, "설탕시럽");
+    }
+    if (has("플레인 요거트")) {
+      t = t.replace(/플랜트(?:\(또는\s*요거트\))?\s*파우더/g, "플레인 요거트");
+    }
+    if (has("자몽청")) {
+      t = t.replace(/자몽·오렌지[^.,·]*/g, "자몽청");
+      t = t.replace(/오렌지칩/g, "자몽청");
+    }
+    if (has("블루 레몬 시럽")) {
+      t = t.replace(/블루큐라소\s*시럽/g, "블루 레몬 시럽");
+      t = t.replace(/민트초코\s*파우더/g, "블루 레몬 시럽");
+    }
+    if (has("초코 크런치 시리얼")) {
+      t = t.replace(/초코칩/g, "초코 크런치 시리얼");
+    }
+    if (has("바닐라 시럽")) {
+      t = t.replace(/바닐라\s*파우더/g, "바닐라 시럽");
+    }
+    if (has("딸기잼")) {
+      t = t.replace(/쥬얼리/g, "딸기잼");
+    }
+    if (has("오레오")) {
+      t = t.replace(/코코아\+베이킹파우더\s*믹스/g, "오레오");
+    }
+    if (has("복숭아 주스")) {
+      t = t.replace(/복숭아\s*소스/g, "복숭아 주스");
+    }
+    if (has("토피넛 라떼 스틱")) {
+      const stickAmt =
+        portions.find((p) => p.recipeName === "토피넛 라떼 스틱")?.amount || "1개입";
+      t = t
+        .replace(/토피넛\s*파우더\s*[\d.]+\s*(?:큰술|g|그램)/g, `토피넛 라떼 스틱 ${stickAmt}`)
+        .replace(/토피넛\s*라떼\s*스틱\s*1개\b/g, `토피넛 라떼 스틱 ${stickAmt}`);
+    }
+    if (has("사이다") && has("자스민 티백") && !/사이다/.test(t)) {
+      t = t.replace(/(뚜껑\s*닫고\s*흔든다)\./, "뚜껑 닫고 흔든 뒤 사이다 150ml를 넣는다.");
+    }
+    if (has("물") && has("콜드브루 원액") && !/물/.test(t)) {
+      t = t.replace(/컵에\s+얼음을,\s*/, "컵에 얼음을, 물을, ");
+    }
+    if (has("설탕시럽") && /바닐라\s*카페라떼|바닐라\s*시럽를/.test(t) && !/설탕시럽/.test(t)) {
+      t = t.replace(/컵에/, "컵에 설탕시럽 2~3펌프,");
+    }
+    if (
+      has("설탕시럽") &&
+      has("녹차 티백") &&
+      has("레몬즙") &&
+      !/설탕시럽/.test(t)
+    ) {
+      t = t.replace(/^/, "설탕시럽 2~3펌프, ");
+    }
+    if (has("얼음") && has("딸기잼") && !/얼음/.test(t)) {
+      t = `${t.replace(/\.$/, "")}. 얼음을 넣는다.`;
+    }
+    if (has("물") && /제주그린|그린티 베이스/.test(t) && !/물\s*\d/.test(t)) {
+      t = t.replace(/(그린티 베이스에)/, "물 20ml에");
+    }
+    return t.replace(/\s{2,}/g, " ").trim();
+  }
+
+  function expandSharedAmountPhrases(text) {
+    return (text || "").replace(
+      /([가-힣][가-힣·\s/]{1,40}?)\s+각\s+((?:약\s+)?[\d.]+\s*(?:펌프|큰술|스푼|ml|L|g|kg|개|입|샷|캔))/g,
+      (_, names, amount) =>
+        names
+          .split(/·/)
+          .map((n) => n.trim())
+          .filter((n) => n.length >= 1)
+          .map((n) => `${n} ${amount}`)
+          .join(", ")
+    );
+  }
+
+  function mentionPartNames(name) {
+    return (name || "")
+      .split(/·/)
+      .map((p) => cleanMentionName(p))
+      .filter((p) => p.length >= 2);
+  }
+
+  function mentionIncludesListed(name, allowed) {
+    const parts = mentionPartNames(name);
+    if (!parts.length) return isListedIngredient(name, allowed);
+    return parts.some((p) => isListedIngredient(p, allowed));
+  }
+
+  function stripBareUnlistedIngredientNames(text, allowed) {
+    let t = text || "";
+    const prep = t.match(/^(컵(?:\s+바닥)?에[^.]*?)(?=(?:넣고|붓고|섞고|저어|우려|풀어|만들))/);
+    if (!prep) return t;
+
+    let head = prep[1];
+    const tail = t.slice(head.length);
+    head = head.replace(
+      /([가-힣][가-힣·\s]{0,20}?)(을|를)(?=\s*(?:[,·+]|$))/g,
+      (full, name, particle) => {
+        const n = cleanMentionName(name);
+        if (!n || n.length < 2 || NON_INGREDIENT.has(n)) return full;
+        if (mentionIncludesListed(n, allowed)) return full;
+        return "";
+      }
+    );
+    return (head + tail)
+      .replace(/컵(?:\s+바닥)?에\s*(?:[,·+]\s*)+/g, (m) => m.replace(/[,·+]\s*$/, " "))
+      .replace(/,\s*,+/g, ",")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
   function stripUnlistedIngredientPhrases(text, allowed) {
     let t = text || "";
     const mentions = extractIngredientMentions(t, allowed)
       .filter((m) => !/(?:넣고|붓고|넣어|부어|채우|섞|저어|만든|위에)$/.test(m.name))
-      .filter((m) => !isListedIngredient(m.name, allowed));
+      .filter((m) => !mentionIncludesListed(m.name, allowed));
     mentions
       .sort((a, b) => b.index - a.index)
       .forEach(({ name, amount }) => {
@@ -1071,6 +1465,9 @@
       });
     return t
       .replace(/\s+(?:에|을|를|과|와)\s+(?=3분|우려|풀어|녹)/g, " ")
+      .replace(/,\s*에\s*,/g, ", ")
+      .replace(/컵에\s*,\s*/g, "컵에 ")
+      .replace(/,\s*,/g, ",")
       .replace(/\s{2,}/g, " ")
       .trim();
   }
@@ -1116,7 +1513,9 @@
   function ingredientNamesMatch(mention, allowedName) {
     const n = stripAmountFromPhrase(mention);
     const a = stripAmountFromPhrase(allowedName);
-    return n.length >= 2 && a.length >= 2 && n === a;
+    if (n.length < 2 || a.length < 2) return false;
+    if (n === a) return true;
+    return n.includes(a) || a.includes(n);
   }
 
   function isListedIngredient(name, allowed) {
@@ -1145,6 +1544,25 @@
     return false;
   }
 
+  function stripUnlistedFinishToppings(text, allowed) {
+    return (text || "").replace(
+      /([가-힣][가-힣·\s/]{0,20}?)(?:을|를)?\s*(?:로\s+)?마무리(?:해준다|한다)?\.?/g,
+      (full, items) => {
+        const parts = items
+          .split(/\s*(?:,|·|\+)\s*/)
+          .map((p) => p.trim())
+          .filter(Boolean);
+        if (parts.length <= 1) return full;
+        const kept = parts.filter((p) => mentionIncludesListed(p, allowed));
+        if (!kept.length) return "";
+        if (kept.length === parts.length) return full;
+        const joined = kept.join(", ");
+        const particle = /[aeiouAEIOUㅏ-ㅣ]$/.test(joined.slice(-1)) ? "를" : "을";
+        return `${joined}${particle} 올려 마무리한다.`;
+      }
+    );
+  }
+
   function cleanupUnlistedWaterPhrases(text, allowed) {
     const hasWater = [...allowed].some((a) => {
       const base = stripAmountFromPhrase(a);
@@ -1160,7 +1578,7 @@
   function segmentHasUnlistedIngredient(segment, allowed) {
     const mentions = extractIngredientMentions(segment, allowed);
     if (!mentions.length) return false;
-    return mentions.some((m) => !isListedIngredient(m.name, allowed));
+    return mentions.every((m) => !mentionIncludesListed(m.name, allowed));
   }
 
   function filterSegmentList(clause, allowed) {
@@ -1192,15 +1610,18 @@
     const clauses = t.split(/(?<=[.!])\s+/).filter(Boolean);
     const kept = clauses
       .map((clause) => {
-        let c = filterSegmentList(clause, allowed);
+        let         c = expandSharedAmountPhrases(clause);
+        c = filterSegmentList(c, allowed);
+        c = stripBareUnlistedIngredientNames(c, allowed);
         c = stripUnlistedIngredientPhrases(c, allowed);
+        c = stripUnlistedFinishToppings(c, allowed);
         const mentions = extractIngredientMentions(c, allowed);
         if (!mentions.length) return c;
-        if (mentions.every((m) => isListedIngredient(m.name, allowed))) return c;
-        if (mentions.every((m) => !isListedIngredient(m.name, allowed))) return "";
+        if (mentions.every((m) => mentionIncludesListed(m.name, allowed))) return c;
+        if (mentions.every((m) => !mentionIncludesListed(m.name, allowed))) return "";
         c = stripUnlistedIngredientPhrases(c, allowed);
         const left = extractIngredientMentions(c, allowed);
-        if (left.some((m) => !isListedIngredient(m.name, allowed))) return "";
+        if (left.some((m) => !mentionIncludesListed(m.name, allowed))) return c;
         return c;
       })
       .filter(Boolean);
@@ -1217,7 +1638,7 @@
 
     const mentions = extractIngredientMentions(t, allowed);
     if (mentions.length) {
-      return mentions.some((m) => isListedIngredient(m.name, allowed));
+      return mentions.some((m) => mentionIncludesListed(m.name, allowed));
     }
 
     const normalized = normalizeIngredientKey(t);
@@ -1254,25 +1675,24 @@
       .filter(Boolean);
 
     manual.forEach((body) => {
-      let aligned = applyBuyMapToText(body, buyMap);
-      aligned = applyPortionPhrasesToText(aligned, portions);
-      aligned = restrictStepToListedIngredients(aligned, menu, portions);
-      aligned = cleanupRecipeStepText(aligned);
-      if (/^토핑\s*:/.test(aligned.trim())) {
-        aligned = normalizeToppingStep(aligned);
-      }
-      const allowed = buildAllowedRecipeIngredients(menu, portions);
-      if (
-        aligned.trim().length > 6 &&
-        isActionStep(aligned) &&
-        stepReferencesListedIngredient(aligned, portions, allowed)
-      ) {
-        const styled = friendlyHadaStep(aligned);
-        const prev = steps[steps.length - 1]?.body || "";
-        if (styled && !isNearDuplicateStep(styled, prev)) {
-          steps.push({ title: "", body: styled });
+      splitRecipeStepBody(body).forEach((chunk) => {
+        let aligned = expandSharedAmountPhrases(chunk);
+        aligned = syncStepTextToPortions(aligned, portions);
+        aligned = applyBuyMapToText(aligned, buyMap);
+        aligned = applyPortionPhrasesToText(aligned, portions);
+        aligned = restrictStepToListedIngredients(aligned, menu, portions);
+        aligned = cleanupRecipeStepText(aligned);
+        if (/^토핑\s*:/.test(aligned.trim())) {
+          aligned = normalizeToppingStep(aligned);
         }
-      }
+        if (aligned.trim().length > 6 && isActionStep(aligned)) {
+          const styled = friendlyHadaStep(aligned);
+          const prev = steps[steps.length - 1]?.body || "";
+          if (styled && !isNearDuplicateStep(styled, prev)) {
+            steps.push({ title: "", body: styled });
+          }
+        }
+      });
     });
 
     if (steps.length === 0) {
@@ -1298,6 +1718,7 @@
   globalThis.getHomeShoppingList = getHomeShoppingList;
   globalThis.getHomePortionList = getHomePortionList;
   globalThis.getRecipeStepsFromShopping = getRecipeStepsFromShopping;
+  globalThis.restrictStepToListedIngredients = restrictStepToListedIngredients;
   globalThis.alignRecipeStepsToShopping = alignRecipeStepsToShopping;
   globalThis.getHomeShoppingPrice = getHomeShoppingPrice;
 

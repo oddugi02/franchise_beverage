@@ -376,7 +376,7 @@ const MENU_DEFS = [
       home("물", "150ml", 10, "애플티"),
       home("얼음", "가득", HOME.ice, "얼음"),
     ],
-    note: `${BRAND} Quizlet 레시피 기준 · ${M_SIZE_NOTE} · 애플티는 온수 150ml + 애플티백 1개 우려 후 chilling · ${POOR_KITCHEN_RECIPE_NOTE}`,
+    note: `${BRAND} Quizlet 레시피 기준 · ${M_SIZE_NOTE} · 애플티는 온수 150ml + 애플티백 1개 우려 후 차게 식힌 · ${POOR_KITCHEN_RECIPE_NOTE}`,
   },
   {
     slug: "almond-milk-tea",

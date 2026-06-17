@@ -1,6 +1,6 @@
 // 네이버 쇼핑 API로 갱신 — node scripts/update-naver-prices.js
 // 페이지 로드 시 shopping-prices.js 가 shopping-packs.js 에 덮어씁니다
-const SHOPPING_PRICE_UPDATED_AT = "2026-06-14";
+const SHOPPING_PRICE_UPDATED_AT = "2026-06-17";
 const SHOPPING_PRICE_OVERRIDES = {
   "milk500": {
     "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=8233703082&tid=1000000061",
@@ -93,15 +93,26 @@ const SHOPPING_PRICE_OVERRIDES = {
   "together473": {
     "store": "네이버"
   },
+  "dalgonaKit": {
+    "link": "https://smartstore.naver.com/ninanomarketmall/products/5471230661",
+    "productUrl": "https://smartstore.naver.com/ninanomarketmall/products/5471230661",
+    "productTitle": "달고나 크런치 25g",
+    "productName": "달고나 크런치 25g",
+    "mallName": "네이버",
+    "store": "네이버",
+    "price": 850,
+    "unitPrice": 34,
+    "packUnits": 25
+  },
   "cookiePack": {
     "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=7061825806&tid=1000000061",
     "productUrl": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=7061825806&tid=1000000061",
-    "productTitle": "오레오 초콜릿 샌드위치 쿠키 화이트크림 마일드 오레오씬즈 리츠 오리지날 치즈 샌드",
-    "productName": "오레오 초콜릿 샌드위치 쿠키 화이트크림 마일드 오레오씬즈 리츠 오리지날 치즈 샌드",
+    "productTitle": "오레오 오리지널 샌드위치 쿠키 119g",
+    "productName": "오레오 오리지널 샌드위치 쿠키 119g",
     "mallName": "11번가",
     "store": "네이버",
-    "price": 1660,
-    "unitPrice": 14,
+    "price": 1830,
+    "unitPrice": 15,
     "packUnits": 119
   },
   "toffeeStick20": {
@@ -186,12 +197,15 @@ const SHOPPING_PRICE_OVERRIDES = {
     "packUnits": 250
   },
   "cola355": {
-    "link": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8772533857&ctag=8772533857&lptag=I26018448659&itemId=26018448659&vendorItemId=92999867274&spec=10305199",
-    "productUrl": "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8772533857&ctag=8772533857&lptag=I26018448659&itemId=26018448659&vendorItemId=92999867274&spec=10305199",
-    "productTitle": "coca 코카 콜라 오리지널 355ml 355밀리리터 미리리터 24can 24캔 뚱캔 업소용  24개",
-    "productName": "coca 코카 콜라 오리지널 355ml 355밀리리터 미리리터 24can 24캔 뚱캔 업소용  24개",
-    "mallName": "쿠팡",
-    "store": "네이버"
+    "link": "https://smartstore.naver.com/main/products/11470143103",
+    "productUrl": "https://smartstore.naver.com/main/products/11470143103",
+    "productTitle": "코카콜라 오리지널 355ml 1개",
+    "productName": "코카콜라 오리지널 355ml 1개",
+    "mallName": "네이버",
+    "store": "네이버",
+    "price": 920,
+    "unitPrice": 920,
+    "packUnits": 1
   },
   "frozenCranberry200": {
     "link": "https://smartstore.naver.com/main/products/12417464617",
@@ -594,7 +608,15 @@ const SHOPPING_PRICE_OVERRIDES = {
     "store": "네이버"
   },
   "caramel500": {
-    "store": "네이버"
+    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=3008639737&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=3008639737&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productTitle": "모닌 모닌 토핑용 카라멜소스 500ml",
+    "productName": "모닌 모닌 토핑용 카라멜소스 500ml",
+    "mallName": "G마켓",
+    "store": "네이버",
+    "price": 9290,
+    "unitPrice": 19,
+    "packUnits": 500
   },
   "soda15L": {
     "link": "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=9253033801&tid=1000000061",
@@ -674,14 +696,14 @@ const SHOPPING_PRICE_OVERRIDES = {
     "packUnits": 250
   },
   "sweetPotato500": {
-    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4666131204&sub-id=1003&service-code=10000003&lcd=100000036",
-    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=4666131204&sub-id=1003&service-code=10000003&lcd=100000036",
-    "productTitle": "증정행사 - 청은 고구마전분(혼합) 500g 2개 구매시 (행사 종료)",
-    "productName": "증정행사 - 청은 고구마전분(혼합) 500g 2개 구매시 (행사 종료)",
+    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=4240588611&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=4240588611&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productTitle": "선인 선인 고구마라떼 페이스트 500g",
+    "productName": "선인 선인 고구마라떼 페이스트 500g",
     "mallName": "G마켓",
     "store": "네이버",
-    "price": 4530,
-    "unitPrice": 9,
+    "price": 3720,
+    "unitPrice": 7,
     "packUnits": 500
   },
   "yakgwa200": {
@@ -800,5 +822,16 @@ const SHOPPING_PRICE_OVERRIDES = {
     "productName": "[동서]티오 복숭아 아이스티 18T",
     "mallName": "11번가",
     "store": "네이버"
+  },
+  "chocoSyrup500": {
+    "link": "https://link.gmarket.co.kr/gate/pcs?item-no=3008639666&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productUrl": "https://link.gmarket.co.kr/gate/pcs?item-no=3008639666&sub-id=1003&service-code=10000003&lcd=100000036",
+    "productTitle": "모닌 모닌 토핑용 초콜릿소스 500ml 초코소스",
+    "productName": "모닌 모닌 토핑용 초콜릿소스 500ml 초코소스",
+    "mallName": "G마켓",
+    "store": "네이버",
+    "price": 9290,
+    "unitPrice": 19,
+    "packUnits": 500
   },
 };

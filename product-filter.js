@@ -192,6 +192,11 @@
     return /유자청|유자\s*차|유자차/i.test(queryText(entry));
   }
 
+  function isSweetPotatoPreserveSearch(entry) {
+    const q = queryText(entry);
+    return /고구마\s*청|고구마라떼\s*페이스트|고구마\s*(?:스프레드|페이스트|무스)|고구마\s*베이스/i.test(q);
+  }
+
   function isRedBeanPasteSearch(entry) {
     return /팥앙금|팥\s*앙금|단팥|고앙금/i.test(queryText(entry));
   }
@@ -279,10 +284,18 @@
   function isWrongFlavorSyrup(title, entry) {
     if (!isFlavorSyrupSearch(entry)) return false;
     const t = title || "";
+    const q = queryText(entry);
     if (/키링|아크릴|관통형|큐브|비즈|악세사리/i.test(t) && !/병|펌프|500|ml|리터|liter/i.test(t)) return true;
     if (/데코덴|네일|폰케이스|파츠|유로톨|꾸미기/i.test(t)) return true;
+    if (/노즐통|드리즐통|만능소스통|소스통|시럽통|용기\s*택/i.test(t) && !/모닌|408|412|비셰프|빅포드|스카치/i.test(t)) return true;
     if (/소스병|양념통|펌핑\s*용기|드리즐\s*병|케찹병/i.test(t) && !/408|412|비셰프|모닌|다카/i.test(t)) return true;
+    if (/시럽\/펌프\/|\/펌프\/|외\s*\d+\s*종/i.test(t)) return true;
     if (/오일|oil/i.test(t) && !/시럽|syrup|소스|sauce/i.test(t)) return true;
+    if (/카라멜|캬라멜|caramel/i.test(q) && !/카라멜|캬라멜|caramel|쏠티드\s*카라멜/i.test(t)) return true;
+    if (/헤이즐넛|hazelnut/i.test(q) && !/헤이즐넛|hazelnut/i.test(t)) return true;
+    if (/바닐라|vanilla/i.test(q) && !/바닐라|vanilla/i.test(t)) return true;
+    if (/민트|mint/i.test(q) && !/민트|mint/i.test(t)) return true;
+    if (/초코|choco/i.test(q) && !/초코|choco|초콜/i.test(t)) return true;
     return !/시럽|syrup|카페시럽|412|408|비셰프|다카|모닌|모닝|소스|sauce/i.test(t);
   }
 
@@ -290,6 +303,12 @@
     const t = title || "";
     if (/푸딩\s*믹스|pudding\s*mix|디저트\s*믹스/i.test(t)) return true;
     if (/오레오/i.test(t) && /믹스|분말/i.test(t) && !/쿠키|cookie|오리지널|샌드/i.test(t)) return true;
+    if (/헤어핀|집게핀|데코덴|미니어처|모형|파츠|핀\b/i.test(t)) return true;
+    if (/화이트크림|마일드|오레오씬즈|씬즈|리츠|치즈\s*샌드|민트초코|딸기\s*크림|시나몬\s*번|크런치스/i.test(t) && /오리지날|오리지널/i.test(t) && /화이트|마일드|씬즈|리츠|치즈|민트|딸기|시나몬|크런치/i.test(t)) {
+      const variants = (t.match(/화이트|마일드|씬즈|리츠|치즈|민트|딸기|시나몬|크런치/gi) || []).length;
+      if (variants >= 2) return true;
+    }
+    if (/선택\d|외\s*\d+\s*종|\/\s*택\d/i.test(t)) return true;
     return false;
   }
 
@@ -341,6 +360,18 @@
     const t = title || "";
     if (/쿠키\s*상자|선물\s*상자|티라미수\s*선물|패키지\s*손잡이|접이식\s*패키지/i.test(t)) return true;
     if (/상자|포장\s*박스/i.test(t) && !/유자청\s*\d|\d+\s*g.*유자청/i.test(t)) return true;
+    return false;
+  }
+
+  function isWrongSweetPotatoPreserve(title, entry) {
+    if (!isSweetPotatoPreserveSearch(entry)) return false;
+    const t = title || "";
+    if (/증정|행사\s*종료|사은품|무료\s*증정/i.test(t)) return true;
+    if (/전분|가루|파우더|칩|튀김|감자|사료|펫|강아지|고양이|생고구마|밤고구마|국내산\)|케이크|무스케이크/i.test(t)) return true;
+    if (/브러시|페인트|향\s*페이스트|아모레티/i.test(t)) return true;
+    if (!/고구마.*(?:청|페이스트|스프레드|무스|라떼|잼|베이스|필링)|(?:청|페이스트|스프레드|무스|라떼|잼|베이스|필링).{0,12}고구마/i.test(t)) {
+      return true;
+    }
     return false;
   }
 
@@ -438,9 +469,15 @@
 
   function isWrongColaProduct(title) {
     const t = title || "";
-    if (/방향제|미니어처|석고|장식|소주|맥주|페리에/i.test(t)) return true;
-    if (/스프라이트|sprite|환타|fanta|맥콜|환타/i.test(t)) return true;
+    if (/방향제|미니어처|석고|장식|소주|맥주|페리에|부채|데코|파츠|해법|비밀번호|토레타/i.test(t)) return true;
+    if (/스프라이트|sprite|환타|fanta|맥콜/i.test(t)) return true;
+    if (/닥터\s*페퍼|dr\s*pepper|펩시|pepsi/i.test(t)) return true;
     if (/사이다|킨\s*사이다|킨사이다|칠성/i.test(t) && !/코카\s*콜라\s*zero/i.test(t)) return true;
+    if (/제로|zero|라이트|light|다이어트|diet/i.test(t)) return true;
+    if (/체리|cherry|라임|lime|그레이프|포도|peach/i.test(t)) return true;
+    if (/\b(?:24|12|18|30|48|36)\s*(?:캔|can|개)|(?:\d+)\s*개입|뚱캔.*\d+\s*개|\d+\s*can\b/i.test(t)) return true;
+    if (/\bx\s*24\b|24\s*x\s*\d+/i.test(t)) return true;
+    if (/업소용/i.test(t) && /\d+\s*(?:개|캔|입)/i.test(t)) return true;
     return false;
   }
 
@@ -537,6 +574,9 @@
     }
     if (isYujaPreserveSearch(entry)) {
       return /유자청|유자차|유자\s*차/i.test(t);
+    }
+    if (isSweetPotatoPreserveSearch(entry)) {
+      return /고구마.*(?:청|페이스트|스프레드|무스|라떼|잼|베이스|필링)|(?:청|페이스트|스프레드|무스|라떼|잼|베이스|필링).{0,12}고구마/i.test(t);
     }
     if (isRedBeanPasteSearch(entry)) {
       return /팥앙금|앙금|단팥|고앙금/i.test(t);
@@ -644,6 +684,7 @@
     if (isJellySearch(entry) && isWrongJelly(title)) return false;
     if (isCerealSearch(entry) && isWrongCereal(title)) return false;
     if (isYujaPreserveSearch(entry) && isWrongYujaPreserve(title)) return false;
+    if (isSweetPotatoPreserveSearch(entry) && isWrongSweetPotatoPreserve(title, entry)) return false;
     if (isRedBeanPasteSearch(entry) && isWrongRedBeanPaste(title)) return false;
     if (isIcecreamSearch(entry) && isWrongIcecream(title)) return false;
     if (isDalgonaSearch(entry) && isWrongDalgona(title)) return false;

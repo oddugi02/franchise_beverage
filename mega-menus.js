@@ -40,7 +40,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -74,7 +74,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 꿀 2큰술을, 에스프레소 액상스틱 2개를, 얼음을, 물을 넣고 뚜껑을 닫고 흔들어 섞는다."
+          "body": "컵에 꿀 2큰술, 에스프레소 액상스틱 2개, 얼음, 물 넣고 뚜껑을 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 1,
@@ -123,7 +123,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -157,7 +157,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 헤이즐넛 시럽 4펌프를, 에스프레소 액상스틱 2개를, 얼음을, 물을 넣고 뚜껑을 닫고 흔들어 섞는다."
+          "body": "컵에 헤이즐넛 시럽 4펌프, 에스프레소 액상스틱 2개, 얼음, 물 넣고 뚜껑을 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 1,
@@ -206,7 +206,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -240,7 +240,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 바닐라 시럽 4펌프를, 에스프레소 액상스틱 2개를, 얼음을, 물을 넣고 뚜껑을 닫고 흔들어 섞는다."
+          "body": "컵에 바닐라 시럽 4펌프, 에스프레소 액상스틱 2개, 얼음, 물 넣고 뚜껑을 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 1,
@@ -284,7 +284,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -363,7 +363,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -405,7 +405,7 @@ const MEGA_MENUS = [
         },
         {
           "title": "",
-          "body": "시나몬 파우더를 뿌려 마무리해준다."
+          "body": "휘핑크림을 올리고 시나몬 파우더를 뿌려 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -454,7 +454,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -496,7 +496,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵 바닥에 카라멜 시럽 3펌프를, 얼음을, 우유를 넣고 섞는다."
+          "body": "컵 바닥에 카라멜 시럽 3펌프, 얼음, 우유를 넣고 섞는다."
         },
         {
           "title": "",
@@ -549,7 +549,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -632,7 +632,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -715,7 +715,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -748,7 +748,7 @@ const MEGA_MENUS = [
         {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
           ]
@@ -757,7 +757,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 연유 2큰술을, 설탕시럽 1펌프를, 얼음을, 우유를 넣고 에스프레소 액상스틱 2개를 넣어 뚜껑을 닫고 흔들어 섞는다."
+          "body": "컵에 연유 2큰술, 설탕시럽 1펌프, 얼음, 우유를 넣고 에스프레소 액상스틱 2개를 넣어 뚜껑을 닫고 흔들어 섞는다."
         }
       ],
       "difficulty": 2,
@@ -811,7 +811,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -861,7 +861,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 코코아 파우더 2큰술을, 에스프레소 액상스틱 2개를, 얼음을, 우유를 넣고 섞은 뒤 휘핑크림·초코 드리즐로 마무리해준다."
+          "body": "컵에 코코아 파우더 2큰술, 에스프레소 액상스틱 2개, 얼음, 우유를 넣고 섞은 뒤 휘핑크림·초코 드리즐로 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -910,7 +910,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -943,7 +943,7 @@ const MEGA_MENUS = [
         {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
           ]
@@ -952,7 +952,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 티라미수 소스·설탕시럽 각 1펌프를, 에스프레소 액상스틱 2개를, 얼음을, 우유를 넣고 섞은 뒤 티라미수 크림·코코아 파우더로 마무리해준다."
+          "body": "컵에 코코아 파우더, 설탕시럽, 에스프레소 액상스틱 2개, 얼음, 우유를 넣고 섞은 뒤 코코아 파우더로 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -1016,14 +1016,6 @@ const MEGA_MENUS = [
           ]
         },
         {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
-          ]
-        },
-        {
           "label": "얼음",
           "amount": "적당량",
           "price": 50,
@@ -1035,7 +1027,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 200ml를, 홍차 파우더 2큰술을, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 우유, 홍차 티백, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
         }
       ],
       "difficulty": 1,
@@ -1096,14 +1088,6 @@ const MEGA_MENUS = [
           "price": 450,
           "replaces": [
             "우유"
-          ]
-        },
-        {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
           ]
         },
         {
@@ -1186,14 +1170,6 @@ const MEGA_MENUS = [
           ]
         },
         {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
-          ]
-        },
-        {
           "label": "얼음",
           "amount": "적당량",
           "price": 50,
@@ -1262,7 +1238,7 @@ const MEGA_MENUS = [
       "homeIngredients": [
         {
           "label": "토피넛 라떼 스틱",
-          "amount": "30g",
+          "amount": "1개입",
           "price": 290,
           "replaces": [
             "토피넛 파우더"
@@ -1274,14 +1250,6 @@ const MEGA_MENUS = [
           "price": 450,
           "replaces": [
             "우유"
-          ]
-        },
-        {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
           ]
         },
         {
@@ -1304,7 +1272,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 250ml를, 토피넛 파우더 4큰술을, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 250ml, 토피넛 파우더 4큰술, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
         },
         {
           "title": "",
@@ -1372,17 +1340,9 @@ const MEGA_MENUS = [
           ]
         },
         {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
-          ]
-        },
-        {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
           ]
@@ -1399,7 +1359,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 250ml를, 곡물 파우더 4큰술을, 설탕시럽 1펌프를, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 250ml, 곡물 파우더 4큰술, 설탕시럽 1펌프, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
         },
         {
           "title": "",
@@ -1467,17 +1427,9 @@ const MEGA_MENUS = [
           ]
         },
         {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
-          ]
-        },
-        {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
           ]
@@ -1494,7 +1446,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 200ml를, 고구마 페이스트 1스쿱을, 설탕시럽 1펌프를, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 200ml, 고구마 페이스트 1스쿱, 설탕시럽 1펌프, 얼음을 넣고 30초~1분 세게 흔들거나, 포크·숟가락으로 골고루 섞어준다."
         },
         {
           "title": "",
@@ -1562,14 +1514,6 @@ const MEGA_MENUS = [
           ]
         },
         {
-          "label": "물",
-          "amount": "30ml",
-          "price": 5,
-          "replaces": [
-            "물"
-          ]
-        },
-        {
           "label": "얼음",
           "amount": "적당량",
           "price": 50,
@@ -1613,7 +1557,7 @@ const MEGA_MENUS = [
         },
         {
           "title": "",
-          "body": "휘핑크림과 초코·카라멜 드리즐과 딸기 분태로 마무리해준다."
+          "body": "휘핑크림과 초코 시럽·카라멜 시럽을 드리즐하고 마무리해준다."
         }
       ],
       "difficulty": 1,
@@ -1656,18 +1600,11 @@ const MEGA_MENUS = [
     "recipe": {
       "homeIngredients": [
         {
-          "label": "드링킹 요거트",
-          "amount": "150ml",
-          "price": 550,
-          "replaces": [
-            "요거트 베이스"
-          ]
-        },
-        {
           "label": "플레인 요거트",
-          "amount": "100g",
-          "price": 700,
+          "amount": "150g",
+          "price": 420,
           "replaces": [
+            "요거트 베이스",
             "플레인 요거트 파우더"
           ]
         },
@@ -1683,7 +1620,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵(또는 빈 페트병)에 드링킹 요거트 150ml를, 플레인 요거트 400g 100g를, 얼음을 넣고 30초~1분 세게 흔든다."
+          "body": "뚜껑 있는 컵(또는 빈 페트병)에 플레인 요거트 150g, 얼음을 넣고 30초~1분 세게 흔든다."
         }
       ],
       "difficulty": 1,
@@ -1795,7 +1732,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오 200ml 분량과 에스프레소 액상스틱 2개와 얼음을 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오 200ml 분량, 코코아 파우더 30g, 우유 100ml, 에스프레소 액상스틱 2개, 얼음을 넣고 갈아준다."
         },
         {
           "title": "",
@@ -1895,11 +1832,11 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오 125ml 분량과 녹차 가루와 얼음을 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오 125ml 분량, 녹차/말차 가루 30g, 우유 100ml, 얼음을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "휘핑크림과 녹차 가루로 마무리해준다."
+          "body": "휘핑크림과 녹차/말차 가루로 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -2111,11 +2048,11 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 민트 시럽 베이스 250ml를, 초코칩 1큰술을, 얼음을 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오, 코코아 파우더, 우유, 얼음을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "민트 휘핑크림, 딸기 분태로 마무리해준다."
+          "body": "휘핑크림을 올려 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -2211,15 +2148,11 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오 250ml 분량과 쿠키 크럼 3큰술과 얼음을 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 오레오, 우유, 얼음을 넣고 갈아준다."
         },
         {
           "title": "",
-          "body": "컵 바닥에 쿠키 크럼을 깔고 부은한다."
-        },
-        {
-          "title": "",
-          "body": "휘핑크림과 오레오와 쿠키 분태로 마무리해준다."
+          "body": "휘핑크림과 오레오로 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -2315,7 +2248,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 100ml를, 카라멜 시럽 40g을, 얼음 280g을, 그라데이션 파우더 10g을 넣고 갈아준다."
+          "body": "뚜껑 있는 컵이나 빈 페트병에 우유 100ml, 카라멜 시럽 40g, 얼음 280g, 그라데이션 파우더 10g를 넣고 갈아준다."
         },
         {
           "title": "",
@@ -2389,11 +2322,11 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 체리시럽 100ml을, 얼음을, 콜라 250ml를 넣고 숟가락으로 섞는다."
+          "body": "컵에 체리시럽 100ml, 얼음, 콜라 250ml를 넣고 숟가락으로 섞는다."
         },
         {
           "title": "",
-          "body": "애플민트를 올린다."
+          "body": "토핑: 애플민트."
         }
       ],
       "difficulty": 1,
@@ -2446,9 +2379,17 @@ const MEGA_MENUS = [
         {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "250ml",
+          "price": 300,
+          "replaces": [
+            "탄산수"
           ]
         },
         {
@@ -2463,11 +2404,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 레몬즙 1.5펌프를, 설탕시럽 1펌프를, 얼음을, 사이다 250ml를 넣고 섞는다."
-        },
-        {
-          "title": "",
-          "body": "레몬 슬라이스를, 애플민트를 올린다."
+          "body": "컵에 레몬즙 1.5펌프, 설탕시럽 1펌프, 얼음, 사이다 250ml를 넣고 섞는다."
         }
       ],
       "difficulty": 1,
@@ -2526,6 +2463,14 @@ const MEGA_MENUS = [
           ]
         },
         {
+          "label": "사이다",
+          "amount": "250ml",
+          "price": 300,
+          "replaces": [
+            "탄산수"
+          ]
+        },
+        {
           "label": "얼음",
           "amount": "적당량",
           "price": 50,
@@ -2537,11 +2482,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 레몬즙 1.5펌프를, 블루 레몬 시럽 2펌프를, 얼음을, 사이다 250ml를 넣고 섞는다."
-        },
-        {
-          "title": "",
-          "body": "레몬 슬라이스를, 애플민트를 올린다."
+          "body": "컵에 레몬즙 1.5펌프, 블루 레몬 시럽 2펌프, 얼음, 사이다 250ml를 넣고 섞는다."
         }
       ],
       "difficulty": 1,
@@ -2594,9 +2535,17 @@ const MEGA_MENUS = [
         {
           "label": "설탕시럽",
           "amount": "1펌프",
-          "price": null,
+          "price": 60,
           "replaces": [
             "슈가시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "250ml",
+          "price": 300,
+          "replaces": [
+            "탄산수"
           ]
         },
         {
@@ -2611,11 +2560,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 자몽청·설탕시럽 각 1펌프를, 얼음을, 사이다 250ml를 넣고 섞는다."
-        },
-        {
-          "title": "",
-          "body": "자몽 슬라이스를, 애플민트를 올린다."
+          "body": "컵에 자몽청, 설탕시럽, 얼음, 사이다 250ml를 넣고 섞는다."
         }
       ],
       "difficulty": 1,
@@ -2674,6 +2619,14 @@ const MEGA_MENUS = [
           ]
         },
         {
+          "label": "사이다",
+          "amount": "250ml",
+          "price": 300,
+          "replaces": [
+            "탄산수"
+          ]
+        },
+        {
           "label": "얼음",
           "amount": "적당량",
           "price": 50,
@@ -2685,11 +2638,15 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 후르티자몽 퓨레 1펌프를, 라임 베이스 85ml를, 과일 조각을 넣고 숟가락으로 으깨는다."
+          "body": "컵에 자몽청, 라임, 숟가락으로 으깬다."
         },
         {
           "title": "",
-          "body": "얼음·사이다 200ml를 넣고 섞고 애플민트를 올린다."
+          "body": "얼음·사이다 250ml를 넣고 섞는다."
+        },
+        {
+          "title": "",
+          "body": "토핑: 애플민트."
         }
       ],
       "difficulty": 1,
@@ -2736,15 +2693,33 @@ const MEGA_MENUS = [
           "amount": "슬라이스 4개",
           "price": 200,
           "replaces": [
-            "라임"
+            "라임",
+            "라임 베이스"
           ]
         },
         {
           "label": "설탕시럽",
           "amount": "7펌프",
-          "price": null,
+          "price": 420,
           "replaces": [
-            "모히또 시럽"
+            "모히또 시럽",
+            "라임 시럽"
+          ]
+        },
+        {
+          "label": "사이다",
+          "amount": "250ml",
+          "price": 300,
+          "replaces": [
+            "탄산수"
+          ]
+        },
+        {
+          "label": "애플민트",
+          "amount": "4잎",
+          "price": 120,
+          "replaces": [
+            "애플민트"
           ]
         },
         {
@@ -2759,7 +2734,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "컵에 애플민트를, 라임 슬라이스를, 모히또·라임 설탕시럽을 넣고 숟가락으로 으깨는다."
+          "body": "컵에 애플민트, 라임 슬라이스, 설탕시럽을 넣고 숟가락으로 으깬다."
         },
         {
           "title": "",
@@ -2860,7 +2835,7 @@ const MEGA_MENUS = [
       "steps": [
         {
           "title": "",
-          "body": "뚜껑 있는 컵에 우유 반컵(100ml), 투게더 3큰술을, 얼음 8개를, 죠리퐁 반컵을 넣는다."
+          "body": "뚜껑 있는 컵에 우유 반컵(100ml), 투게더 3큰술, 얼음 8개, 죠리퐁 반컵을 넣는다."
         },
         {
           "title": "",
@@ -2872,7 +2847,7 @@ const MEGA_MENUS = [
         },
         {
           "title": "",
-          "body": "마실 컵에 따르고 위에 죠리퐁으로 토핑에 재료를 넣는다."
+          "body": "마실 컵에 따르고 위에 죠리퐁으로 토핑으로 올린다."
         }
       ],
       "difficulty": 2,
@@ -2979,7 +2954,7 @@ const MEGA_MENUS = [
       ],
       "difficulty": 1,
       "time": "약 5분",
-      "note": "메가커피 홈레시피 · 찬물로 대체해도 OK · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
+      "note": "메가커피 홈레시피 · 찬물로 대체해도 괜찮음 · 컵·숟가락·포크·뚜껑 있는 컵(또는 빈 페트병)만 사용 · 블렌더·믹서기 불필요"
     },
     "listHidden": false
   }

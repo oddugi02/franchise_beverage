@@ -4,6 +4,10 @@
 
 function parsePackUnit(buyText) {
   const t = buyText || "";
+  const can = t.match(/(\d+)\s*캔/);
+  if (can) return { kind: "ea", amount: parseInt(can[1], 10) };
+  const ea = t.match(/(\d+)\s*개/);
+  if (ea) return { kind: "ea", amount: parseInt(ea[1], 10) };
   const ml = t.match(/(\d+(?:\.\d+)?)\s*ml/i);
   if (ml) return { kind: "ml", amount: parseFloat(ml[1]) };
   const L = t.match(/(\d+(?:\.\d+)?)\s*L(?!\w)/i);
@@ -14,8 +18,6 @@ function parsePackUnit(buyText) {
   if (kg) return { kind: "g", amount: parseFloat(kg[1]) * 1000 };
   const sticks = t.match(/(\d+)\s*입/);
   if (sticks) return { kind: "ea", amount: parseInt(sticks[1], 10) };
-  const ea = t.match(/(\d+)\s*개/);
-  if (ea) return { kind: "ea", amount: parseInt(ea[1], 10) };
   return null;
 }
 

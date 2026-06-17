@@ -106,7 +106,7 @@ const HOME = {
   peanutButterTbsp: 115,
   peanutTop: 55,
   nutsTop: 290,
-  dalgonaPortion: 160,
+  dalgonaPortion: 510,
   cookieBase100ml: 260,
   unicornPowder2Pump: 340,
   lemonJuiceCoat: 160,

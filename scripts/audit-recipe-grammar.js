@@ -43,6 +43,9 @@ function loadContext() {
 const CHECKS = [
   { id: "갈->간다", test: (s) => /간다/.test(s) && /갈/.test(s) },
   { id: "괄호+한다", test: (s) => /\)\s*한다/.test(s) },
+  { id: "부은한다", test: (s) => /부은한다/.test(s) },
+  { id: "페트병로", test: (s) => /페트병로/.test(s) },
+  { id: "토핑한다", test: (s) => /토핑한다/.test(s) },
   { id: "OK잔존", test: (s) => /\bOK\b/.test(s) },
   { id: "건타피오카", test: (s) => /건타피오카/.test(s) },
   { id: "조사오류", test: (s) => /(?:국자|스프레이|시리얼)과\s+[가-힣]/.test(s) || /시리얼를/.test(s) },

@@ -241,15 +241,58 @@ function toConsumerLabel(name) {
   return STORE_TO_CONSUMER[name] || name;
 }
 
+/** 스틱·액상스틱 등 N입 팩 — 1회 사용량을 g 대신 N개입으로 표기 */
+const STICK_PACK_LABELS = /(?:에스프레소 액상스틱|토피넛 라떼 스틱|커피 스틱)/;
+
+function formatStickPackAmount(amount) {
+  if (!amount) return amount;
+  const text = String(amount).trim();
+  if (/\d+\s*개입/.test(text)) return text;
+  const ea = text.match(/^(\d+(?:\.\d+)?)\s*(?:개|입|스틱|샷)$/);
+  if (ea) return `${ea[1]}개입`;
+  return text;
+}
+
+function toConsumerAmount(consumerLabel, amount) {
+  if (!amount) return amount;
+  const text = String(amount).trim();
+
+  if (consumerLabel === "토피넛 라떼 스틱") {
+    const grams = text.match(/^(\d+(?:\.\d+)?)\s*g$/i);
+    if (grams) {
+      const sticks = Math.max(1, Math.round(parseFloat(grams[1]) / 30));
+      return `${sticks}개입`;
+    }
+    const spoons = text.match(/^(\d+(?:\.\d+)?)\s*큰술/);
+    if (spoons) {
+      const sticks = Math.max(1, Math.round(parseFloat(spoons[1]) / 4));
+      return `${sticks}개입`;
+    }
+  }
+
+  if (STICK_PACK_LABELS.test(consumerLabel || "")) {
+    return formatStickPackAmount(text);
+  }
+
+  return text;
+}
+
 function consumerHome(label, amount, price, replaces) {
   const consumerLabel = toConsumerLabel(label);
+  const consumerAmount = toConsumerAmount(consumerLabel, amount);
   const replaceKeys = Array.isArray(replaces) ? replaces : [replaces];
   return {
     label: consumerLabel,
-    amount,
+    amount: consumerAmount,
     price: Math.round(price),
     replaces: replaceKeys.filter(Boolean).map((r) => r),
   };
 }
 
-module.exports = { STORE_TO_CONSUMER, toConsumerLabel, consumerHome };
+module.exports = {
+  STORE_TO_CONSUMER,
+  toConsumerLabel,
+  toConsumerAmount,
+  formatStickPackAmount,
+  consumerHome,
+};

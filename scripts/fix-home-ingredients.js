@@ -150,7 +150,7 @@ const HOME_BY_ID = {
     { label: "견과류", cost: 280, replaces: "휘핑크림(업체용)" },
   ],
   "hasamdong-dalgona": [
-    { label: "달고나", cost: 150, replaces: "달고나 토핑(업체용)" },
+    { label: "달고나", cost: 510, replaces: "달고나 토핑(업체용)" },
     { label: "흰 우유", cost: 250, replaces: "우유" },
     { label: "얼음", cost: 50, replaces: "얼음" },
     { label: "에스프레소 샷", cost: 95, replaces: "원두(에스프레소)" },

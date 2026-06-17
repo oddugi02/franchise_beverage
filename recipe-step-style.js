@@ -4,7 +4,7 @@
  */
 (function (root) {
   const HADA_END =
-    /(?:한다|는다|준다|인다|된다|낸다|든다|둔다|운다|린다|힌다|친다|킨다|닌다|본다|맨다|탄다|산다|긴다|핀다|란다|낀다|끈다|쓴다|올린다|둘러준다|우려낸다|제거한다|싞힌다|채운다|헹근다|갈아준다|붓는다|넣는다|섞는다|깐다|풀어준다|버무려 둔다|즐긴다|마신다|완성해준다|마무리해준다)$/;
+    /(?:한다|는다|준다|인다|된다|낸다|든다|둔다|운다|린다|힌다|친다|킨다|닌다|본다|맨다|탄다|산다|긴다|핀다|란다|낀다|끈다|쓴다|올린다|둘러준다|우려낸다|제거한다|식힌다|채운다|헹근다|갈아준다|붓는다|넣는다|섞는다|깐다|풀어준다|버무려 둔다|즐긴다|마신다|완성해준다|마무리해준다)$/;
 
   function looksCompleteHada(sentence) {
     return (
@@ -130,10 +130,18 @@
   }
 
   function fixIngredientList(list) {
-    return list
+    const parts = list
       .split(",")
-      .map((part) => addParticleToPhrase(part.trim()))
-      .join(", ");
+      .map((part) => part.trim().replace(/(?:을|를)$/, ""))
+      .filter(Boolean);
+    if (parts.length <= 1) return addParticleToPhrase(parts[0] || "");
+    const last = parts.pop();
+    return [...parts, addParticleToPhrase(last)].join(", ");
+  }
+
+  /** 쉼표 나열 중간 항목의 을/를 제거 (마지막 항목만 유지) */
+  function dropMidListParticles(text) {
+    return (text || "").replace(/(을|를)(\s*,)/g, "$2");
   }
 
   function fixClause(clause) {
@@ -186,7 +194,7 @@
 
     s = s.replace(/얼음(?![을를])(?=\s+(?:채우|채|넣))/g, "얼음을");
 
-    return s.replace(/\s{2,}/g, " ").trim();
+    return dropMidListParticles(s.replace(/\s{2,}/g, " ").trim());
   }
 
   const GI_MAP = [
@@ -214,6 +222,7 @@
     ["데우", "데운다"],
     ["갈아", "갈아준다"],
     ["넣고 갈", "넣고 갈아준다"],
+    ["으깨", "으깬다"],
     ["갈", "갈아준다"],
     ["붓", "붓는다"],
     ["마시", "마신다"],
@@ -280,6 +289,8 @@
       [/마무리$/, "마무리한다"],
       [/부어\s*줘$/, "부어준다"],
       [/부어준$/, "부어준다"],
+      [/부은$/, "붓는다"],
+      [/토핑$/, "토핑으로 올린다"],
       [/데운\s*뒤$/, "데운 뒤 사용한다"],
       [/부은\s*뒤$/, "부은 뒤 섞는다"],
       [/넣은\s*뒤$/, "넣은 뒤 섞는다"],

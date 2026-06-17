@@ -62,7 +62,7 @@ const HOME = {
   oreo4: 350,
   cookieCrumb: 150,
   chocoChip: 120,
-  dalgona: 150,
+  dalgona: 510,
   redBean80g: 280,
   herbTeaBag: 120,
   peachIceTea200ml: 450,

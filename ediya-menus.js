@@ -114,7 +114,7 @@ const EDIIYA_MENUS = [
       "homeIngredients": [
         {
           "label": "토피넛 라떼 스틱",
-          "amount": "1개",
+          "amount": "1개입",
           "price": 220,
           "replaces": [
             "토피넛파우더"
@@ -203,7 +203,7 @@ const EDIIYA_MENUS = [
       "homeIngredients": [
         {
           "label": "에스프레소 액상스틱",
-          "amount": "1개",
+          "amount": "1개입",
           "price": 1150,
           "replaces": [
             "원두(에스프레소)"
@@ -700,7 +700,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "휘핑크림과 초코 크런치 토핑한다."
+          "body": "휘핑크림과 초코 크런치를 올려 마무리해준다."
         }
       ],
       "difficulty": 2,
@@ -817,7 +817,7 @@ const EDIIYA_MENUS = [
         },
         {
           "title": "",
-          "body": "휘핑크림과 민트 가루 토핑한다."
+          "body": "휘핑크림과 민트 가루를 올려 마무리해준다."
         }
       ],
       "difficulty": 2,

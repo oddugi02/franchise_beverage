@@ -632,8 +632,13 @@ function renderDetail(id) {
 
   const portionRows = homeItems
     .map((item) => {
-      const priceCell =
-        item.priced || (item.price != null && item.price > 0)
+      const isIce =
+        item.recipeName === "얼음" ||
+        (item.label || "").startsWith("얼음") ||
+        (item.recipeDisplay || "").startsWith("얼음");
+      const priceCell = isIce
+        ? '<span class="home-ingredient-row__price--na">—</span>'
+        : item.priced || (item.price != null && item.price > 0)
           ? formatWon(item.price)
           : '<span class="home-ingredient-row__price--na">—</span>';
       return `

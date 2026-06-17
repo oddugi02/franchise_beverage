@@ -26,7 +26,7 @@ function toppingHomeIngredients(topping, HOME = {}, existingLabels = []) {
     labels.push(entry.label);
   };
 
-  if (/카라멜(?:\s*소스)?\s*드리즐|드리즐.*카라멜/.test(t)) {
+  if (/카라멜(?:\s*소스)?\s*드리즐|드리즐.*카라멜|초코\s*·\s*카라멜\s*드리즐/.test(t)) {
     push(home("카라멜 시럽", "드리즐", H.caramelDrizzle, "카라멜 드리즐"));
   }
   if (/초코(?:\s*·|\s*·\s*)?카라멜\s*드리즐|초코.*드리즐|드리즐.*초코/.test(t)) {

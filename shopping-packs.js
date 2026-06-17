@@ -3,7 +3,7 @@
 // 네이버 쇼핑 최저가·링크 갱신: node scripts/update-naver-prices.js
 // 가격 갱신 후: node scripts/audit-shopping-packs.js
 // 인기순 1위 대조: node scripts/audit-online-prices.js
-const SHOPPING_VERIFIED_AT = "2026-06-14";
+const SHOPPING_VERIFIED_AT = "2026-06-17";
 const SHOPPING_PRICE_POLICY = "각 마트 검색 인기순 1위 상품 가격";
 
 const SHOPPING_PACK_CATALOG = {
@@ -138,7 +138,7 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   together473: {
-    buy: "투게더 473ml",
+    buy: "투게더 400g",
     price: 3480,
     searchQuery: "투게더 473ml",
     exampleProduct: "롯데 투게더 473ml",
@@ -352,16 +352,16 @@ const SHOPPING_PACK_CATALOG = {
   },
   cookiePack: {
     buy: "오레오 119g (1팩)",
-    price: 1660,
-    searchQuery: "오레오 오리지널 쿠키 119g",
-    exampleProduct: "오레오 오리지널 119g",
-    priceMin: 1980,
-    priceMax: 4500,
+    price: 1830,
+    searchQuery: "오레오 오리지널 샌드위치 119g",
+    exampleProduct: "오레오 오리지널 샌드위치 쿠키 119g",
+    priceMin: 1700,
+    priceMax: 2200,
     store: "네이버",
     productUrl: "https://www.11st.co.kr/connect/Gateway.tmall?method=Xsite&prdNo=7061825806&tid=1000000061",
-    productName: "오레오 초콜릿 샌드위치 쿠키 화이트크림 마일드 오레오씬즈 리츠 오리지날 치즈 샌드",
+    productName: "오레오 오리지널 샌드위치 쿠키 119g",
     mallName: "11번가",
-    naverUpdatedAt: "2026-06-14"
+    naverUpdatedAt: "2026-06-17"
   },
   pomelo1: {
     buy: "포멜로 1개",
@@ -477,7 +477,7 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   icecream1L: {
-    buy: "바닐라 아이스크림 473ml",
+    buy: "바닐라 아이스크림 400g",
     price: 3980,
     searchQuery: "빙그레 투게더 아이스크림 바닐라",
     exampleProduct: "빙그레 투게더 바닐라 473ml",
@@ -486,7 +486,7 @@ const SHOPPING_PACK_CATALOG = {
     store: "네이버",
   },
   yogurtIce473: {
-    buy: "요거트 아이스크림 473ml",
+    buy: "요거트 아이스크림 400g",
     price: 4500,
     searchQuery: "투게더 요거트 아이스크림 473ml",
     exampleProduct: "요거트 아이스크림 473ml",
@@ -508,14 +508,17 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   dalgonaKit: {
-    buy: "수제 달고나 200g",
-    price: 4500,
+    buy: "달고나 크런치 25g",
+    price: 850,
     searchQuery: "수제 달고나 토핑",
-    exampleProduct: "토핑용 수제 달고나",
-    priceMin: 2500,
-    priceMax: 9000,
+    exampleProduct: "달고나 크런치 25g",
+    priceMin: 700,
+    priceMax: 1200,
     store: "네이버",
-    naverUpdatedAt: "2026-06-16"
+    productUrl: "https://smartstore.naver.com/ninanomarketmall/products/5471230661",
+    productName: "달고나 크런치 25g",
+    mallName: "네이버",
+    naverUpdatedAt: "2026-06-17"
   },
   prim500: {
     buy: "프림 500g",
@@ -589,12 +592,29 @@ const SHOPPING_PACK_CATALOG = {
   },
   caramel500: {
     buy: "카라멜 시럽 500ml",
-    price: 3000,
-    searchQuery: "카라멜 시럽 500ml",
-    exampleProduct: "카라멜 시럽 500ml",
+    price: 9290,
+    searchQuery: "모닌 카라멜소스 500ml",
+    exampleProduct: "모닌 미니 카라멜소스 500ml",
     priceMin: 2500,
-    priceMax: 5500,
+    priceMax: 12000,
     store: "네이버",
+    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=3008639737&sub-id=1003&service-code=10000003&lcd=100000036",
+    productName: "모닌 모닌 토핑용 카라멜소스 500ml",
+    mallName: "G마켓",
+    naverUpdatedAt: "2026-06-17"
+  },
+  chocoSyrup500: {
+    buy: "초코 시럽 500ml",
+    price: 9290,
+    searchQuery: "모닌 초콜릿 소스 500ml",
+    exampleProduct: "모닌 토핑용 초콜릿소스 500ml",
+    priceMin: 6500,
+    priceMax: 12000,
+    store: "네이버",
+    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=3008639666&sub-id=1003&service-code=10000003&lcd=100000036",
+    productName: "모닌 모닌 토핑용 초콜릿소스 500ml 초코소스",
+    mallName: "G마켓",
+    naverUpdatedAt: "2026-06-17"
   },
   soda15L: {
     buy: "사이다 1.5L",
@@ -688,17 +708,17 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   sweetPotato500: {
-    buy: "고구마 청 500g",
-    price: 4530,
-    searchQuery: "고구마 청",
-    exampleProduct: "고구마 청/고구마 스프레드 500g",
-    priceMin: 4500,
-    priceMax: 8000,
+    buy: "고구마라떼 페이스트 500g",
+    price: 3720,
+    searchQuery: "고구마라떼 페이스트 500g",
+    exampleProduct: "선인 고구마라떼 페이스트 500g",
+    priceMin: 3000,
+    priceMax: 6000,
     store: "네이버",
-    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=4666131204&sub-id=1003&service-code=10000003&lcd=100000036",
-    productName: "증정행사 - 청은 고구마전분(혼합) 500g 2개 구매시 (행사 종료)",
+    productUrl: "https://link.gmarket.co.kr/gate/pcs?item-no=4240588611&sub-id=1003&service-code=10000003&lcd=100000036",
+    productName: "선인 선인 고구마라떼 페이스트 500g",
     mallName: "G마켓",
-    naverUpdatedAt: "2026-06-14"
+    naverUpdatedAt: "2026-06-17"
   },
   yakgwa200: {
     buy: "약과 200g",
@@ -872,17 +892,17 @@ const SHOPPING_PACK_CATALOG = {
     naverUpdatedAt: "2026-06-14"
   },
   cola355: {
-    buy: "콜라 355ml",
-    price: 820,
-    searchQuery: "코카콜라 오리지널 355ml 캔",
-    exampleProduct: "코카콜라 355ml 캔",
-    priceMin: 1000,
+    buy: "콜라 355ml 1캔",
+    price: 920,
+    searchQuery: "코카콜라 오리지널 355ml 1캔",
+    exampleProduct: "코카콜라 오리지널 355ml 1개",
+    priceMin: 500,
     priceMax: 2500,
     store: "네이버",
-    productUrl: "https://link.coupang.com/re/PCSNAVERPCSDP?pageKey=8772533857&ctag=8772533857&lptag=I26018448659&itemId=26018448659&vendorItemId=92999867274&spec=10305199",
-    productName: "coca 코카 콜라 오리지널 355ml 355밀리리터 미리리터 24can 24캔 뚱캔 업소용  24개",
-    mallName: "쿠팡",
-    naverUpdatedAt: "2026-06-14"
+    productUrl: "https://smartstore.naver.com/main/products/11470143103",
+    productName: "코카콜라 오리지널 355ml 1개",
+    mallName: "네이버",
+    naverUpdatedAt: "2026-06-17"
   },
   frozenCranberry200: {
     buy: "냉동 크랜베리 200g",

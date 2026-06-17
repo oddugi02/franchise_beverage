@@ -813,11 +813,11 @@ const PAIK_MENUS = [
         },
         {
           "title": "",
-          "body": "각얼음을 컵에 채운다."
+          "body": "각 얼음을 컵에 채운다."
         },
         {
           "title": "",
-          "body": "위에 냉동 망고 다이스 80~90g을 가득 얹는다."
+          "body": "위에 냉동 망고 80~90g을 가득 얹는다."
         }
       ],
       "difficulty": 1,
@@ -1537,10 +1537,6 @@ const PAIK_MENUS = [
         {
           "title": "",
           "body": "컵에 담는다."
-        },
-        {
-          "title": "",
-          "body": "견과류 1큰술을 뿌리고 꿀·시나몬 시럽을 숟가락 끝으로 뿌린다."
         },
         {
           "title": "",
@@ -2606,7 +2602,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "1개",
+          "amount": "1개입",
           "price": 1150,
           "replaces": [
             "원두(에스프레소)"
@@ -2805,7 +2801,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -2921,7 +2917,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -3045,7 +3041,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -3156,7 +3152,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -3271,7 +3267,7 @@ const PAIK_MENUS = [
         },
         {
           "label": "에스프레소 액상스틱",
-          "amount": "2개",
+          "amount": "2개입",
           "price": 2300,
           "replaces": [
             "원두(에스프레소)"
@@ -3422,10 +3418,6 @@ const PAIK_MENUS = [
         {
           "title": "",
           "body": "얼음을 가득 채운다."
-        },
-        {
-          "title": "",
-          "body": "견과류 1큰술을 뿌리고 호떡시럽을 숟가락 끝으로 뿌린다."
         },
         {
           "title": "",

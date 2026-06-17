@@ -29,6 +29,7 @@ const HOME = {
   milkPerMl: 2.5,
   espressoLiquidStick: 1150,
   syrup15ml: 240,
+  syrupPump: 60,
   hazelnut15ml: 270,
   honey15g: 200,
   condensed15ml: 95,
@@ -36,6 +37,7 @@ const HOME = {
   powder20g: 200,
   powder40g: 380,
   yogurtDrink150ml: 550,
+  plainYogurt150g: 420,
   ice: 50,
   water: 5,
   whip30g: 174,
@@ -208,8 +210,10 @@ function latteNoCoffeeMenu({ name, slug, iced, powderName, powderG, milkMl, syru
   const homeIngredients = [
     home(powderName, `${powderG}g`, HOME.powder30g, powderName),
     home("우유", `${milkMl}ml`, milkMl * HOME.milkPerMl, "우유"),
-    home(iced ? "물" : "뜨거운 물", "30ml", HOME.water, "물"),
   ];
+  if (!iced) {
+    homeIngredients.push(home("뜨거운 물", "30ml", HOME.water, "물"));
+  }
   if (syrupMl > 0) homeIngredients.push(home("시럽", `${syrupMl}ml`, HOME.syrup15ml, "시럽"));
   if (sugarPumps > 0) homeIngredients.push(home("설탕시럽", `${sugarPumps}펌프`, sugarPumps * HOME.syrupPump, "슈가시럽"));
   if (iced) homeIngredients.push(home("얼음", "적당량", HOME.ice, "얼음"));
@@ -315,6 +319,39 @@ function unicornFrappeMenu() {
   };
 }
 
+function plainYogurtSmoothieMenu({ name, slug, price, topping }) {
+  const ingredients = [
+    ing("요거트 베이스", "150ml", 150 * B2B.syrupPerMl),
+    ing("플레인 요거트 파우더", "100g", 100 * B2B.powderPerG * 0.6),
+    ing("얼음", "0.5컵", B2B.ice),
+    ing("컵·뚜껑·빨대", "1세트", B2B.cupStraw),
+  ];
+
+  const homeIngredients = [
+    home("플레인 요거트", "150g", HOME.plainYogurt150g, ["요거트 베이스", "플레인 요거트 파우더"]),
+    home("얼음", "적당량", HOME.ice, "얼음"),
+  ];
+
+  return {
+    id: `mega-${slug || slugifyAscii(name)}`,
+    brand: "메가커피",
+    name,
+    category: "스무디·쉐이크",
+    price,
+    emoji: "🥤",
+    photoBg: "#F1F8E9",
+    recipeReady: true,
+    ingredients,
+    recipe: {
+      homeIngredients,
+      steps: stepsFromManual(slug, "요거트 베이스 블렌딩", "믹서기 20~30초 블렌딩", topping, homeIngredients),
+      difficulty: 1,
+      time: "약 5분",
+      note: `메가커피 제조 매뉴얼 기준 · ${POOR_KITCHEN_RECIPE_NOTE}`,
+    },
+  };
+}
+
 function frappeMenu({ name, slug, flavor, price, topping }) {
   const ingredients = [
     ing("쿠키 베이스", "100ml", 100 * B2B.cookieBasePerMl),
@@ -401,18 +438,24 @@ function adeMenu({ name, slug, hot = false, tea = false, juice = false, flavor =
     if (flavor === "레몬") {
       homeIngredients.push(home("레몬즙", "1.5펌프", HOME.lemonBase, "레몬 베이스"));
       homeIngredients.push(home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽"));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     } else if (flavor === "블루레몬") {
       homeIngredients.push(home("레몬즙", "1.5펌프", HOME.lemonBase, "레몬 베이스"));
       homeIngredients.push(home("블루 레몬 시럽", "2펌프", HOME.syrup15ml, "블루큐라소 시럽"));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     } else if (flavor === "자몽") {
       homeIngredients.push(home("자몽청", "1펌프", HOME.lemonBase, "자몽 베이스"));
       homeIngredients.push(home("설탕시럽", "1펌프", HOME.syrupPump, "슈가시럽"));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     } else if (flavor === "메가믹스") {
       homeIngredients.push(home("자몽청", "1펌프", HOME.lemonBase, "후르티자몽 퓨레"));
       homeIngredients.push(home("라임", "85ml", HOME.lemonBase, "라임 베이스"));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
     } else if (flavor === "라임") {
-      homeIngredients.push(home("라임", "슬라이스 4개", 200, "라임"));
-      homeIngredients.push(home("설탕시럽", "7펌프", 7 * HOME.syrupPump, "모히또 시럽"));
+      homeIngredients.push(home("라임", "슬라이스 4개", 200, ["라임", "라임 베이스"]));
+      homeIngredients.push(home("설탕시럽", "7펌프", 7 * HOME.syrupPump, ["모히또 시럽", "라임 시럽"]));
+      homeIngredients.push(home("사이다", "250ml", HOME.sodaCanPart, "탄산수"));
+      homeIngredients.push(home("애플민트", "4잎", 120, "애플민트"));
     } else if (flavor.includes("유니콘")) {
       homeIngredients.push(home("바닐라 시럽", "2펌프", HOME.syrup15ml, "유니콘 파우더"));
     } else if (flavor === "체리") {
@@ -472,7 +515,7 @@ menus.push(latteNoCoffeeMenu({ name: "고구마라떼", slug: "iced-sweet-potato
 menus.push(latteNoCoffeeMenu({ name: "왕메가초코", slug: "iced-mega-choco", iced: true, powderName: "초코 파우더", powderG: 45, milkMl: 220, price: 4100, topping: "휘핑크림, 초코·카라멜 드리즐, 딸기 분태" }));
 
 // SMOOTHIE
-menus.push(smoothieMenu({ name: "플레인요거트스무디", slug: "plain-yogurt-smoothie", fruitLabel: "플레인 요거트 파우더", price: 3900 }));
+menus.push(plainYogurtSmoothieMenu({ name: "플레인요거트스무디", slug: "plain-yogurt-smoothie", price: 3900 }));
 
 // FRAPPE
 menus.push(frappeMenu({ name: "커피프라페", slug: "coffee-frappe", flavor: "커피", price: 4600 }));
@@ -549,7 +592,7 @@ menus.push({
     steps: stepsFromManual("hal-mega-coffee", "", "", "", []),
     difficulty: 1,
     time: "약 5분",
-    note: `메가커피 홈레시피 · 찬물로 대체해도 OK · ${POOR_KITCHEN_RECIPE_NOTE}`,
+    note: `메가커피 홈레시피 · 찬물로 대체해도 괜찮음 · ${POOR_KITCHEN_RECIPE_NOTE}`,
   },
 });
 
